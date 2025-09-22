@@ -83,54 +83,7 @@ export function SocialMediaSection() {
             )
           })}
         </div>
-
-        {/* Instagram Feed Preview */}
-        <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl p-8 border border-primary/10">
-          <div className="text-center mb-8">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
-                <Instagram className="h-6 w-6 text-white" />
               </div>
-              <div>
-                <h3 className="text-xl font-bold text-foreground">@meowlabs.id</h3>
-                <p className="text-muted-foreground">Latest from Instagram</p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-            {/* Instagram Post Placeholders */}
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="aspect-square bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg flex items-center justify-center border border-primary/20">
-                <div className="text-center">
-                  <Image 
-                    src="/images/meow-logo-simple.svg" 
-                    alt="Meow Labs" 
-                    width={32} 
-                    height={32} 
-                    className="mx-auto mb-2 opacity-50" 
-                  />
-                  <p className="text-xs text-muted-foreground">Post {i}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          <div className="text-center">
-            <Button asChild size="lg">
-              <a 
-                href="https://instagram.com/meowlabs.id"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2"
-              >
-                <Instagram className="h-5 w-5" />
-                View All Posts
-              </a>
-            </Button>
-          </div>
-        </div>
-      </div>
     </section>
   )
 }

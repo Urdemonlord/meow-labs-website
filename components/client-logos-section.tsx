@@ -75,7 +75,7 @@ export function ClientLogosSection() {
             {/* Statistics */}
             <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
               <div className="bg-card rounded-2xl p-6 shadow-sm border border-border">
-                <div className="text-3xl font-bold text-primary mb-2">200+</div>
+                <div className="text-3xl font-bold text-primary mb-2">100+</div>
                 <div className="text-muted-foreground">Klien Puas</div>
               </div>
               <div className="bg-card rounded-2xl p-6 shadow-sm border border-border">
@@ -83,7 +83,7 @@ export function ClientLogosSection() {
                 <div className="text-muted-foreground">Rating Kepuasan</div>
               </div>
               <div className="bg-card rounded-2xl p-6 shadow-sm border border-border">
-                <div className="text-3xl font-bold text-blue-600 mb-2">5+ Tahun</div>
+                <div className="text-3xl font-bold text-blue-600 mb-2">3+ Tahun</div>
                 <div className="text-muted-foreground">Pengalaman</div>
               </div>
             </div>
