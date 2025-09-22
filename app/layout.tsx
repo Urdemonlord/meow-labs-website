@@ -18,6 +18,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://https://meow-labs-website.vercel.app/"),
   title: "Meow Labs - Jasa Pembuatan Website Profesional Termurah di Semarang",
   description:
     "Jasa pembuatan website profesional #1 di Semarang mulai 500rb. Company Profile, Toko Online, Landing Page. Maintenance Gratis, SEO Friendly, Response <2 jam. ☎️ 0895-3862-88683",
