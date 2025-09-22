@@ -35,7 +35,7 @@ export function HeroSection() {
             <p className="text-lg text-muted-foreground text-pretty mb-8 max-w-2xl">
               Tingkatkan citra & kepercayaan bisnis Anda dengan 
               <span className="text-primary font-medium"> website desain profesional</span> mulai dari 
-              <span className="text-secondary font-bold">500 ribuan</span>, dengan fitur lengkap 
+              <span className="text-secondary font-bold"> 500 ribuan</span>, dengan fitur lengkap 
               aktif 24 jam dengan jangkauan tanpa batas.
             </p>
 

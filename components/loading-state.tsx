@@ -21,14 +21,14 @@ export function LoadingState({ children, fallback }: LoadingStateProps) {
   }, [])
 
   if (!isLoaded) {
-    return fallback || (
+    return (
       <div className="flex items-center justify-center py-12">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
       </div>
     )
   }
 
-  return <>{children}</>
+  return <div>{children}</div>
 }
 
 interface SectionWrapperProps {
@@ -38,21 +38,7 @@ interface SectionWrapperProps {
 
 export function SectionWrapper({ children, className = "" }: SectionWrapperProps) {
   return (
-    <LoadingState
-      fallback={
-        <section className={`py-20 ${className}`}>
-          <div className="container mx-auto px-4">
-            <div className="flex items-center justify-center py-20">
-              <div className="space-y-4 text-center">
-                <div className="h-8 w-48 bg-gray-200 rounded animate-pulse mx-auto"></div>
-                <div className="h-4 w-96 bg-gray-200 rounded animate-pulse mx-auto"></div>
-                <div className="h-4 w-80 bg-gray-200 rounded animate-pulse mx-auto"></div>
-              </div>
-            </div>
-          </div>
-        </section>
-      }
-    >
+    <LoadingState>
       <section className={`py-20 ${className}`}>
         <div className="container mx-auto px-4">
           {children}
