@@ -11,11 +11,11 @@ export function PortfolioSection() {
 
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "Web Reservasi Wisma",
       category: "Web",
-      description: "Modern e-commerce platform dengan fitur lengkap untuk UMKM",
-      image: "/modern-ecommerce-website.png",
-      tags: ["Next.js", "Stripe", "PostgreSQL"],
+      description: "Platform reservasi online untuk penginapan dengan fitur lengkap",
+      image: "/modern-ecommerce-website.jpg",
+      tags: ["PHP Native"],
       demoUrl: "#",
       githubUrl: "#",
     },
@@ -29,9 +29,9 @@ export function PortfolioSection() {
       githubUrl: "#",
     },
     {
-      title: "SaaS Analytics Tool",
+      title: "Web Kafe",
       category: "Web",
-      description: "Analytics platform untuk tracking business metrics",
+      description: "Platform reservasi online untuk kafe dan restoran",
       image: "/analytics-dashboard-dark-theme.png",
       tags: ["Next.js", "Chart.js", "MongoDB"],
       demoUrl: "#",
@@ -56,10 +56,10 @@ export function PortfolioSection() {
       githubUrl: "#",
     },
     {
-      title: "Mobile Banking App",
+      title: "RSGM Unimus App",
       category: "Mobile",
-      description: "Secure mobile banking application dengan biometric auth",
-      image: "/mobile-banking-app.png",
+      description: "Aplikasi mobile untuk manajemen rumah sakit dengan fitur lengkap",
+      image: "/mobile-banking-app.jpeg",
       tags: ["React Native", "Biometric", "Encryption"],
       demoUrl: "#",
       githubUrl: "#",

@@ -1,0 +1,28 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="64" height="64" rx="16" fill="url(#gradient)"/>
+  
+  <!-- Cat Head -->
+  <ellipse cx="32" cy="30" rx="18" ry="14" fill="white" opacity="0.95"/>
+  
+  <!-- Ears -->
+  <path d="M20 22 L15 10 L25 18 Z" fill="white" opacity="0.95"/>
+  <path d="M44 22 L49 10 L39 18 Z" fill="white" opacity="0.95"/>
+  
+  <!-- Eyes -->
+  <circle cx="26" cy="28" r="2" fill="#1e293b"/>
+  <circle cx="38" cy="28" r="2" fill="#1e293b"/>
+  
+  <!-- Nose -->
+  <path d="M32 32 L30 35 L34 35 Z" fill="#ec4899"/>
+  
+  <!-- Code Symbol -->
+  <text x="32" y="52" font-family="monospace" font-size="12" text-anchor="middle" fill="white" opacity="0.8">&lt;/&gt;</text>
+</svg>

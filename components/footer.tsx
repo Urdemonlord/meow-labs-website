@@ -1,70 +1,201 @@
+"use client"
+
 import Image from "next/image"
-import { Github, Mail, Linkedin, Twitter } from "lucide-react"
+import { MapPin, Phone, Mail, Clock, Star, ExternalLink, Instagram, Facebook, Linkedin } from "lucide-react"
 
 export function Footer() {
+  const currentYear = new Date().getFullYear()
+
+  const handleWhatsAppContact = () => {
+    const message = encodeURIComponent("Halo Meow Labs! Saya tertarik dengan layanan pembuatan website. Mohon info lebih lanjut.")
+    window.open(`https://wa.me/6289533303507?text=${message}`, '_blank')
+  }
+
+  const techPartners = [
+    {
+      name: "React",
+      url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+    },
+    {
+      name: "Next.js",
+      url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    },
+    {
+      name: "WordPress",
+      url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg",
+    },
+    {
+      name: "Laravel",
+      url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg",
+    },
+    {
+      name: "Node.js",
+      url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+    },
+    {
+      name: "PHP",
+      url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+    }
+  ]
+
   return (
     <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Teknologi Partner Section */}
+        <div className="mb-12 border-b border-border pb-8">
+          <div className="text-center mb-8">
+            <h3 className="text-lg font-semibold text-foreground mb-2">
+              Teknologi & Platform Yang Kami Kuasai
+            </h3>
+            <p className="text-muted-foreground text-sm">
+              Menggunakan teknologi terdepan untuk hasil terbaik
+            </p>
+          </div>
+          <div className="grid grid-cols-3 sm:grid-cols-6 gap-6 items-center">
+            {techPartners.map((tech, index) => (
+              <div key={index} className="flex items-center justify-center group">
+                <div className="p-3 bg-background rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                  <Image
+                    src={tech.url}
+                    alt={tech.name}
+                    width={40}
+                    height={40}
+                    className="max-w-full h-auto opacity-60 group-hover:opacity-100 transition-opacity filter grayscale group-hover:grayscale-0"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="grid md:grid-cols-4 gap-8">
-          {/* Brand */}
+          {/* Brand & Contact Info */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
               <Image src="/images/meow-logo.png" alt="Meow Labs Logo" width={32} height={32} className="rounded-lg" />
               <span className="text-xl font-bold text-foreground">Meow Labs</span>
             </div>
             <p className="text-muted-foreground text-pretty mb-6 max-w-md">
-              Tim kreatif teknologi yang mengubah rasa ingin tahu menjadi inovasi. Curiosity → Innovation → Impact.
+              <span className="font-semibold text-primary">Jasa Pembuatan Website #1 di Semarang</span>
+              <br />
+              Menciptakan solusi web profesional untuk mengembangkan bisnis Anda dengan teknologi terdepan.
             </p>
-            <div className="flex space-x-4">
-              <a
-                href="#"
-                className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-              >
-                <Github className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center text-secondary hover:bg-secondary hover:text-secondary-foreground transition-colors"
-              >
-                <Mail className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center text-secondary hover:bg-secondary hover:text-secondary-foreground transition-colors"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
+
+            {/* Contact Information */}
+            <div className="space-y-3 mb-6">
+              <div className="flex items-center gap-3 text-sm">
+                <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+                  <MapPin className="h-4 w-4 text-primary" />
+                </div>
+                <span className="text-muted-foreground">Semarang & Sekitarnya</span>
+              </div>
+              <div className="flex items-center gap-3 text-sm">
+                <div className="w-8 h-8 bg-green-500/10 rounded-lg flex items-center justify-center">
+                  <Phone className="h-4 w-4 text-green-600" />
+                </div>
+                <button 
+                  onClick={handleWhatsAppContact}
+                  className="text-muted-foreground hover:text-green-600 transition-colors"
+                >
+                  +62 895-3330-35077
+                </button>
+              </div>
+              <div className="flex items-center gap-3 text-sm">
+                <div className="w-8 h-8 bg-blue-500/10 rounded-lg flex items-center justify-center">
+                  <Mail className="h-4 w-4 text-blue-600" />
+                </div>
+                <a 
+                  href="mailto:meowlabs.id@gmail.com"
+                  className="text-muted-foreground hover:text-blue-600 transition-colors"
+                >
+                  meowlabs.id@gmail.com
+                </a>
+              </div>
+              <div className="flex items-center gap-3 text-sm">
+                <div className="w-8 h-8 bg-orange-500/10 rounded-lg flex items-center justify-center">
+                  <Clock className="h-4 w-4 text-orange-600" />
+                </div>
+                <span className="text-muted-foreground">Response Time: &lt;2 Jam</span>
+              </div>
+            </div>
+
+            {/* Rating */}
+            <div className="flex items-center gap-2 mb-6">
+              <div className="flex items-center gap-1">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                ))}
+              </div>
+              <span className="text-sm text-muted-foreground">4.9/5 dari 100+ klien</span>
+            </div>
+
+            {/* Social Media Links */}
+            <div className="flex items-center gap-3">
+              <span className="text-sm text-muted-foreground">Follow us:</span>
+              <div className="flex gap-3">
+                <a
+                  href="https://instagram.com/meowlabs.id"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 bg-pink-500/10 rounded-lg flex items-center justify-center text-pink-600 hover:bg-pink-500 hover:text-white transition-all duration-300"
+                  aria-label="Follow us on Instagram"
+                >
+                  <Instagram className="h-4 w-4" />
+                </a>
+                <a
+                  href="https://facebook.com/meowlabs.id"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 bg-blue-500/10 rounded-lg flex items-center justify-center text-blue-600 hover:bg-blue-500 hover:text-white transition-all duration-300"
+                  aria-label="Follow us on Facebook"
+                >
+                  <Facebook className="h-4 w-4" />
+                </a>
+                <a
+                  href="https://linkedin.com/company/meowlabs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 bg-blue-600/10 rounded-lg flex items-center justify-center text-blue-700 hover:bg-blue-600 hover:text-white transition-all duration-300"
+                  aria-label="Connect with us on LinkedIn"
+                >
+                  <Linkedin className="h-4 w-4" />
+                </a>
+              </div>
             </div>
           </div>
 
           {/* Services */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Services</h3>
-            <ul className="space-y-2 text-muted-foreground">
+            <h3 className="font-semibold text-foreground mb-4">Layanan Kami</h3>
+            <ul className="space-y-3 text-muted-foreground text-sm">
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Web Development
+                <a href="#services" className="hover:text-primary transition-colors flex items-center gap-2">
+                  <ExternalLink className="h-3 w-3" />
+                  Website Company Profile
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  IoT Solutions
+                <a href="#services" className="hover:text-primary transition-colors flex items-center gap-2">
+                  <ExternalLink className="h-3 w-3" />
+                  Toko Online/E-commerce
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Mobile Apps
+                <a href="#services" className="hover:text-primary transition-colors flex items-center gap-2">
+                  <ExternalLink className="h-3 w-3" />
+                  Landing Page Bisnis
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  AI & Automation
+                <a href="#services" className="hover:text-primary transition-colors flex items-center gap-2">
+                  <ExternalLink className="h-3 w-3" />
+                  Website Sekolah/Yayasan
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="hover:text-primary transition-colors flex items-center gap-2">
+                  <ExternalLink className="h-3 w-3" />
+                  Website Custom
                 </a>
               </li>
             </ul>
@@ -72,26 +203,36 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Company</h3>
-            <ul className="space-y-2 text-muted-foreground">
+            <h3 className="font-semibold text-foreground mb-4">Perusahaan</h3>
+            <ul className="space-y-3 text-muted-foreground text-sm">
               <li>
-                <a href="#about" className="hover:text-primary transition-colors">
-                  About Us
+                <a href="#why-choose-us" className="hover:text-primary transition-colors flex items-center gap-2">
+                  <ExternalLink className="h-3 w-3" />
+                  Tentang Kami
                 </a>
               </li>
               <li>
-                <a href="#portfolio" className="hover:text-primary transition-colors">
+                <a href="#portfolio" className="hover:text-primary transition-colors flex items-center gap-2">
+                  <ExternalLink className="h-3 w-3" />
                   Portfolio
                 </a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-primary transition-colors">
-                  Contact
+                <a href="#pricing" className="hover:text-primary transition-colors flex items-center gap-2">
+                  <ExternalLink className="h-3 w-3" />
+                  Harga & Paket
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Blog
+                <a href="#testimonials" className="hover:text-primary transition-colors flex items-center gap-2">
+                  <ExternalLink className="h-3 w-3" />
+                  Testimoni Klien
+                </a>
+              </li>
+              <li>
+                <a href="#faq" className="hover:text-primary transition-colors flex items-center gap-2">
+                  <ExternalLink className="h-3 w-3" />
+                  FAQ
                 </a>
               </li>
             </ul>
@@ -99,13 +240,15 @@ export function Footer() {
         </div>
 
         <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-muted-foreground text-sm">© 2024 Meow Labs. All rights reserved.</p>
+          <p className="text-muted-foreground text-sm">
+            © {currentYear} Meow Labs - Jasa Pembuatan Website Profesional Semarang. All rights reserved.
+          </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="text-muted-foreground hover:text-primary text-sm transition-colors">
-              Privacy Policy
+              Kebijakan Privasi
             </a>
             <a href="#" className="text-muted-foreground hover:text-primary text-sm transition-colors">
-              Terms of Service
+              Syarat & Ketentuan
             </a>
           </div>
         </div>

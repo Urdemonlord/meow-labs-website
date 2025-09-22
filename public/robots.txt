@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://meowlabs.id/sitemap.xml
+
+# Block access to admin and private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+# Allow important pages for SEO
+Allow: /
+Allow: /services
+Allow: /pricing
+Allow: /portfolio
+Allow: /contact
+Allow: /faq
+
+# Crawl delay
+Crawl-delay: 1

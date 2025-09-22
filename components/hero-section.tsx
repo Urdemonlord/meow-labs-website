@@ -1,10 +1,13 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Mail } from "lucide-react"
+import { LoadingState, ErrorBoundary } from "@/components/loading-state"
 
 export function HeroSection() {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden grid-bg">
+    <ErrorBoundary>
+      <LoadingState>
+        <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden grid-bg">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
@@ -18,25 +21,27 @@ export function HeroSection() {
           <div className="text-center lg:text-left">
             <div className="mb-6">
               <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-                🐱 Creative Technology Team
+                🥇 Jasa Pembuatan Website #1 Semarang
               </span>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-balance leading-tight">
-                <span className="text-foreground">Curiosity drives</span>
+                <span className="text-foreground">Jasa Pembuatan Website</span>
                 <br />
-                <span className="text-primary">innovation.</span>
+                <span className="text-primary">Profesional Termurah</span>
+                <br />
+                <span className="text-secondary">di Semarang</span>
               </h1>
             </div>
 
             <p className="text-lg text-muted-foreground text-pretty mb-8 max-w-2xl">
-              Meow Labs adalah tim kreatif teknologi yang menggabungkan keahlian di bidang
-              <span className="text-primary font-medium"> Web Development</span> dan
-              <span className="text-secondary font-medium"> IoT Solutions</span>. Kami mengubah rasa ingin tahu menjadi
-              inovasi yang berdampak.
+              Tingkatkan citra & kepercayaan bisnis Anda dengan 
+              <span className="text-primary font-medium"> website desain profesional</span> mulai dari 
+              <span className="text-secondary font-bold">500 ribuan</span>, dengan fitur lengkap 
+              aktif 24 jam dengan jangkauan tanpa batas.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 glow-animation group">
-                See Our Work
+                Konsultasi Gratis
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button
@@ -45,7 +50,7 @@ export function HeroSection() {
                 className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground bg-transparent"
               >
                 <Mail className="mr-2 h-4 w-4" />
-                Hire Us
+                Lihat Portofolio
               </Button>
             </div>
 
@@ -90,5 +95,7 @@ export function HeroSection() {
         </div>
       </div>
     </section>
+      </LoadingState>
+    </ErrorBoundary>
   )
 }

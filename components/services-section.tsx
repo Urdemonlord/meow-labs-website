@@ -6,44 +6,44 @@ export function ServicesSection() {
   const services = [
     {
       icon: Globe,
-      title: "Web Development",
-      description: "Company profile, e-commerce, dan SaaS applications dengan teknologi modern",
-      features: ["Next.js & React", "Responsive Design", "SEO Optimized", "Fast Performance"],
+      title: "Website Company Profile",
+      description: "Website profesional untuk meningkatkan kredibilitas dan citra perusahaan Anda",
+      features: ["Design Modern", "Responsive Mobile", "SEO Optimized", "Fast Loading"],
+      color: "primary",
+    },
+    {
+      icon: Smartphone,
+      title: "Website Toko Online",
+      description: "E-commerce lengkap dengan sistem pembayaran dan manajemen produk",
+      features: ["Katalog Produk", "Payment Gateway", "Order Management", "WhatsApp Integration"],
+      color: "secondary",
+    },
+    {
+      icon: Database,
+      title: "Website Portal Berita",
+      description: "CMS portal berita dengan sistem admin yang mudah digunakan",
+      features: ["Content Management", "Multi Author", "Category System", "SEO Tools"],
+      color: "primary",
+    },
+    {
+      icon: Shield,
+      title: "Website Sekolah/Yayasan",
+      description: "Platform informasi untuk lembaga pendidikan dengan fitur lengkap",
+      features: ["Info Akademik", "Gallery Event", "Pengumuman", "Contact Form"],
+      color: "secondary",
+    },
+    {
+      icon: Zap,
+      title: "Landing Page Bisnis",
+      description: "Halaman pendaratan yang menarik untuk kampanye marketing Anda",
+      features: ["Conversion Focused", "Lead Generation", "Analytics", "A/B Testing Ready"],
       color: "primary",
     },
     {
       icon: Cpu,
-      title: "IoT Solutions",
-      description: "Smart devices, sensor integration, dan dashboard monitoring real-time",
-      features: ["Sensor Integration", "Real-time Dashboard", "Cloud Connectivity", "Data Analytics"],
-      color: "secondary",
-    },
-    {
-      icon: Smartphone,
-      title: "Mobile Apps",
-      description: "Cross-platform mobile applications untuk iOS dan Android",
-      features: ["React Native", "Cross Platform", "Native Performance", "App Store Ready"],
-      color: "primary",
-    },
-    {
-      icon: Database,
-      title: "Backend Systems",
-      description: "API development, database design, dan cloud infrastructure",
-      features: ["RESTful APIs", "Database Design", "Cloud Deployment", "Scalable Architecture"],
-      color: "secondary",
-    },
-    {
-      icon: Shield,
-      title: "Security Solutions",
-      description: "Authentication, authorization, dan security best practices",
-      features: ["OAuth Integration", "Data Encryption", "Security Audit", "Compliance Ready"],
-      color: "primary",
-    },
-    {
-      icon: Zap,
-      title: "AI & Automation",
-      description: "Machine learning integration dan process automation",
-      features: ["AI Integration", "Process Automation", "Data Processing", "Smart Analytics"],
+      title: "Website Custom",
+      description: "Solusi website dengan fitur khusus sesuai kebutuhan bisnis unik Anda",
+      features: ["Custom Features", "API Integration", "Third-party Apps", "Scalable Architecture"],
       color: "secondary",
     },
   ]
@@ -53,11 +53,11 @@ export function ServicesSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-balance">
-            Our <span className="text-primary">Services</span>
+            Jenis Website yang <span className="text-primary">Kami Layani</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-pretty">
-            Kami menyediakan solusi teknologi lengkap untuk membantu bisnis Anda berkembang di era digital dengan
-            pendekatan yang inovatif dan hasil yang terukur.
+            Kami menyediakan berbagai jenis website profesional untuk membantu bisnis Anda berkembang di era digital.
+            Dari company profile hingga toko online, semuanya dikerjakan dengan standar kualitas terbaik.
           </p>
         </div>
 

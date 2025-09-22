@@ -19,8 +19,16 @@ export function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    console.log("Form submitted:", formData)
+    // Handle form submission via WhatsApp
+    const message = `Hallo admin, saya ingin konsultasi pembuatan website.%0A%0ANama: ${formData.name}%0AEmail: ${formData.email}%0APerusahaan: ${formData.organization}%0A%0APesan: ${formData.message}`
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=6289533303507&text=${message}`
+    window.open(whatsappUrl, "_blank")
+  }
+
+  const handleWhatsAppContact = () => {
+    const message = "Hallo admin saya ingin konsultasi pembuatan website..."
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=6289533303507&text=${encodeURIComponent(message)}`
+    window.open(whatsappUrl, "_blank")
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -35,11 +43,11 @@ export function ContactSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-balance">
-            Ready to build something <span className="text-primary">cool?</span>
+            Konsultasikan kebutuhan website Anda sekarang. <span className="text-primary">Gratis!</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-pretty">
-            Mari diskusikan proyek Anda! Kami siap membantu mewujudkan ide teknologi Anda menjadi kenyataan dengan
-            solusi yang inovatif dan berkualitas.
+            Tim profesional kami siap membantu mewujudkan website impian Anda. 
+            Konsultasi gratis tanpa komitmen - mulai dari analisa kebutuhan hingga website Anda tayang!
           </p>
         </div>
 
@@ -47,7 +55,7 @@ export function ContactSection() {
           {/* Contact Form */}
           <Card className="bg-card border-border">
             <CardHeader>
-              <CardTitle className="text-2xl text-foreground">Get In Touch</CardTitle>
+              <CardTitle className="text-2xl text-foreground">Hubungi Kami</CardTitle>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -131,10 +139,10 @@ export function ContactSection() {
           <div className="space-y-8">
             <Card className="bg-gradient-to-br from-primary/10 to-secondary/10 border-border">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-foreground mb-4">Mari Berkolaborasi!</h3>
+                <h3 className="text-xl font-semibold text-foreground mb-4">Jasa Pembuatan Website #1 Semarang</h3>
                 <p className="text-muted-foreground text-pretty mb-6">
-                  Kami selalu excited untuk mendengar ide-ide baru dan tantangan teknologi yang menarik. Jangan ragu
-                  untuk menghubungi kami!
+                  Kami melayani seluruh wilayah Semarang dan sekitarnya dengan komitmen memberikan layanan terbaik 
+                  untuk kebutuhan website bisnis Anda. Konsultasi gratis sekarang juga!
                 </p>
 
                 <div className="space-y-4">
@@ -144,7 +152,7 @@ export function ContactSection() {
                     </div>
                     <div>
                       <div className="font-medium text-foreground">Email</div>
-                      <div className="text-muted-foreground">hello@meowlabs.dev</div>
+                      <div className="text-muted-foreground">meowlabs.id@gmail.com</div>
                     </div>
                   </div>
 
@@ -154,7 +162,7 @@ export function ContactSection() {
                     </div>
                     <div>
                       <div className="font-medium text-foreground">WhatsApp</div>
-                      <div className="text-muted-foreground">+62 812-3456-7890</div>
+                      <div className="text-muted-foreground">+62 89533303507</div>
                     </div>
                   </div>
 
@@ -163,8 +171,8 @@ export function ContactSection() {
                       <MapPin className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <div className="font-medium text-foreground">Location</div>
-                      <div className="text-muted-foreground">Jakarta, Indonesia</div>
+                      <div className="font-medium text-foreground">Lokasi Layanan</div>
+                      <div className="text-muted-foreground">Semarang & Sekitarnya</div>
                     </div>
                   </div>
                 </div>
@@ -174,22 +182,25 @@ export function ContactSection() {
             {/* Quick Stats */}
             <div className="grid grid-cols-2 gap-4">
               <Card className="bg-card border-border text-center p-6">
-                <div className="text-2xl font-bold text-primary mb-1">{"<24h"}</div>
+                <div className="text-2xl font-bold text-primary mb-1">{"<2h"}</div>
                 <div className="text-sm text-muted-foreground">Response Time</div>
               </Card>
               <Card className="bg-card border-border text-center p-6">
                 <div className="text-2xl font-bold text-secondary mb-1">100%</div>
-                <div className="text-sm text-muted-foreground">Free Consultation</div>
+                <div className="text-sm text-muted-foreground">Konsultasi Gratis</div>
               </Card>
             </div>
 
             {/* CTA */}
             <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-xl p-6 text-center">
               <h4 className="font-semibold text-foreground mb-2">Butuh Konsultasi Cepat?</h4>
-              <p className="text-sm text-muted-foreground mb-4">Chat langsung dengan tim kami via WhatsApp</p>
-              <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90">
+              <p className="text-sm text-muted-foreground mb-4">Chat langsung dengan tim kami via WhatsApp untuk konsultasi gratis!</p>
+              <Button 
+                className="bg-secondary text-secondary-foreground hover:bg-secondary/90"
+                onClick={handleWhatsAppContact}
+              >
                 <Phone className="mr-2 h-4 w-4" />
-                WhatsApp Kami
+                WhatsApp Sekarang
               </Button>
             </div>
           </div>

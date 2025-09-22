@@ -20,8 +20,8 @@ export function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">
-              About
+            <a href="" className="text-muted-foreground hover:text-primary transition-colors">
+              Home
             </a>
             <a href="#services" className="text-muted-foreground hover:text-primary transition-colors">
               Services
@@ -29,10 +29,15 @@ export function Navigation() {
             <a href="#portfolio" className="text-muted-foreground hover:text-primary transition-colors">
               Portfolio
             </a>
+            <a href="/blog" className="text-muted-foreground hover:text-primary transition-colors">
+              Blog
+            </a>
             <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">
               Contact
             </a>
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 glow-animation">Hire Us</Button>
+            <a href="https://wa.me/6289533303507?text=Halo%20Meow%20Labs!%20Saya%20ingin%20konsultasi%20pembuatan%20website">
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 glow-animation">Dapatkan Penawaran</Button>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -48,11 +53,11 @@ export function Navigation() {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-card rounded-lg mt-2">
               <a
-                href="#about"
+                href="#home"
                 className="block px-3 py-2 text-muted-foreground hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                About
+                Home
               </a>
               <a
                 href="#services"
@@ -69,6 +74,13 @@ export function Navigation() {
                 Portfolio
               </a>
               <a
+                href="/blog"
+                className="block px-3 py-2 text-muted-foreground hover:text-primary transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Blog
+              </a>
+              <a
                 href="#contact"
                 className="block px-3 py-2 text-muted-foreground hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
@@ -76,7 +88,9 @@ export function Navigation() {
                 Contact
               </a>
               <div className="px-3 py-2">
-                <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">Hire Us</Button>
+                <a href="https://wa.me/6289533303507?text=Halo%20Meow%20Labs!%20Saya%20ingin%20konsultasi%20pembuatan%20website">
+                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">Dapatkan Penawaran</Button>
+                </a>
               </div>
             </div>
           </div>
