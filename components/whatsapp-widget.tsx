@@ -8,7 +8,7 @@ export function WhatsAppWidget() {
 
   const handleWhatsAppContact = (message: string) => {
     const encodedMessage = encodeURIComponent(message)
-    window.open(`https://wa.me/6289533303507?text=${encodedMessage}`, '_blank')
+    window.open(`https://wa.me/6289538628863?text=${encodedMessage}`, '_blank')
     setIsOpen(false)
   }
 

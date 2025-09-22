@@ -21,13 +21,13 @@ export function ContactSection() {
     e.preventDefault()
     // Handle form submission via WhatsApp
     const message = `Hallo admin, saya ingin konsultasi pembuatan website.%0A%0ANama: ${formData.name}%0AEmail: ${formData.email}%0APerusahaan: ${formData.organization}%0A%0APesan: ${formData.message}`
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=6289533303507&text=${message}`
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=6289538628863&text=${message}`
     window.open(whatsappUrl, "_blank")
   }
 
   const handleWhatsAppContact = () => {
     const message = "Hallo admin saya ingin konsultasi pembuatan website..."
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=6289533303507&text=${encodeURIComponent(message)}`
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=6289538628863&text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, "_blank")
   }
 

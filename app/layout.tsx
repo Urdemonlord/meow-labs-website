@@ -20,7 +20,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Meow Labs - Jasa Pembuatan Website Profesional Termurah di Semarang",
   description:
-    "Jasa pembuatan website profesional #1 di Semarang mulai 500rb. Company Profile, Toko Online, Landing Page. Maintenance Gratis, SEO Friendly, Response <2 jam. ☎️ 0895-3330-35077",
+    "Jasa pembuatan website profesional #1 di Semarang mulai 500rb. Company Profile, Toko Online, Landing Page. Maintenance Gratis, SEO Friendly, Response <2 jam. ☎️ 0895-3862-88683",
   generator: "Meow Labs",
   icons: {
     icon: "/images/meow-logo.png",
@@ -97,7 +97,7 @@ export default function RootLayout({
               "name": "Meow Labs",
               "description": "Jasa pembuatan website profesional termurah di Semarang",
               "url": "https://meowlabs.id",
-              "telephone": "+6289533303507",
+              "telephone": "+6289538628863",
               "email": "meowlabs.id@gmail.com",
               "address": {
                 "@type": "PostalAddress",

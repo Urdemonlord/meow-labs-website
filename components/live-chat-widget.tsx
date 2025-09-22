@@ -62,7 +62,7 @@ export function LiveChatWidget() {
     setTimeout(() => {
       const autoReply: Message = {
         id: messages.length + 2,
-        text: "Terima kasih atas pertanyaan Anda! Tim kami akan merespon dalam 2-3 menit. Untuk respon lebih cepat, silakan hubungi WhatsApp kami di +62 895-3330-35077 📱",
+        text: "Terima kasih atas pertanyaan Anda! Tim kami akan merespon dalam 2-3 menit. Untuk respon lebih cepat, silakan hubungi WhatsApp kami di +62 895-3862-88683 📱",
         isUser: false,
         timestamp: new Date()
       }

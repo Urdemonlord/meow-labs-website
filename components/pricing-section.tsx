@@ -91,7 +91,7 @@ export function PricingSection() {
   ]
 
   const handleWhatsAppContact = (message: string) => {
-    const phoneNumber = "6289533303507" // Update dengan nomor WhatsApp yang benar
+    const phoneNumber = "6289538628863" // Update dengan nomor WhatsApp yang benar
     const encodedMessage = encodeURIComponent(message)
     const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`
     window.open(whatsappUrl, "_blank")

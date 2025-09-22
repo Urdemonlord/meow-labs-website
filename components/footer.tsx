@@ -8,7 +8,7 @@ export function Footer() {
 
   const handleWhatsAppContact = () => {
     const message = encodeURIComponent("Halo Meow Labs! Saya tertarik dengan layanan pembuatan website. Mohon info lebih lanjut.")
-    window.open(`https://wa.me/6289533303507?text=${message}`, '_blank')
+    window.open(`https://wa.me/6289538628863?text=${message}`, '_blank')
   }
 
   const techPartners = [
@@ -97,7 +97,7 @@ export function Footer() {
                   onClick={handleWhatsAppContact}
                   className="text-muted-foreground hover:text-green-600 transition-colors"
                 >
-                  +62 895-3330-35077
+                  +62 895-3862-88683
                 </button>
               </div>
               <div className="flex items-center gap-3 text-sm">
