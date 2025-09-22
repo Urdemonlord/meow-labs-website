@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="180" viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg">
+  <!-- PWK Text in Red -->
+  <g transform="translate(10, 10)">
+    <!-- P -->
+    <path d="M0 0 L0 60 L25 60 Q40 60 40 45 Q40 30 25 30 L0 30 Z M8 8 L8 22 L25 22 Q32 22 32 15 Q32 8 25 8 L8 8 Z" fill="#E53E3E"/>
+    
+    <!-- W -->
+    <path d="M50 0 L42 60 L50 60 L55 20 L62 60 L70 60 L77 20 L82 60 L90 60 L82 0 L74 0 L66 45 L58 0 L50 0 Z" fill="#E53E3E"/>
+    
+    <!-- K -->
+    <path d="M100 0 L100 60 L108 60 L108 35 L125 60 L135 60 L120 35 L135 0 L125 0 L112 25 L108 20 L108 0 L100 0 Z" fill="#E53E3E"/>
+  </g>
+
+  <!-- Blue gradient background for "CONSULTANT" -->
+  <defs>
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2563EB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E40AF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- CONSULTANT text in yellow/gold -->
+  <g transform="translate(10, 90)">
+    <rect x="0" y="0" width="280" height="35" fill="url(#blueGradient)" rx="5"/>
+    <text x="140" y="25" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="24" font-weight="900" fill="#FFD700">CONSULTANT</text>
+  </g>
+
+  <!-- Subtitle -->
+  <text x="150" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2563EB">architect &amp; civil engineering</text>
+</svg>

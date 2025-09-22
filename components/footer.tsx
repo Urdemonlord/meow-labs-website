@@ -8,7 +8,7 @@ export function Footer() {
 
   const handleWhatsAppContact = () => {
     const message = encodeURIComponent("Halo Meow Labs! Saya tertarik dengan layanan pembuatan website. Mohon info lebih lanjut.")
-    window.open(`https://wa.me/6289538628863?text=${message}`, '_blank')
+    window.open(`https://wa.me/62895386288683?text=${message}`, '_blank')
   }
 
   const techPartners = [

@@ -16,7 +16,7 @@ import {
 export function ProcessSection() {
   const handleWhatsAppContact = () => {
     const message = encodeURIComponent("Halo Meow Labs! Saya ingin memulai project website. Mohon info prosesnya.")
-    window.open(`https://wa.me/6289538628863?text=${message}`, '_blank')
+    window.open(`https://wa.me/62895386288683?text=${message}`, '_blank')
   }
 
   const processes = [

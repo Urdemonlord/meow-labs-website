@@ -23,7 +23,7 @@ export function FAQSection() {
 
   const handleWhatsAppContact = () => {
     const message = encodeURIComponent("Halo Meow Labs! Saya punya pertanyaan tentang layanan pembuatan website.")
-    window.open(`https://wa.me/6289538628863?text=${message}`, '_blank')
+    window.open(`https://wa.me/62895386288683?text=${message}`, '_blank')
   }
 
   const faqs: FAQItem[] = [
