@@ -162,7 +162,7 @@ export function ContactSection() {
                     </div>
                     <div>
                       <div className="font-medium text-foreground">WhatsApp</div>
-                      <div className="text-muted-foreground">+62 89533303507</div>
+                      <div className="text-muted-foreground">+62 895386288683</div>
                     </div>
                   </div>
 

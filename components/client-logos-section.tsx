@@ -102,7 +102,7 @@ export function ClientLogosSection() {
             }
 
             .animate-scroll-horizontal {
-              animation: scroll-horizontal 60s linear infinite;
+              animation: scroll-horizontal 40s linear infinite;
             }
 
             /* Pause animation on hover */
