@@ -11,6 +11,10 @@ export function Footer() {
     window.open(`https://wa.me/62895386288683?text=${message}`, '_blank')
   }
 
+  const handlePhoneClick = () => {
+    handleWhatsAppContact()
+  }
+
   const techPartners = [
     {
       name: "React",
@@ -35,6 +39,57 @@ export function Footer() {
     {
       name: "PHP",
       url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+    }
+  ]
+
+  const paymentMethods = [
+    {
+      name: "QRIS",
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/QRIS_logo.svg/512px-QRIS_logo.svg.png",
+    },
+    {
+      name: "BCA",
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/512px-Bank_Central_Asia.svg.png",
+    },
+    {
+      name: "Mandiri",
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo_2016.svg/512px-Bank_Mandiri_logo_2016.svg.png",
+    },
+    {
+      name: "BNI",
+      url: "https://upload.wikimedia.org/wikipedia/id/thumb/5/55/BNI_logo.svg/512px-BNI_logo.svg.png",
+    },
+    {
+      name: "BRI",
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/BRI_2020.svg/512px-BRI_2020.svg.png",
+    },
+    {
+      name: "GoPay",
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Gopay_logo.svg/512px-Gopay_logo.svg.png",
+    },
+    {
+      name: "OVO",
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Logo_ovo_purple.svg/512px-Logo_ovo_purple.svg.png",
+    },
+    {
+      name: "DANA",
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/512px-Logo_dana_blue.svg.png",
+    },
+    {
+      name: "ShopeePay",
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Shopee.svg/512px-Shopee.svg.png",
+    },
+    {
+      name: "LinkAja",
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/LinkAja.svg/512px-LinkAja.svg.png",
+    },
+    {
+      name: "Jenius",
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Jenius_logo.svg/512px-Jenius_logo.svg.png",
+    },
+    {
+      name: "BSI",
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Bank_Syariah_Indonesia.svg/512px-Bank_Syariah_Indonesia.svg.png",
     }
   ]
 
@@ -68,6 +123,38 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Metode Pembayaran Section */}
+        <div className="mb-12 border-b border-border pb-8">
+          <div className="text-center mb-8">
+            <h3 className="text-lg font-semibold text-foreground mb-2">
+              💳 Metode Pembayaran Yang Didukung
+            </h3>
+            <p className="text-muted-foreground text-sm">
+              Pembayaran mudah dengan berbagai pilihan metode yang tersedia
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-12 gap-4 items-center">
+            {paymentMethods.map((payment, index) => (
+              <div key={index} className="flex items-center justify-center group">
+                <div className="p-3 bg-background rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-border/50">
+                  <Image
+                    src={payment.url}
+                    alt={payment.name}
+                    width={32}
+                    height={32}
+                    className="max-w-full h-auto opacity-70 group-hover:opacity-100 transition-opacity"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-6">
+            <p className="text-xs text-muted-foreground">
+              ✅ Transfer Bank • ✅ E-Wallet • ✅ QRIS • ✅ Virtual Account
+            </p>
+          </div>
+        </div>
+
         <div className="grid md:grid-cols-4 gap-8">
           {/* Brand & Contact Info */}
           <div className="md:col-span-2">
@@ -93,12 +180,12 @@ export function Footer() {
                 <div className="w-8 h-8 bg-green-500/10 rounded-lg flex items-center justify-center">
                   <Phone className="h-4 w-4 text-green-600" />
                 </div>
-                <button 
-                  onClick={handleWhatsAppContact}
-                  className="text-muted-foreground hover:text-green-600 transition-colors"
+                <span 
+                  onClick={handlePhoneClick}
+                  className="text-muted-foreground hover:text-green-600 transition-colors cursor-pointer"
                 >
                   +62 895-3862-88683
-                </button>
+                </span>
               </div>
               <div className="flex items-center gap-3 text-sm">
                 <div className="w-8 h-8 bg-blue-500/10 rounded-lg flex items-center justify-center">

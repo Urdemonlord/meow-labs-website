@@ -1,9 +1,26 @@
+"use client"
+
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Mail } from "lucide-react"
 import { LoadingState, ErrorBoundary } from "@/components/loading-state"
 
 export function HeroSection() {
+  const handleWhatsAppContact = () => {
+    const phoneNumber = "62895386288683" // Nomor WhatsApp admin
+    const message = "Hallo admin saya ingin konsultasi gratis untuk pembuatan website"
+    const encodedMessage = encodeURIComponent(message)
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`
+    window.open(whatsappUrl, "_blank")
+  }
+
+  const handlePortfolioClick = () => {
+    const portfolioSection = document.getElementById('portfolio')
+    if (portfolioSection) {
+      portfolioSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <ErrorBoundary>
       <LoadingState>
@@ -40,7 +57,11 @@ export function HeroSection() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 glow-animation group">
+              <Button 
+                size="lg" 
+                className="bg-primary text-primary-foreground hover:bg-primary/90 glow-animation group"
+                onClick={() => handleWhatsAppContact()}
+              >
                 Konsultasi Gratis
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
@@ -48,6 +69,7 @@ export function HeroSection() {
                 size="lg"
                 variant="outline"
                 className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground bg-transparent"
+                onClick={() => handlePortfolioClick()}
               >
                 <Mail className="mr-2 h-4 w-4" />
                 Lihat Portofolio
