@@ -3,10 +3,9 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Mail } from "lucide-react"
-import { LoadingState, ErrorBoundary } from "@/components/loading-state"
 
 export function HeroSection() {
-  const handleWhatsAppContact = () => {
+  function handleWhatsAppContact() {
     const phoneNumber = "62895386288683" // Nomor WhatsApp admin
     const message = "Hallo admin saya ingin konsultasi gratis untuk pembuatan website"
     const encodedMessage = encodeURIComponent(message)
@@ -14,7 +13,7 @@ export function HeroSection() {
     window.open(whatsappUrl, "_blank")
   }
 
-  const handlePortfolioClick = () => {
+  function handlePortfolioClick() {
     const portfolioSection = document.getElementById('portfolio')
     if (portfolioSection) {
       portfolioSection.scrollIntoView({ behavior: 'smooth' })
@@ -22,9 +21,7 @@ export function HeroSection() {
   }
 
   return (
-    <ErrorBoundary>
-      <LoadingState>
-        <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden grid-bg">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden grid-bg">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
@@ -60,7 +57,7 @@ export function HeroSection() {
               <Button 
                 size="lg" 
                 className="bg-primary text-primary-foreground hover:bg-primary/90 glow-animation group"
-                onClick={() => handleWhatsAppContact()}
+                onClick={handleWhatsAppContact}
               >
                 Konsultasi Gratis
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -69,7 +66,7 @@ export function HeroSection() {
                 size="lg"
                 variant="outline"
                 className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground bg-transparent"
-                onClick={() => handlePortfolioClick()}
+                onClick={handlePortfolioClick}
               >
                 <Mail className="mr-2 h-4 w-4" />
                 Lihat Portofolio
@@ -117,7 +114,5 @@ export function HeroSection() {
         </div>
       </div>
     </section>
-      </LoadingState>
-    </ErrorBoundary>
   )
 }

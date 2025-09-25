@@ -8,6 +8,7 @@ import { PricingSection } from "@/components/pricing-section"
 import { StudentPackagesSection } from "@/components/student-packages-section"
 import { PortfolioSection } from "@/components/portfolio-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
+import { BlogSection } from "@/components/blog-section"
 import { SocialMediaSection } from "@/components/social-media-section"
 import { FAQSection } from "@/components/faq-section"
 import { ContactSection } from "@/components/contact-section"
@@ -28,6 +29,7 @@ export default function HomePage() {
       <StudentPackagesSection />
       <PortfolioSection />
       <TestimonialsSection />
+      <BlogSection />
       <SocialMediaSection />
       <FAQSection />
       <ContactSection />
