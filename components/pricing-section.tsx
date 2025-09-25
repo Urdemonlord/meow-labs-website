@@ -32,8 +32,10 @@ export function PricingSection() {
   const packages = [
     {
       name: "Paket Hemat UMKM",
+      originalPrice: "749.000",
       price: "525.000",
       renewalPrice: "500.000",
+      discount: "30%",
       description: "Rekomendasi untuk UMKM/Yayasan yang baru memulai Go-Digital",
       features: [
         "1 Halaman Website",
@@ -50,8 +52,10 @@ export function PricingSection() {
     },
     {
       name: "Paket UMKM",
+      originalPrice: "1.499.000",
       price: "1.000.000",
       renewalPrice: "700.000",
+      discount: "33%",
       description: "Rekomendasi untuk UMKM yang ingin mengoptimalkan produknya dengan catalog lengkap",
       features: [
         "3 Halaman Website",
@@ -69,8 +73,10 @@ export function PricingSection() {
     },
     {
       name: "Paket Bisnis",
+      originalPrice: "3.599.000",
       price: "2.525.000",
       renewalPrice: "1.000.000",
+      discount: "30%",
       description: "Cocok untuk Profile Bisnis, Portal Berita, Sekolah/Yayasan, Portofolio",
       features: [
         "10 Halaman Website",
@@ -90,8 +96,10 @@ export function PricingSection() {
     },
     {
       name: "Paket Bisnis Plus",
+      originalPrice: "7.499.000",
       price: "5.000.000",
       renewalPrice: "2.000.000",
+      discount: "33%",
       description: "Cocok untuk Profesional Bisnis Website dengan fitur advanced",
       features: [
         "20 Halaman Website",
@@ -116,8 +124,10 @@ export function PricingSection() {
   const personalBrandingPackages = [
     {
       name: "Personal Branding Lite",
+      originalPrice: "1.999.000",
       price: "1.500.000",
       renewalPrice: "800.000",
+      discount: "25%",
       description: "Cocok untuk content creator, KOL, dan profesional yang ingin memulai personal branding",
       features: [
         "Subdomain gratis (atau domain add-on)",
@@ -134,8 +144,10 @@ export function PricingSection() {
     },
     {
       name: "Personal Branding Pro",
+      originalPrice: "5.999.000",
       price: "4.000.000",
       renewalPrice: "1.500.000",
+      discount: "33%",
       description: "Untuk influencer dan profesional yang ingin tampil eksklusif dengan branding kuat",
       features: [
         "Domain .com pribadi",
@@ -153,8 +165,10 @@ export function PricingSection() {
     },
     {
       name: "Personal Branding Premium",
+      originalPrice: "10.999.000",
       price: "8.000.000",
       renewalPrice: "2.500.000",
+      discount: "27%",
       description: "Solusi premium untuk dosen, seniman, dan profesional high-profile",
       features: [
         "Semua fitur Pro",
@@ -175,8 +189,10 @@ export function PricingSection() {
   const toolsPackages = [
     {
       name: "Tools Lite",
+      originalPrice: "3.499.000",
       price: "2.500.000",
       renewalPrice: "1.000.000",
+      discount: "28%",
       description: "Web app sederhana untuk mahasiswa, startup kecil, dan mini project",
       features: [
         "Web app sederhana",
@@ -193,8 +209,10 @@ export function PricingSection() {
     },
     {
       name: "POS / Aplikasi Bisnis Standard",
+      originalPrice: "9.999.000",
       price: "7.500.000",
       renewalPrice: "2.500.000",
+      discount: "25%",
       description: "Sistem Point of Sale (kasir digital) untuk UMKM dan bisnis kecil",
       features: [
         "Sistem Point of Sale lengkap",
@@ -211,8 +229,10 @@ export function PricingSection() {
     },
     {
       name: "IoT Integration Apps",
+      originalPrice: "15.999.000",
       price: "12.000.000",
       renewalPrice: "4.000.000",
+      discount: "25%",
       description: "Aplikasi monitoring sensor IoT dengan dashboard realtime",
       features: [
         "Monitoring sensor IoT (suhu, pintu, listrik)",
@@ -230,8 +250,10 @@ export function PricingSection() {
     },
     {
       name: "Custom Enterprise Apps",
+      originalPrice: "27.999.000",
       price: "20.000.000",
       renewalPrice: "8.000.000",
+      discount: "28%",
       description: "Sistem besar untuk perusahaan: inventaris, sekolah, dashboard enterprise",
       features: [
         "Sistem manajemen inventaris",
@@ -253,8 +275,10 @@ export function PricingSection() {
   const aiPackages = [
     {
       name: "AI Project Lite",
+      originalPrice: "2.999.000",
       price: "2.000.000",
       renewalPrice: "800.000",
+      discount: "33%",
       description: "Setup model ML untuk skripsi, tugas kuliah, dan project penelitian",
       features: [
         "Setup model ML untuk skripsi",
@@ -271,8 +295,10 @@ export function PricingSection() {
     },
     {
       name: "AI/ML Standard",
+      originalPrice: "9.499.000",
       price: "7.000.000",
       renewalPrice: "2.500.000",
+      discount: "26%",
       description: "Proyek AI end-to-end: rekomendasi produk, image classification, chatbot",
       features: [
         "Data cleaning & preprocessing",
@@ -290,8 +316,10 @@ export function PricingSection() {
     },
     {
       name: "Data Services",
+      originalPrice: "1.499.000",
       price: "1.000.000",
       renewalPrice: "500.000",
+      discount: "33%",
       description: "Layanan data cleaning, analisis deskriptif, dan visualisasi data",
       features: [
         "Data cleaning & normalisasi",
@@ -308,8 +336,10 @@ export function PricingSection() {
     },
     {
       name: "AI Custom Enterprise",
+      originalPrice: "35.000.000",
       price: "25.000.000",
       renewalPrice: "10.000.000",
+      discount: "29%",
       description: "Solusi AI enterprise: chatbot custom, forecasting, NLP, IoT + AI",
       features: [
         "Chatbot custom untuk instansi/UMKM",
@@ -396,8 +426,14 @@ export function PricingSection() {
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.2 }}
                   >
+                    <div className="flex items-center justify-center gap-2 mb-1">
+                      <span className="text-muted-foreground line-through text-sm">Rp{pkg.originalPrice}</span>
+                      <span className="inline-block bg-red-100 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-medium px-2 py-0.5 rounded-md">
+                        HEMAT {pkg.discount}
+                      </span>
+                    </div>
                     <span className="text-3xl font-bold text-primary">
-                      Rp. {pkg.price.toLocaleString()}
+                      Rp{pkg.price}
                     </span>
                     <p className="text-sm text-muted-foreground mt-1">
                       {pkg.renewalPrice} di tahun berikutnya
@@ -574,8 +610,14 @@ export function PricingSection() {
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.2 }}
                     >
+                      <div className="flex items-center justify-center gap-2 mb-1">
+                        <span className="text-muted-foreground line-through text-sm">Rp{pkg.originalPrice}</span>
+                        <span className="inline-block bg-red-100 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-medium px-2 py-0.5 rounded-md">
+                          HEMAT {pkg.discount}
+                        </span>
+                      </div>
                       <span className="text-3xl font-bold text-primary">
-                        Rp. {pkg.price.toLocaleString()}
+                        Rp{pkg.price}
                       </span>
                       <p className="text-sm text-muted-foreground mt-1">
                         {pkg.renewalPrice} di tahun berikutnya
@@ -695,8 +737,14 @@ export function PricingSection() {
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.2 }}
                     >
+                      <div className="flex items-center justify-center gap-2 mb-1">
+                        <span className="text-muted-foreground line-through text-sm">Rp{pkg.originalPrice}</span>
+                        <span className="inline-block bg-red-100 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-medium px-2 py-0.5 rounded-md">
+                          HEMAT {pkg.discount}
+                        </span>
+                      </div>
                       <span className="text-3xl font-bold text-primary">
-                        Rp. {pkg.price.toLocaleString()}
+                        Rp{pkg.price}
                       </span>
                       <p className="text-sm text-muted-foreground mt-1">
                         {pkg.renewalPrice} di tahun berikutnya
@@ -816,8 +864,14 @@ export function PricingSection() {
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.2 }}
                     >
+                      <div className="flex items-center justify-center gap-2 mb-1">
+                        <span className="text-muted-foreground line-through text-sm">Rp{pkg.originalPrice}</span>
+                        <span className="inline-block bg-red-100 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-medium px-2 py-0.5 rounded-md">
+                          HEMAT {pkg.discount}
+                        </span>
+                      </div>
                       <span className="text-3xl font-bold text-primary">
-                        Rp. {pkg.price.toLocaleString()}
+                        Rp{pkg.price}
                       </span>
                       <p className="text-sm text-muted-foreground mt-1">
                         {pkg.renewalPrice} di tahun berikutnya
@@ -914,7 +968,13 @@ export function PricingSection() {
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <span className="text-3xl font-bold text-primary">Rp. 150.000</span>
+                    <div className="flex items-center justify-center gap-2 mb-1">
+                      <span className="text-muted-foreground line-through text-sm">Rp250.000</span>
+                      <span className="inline-block bg-red-100 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-medium px-2 py-0.5 rounded-md">
+                        HEMAT 40%
+                      </span>
+                    </div>
+                    <span className="text-3xl font-bold text-primary">Rp150.000</span>
                     <p className="text-sm text-muted-foreground mt-1">per bulan</p>
                   </motion.div>
                   <p className="text-sm text-muted-foreground">
@@ -987,7 +1047,13 @@ export function PricingSection() {
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <span className="text-3xl font-bold text-secondary">Rp. 500.000</span>
+                    <div className="flex items-center justify-center gap-2 mb-1">
+                      <span className="text-muted-foreground line-through text-sm">Rp750.000</span>
+                      <span className="inline-block bg-red-100 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-medium px-2 py-0.5 rounded-md">
+                        HEMAT 33%
+                      </span>
+                    </div>
+                    <span className="text-3xl font-bold text-secondary">Rp500.000</span>
                     <p className="text-sm text-muted-foreground mt-1">per bulan</p>
                   </motion.div>
                   <p className="text-sm text-muted-foreground">

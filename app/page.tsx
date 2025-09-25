@@ -5,6 +5,7 @@ import { ClientLogosSection } from "@/components/client-logos-section"
 import { ServicesSection } from "@/components/services-section"
 import { ProcessSection } from "@/components/process-section"
 import { PricingSection } from "@/components/pricing-section"
+import { StudentPackagesSection } from "@/components/student-packages-section"
 import { PortfolioSection } from "@/components/portfolio-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { SocialMediaSection } from "@/components/social-media-section"
@@ -12,6 +13,7 @@ import { FAQSection } from "@/components/faq-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
 import { LiveChatWidget } from "@/components/live-chat-widget"
+import { DiscountPopup } from "@/components/discount-popup"
 
 export default function HomePage() {
   return (
@@ -23,6 +25,7 @@ export default function HomePage() {
       <ServicesSection />
       <ProcessSection />
       <PricingSection />
+      <StudentPackagesSection />
       <PortfolioSection />
       <TestimonialsSection />
       <SocialMediaSection />
@@ -30,6 +33,7 @@ export default function HomePage() {
       <ContactSection />
       <Footer />
       <LiveChatWidget />
+      <DiscountPopup />
     </main>
   )
 }

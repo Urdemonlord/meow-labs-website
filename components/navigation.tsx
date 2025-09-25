@@ -33,6 +33,9 @@ export function Navigation() {
             <Link href={isBlogPage ? "/#pricing" : "#pricing"} className="text-muted-foreground hover:text-primary transition-colors">
               Package
             </Link>
+            <Link href={isBlogPage ? "/#student-packages" : "#student-packages"} className="text-muted-foreground hover:text-primary transition-colors">
+              For Students
+            </Link>
             <Link href={isBlogPage ? "/#portfolio" : "#portfolio"} className="text-muted-foreground hover:text-primary transition-colors">
               Portfolio
             </Link>
@@ -79,6 +82,13 @@ export function Navigation() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Package
+              </Link>
+              <Link
+                href={isBlogPage ? "/#student-packages" : "#student-packages"}
+                className="block px-3 py-2 text-muted-foreground hover:text-primary transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                For Students
               </Link>
               <Link
                 href={isBlogPage ? "/#portfolio" : "#portfolio"}
