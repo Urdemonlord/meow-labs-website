@@ -12,7 +12,7 @@ import { SocialMediaSection } from "@/components/social-media-section"
 import { FAQSection } from "@/components/faq-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
-import { LiveChatWidget } from "@/components/live-chat-widget"
+import { WhatsAppWidget } from "@/components/whatsapp-widget"
 import { DiscountPopup } from "@/components/discount-popup"
 
 export default function HomePage() {
@@ -32,7 +32,7 @@ export default function HomePage() {
       <FAQSection />
       <ContactSection />
       <Footer />
-      <LiveChatWidget />
+      <WhatsAppWidget />
       <DiscountPopup />
     </main>
   )

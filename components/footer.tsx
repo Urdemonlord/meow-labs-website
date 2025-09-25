@@ -12,7 +12,8 @@ export function Footer() {
   }
 
   const handlePhoneClick = () => {
-    handleWhatsAppContact()
+    const message = encodeURIComponent("Halo Meow Labs! Saya tertarik dengan layanan pembuatan website dan ingin konsultasi.")
+    window.open(`https://wa.me/62895386288683?text=${message}`, '_blank')
   }
 
   const techPartners = [
