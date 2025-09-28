@@ -17,15 +17,20 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
 })
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://meowlabs.id"
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://https://meow-labs-website.vercel.app/"),
+  metadataBase: new URL(siteUrl),
   title: "Meow Labs - Jasa Pembuatan Website Profesional Termurah di Semarang",
   description:
     "Jasa pembuatan website profesional #1 di Semarang mulai 500rb. Company Profile, Toko Online, Landing Page. Maintenance Gratis, SEO Friendly, Response <2 jam. ☎️ 0895-3862-88683",
   generator: "Meow Labs",
   icons: {
-    icon: "/images/meow-logo.png",
-    shortcut: "/images/meow-logo.png",
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/images/meow-logo.png", type: "image/png", sizes: "512x512" },
+    ],
+    shortcut: "/favicon.svg",
     apple: "/images/meow-logo.png",
   },
   keywords: [
@@ -48,7 +53,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://meowlabs.id",
+    url: siteUrl,
     siteName: "Meow Labs - Jasa Website Semarang",
     title: "Jasa Pembuatan Website Profesional Termurah di Semarang",
     description: "Pembuatan website profesional mulai 500rb. Company Profile, Toko Online, Landing Page. Maintenance Gratis, SEO Friendly, Response <2 jam.",
@@ -71,7 +76,7 @@ export const metadata: Metadata = {
     google: "your-google-verification-code",
   },
   alternates: {
-    canonical: "https://meowlabs.id"
+    canonical: siteUrl,
   }
 }
 
@@ -83,7 +88,9 @@ export default function RootLayout({
   return (
     <html lang="id" className="dark">
       <head>
-        <link rel="canonical" href="https://meowlabs.id" />
+        <link rel="canonical" href={siteUrl} />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="apple-touch-icon" href="/images/meow-logo.png" />
         <meta name="geo.region" content="ID-JT" />
         <meta name="geo.placename" content="Semarang" />
         <meta name="ICBM" content="-7.0051,110.4381" />
