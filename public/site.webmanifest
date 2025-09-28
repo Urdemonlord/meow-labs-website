@@ -1,0 +1,22 @@
+{
+  "name": "Meow Labs - Jasa Website Semarang",
+  "short_name": "Meow Labs",
+  "description": "Jasa pembuatan website profesional termurah di Semarang",
+  "icons": [
+    {
+      "src": "/images/meow-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#0f172a",
+  "background_color": "#0f172a",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}

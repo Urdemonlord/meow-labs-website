@@ -25,7 +25,10 @@ export const metadata: Metadata = {
   description:
     "Jasa pembuatan website profesional #1 di Semarang mulai 500rb. Company Profile, Toko Online, Landing Page. Maintenance Gratis, SEO Friendly, Response <2 jam. ☎️ 0895-3862-88683",
   generator: "Meow Labs",
-  themeColor: "#0f172a",
+  viewport: {
+    width: "device-width",
+    initialScale: 1
+  },
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -90,8 +93,14 @@ export default function RootLayout({
     <html lang="id" className="dark">
       <head>
         <link rel="canonical" href={siteUrl} />
+        
+        {/* Favicon support */}
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/png" href="/images/meow-logo.png" />
         <link rel="apple-touch-icon" href="/images/meow-logo.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#0f172a" />
+        
         <meta name="geo.region" content="ID-JT" />
         <meta name="geo.placename" content="Semarang" />
         <meta name="ICBM" content="-7.0051,110.4381" />
@@ -142,8 +151,19 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              url: "https://meowlabs.store",
-              logo: "https://meowlabs.store/logo.png",
+              "name": "Meow Labs",
+              "url": "https://meowlabs.store",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://meowlabs.store/images/meow-logo.png",
+                "width": "512",
+                "height": "512",
+                "caption": "Meow Labs Logo"
+              },
+              "sameAs": [
+                "https://instagram.com/meowlabs.store",
+                "https://facebook.com/meowlabs.store"
+              ]
             }),
           }}
         />
