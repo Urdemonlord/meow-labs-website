@@ -7,26 +7,26 @@ export function WhyChooseUsSection() {
   const advantages = [
     {
       icon: Users,
-      title: "Tim Profesional",
-      description: "Kami memiliki tim developer profesional yang siap mengerjakan berbagai kebutuhan website Anda dengan kualitas terjamin",
+      title: "Harga Murah & Terjangkau",
+      description: "Website berkualitas tidak harus mahal. Mulai dari Rp 500.000 saja, website profesional sudah bisa Anda miliki untuk UMKM atau personal",
       color: "primary",
     },
     {
       icon: Wrench,
-      title: "Layanan Maintenance Gratis",
-      description: "Jangan khawatir bingung pengelolaan websitenya, kami berikan pelayanan maintenance GRATIS selama web aktif",
+      title: "Layanan Maintenance Gratis 1 Tahun",
+      description: "Jangan khawatir pengelolaan website, kami berikan pelayanan maintenance GRATIS selama 1 tahun pertama untuk semua paket",
       color: "secondary",
     },
     {
       icon: Palette,
       title: "Design Website Profesional & Responsif",
-      description: "Website yang kami buat selalu menggunakan desain modern, profesional, dan dapat diakses dengan baik di semua device",
+      description: "Website yang kami buat khusus untuk UMKM selalu menggunakan desain modern, profesional, dan dapat diakses dengan baik di semua device",
       color: "primary",
     },
     {
       icon: Zap,
       title: "Website Anti Lemot & SEO Friendly",
-      description: "Nikmati kecepatan website yang stabil dan copywriting yang efektif untuk meningkatkan ranking di Google",
+      description: "Website murah bukan berarti lemot. Nikmati kecepatan website yang stabil dan optimasi SEO yang efektif untuk meningkatkan ranking di Google",
       color: "secondary",
     },
     {

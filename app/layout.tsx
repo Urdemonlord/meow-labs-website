@@ -27,9 +27,9 @@ export const viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Meow Labs - Jasa Pembuatan Website Profesional Termurah di Semarang",
+  title: "Jasa Pembuatan Website Murah & Profesional | Meow Labs",
   description:
-    "Jasa pembuatan website profesional #1 di Semarang mulai 500rb. Company Profile, Toko Online, Landing Page. Maintenance Gratis, SEO Friendly, Response <2 jam. ☎️ 0895-3862-88683",
+    "Meow Labs melayani jasa pembuatan website murah untuk UMKM, kafe, hingga personal branding. Website responsive & mobile-friendly mulai Rp500 ribu saja! Hubungi kami sekarang ☎️ 0895-3862-88683",
   generator: "Meow Labs",
   icons: {
     icon: [
@@ -41,17 +41,26 @@ export const metadata: Metadata = {
     apple: "/images/meow-logo.png",
   },
   keywords: [
-    "jasa pembuatan website semarang",
-    "web developer semarang",
+    "jasa pembuatan website murah",
+    "jasa website Semarang",
+    "bikin web UMKM murah",
+    "jasa website mahasiswa",
     "website murah semarang",
-    "toko online semarang",
-    "company profile semarang",
-    "landing page semarang",
-    "jasa website termurah",
     "pembuatan website profesional",
     "web development semarang",
-    "website responsive semarang",
+    "buat website murah",
+    "jasa pembuatan website semarang",
+    "website toko online murah",
     "jasa web design semarang",
+    "buat website personal",
+    "jasa buat website kafe",
+    "website responsive murah",
+    "website mobile friendly",
+    "jasa pembuatan landing page",
+    "website SEO friendly",
+    "web developer terbaik semarang",
+    "harga website murah berkualitas",
+    "bikin website sekolah",
   ],
   authors: [{ name: "Meow Labs" }],
   creator: "Meow Labs",
@@ -62,9 +71,9 @@ export const metadata: Metadata = {
     locale: "id_ID",
     url: siteUrl,
     siteName: "Meow Labs - Jasa Website Semarang",
-    title: "Jasa Pembuatan Website Profesional Termurah di Semarang",
+    title: "Jasa Pembuatan Website Murah untuk UMKM & Personal",
     description:
-      "Pembuatan website profesional mulai 500rb. Company Profile, Toko Online, Landing Page. Maintenance Gratis, SEO Friendly, Response <2 jam.",
+      "Meow Labs melayani jasa pembuatan website murah untuk UMKM, kafe, hingga personal branding di Semarang. Website responsive & mobile-friendly mulai Rp500 ribu saja!",
     images: [
       {
         url: "/images/og-image.jpg",
@@ -76,13 +85,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jasa Pembuatan Website Profesional Termurah di Semarang",
+    title: "Jasa Pembuatan Website Murah untuk UMKM & Personal",
     description:
-      "Pembuatan website profesional mulai 500rb. Company Profile, Toko Online, Landing Page. Maintenance Gratis, SEO Friendly, Response <2 jam.",
+      "Meow Labs melayani jasa pembuatan website murah untuk UMKM, kafe, hingga personal branding di Semarang. Website responsive & mobile-friendly mulai Rp500 ribu saja!",
     images: ["/images/og-image.jpg"],
   },
   verification: {
-    google: "your-google-verification-code",
+    google: "89bed686282f82f4",
   },
   alternates: {
     canonical: siteUrl,
@@ -109,6 +118,9 @@ export default function RootLayout({
         <meta name="geo.region" content="ID-JT" />
         <meta name="geo.placename" content="Semarang" />
         <meta name="ICBM" content="-7.0051,110.4381" />
+        <meta name="google-site-verification" content="89bed686282f82f4" />
+        <meta name="msvalidate.01" content="your-bing-verification-code" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
         {/* Schema.org structured data */}
         <script
@@ -119,10 +131,10 @@ export default function RootLayout({
               "@type": "LocalBusiness",
               name: "Meow Labs",
               description:
-                "Jasa pembuatan website profesional termurah di Semarang",
+                "Jasa pembuatan website murah untuk UMKM & personal di Semarang",
               url: "https://meowlabs.store",
               telephone: "+6289538628863",
-              email: "meowlabs.id@gmail.com",
+              email: "meowlabs.store@gmail.com",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Semarang",

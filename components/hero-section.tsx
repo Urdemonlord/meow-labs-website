@@ -40,17 +40,17 @@ export function HeroSection() {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-balance leading-tight">
                 <span className="text-foreground">Jasa Pembuatan Website</span>
                 <br />
-                <span className="text-primary">Profesional Termurah</span>
+                <span className="text-primary">Murah untuk UMKM</span>
                 <br />
-                <span className="text-secondary">di Semarang</span>
+                <span className="text-secondary">& Personal</span>
               </h1>
             </div>
 
             <p className="text-lg text-muted-foreground text-pretty mb-8 max-w-2xl">
-              Tingkatkan citra & kepercayaan bisnis Anda dengan 
-              <span className="text-primary font-medium"> website desain profesional</span> mulai dari 
-              <span className="text-secondary font-bold"> 500 ribuan</span>, dengan fitur lengkap 
-              aktif 24 jam dengan jangkauan tanpa batas.
+              Layanan pembuatan website murah untuk UMKM, kafe, hingga personal branding dengan
+              <span className="text-primary font-medium"> desain profesional</span> mulai dari 
+              <span className="text-secondary font-bold"> 500 ribuan</span>. Website responsive, SEO friendly,
+              dan maintenance gratis selama 1 tahun.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -96,7 +96,7 @@ export function HeroSection() {
               <div className="absolute inset-0 bg-primary/20 rounded-full blur-2xl scale-110"></div>
               <Image
                 src="/images/meow-mascot.png"
-                alt="Meow Labs Mascot - Cat Developer"
+                alt="Meow Labs - Jasa Pembuatan Website Murah Semarang - Maskot Kucing Developer"
                 width={400}
                 height={400}
                 className="relative z-10 float-animation"

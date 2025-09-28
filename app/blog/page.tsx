@@ -5,9 +5,23 @@ import { Footer } from "@/components/footer"
 import { LiveChatWidget } from "@/components/live-chat-widget"
 import { LoadingState } from "@/components/loading-state"
 
-export const metadata = {
-  title: "Blog - Tips & Artikel Web Development | Meow Labs",
-  description: "Baca artikel terbaru tentang web development, SEO tips, dan strategi digital marketing dari tim ahli Meow Labs Semarang.",
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Blog - Tips & Artikel Web Development | Meow Labs Semarang",
+  description: "Baca artikel terbaru tentang web development, SEO tips, dan strategi digital marketing dari tim ahli Meow Labs Semarang. Update terbaru seputar pembuatan website murah.",
+  keywords: [
+    "blog web development", 
+    "artikel seo semarang", 
+    "tips website bisnis", 
+    "strategi digital marketing",
+    "tutorial pembuatan website murah"
+  ],
+  openGraph: {
+    title: "Blog Web Development & SEO | Meow Labs Semarang",
+    description: "Kumpulan artikel dan tips terbaru seputar pembuatan website, SEO, dan digital marketing dari Meow Labs Semarang.",
+    type: "website",
+  }
 }
 
 export default function BlogPage() {
@@ -29,6 +43,36 @@ export default function BlogPage() {
       </div>
       <Footer />
       <LiveChatWidget />
+      
+      {/* Schema.org structured data for blog */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            "headline": "Blog Meow Labs - Tips & Artikel Web Development",
+            "description": "Kumpulan artikel dan tips terbaru seputar pembuatan website, SEO, dan digital marketing dari Meow Labs Semarang.",
+            "author": {
+              "@type": "Organization",
+              "name": "Meow Labs",
+              "url": "https://meowlabs.store"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Meow Labs",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://meowlabs.store/images/meow-logo.png"
+              }
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://meowlabs.store/blog"
+            }
+          })
+        }}
+      />
     </main>
   )
 }

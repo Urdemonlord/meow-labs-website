@@ -5,9 +5,21 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
-  title: "Tentang Kami | Meow Labs",
+  title: "Tentang Kami | Meow Labs Semarang - Web Developer Terbaik",
   description:
-    "Kenali tim kreatif Meow Labs yang terdiri dari desainer, developer, dan strategist yang siap membantu bisnis Anda bersinar di dunia digital.",
+    "Kenali tim kreatif Meow Labs Semarang yang terdiri dari desainer, developer, dan strategist yang siap membantu bisnis Anda bersinar di dunia digital dengan website murah dan profesional.",
+  keywords: [
+    "web developer semarang", 
+    "tim pengembang website", 
+    "jasa pembuatan website murah",
+    "desainer web profesional semarang",
+    "about meow labs"
+  ],
+  openGraph: {
+    title: "Tentang Meow Labs - Web Developer Profesional Semarang",
+    description: "Tim kreatif Meow Labs Semarang siap membantu bisnis Anda dengan layanan pembuatan website murah namun profesional.",
+    type: "website",
+  }
 }
 
 const teamMembers = [
@@ -163,6 +175,40 @@ export default function AboutPage() {
       </section>
 
       <Footer />
+      
+      {/* Schema.org structured data for about page */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "Meow Labs",
+              "description": "Tim pengembang website profesional di Semarang yang menyediakan jasa pembuatan website murah untuk UMKM dan bisnis lokal.",
+              "url": "https://meowlabs.store",
+              "logo": "https://meowlabs.store/images/meow-logo.png",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Semarang",
+                "addressRegion": "Jawa Tengah",
+                "addressCountry": "Indonesia"
+              },
+              "member": teamMembers.map(member => ({
+                "@type": "Person",
+                "name": member.name,
+                "jobTitle": member.role,
+                "description": member.description
+              }))
+            },
+            "speakable": {
+              "@type": "SpeakableSpecification",
+              "cssSelector": ["h1", "h2", ".about-intro"]
+            }
+          })
+        }}
+      />
     </main>
   )
 }
