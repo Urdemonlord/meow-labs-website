@@ -27,6 +27,9 @@ export function Navigation() {
             <Link href={isBlogPage ? "/" : "#home"} className="text-muted-foreground hover:text-primary transition-colors">
               Home
             </Link>
+            <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">
+              About
+            </Link>
             <Link href={isBlogPage ? "/#services" : "#services"} className="text-muted-foreground hover:text-primary transition-colors">
               Services
             </Link>
@@ -68,6 +71,13 @@ export function Navigation() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
+              </Link>
+              <Link
+                href="/about"
+                className="block px-3 py-2 text-muted-foreground hover:text-primary transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                About
               </Link>
               <Link
                 href={isBlogPage ? "/#services" : "#services"}
