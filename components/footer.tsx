@@ -196,7 +196,7 @@ export function Footer() {
                   href="mailto:meowlabs.id@gmail.com"
                   className="text-muted-foreground hover:text-blue-600 transition-colors"
                 >
-                  meowlabs.store@gmail.com
+                  meowlabs.id@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-3 text-sm">

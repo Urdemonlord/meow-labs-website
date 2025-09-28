@@ -90,8 +90,10 @@ export default function RootLayout({
       <head>
         <link rel="canonical" href={siteUrl} />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="apple-touch-icon" href="/images/meow-logo.png" />
-        <meta name="geo.region" content="ID-JT" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="256x256" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="geo.placename" content="Semarang" />
         <meta name="ICBM" content="-7.0051,110.4381" />
         
@@ -106,7 +108,7 @@ export default function RootLayout({
               "description": "Jasa pembuatan website profesional termurah di Semarang",
               "url": "https://meowlabs.store",
               "telephone": "+6289538628863",
-              "email": "meowlabs.store@gmail.com",
+              "email": "meowlabs.id@gmail.com",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Semarang",
@@ -133,6 +135,17 @@ export default function RootLayout({
                 "Website Custom"
               ]
             })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              url: "https://meowlabs.store",
+              logo: "https://meowlabs.store/logo.png",
+            }),
           }}
         />
       </head>
