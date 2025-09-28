@@ -25,6 +25,7 @@ export const metadata: Metadata = {
   description:
     "Jasa pembuatan website profesional #1 di Semarang mulai 500rb. Company Profile, Toko Online, Landing Page. Maintenance Gratis, SEO Friendly, Response <2 jam. ☎️ 0895-3862-88683",
   generator: "Meow Labs",
+  themeColor: "#0f172a",
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -91,6 +92,7 @@ export default function RootLayout({
         <link rel="canonical" href={siteUrl} />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="apple-touch-icon" href="/images/meow-logo.png" />
+        <meta name="theme-color" content="#0f172a" />
         <meta name="geo.region" content="ID-JT" />
         <meta name="geo.placename" content="Semarang" />
         <meta name="ICBM" content="-7.0051,110.4381" />
