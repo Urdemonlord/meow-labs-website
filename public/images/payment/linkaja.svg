@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100">
+  <rect width="160" height="100" rx="14" fill="#E60013"/>
+  <text x="80" y="55" font-size="32" font-weight="bold" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif">LinkAja!</text>
+  <rect x="52" y="62" width="56" height="6" fill="#ffffff" rx="3"/>
+</svg>

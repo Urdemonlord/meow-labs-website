@@ -19,79 +19,52 @@ export function Footer() {
   const techPartners = [
     {
       name: "React",
-      url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+      url: "/images/tech/react.svg",
     },
     {
       name: "Next.js",
-      url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+      url: "/images/tech/nextjs.svg",
     },
     {
       name: "WordPress",
-      url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg",
+      url: "/images/tech/wordpress.svg",
     },
     {
       name: "Laravel",
-      url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg",
+      url: "/images/tech/laravel.svg",
     },
     {
       name: "Node.js",
-      url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+      url: "/images/tech/nodejs.svg",
     },
     {
       name: "PHP",
-      url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+      url: "/images/tech/php.svg",
     }
   ]
 
   const paymentMethods = [
-    {
-      name: "QRIS",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/QRIS_logo.svg/512px-QRIS_logo.svg.png",
-    },
-    {
-      name: "BCA",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/512px-Bank_Central_Asia.svg.png",
-    },
-    {
-      name: "Mandiri",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo_2016.svg/512px-Bank_Mandiri_logo_2016.svg.png",
-    },
-    {
-      name: "BNI",
-      url: "https://upload.wikimedia.org/wikipedia/id/thumb/5/55/BNI_logo.svg/512px-BNI_logo.svg.png",
-    },
-    {
-      name: "BRI",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/BRI_2020.svg/512px-BRI_2020.svg.png",
-    },
-    {
-      name: "GoPay",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Gopay_logo.svg/512px-Gopay_logo.svg.png",
-    },
-    {
-      name: "OVO",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Logo_ovo_purple.svg/512px-Logo_ovo_purple.svg.png",
-    },
-    {
-      name: "DANA",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/512px-Logo_dana_blue.svg.png",
-    },
-    {
-      name: "ShopeePay",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Shopee.svg/512px-Shopee.svg.png",
-    },
-    {
-      name: "LinkAja",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/LinkAja.svg/512px-LinkAja.svg.png",
-    },
-    {
-      name: "Jenius",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Jenius_logo.svg/512px-Jenius_logo.svg.png",
-    },
-    {
-      name: "BSI",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Bank_Syariah_Indonesia.svg/512px-Bank_Syariah_Indonesia.svg.png",
-    }
+    { name: "QRIS", url: "/images/payment/qris.svg" },
+    { name: "BCA", url: "/images/payment/bca.svg" },
+    { name: "Mandiri", url: "/images/payment/mandiri.svg" },
+    { name: "BNI", url: "/images/payment/bni.svg" },
+    { name: "BRI", url: "/images/payment/bri.svg" },
+    { name: "GoPay", url: "/images/payment/gopay.svg" },
+    { name: "OVO", url: "/images/payment/ovo.svg" },
+    { name: "DANA", url: "/images/payment/dana.svg" },
+    { name: "ShopeePay", url: "/images/payment/shopeepay.svg" },
+    { name: "LinkAja", url: "/images/payment/linkaja.svg" },
+    { name: "Jenius", url: "/images/payment/jenius.svg" },
+    { name: "BSI", url: "/images/payment/bsi.svg" },
+  ]
+
+  const servicePackages = [
+    { label: "Paket Hemat UMKM", href: "#pricing" },
+    { label: "Paket UMKM", href: "#pricing" },
+    { label: "Paket Bisnis", href: "#pricing" },
+    { label: "Paket Bisnis Plus", href: "#pricing" },
+    { label: "Paket Wedding Digital", href: "#pricing" },
+    { label: "Paket Ucapan Ultah Romantis", href: "#pricing" },
   ]
 
   return (
@@ -256,36 +229,14 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-foreground mb-4">Layanan Kami</h3>
             <ul className="space-y-3 text-muted-foreground text-sm">
-              <li>
-                <a href="#services" className="hover:text-primary transition-colors flex items-center gap-2">
-                  <ExternalLink className="h-3 w-3" />
-                  Website Company Profile
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-primary transition-colors flex items-center gap-2">
-                  <ExternalLink className="h-3 w-3" />
-                  Toko Online/E-commerce
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-primary transition-colors flex items-center gap-2">
-                  <ExternalLink className="h-3 w-3" />
-                  Landing Page Bisnis
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-primary transition-colors flex items-center gap-2">
-                  <ExternalLink className="h-3 w-3" />
-                  Website Sekolah/Yayasan
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-primary transition-colors flex items-center gap-2">
-                  <ExternalLink className="h-3 w-3" />
-                  Website Custom
-                </a>
-              </li>
+              {servicePackages.map((service) => (
+                <li key={service.label}>
+                  <a href={service.href} className="hover:text-primary transition-colors flex items-center gap-2">
+                    <ExternalLink className="h-3 w-3" />
+                    {service.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 

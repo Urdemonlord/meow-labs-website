@@ -3,9 +3,10 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Calendar, ArrowRight, BookOpen, TrendingUp, Code2 } from 'lucide-react'
+import { Calendar, ArrowRight, BookOpen } from 'lucide-react'
 import Link from "next/link"
 import { LoadingState, ErrorBoundary } from "@/components/loading-state"
+import Image from "next/image"
 
 const blogPosts = [
   {
@@ -15,7 +16,7 @@ const blogPosts = [
     date: "15 Desember 2023",
     category: "Web Development",
     readTime: "5 min",
-    image: "/placeholder-blog-1.jpg",
+    image: "/images/blog/tren-web-2024.svg",
     featured: true
   },
   {
@@ -25,7 +26,7 @@ const blogPosts = [
     date: "10 Desember 2023",
     category: "SEO",
     readTime: "7 min",
-    image: "/placeholder-blog-2.jpg",
+    image: "/images/blog/seo-bisnis-semarang.svg",
     featured: false
   },
   {
@@ -35,7 +36,7 @@ const blogPosts = [
     date: "5 Desember 2023",
     category: "Business",
     readTime: "6 min",
-    image: "/placeholder-blog-3.jpg",
+    image: "/images/blog/memilih-web-developer.svg",
     featured: false
   }
 ]
@@ -68,16 +69,16 @@ export function BlogSection() {
               <div key={post.id} className="mb-12">
                 <Card className="overflow-hidden border-border shadow-lg hover:shadow-xl transition-shadow bg-card">
                   <div className="grid md:grid-cols-2 gap-0">
-                    <div className="relative h-64 md:h-auto bg-gradient-to-br from-primary/10 to-secondary/10">
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="text-center">
-                          <TrendingUp className="h-16 w-16 text-primary mx-auto mb-4 opacity-60" />
-                          <p className="text-muted-foreground text-sm">Featured Article Image</p>
-                        </div>
-                      </div>
-                      <Badge className="absolute top-4 left-4 bg-primary">
-                        Featured
-                      </Badge>
+                    <div className="relative h-64 md:h-auto">
+                      <Image
+                        src={post.image}
+                        alt={post.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        priority
+                      />
+                      <Badge className="absolute top-4 left-4 bg-primary">Featured</Badge>
                     </div>
                     <div className="p-8 flex flex-col justify-center">
                       <div className="flex items-center gap-4 mb-4">
@@ -109,13 +110,14 @@ export function BlogSection() {
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               {blogPosts.filter(post => !post.featured).map((post) => (
                 <Card key={post.id} className="overflow-hidden border-border shadow-md hover:shadow-lg transition-shadow group bg-card">
-                  <div className="relative h-48 bg-gradient-to-br from-muted/50 to-muted">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center">
-                        <Code2 className="h-12 w-12 text-muted-foreground mx-auto mb-2" />
-                        <p className="text-muted-foreground text-xs">Article Image</p>
-                      </div>
-                    </div>
+                  <div className="relative h-48">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
                   </div>
                   <CardContent className="p-6">
                     <div className="flex items-center gap-4 mb-3">
