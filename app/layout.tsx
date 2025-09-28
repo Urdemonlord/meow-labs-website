@@ -17,7 +17,7 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
 })
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://meowlabs.id"
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://meowlabs.store"
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -104,9 +104,9 @@ export default function RootLayout({
               "@type": "LocalBusiness",
               "name": "Meow Labs",
               "description": "Jasa pembuatan website profesional termurah di Semarang",
-              "url": "https://meowlabs.id",
+              "url": "https://meowlabs.store",
               "telephone": "+6289538628863",
-              "email": "meowlabs.id@gmail.com",
+              "email": "meowlabs.store@gmail.com",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Semarang",

@@ -196,7 +196,7 @@ export function Footer() {
                   href="mailto:meowlabs.id@gmail.com"
                   className="text-muted-foreground hover:text-blue-600 transition-colors"
                 >
-                  meowlabs.id@gmail.com
+                  meowlabs.store@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-3 text-sm">
@@ -222,7 +222,7 @@ export function Footer() {
               <span className="text-sm text-muted-foreground">Follow us:</span>
               <div className="flex gap-3">
                 <a
-                  href="https://instagram.com/meowlabs.id"
+                  href="https://instagram.com/meowlabs.store"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-8 h-8 bg-pink-500/10 rounded-lg flex items-center justify-center text-pink-600 hover:bg-pink-500 hover:text-white transition-all duration-300"
@@ -231,7 +231,7 @@ export function Footer() {
                   <Instagram className="h-4 w-4" />
                 </a>
                 <a
-                  href="https://facebook.com/meowlabs.id"
+                  href="https://facebook.com/meowlabs.store"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-8 h-8 bg-blue-500/10 rounded-lg flex items-center justify-center text-blue-600 hover:bg-blue-500 hover:text-white transition-all duration-300"

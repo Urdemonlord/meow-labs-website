@@ -140,7 +140,7 @@ Semua warna dan branding dapat disesuaikan melalui:
 - 📍 **Lokasi**: Semarang & Sekitarnya
 - 📞 **WhatsApp**: +62 895-3862-88683
 - 📧 **Email**: meowlabs.id@gmail.com
-- 🌐 **Website**: [meowlabs.id](https://meowlabs.id)
+- 🌐 **Website**: [meowlabs.store](https://meowlabs.store)
 - 📱 **Instagram**: [@meowlabs.id](https://instagram.com/meowlabs.id)
 
 ### Business Hours
