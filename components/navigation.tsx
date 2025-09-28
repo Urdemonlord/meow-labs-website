@@ -10,12 +10,30 @@ import { Menu, X } from "lucide-react"
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
-  const isBlogPage = pathname === '/blog'
+  const isHomePage = !pathname || pathname === "/"
+
+  const createSectionHref = (section: string) =>
+    `${isHomePage ? "" : "/"}#${section}`
+
+  useEffect(() => {
+    setIsMenuOpen(false)
+  }, [pathname])
+
+  const navItems = [
+    { label: "Home", href: isHomePage ? "#home" : "/#home" },
+    { label: "About", href: "/about" },
+    { label: "Services", href: createSectionHref("services") },
+    { label: "Package", href: createSectionHref("pricing") },
+    { label: "For Students", href: createSectionHref("student-packages") },
+    { label: "Portfolio", href: createSectionHref("portfolio") },
+    { label: "Blog", href: "/blog" },
+    { label: "Contact", href: createSectionHref("contact") },
+  ]
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
             <Image src="/images/meow-logo.png" alt="Meow Labs Logo" width={40} height={40} className="rounded-lg" />
@@ -23,39 +41,37 @@ export function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link href={isBlogPage ? "/" : "#home"} className="text-muted-foreground hover:text-primary transition-colors">
-              Home
-            </Link>
-            <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">
-              About
-            </Link>
-            <Link href={isBlogPage ? "/#services" : "#services"} className="text-muted-foreground hover:text-primary transition-colors">
-              Services
-            </Link>
-            <Link href={isBlogPage ? "/#pricing" : "#pricing"} className="text-muted-foreground hover:text-primary transition-colors">
-              Package
-            </Link>
-            <Link href={isBlogPage ? "/#student-packages" : "#student-packages"} className="text-muted-foreground hover:text-primary transition-colors">
-              For Students
-            </Link>
-            <Link href={isBlogPage ? "/#portfolio" : "#portfolio"} className="text-muted-foreground hover:text-primary transition-colors">
-              Portfolio
-            </Link>
-            <Link href="/blog" className="text-muted-foreground hover:text-primary transition-colors">
-              Blog
-            </Link>
-            <Link href={isBlogPage ? "/#contact" : "#contact"} className="text-muted-foreground hover:text-primary transition-colors">
-              Contact
-            </Link>
-            <a href="https://wa.me/62895386288683?text=Halo%20Meow%20Labs!%20Saya%20ingin%20konsultasi%20pembuatan%20website">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 glow-animation">Hubungi Kami</Button>
+          <div className="hidden items-center space-x-8 md:flex">
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="text-muted-foreground transition-colors hover:text-primary"
+              >
+                {item.label}
+              </Link>
+            ))}
+            <a
+              href="https://wa.me/62895386288683?text=Halo%20Meow%20Labs!%20Saya%20ingin%20konsultasi%20pembuatan%20website"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 glow-animation">
+                Hubungi Kami
+              </Button>
             </a>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="Toggle navigation menu"
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-navigation"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
@@ -63,66 +79,24 @@ export function Navigation() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-card rounded-lg mt-2">
-              <Link
-                href={isBlogPage ? "/" : "#home"}
-                className="block px-3 py-2 text-muted-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Home
-              </Link>
-              <Link
-                href="/about"
-                className="block px-3 py-2 text-muted-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                About
-              </Link>
-              <Link
-                href={isBlogPage ? "/#services" : "#services"}
-                className="block px-3 py-2 text-muted-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Services
-              </Link>
-              <Link
-                href={isBlogPage ? "/#pricing" : "#pricing"}
-                className="block px-3 py-2 text-muted-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Package
-              </Link>
-              <Link
-                href={isBlogPage ? "/#student-packages" : "#student-packages"}
-                className="block px-3 py-2 text-muted-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                For Students
-              </Link>
-              <Link
-                href={isBlogPage ? "/#portfolio" : "#portfolio"}
-                className="block px-3 py-2 text-muted-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Portfolio
-              </Link>
-              <Link
-                href="/blog"
-                className="block px-3 py-2 text-muted-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Blog
-              </Link>
-              <Link
-                href={isBlogPage ? "/#contact" : "#contact"}
-                className="block px-3 py-2 text-muted-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contact
-              </Link>
+          <div className="md:hidden" id="mobile-navigation">
+            <div className="mt-2 space-y-1 rounded-lg bg-card px-2 pt-2 pb-3">
+              {navItems.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="block px-3 py-2 text-muted-foreground transition-colors hover:text-primary"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
               <div className="px-3 py-2">
-                <a href="https://wa.me/62895386288683?text=Halo%20Meow%20Labs!%20Saya%20ingin%20konsultasi%20pembuatan%20website">
+                <a
+                  href="https://wa.me/62895386288683?text=Halo%20Meow%20Labs!%20Saya%20ingin%20konsultasi%20pembuatan%20website"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">Hubungi Kami</Button>
                 </a>
               </div>

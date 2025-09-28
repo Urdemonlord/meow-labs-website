@@ -1,50 +1,50 @@
-import { MetadataRoute } from 'next'
+import type { MetadataRoute } from "next"
+
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://meowlabs.id"
+const siteUrl = new URL(baseUrl)
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://meowlabs.id'
+  const lastModified = new Date()
 
-  return [
+  const primaryRoutes: MetadataRoute.Sitemap = [
     {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
+      url: siteUrl.origin,
+      lastModified,
+      changeFrequency: "weekly",
       priority: 1,
     },
     {
-      url: `${baseUrl}/#services`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/#pricing`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/#portfolio`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
+      url: `${siteUrl.origin}/about`,
+      lastModified,
+      changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/#testimonials`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/#faq`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#contact`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
+      url: `${siteUrl.origin}/blog`,
+      lastModified,
+      changeFrequency: "weekly",
       priority: 0.8,
     },
   ]
+
+  const sectionAnchors = [
+    "home",
+    "services",
+    "process",
+    "pricing",
+    "student-packages",
+    "portfolio",
+    "testimonials",
+    "faq",
+    "contact",
+  ]
+
+  const sectionRoutes: MetadataRoute.Sitemap = sectionAnchors.map((anchor, index) => ({
+    url: `${siteUrl.origin}/#${anchor}`,
+    lastModified,
+    changeFrequency: index < 3 ? "weekly" : "monthly",
+    priority: Math.max(0.5, 0.9 - index * 0.05),
+  }))
+
+  return [...primaryRoutes, ...sectionRoutes]
 }
