@@ -39,7 +39,7 @@ export function PricingSection() {
       description: "Rekomendasi untuk UMKM/Yayasan yang baru memulai Go-Digital",
       features: [
         "1 Halaman Website",
-        "Free Domain .com",
+        "Free Domain .my.id",
         "Aktif 1 Tahun",
         "Basic Landing Page Design",
         "Basic Copy Writing",
