@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next"
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://meowlabs.store"
+const fallbackBaseUrl = "https://meowlabs.store"
+const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? fallbackBaseUrl).replace(/\/$/, "")
 const siteUrl = new URL(baseUrl)
 
 export default function sitemap(): MetadataRoute.Sitemap {
