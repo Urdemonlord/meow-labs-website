@@ -1,11 +1,9 @@
-"use client"
+import type { Metadata } from "next"
 
-import { useEffect } from "react"
-import { useRouter } from "next/navigation"
-import { Metadata } from "next"
+import RedirectMessage from "@/components/redirect-message"
 
 // Metadata for this specific page
-export const metadata = {
+export const metadata: Metadata = {
   title: "Web Developer Profesional Semarang | Meow Labs",
   description: "Tim web developer profesional Semarang dengan portofolio terbaik. Ahli dalam pengembangan website modern, aplikasi web, dan solusi e-commerce. Konsultasi gratis!",
   keywords: [
@@ -19,16 +17,5 @@ export const metadata = {
 }
 
 export default function WebDeveloperSemarang() {
-  const router = useRouter()
-
-  // Redirect to homepage with appropriate section focus
-  useEffect(() => {
-    router.push("/#portfolio")
-  }, [router])
-
-  return (
-    <div className="min-h-screen flex items-center justify-center">
-      <p>Redirecting to homepage...</p>
-    </div>
-  )
+  return <RedirectMessage href="/#portfolio" message="Redirecting to homepage..." />
 }
