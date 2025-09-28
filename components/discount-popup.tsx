@@ -40,7 +40,7 @@ export function DiscountPopup() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-4">
             <span className="text-2xl">🔥</span>
           </div>
-          <h3 className="text-2xl font-bold mb-2">PROMO SPESIAL!</h3>
+          <h3 className="text-2xl font-bold mb-2">PROMO SPESIAL BULAN SEPTEMBER!</h3>
           <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white font-bold py-2 px-4 rounded-md mb-4 animate-pulse">
             DISKON 50% UNTUK 5 KLIEN PERTAMA!
           </div>
