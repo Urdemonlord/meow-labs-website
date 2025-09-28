@@ -11,5 +11,5 @@ Disallow: /private/
 Crawl-delay: 1
 
 # Sitemap and host configuration
-Sitemap: https://meowlabs.id/sitemap.xml
-Host: https://meowlabs.id
+Sitemap: https://meowlabs.store/sitemap.xml
+Host: https://meowlabs.store
