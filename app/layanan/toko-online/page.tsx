@@ -1,11 +1,9 @@
-"use client"
+import type { Metadata } from "next"
 
-import { useEffect } from "react"
-import { useRouter } from "next/navigation"
-import { Metadata } from "next"
+import RedirectMessage from "@/components/redirect-message"
 
 // Metadata for this specific service page
-export const metadata = {
+export const metadata: Metadata = {
   title: "Jasa Pembuatan Toko Online di Semarang | Meow Labs",
   description: "Jasa pembuatan website toko online dan e-commerce di Semarang. Tingkatkan penjualan bisnis Anda dengan website e-commerce yang profesional dan user-friendly.",
   keywords: [
@@ -19,16 +17,5 @@ export const metadata = {
 }
 
 export default function TokoOnlinePage() {
-  const router = useRouter()
-
-  // Redirect to services section
-  useEffect(() => {
-    router.push("/#services")
-  }, [router])
-
-  return (
-    <div className="min-h-screen flex items-center justify-center">
-      <p>Redirecting to services section...</p>
-    </div>
-  )
+  return <RedirectMessage href="/#services" message="Redirecting to services section..." />
 }
