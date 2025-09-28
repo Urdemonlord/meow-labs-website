@@ -33,12 +33,15 @@ export const metadata: Metadata = {
   generator: "Meow Labs",
   icons: {
     icon: [
-      { url: "/favicon.ico", type: "image/x-icon" }, // favicon.ico
+      { url: "/favicon.ico", type: "image/x-icon" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/images/meow-logo.png", type: "image/png", sizes: "512x512" },
+      { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
     ],
     shortcut: "/favicon.ico",
-    apple: "/images/meow-logo.png",
+    apple: "/apple-touch-icon.png",
   },
   keywords: [
     "jasa pembuatan website murah",
@@ -106,14 +109,21 @@ export default function RootLayout({
   return (
     <html lang="id" className="dark">
       <head>
+        {/* Primary favicon information for search engines */}
+        {/* <!-- This site's preferred favicon --> */}
         <link rel="canonical" href={siteUrl} />
 
         {/* Favicon support */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" type="image/png" href="/images/meow-logo.png" />
-        <link rel="apple-touch-icon" href="/images/meow-logo.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="mask-icon" href="/favicon.svg" color="#0f172a" />
         <link rel="manifest" href="/site.webmanifest" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+        <meta name="msapplication-TileColor" content="#0f172a" />
+        <meta name="theme-color" content="#0f172a" />
 
         <meta name="geo.region" content="ID-JT" />
         <meta name="geo.placename" content="Semarang" />
@@ -134,7 +144,7 @@ export default function RootLayout({
                 "Jasa pembuatan website murah untuk UMKM & personal di Semarang",
               url: "https://meowlabs.store",
               telephone: "+6289538628863",
-              email: "meowlabs.store@gmail.com",
+              email: "meowlabs.id@gmail.com",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Semarang",
@@ -179,8 +189,8 @@ export default function RootLayout({
                 caption: "Meow Labs Logo",
               },
               sameAs: [
-                "https://instagram.com/meowlabs.store",
-                "https://facebook.com/meowlabs.store",
+                "https://instagram.com/meowlabs.id",
+                "https://facebook.com/meowlabs.id",
               ],
             }),
           }}
