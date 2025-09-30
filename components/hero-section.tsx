@@ -32,9 +32,9 @@ export function HeroSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Text content */}
-          <div className="text-center lg:text-left">
+          <div className="text-center lg:text-left pt-8 sm:pt-0">
             <div className="mb-6">
-              <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+              <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4 mt-8 sm:mt-0">
                 🥇 Jasa Pembuatan Website #1 Semarang
               </span>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-balance leading-tight">

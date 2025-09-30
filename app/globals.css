@@ -4,8 +4,13 @@
 @custom-variant dark (&:is(.dark *));
 
 /* Smooth scroll behavior */
+:root {
+  --header-h: 64px;
+}
+
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + env(safe-area-inset-top));
 }
 
 /* Glow animation for buttons */

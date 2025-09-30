@@ -13,11 +13,20 @@ export function Navigation() {
   const isHomePage = !pathname || pathname === "/"
 
   const createSectionHref = (section: string) =>
-    `${isHomePage ? "" : "/"}#${section}`
+    isHomePage ? `#${section}` : `/#${section}`
 
   useEffect(() => {
     setIsMenuOpen(false)
   }, [pathname])
+
+  // lock body scroll ketika menu terbuka
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add("overflow-hidden")
+    } else {
+      document.body.classList.remove("overflow-hidden")
+    }
+  }, [isMenuOpen])
 
   const navItems = [
     { label: "Home", href: isHomePage ? "#home" : "/#home" },
@@ -31,12 +40,19 @@ export function Navigation() {
   ]
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
+    <nav className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
-            <Image src="/images/meow-logo.png" alt="Meow Labs Logo" width={40} height={40} className="rounded-lg" />
+            <Image
+              src="/images/meow-logo.png"
+              alt="Meow Labs Logo"
+              width={40}
+              height={40}
+              className="rounded-lg"
+              priority
+            />
             <span className="text-xl font-bold text-foreground">Meow Labs</span>
           </Link>
 
@@ -79,8 +95,13 @@ export function Navigation() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden" id="mobile-navigation">
-            <div className="mt-2 space-y-1 rounded-lg bg-card px-2 pt-2 pb-3">
+          <div
+            className="md:hidden"
+            id="mobile-navigation"
+            role="dialog"
+            aria-modal="true"
+          >
+            <div className="mt-2 space-y-1 rounded-lg bg-card px-2 pt-2 pb-3 shadow-lg">
               {navItems.map((item) => (
                 <Link
                   key={item.label}
@@ -97,7 +118,9 @@ export function Navigation() {
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">Hubungi Kami</Button>
+                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                    Hubungi Kami
+                  </Button>
                 </a>
               </div>
             </div>
