@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <rect width="120" height="120" rx="16" fill="#0C2D13"/>
+  <path d="M60 18 96 39v42L60 102 24 81V39z" fill="#3C873A"/>
+  <path d="M60 36 36 50v20l24 14 24-14V50z" fill="none" stroke="#C9F7C1" stroke-width="6" stroke-linejoin="round"/>
+  <text x="60" y="69" font-size="20" text-anchor="middle" fill="#C9F7C1" font-family="Arial, sans-serif">Node</text>
+</svg>

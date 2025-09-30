@@ -7,36 +7,40 @@ import Image from "next/image"
 export function TestimonialsSection() {
   const testimonials = [
     {
-      name: "Budi Santoso",
-      company: "CV Maju Bersama",
+      name: "Rizky Prabowo",
+      company: "PWK Consultant",
       avatar: "/placeholder-user.jpg",
       rating: 5,
-      review: "Pelayanan sangat memuaskan! Website company profile kami jadi terlihat profesional dan banyak inquiry masuk dari website. Tim Meow Labs sangat responsif dan hasil sesuai ekspektasi.",
+      review:
+        "Website company profile kami tampil jauh lebih profesional. Klien mudah menemukan portofolio proyek dan jadwal konsultasi. Tim Meow Labs cepat menindaklanjuti setiap revisi.",
       project: "Company Profile",
     },
     {
-      name: "Sarah Wijaya",
-      company: "Toko Busana Sarah",
-      avatar: "/placeholder-user.jpg", 
+      name: "Tim Marketing Sportify",
+      company: "Sportify Indonesia",
+      avatar: "/placeholder-user.jpg",
       rating: 5,
-      review: "Toko online kami sekarang ramai pembeli! Fitur WhatsApp checkout sangat membantu. Maintenance gratis juga benar-benar dilakukan dengan baik. Recommended banget!",
+      review:
+        "E-commerce Sportify kini berjalan stabil dengan katalog produk lengkap dan integrasi pembayaran cashless. Penjualan meningkat karena user experience yang nyaman di mobile.",
       project: "Toko Online",
     },
     {
-      name: "Dr. Ahmad Fauzi",
-      company: "Klinik Sehat Sentosa",
+      name: "Humas RSGM Unimus",
+      company: "RSGM Unimus",
       avatar: "/placeholder-user.jpg",
       rating: 5,
-      review: "Website klinik kami sekarang terlihat modern dan mudah digunakan pasien. Fitur booking online sangat membantu mengurangi antrian. Terima kasih Meow Labs!",
-      project: "Website Klinik",
+      review:
+        "Sistem booking pasien dan halaman informasi layanan gigi kini jauh lebih mudah digunakan. Pasien dapat memilih jadwal dokter dan menerima konfirmasi otomatis via WhatsApp.",
+      project: "Aplikasi Reservasi",
     },
     {
-      name: "Rina Kartika",
-      company: "SD Harapan Bangsa",
+      name: "Dinas Kominfo Grobogan",
+      company: "Pemkab Grobogan",
       avatar: "/placeholder-user.jpg",
       rating: 5,
-      review: "Website sekolah kami jadi lebih informatif dan mudah diakses orang tua siswa. Tim sangat sabar dalam memberikan tutorial cara mengelola konten. Excellent service!",
-      project: "Website Sekolah",
+      review:
+        "Portal informasi kabupaten tampil modern dengan aksesibilitas yang baik. Aktualisasi berita dan agenda kegiatan bisa kami kelola sendiri dengan dashboard yang simpel.",
+      project: "Portal Pemerintah",
     },
   ]
 
