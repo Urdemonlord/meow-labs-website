@@ -31,7 +31,7 @@ export function Footer() {
     },
     {
       name: "Laravel",
-      url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg",
+      url: "https://imgur.com/zf6C89Q.jpg",
     },
     {
       name: "Node.js",
@@ -46,7 +46,7 @@ export function Footer() {
   const paymentMethods = [
     {
       name: "QRIS",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/QRIS_logo.svg/512px-QRIS_logo.svg.png",
+      url: "https://imgur.com/YOztJcM.png",
     },
     {
       name: "BCA",
@@ -58,7 +58,7 @@ export function Footer() {
     },
     {
       name: "BNI",
-      url: "https://upload.wikimedia.org/wikipedia/id/thumb/5/55/BNI_logo.svg/512px-BNI_logo.svg.png",
+      url: "https://imgur.com/kmNckLb.png",
     },
     {
       name: "BRI",
@@ -66,7 +66,7 @@ export function Footer() {
     },
     {
       name: "GoPay",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Gopay_logo.svg/512px-Gopay_logo.svg.png",
+      url: "https://imgur.com/1drCNcm.png",
     },
     {
       name: "OVO",
@@ -86,7 +86,7 @@ export function Footer() {
     },
     {
       name: "Jenius",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Jenius_logo.svg/512px-Jenius_logo.svg.png",
+      url: "https://imgur.com/p2uT769.png",
     },
     {
       name: "BSI",
@@ -277,13 +277,25 @@ export function Footer() {
               <li>
                 <a href="#services" className="hover:text-primary transition-colors flex items-center gap-2">
                   <ExternalLink className="h-3 w-3" />
-                  Website Sekolah/Yayasan
+                  Personal Branding Website
                 </a>
               </li>
               <li>
                 <a href="#services" className="hover:text-primary transition-colors flex items-center gap-2">
                   <ExternalLink className="h-3 w-3" />
-                  Website Custom
+                  POS / Aplikasi Bisnis
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="hover:text-primary transition-colors flex items-center gap-2">
+                  <ExternalLink className="h-3 w-3" />
+                  Aplikasi AI/ML Custom
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="hover:text-primary transition-colors flex items-center gap-2">
+                  <ExternalLink className="h-3 w-3" />
+                  Website Sekolah/Yayasan
                 </a>
               </li>
             </ul>
