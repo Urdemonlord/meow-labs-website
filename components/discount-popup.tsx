@@ -18,7 +18,7 @@ export function DiscountPopup() {
 
   const handleWhatsAppContact = () => {
     const phoneNumber = "62895386288683"
-    const message = "Halo! Saya ingin mendapatkan promo diskon 50% untuk 5 klien pertama!"
+    const message = "Halo! Saya ingin mendapatkan promo diskon 30% untuk 10 klien pertama!"
     const encodedMessage = encodeURIComponent(message)
     const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`
     window.open(whatsappUrl, "_blank")
@@ -40,12 +40,12 @@ export function DiscountPopup() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-4">
             <span className="text-2xl">🔥</span>
           </div>
-          <h3 className="text-2xl font-bold mb-2">PROMO SPESIAL BULAN SEPTEMBER!</h3>
+          <h3 className="text-2xl font-bold mb-2">PROMO SPESIAL BULAN OKTOBER!</h3>
           <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white font-bold py-2 px-4 rounded-md mb-4 animate-pulse">
-            DISKON 50% UNTUK 5 KLIEN PERTAMA!
+            DISKON 30% UNTUK 10 KLIEN PERTAMA!
           </div>
           <p className="text-muted-foreground mb-4">
-            Dapatkan kesempatan emas! Kami menawarkan diskon 50% untuk 5 klien pertama yang menghubungi kami sekarang.
+            Dapatkan kesempatan emas! Kami menawarkan diskon 30% untuk 10 klien pertama yang menghubungi kami sekarang.
           </p>
           
           <div className="space-y-2 text-sm text-left mb-6">
@@ -69,7 +69,7 @@ export function DiscountPopup() {
             onClick={handleWhatsAppContact}
             className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
           >
-            Klaim Diskon 50% Sekarang!
+            Klaim Diskon 30% Sekarang!
           </Button>
           <button 
             onClick={() => setIsOpen(false)}

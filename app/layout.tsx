@@ -141,10 +141,10 @@ export default function RootLayout({
               "@type": "LocalBusiness",
               name: "Meow Labs",
               description:
-                "Jasa pembuatan website murah untuk UMKM & personal di Semarang",
+                "Jasa pembuatan website murah untuk UMKM & personal di Semarang oleh tim profesional dipimpin oleh Hasrinata Arya Afendi",
               url: "https://meowlabs.store",
               telephone: "+6289538628863",
-              email: "meowlabs.id@gmail.com",
+              email: "meowlabs.store@gmail.com",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Semarang",
@@ -189,8 +189,8 @@ export default function RootLayout({
                 caption: "Meow Labs Logo",
               },
               sameAs: [
-                "https://instagram.com/meowlabs.id",
-                "https://facebook.com/meowlabs.id",
+                "https://instagram.com/meowlabs.store",
+                "https://facebook.com/meowlabs.store",
               ],
             }),
           }}
