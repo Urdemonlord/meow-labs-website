@@ -315,7 +315,7 @@ export default function BlogPostPage() {
             "@type": "BlogPosting",
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": "https://meowlabs.store/blog/3"
+              "@id": "https://meowlabs.id/blog/3"
             },
             "headline": "Website atau Aplikasi Mobile: Mana yang Tepat untuk Bisnis UMKM Anda?",
             "description": "Panduan lengkap membandingkan website dan aplikasi mobile untuk membantu UMKM memilih platform digital yang paling sesuai dengan kebutuhan bisnis mereka.",
@@ -323,14 +323,14 @@ export default function BlogPostPage() {
             "author": {
               "@type": "Organization",
               "name": "Meow Labs",
-              "url": "https://meowlabs.store"
+              "url": "https://meowlabs.id"
             },
             "publisher": {
               "@type": "Organization",
               "name": "Meow Labs",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://meowlabs.store/images/meow-logo.png"
+                "url": "https://meowlabs.id/images/meow-logo.png"
               }
             },
             "datePublished": "2025-09-15T08:00:00+07:00",

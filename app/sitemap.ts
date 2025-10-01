@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next"
 
-const fallbackBaseUrl = "https://meowlabs.store"
+const fallbackBaseUrl = "https://meowlabs.id"
 const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? fallbackBaseUrl).replace(/\/$/, "")
 const siteUrl = new URL(baseUrl)
 

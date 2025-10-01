@@ -69,10 +69,10 @@ export default function BlogPage() {
             "author": {
               "@type": "Organization",
               "name": "Meow Labs",
-              "url": "https://meowlabs.store",
+              "url": "https://meowlabs.id",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://meowlabs.store/images/meow-logo.png"
+                "url": "https://meowlabs.id/images/meow-logo.png"
               }
             },
             "publisher": {
@@ -80,12 +80,12 @@ export default function BlogPage() {
               "name": "Meow Labs",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://meowlabs.store/images/meow-logo.png"
+                "url": "https://meowlabs.id/images/meow-logo.png"
               }
             },
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": "https://meowlabs.store/blog"
+              "@id": "https://meowlabs.id/blog"
             },
             "blogPost": [
               {
@@ -95,7 +95,7 @@ export default function BlogPage() {
                 "datePublished": "2025-09-29T08:00:00+07:00",
                 "dateModified": "2025-09-29T08:00:00+07:00",
                 "author": {"@type": "Organization", "name": "Meow Labs"},
-                "url": "https://meowlabs.store/blog/1"
+                "url": "https://meowlabs.id/blog/1"
               },
               {
                 "@type": "BlogPosting",
@@ -104,7 +104,7 @@ export default function BlogPage() {
                 "datePublished": "2025-09-20T08:00:00+07:00",
                 "dateModified": "2025-09-20T08:00:00+07:00",
                 "author": {"@type": "Organization", "name": "Meow Labs"},
-                "url": "https://meowlabs.store/blog/2"
+                "url": "https://meowlabs.id/blog/2"
               },
               {
                 "@type": "BlogPosting",
@@ -113,7 +113,7 @@ export default function BlogPage() {
                 "datePublished": "2025-09-15T08:00:00+07:00",
                 "dateModified": "2025-09-15T08:00:00+07:00",
                 "author": {"@type": "Organization", "name": "Meow Labs"},
-                "url": "https://meowlabs.store/blog/3"
+                "url": "https://meowlabs.id/blog/3"
               }
             ]
           })

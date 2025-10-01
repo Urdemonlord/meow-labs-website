@@ -17,7 +17,7 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
 })
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://meowlabs.store"
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://meowlabs.id"
 
 export const viewport = {
   width: "device-width",
@@ -189,8 +189,8 @@ export default function RootLayout({
                 caption: "Meow Labs Logo",
               },
               sameAs: [
-                "https://instagram.com/meowlabs.store",
-                "https://facebook.com/meowlabs.store",
+                "https://instagram.com/meowlabs.id",
+                "https://facebook.com/meowlabs.id",
               ],
             }),
           }}

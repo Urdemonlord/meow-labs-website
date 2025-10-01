@@ -178,8 +178,8 @@ export default function AboutPage() {
               "@type": "Organization",
               "name": "Meow Labs",
               "description": "Tim pengembang website profesional di Semarang yang dipimpin oleh Hasrinata Arya Afendi, menyediakan jasa pembuatan website murah untuk UMKM dan bisnis lokal.",
-              "url": "https://meowlabs.store",
-              "logo": "https://meowlabs.store/images/meow-logo.png",
+              "url": "https://meowlabs.id",
+              "logo": "https://meowlabs.id/images/meow-logo.png",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Semarang",

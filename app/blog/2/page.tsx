@@ -259,7 +259,7 @@ export default function BlogPostPage() {
             "@type": "BlogPosting",
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": "https://meowlabs.store/blog/2"
+              "@id": "https://meowlabs.id/blog/2"
             },
             "headline": "Strategi SEO Lokal untuk Bisnis di Semarang: Panduan Lengkap 2025",
             "description": "Panduan lengkap strategi SEO lokal terbaru untuk bisnis di Semarang yang membantu meningkatkan visibilitas online dan menarik pelanggan lokal.",
@@ -267,14 +267,14 @@ export default function BlogPostPage() {
             "author": {
               "@type": "Organization",
               "name": "Meow Labs",
-              "url": "https://meowlabs.store"
+              "url": "https://meowlabs.id"
             },
             "publisher": {
               "@type": "Organization",
               "name": "Meow Labs",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://meowlabs.store/images/meow-logo.png"
+                "url": "https://meowlabs.id/images/meow-logo.png"
               }
             },
             "datePublished": "2025-09-20T08:00:00+07:00",

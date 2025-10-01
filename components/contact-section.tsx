@@ -152,7 +152,7 @@ export function ContactSection() {
                     </div>
                     <div>
                       <div className="font-medium text-foreground">Email</div>
-                      <div className="text-muted-foreground">meowlabs.id@gmail.com</div>
+                      <div className="text-muted-foreground">admin@meowlabs.id</div>
                     </div>
                   </div>
 

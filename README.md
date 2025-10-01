@@ -139,8 +139,8 @@ Semua warna dan branding dapat disesuaikan melalui:
 ### Meow Labs - Web Development Services
 - 📍 **Lokasi**: Semarang & Sekitarnya
 - 📞 **WhatsApp**: +62 895-3862-88683
-- 📧 **Email**: meowlabs.id@gmail.com
-- 🌐 **Website**: [meowlabs.store](https://meowlabs.store)
+- 📧 **Email**: admin@meowlabs.id
+- 🌐 **Website**: [meowlabs.id](https://meowlabs.id)
 - 📱 **Instagram**: [@meowlabs.id](https://instagram.com/meowlabs.id)
 
 ### Business Hours

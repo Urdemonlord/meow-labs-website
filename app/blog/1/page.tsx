@@ -198,7 +198,7 @@ export default function BlogPostPage() {
             "@type": "BlogPosting",
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": "https://meowlabs.store/blog/1"
+              "@id": "https://meowlabs.id/blog/1"
             },
             "headline": "10 Tren Website Development 2025 untuk UMKM di Indonesia",
             "description": "Temukan 10 tren website development terbaru tahun 2025 untuk UMKM di Indonesia yang perlu Anda terapkan sekarang untuk tetap kompetitif.",
@@ -206,14 +206,14 @@ export default function BlogPostPage() {
             "author": {
               "@type": "Organization",
               "name": "Meow Labs",
-              "url": "https://meowlabs.store"
+              "url": "https://meowlabs.id"
             },
             "publisher": {
               "@type": "Organization",
               "name": "Meow Labs",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://meowlabs.store/images/meow-logo.png"
+                "url": "https://meowlabs.id/images/meow-logo.png"
               }
             },
             "datePublished": "2025-09-29T08:00:00+07:00",
