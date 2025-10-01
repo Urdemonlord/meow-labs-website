@@ -26,14 +26,14 @@ const teamMembers = [
   {
     name: "Hasrinata Arya Afendi",
     role: "Founder",
-    imageUrl: "https://imgur.com/eKwDaps.jpg",
+    imageUrl: "https://imgur.com/tHtY3Pj.jpg",
     description:
       "Visioner di balik berdirinya Meow Labs, yang memimpin arah dan strategi perusahaan dengan fokus pada solusi teknologi inovatif untuk UMKM.",
   },
   {
     name: "Yusuf Nur Cahyo",
     role: "IOT Developer & Social Media Strategist",
-    imageUrl: "https://imgur.com/xrhzpKe.jpg",
+    imageUrl: "https://imgur.com/7XzbPIr.jpg",
     description:
       "Menggabungkan keahlian teknologi IoT dengan strategi media sosial untuk memberikan solusi terintegrasi bagi klien.",
   },
@@ -47,7 +47,7 @@ const teamMembers = [
   {
     name: "Muhammad Fikar Firdiansyah",
     role: "UI/UX Designer",
-    imageUrl: "https://imgur.com/qALI5QN.jpg",
+    imageUrl: "https://imgur.com/wVBOb4J.jpg",
     description:
       "Merancang pengalaman pengguna yang intuitif dan desain antarmuka yang memanjakan mata di setiap perangkat.",
   },
@@ -68,21 +68,21 @@ const teamMembers = [
   {
     name: "Arisyad Faizon",
     role: "Executive Assistant",
-    imageUrl: "https://imgur.com/oqm16I7.jpg",
+    imageUrl: "https://imgur.com/3rCw03l.jpg",
     description:
       "Mendukung operasional dan manajemen proyek, memastikan semua kegiatan internal dan eksternal berjalan dengan lancar.",
   },
   {
     name: "Sahad Ibrohim",
     role: "Growth Strategist",
-    imageUrl: "https://imgur.com/yyGKJzx.jpg",
+    imageUrl: "https://imgur.com/4N4UJoX.jpg",
     description:
       "Menganalisis data dan tren pasar untuk mengembangkan strategi pertumbuhan bisnis yang berkelanjutan bagi klien.",
   },
   {
     name: "Rafi Yudha",
     role: "Growth Strategist",
-    imageUrl: "https://imgur.com/GzCxbYe.jpg",
+    imageUrl: "https://imgur.com/9pPmM6Z.jpg",
     description:
       "Merancang dan mengimplementasikan strategi pertumbuhan digital untuk memaksimalkan ROI dan kehadiran online klien.",
   },
