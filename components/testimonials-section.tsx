@@ -7,36 +7,40 @@ import Image from "next/image"
 export function TestimonialsSection() {
   const testimonials = [
     {
-      name: "Budi Santoso",
-      company: "CV Maju Bersama",
+      name: "Pak Ahmad",
+      company: "Jeka Towing Service",
       avatar: "/placeholder-user.jpg",
       rating: 5,
-      review: "Pelayanan sangat memuaskan! Website company profile kami jadi terlihat profesional dan banyak inquiry masuk dari website. Tim Meow Labs sangat responsif dan hasil sesuai ekspektasi.",
-      project: "Company Profile",
+      review:
+        "Website Jeka Towing kini membuat layanan kami lebih terpercaya. Banyak pelanggan baru lewat web, dan integrasi nomor WhatsApp memudahkan pemesanan. Tim MeowLabs sangat responsif.",
+      project: "Website Layanan Towing",
     },
     {
-      name: "Sarah Wijaya",
-      company: "Toko Busana Sarah",
-      avatar: "/placeholder-user.jpg", 
-      rating: 5,
-      review: "Toko online kami sekarang ramai pembeli! Fitur WhatsApp checkout sangat membantu. Maintenance gratis juga benar-benar dilakukan dengan baik. Recommended banget!",
-      project: "Toko Online",
-    },
-    {
-      name: "Dr. Ahmad Fauzi",
-      company: "Klinik Sehat Sentosa",
+      name: "Dr. Ratna",
+      company: "RSGM Klinik",
       avatar: "/placeholder-user.jpg",
       rating: 5,
-      review: "Website klinik kami sekarang terlihat modern dan mudah digunakan pasien. Fitur booking online sangat membantu mengurangi antrian. Terima kasih Meow Labs!",
-      project: "Website Klinik",
+      review:
+        "Aplikasi mobile dari MeowLabs sangat membantu pasien mendaftar secara online. Fitur antrian & notifikasi mengurangi beban administrasi klinik kami.",
+      project: "RSGM Mobile App",
     },
     {
-      name: "Rina Kartika",
-      company: "SD Harapan Bangsa",
+      name: "Ibu Sari",
+      company: "Kopi Senja",
       avatar: "/placeholder-user.jpg",
       rating: 5,
-      review: "Website sekolah kami jadi lebih informatif dan mudah diakses orang tua siswa. Tim sangat sabar dalam memberikan tutorial cara mengelola konten. Excellent service!",
-      project: "Website Sekolah",
+      review:
+        "Website dan brand Kopi Senja jadi makin menarik & modern. Order online naik, dan konten visual tampak profesional. Sangat puas dengan hasilnya!",
+      project: "Website & Branding F&B",
+    },
+    {
+      name: "Dian Prasetyo",
+      company: "Mahasiswa Informatika",
+      avatar: "/placeholder-user.jpg",
+      rating: 5,
+      review:
+        "AI CV Generator dari MeowLabs sangat membantu saya membuat CV profesional dengan cepat. Hasilnya ATS-friendly dan terlihat modern, sehingga saya lebih percaya diri melamar kerja.",
+      project: "AI CV Generator",
     },
   ]
 
