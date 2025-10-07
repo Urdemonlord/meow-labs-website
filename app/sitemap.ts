@@ -5,130 +5,79 @@ const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? fallbackBaseUrl).replace(/\
 const siteUrl = new URL(baseUrl)
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date()
+  const now = new Date()
 
-  // Main pages with higher priority for SEO
+  // Main pages
   const primaryRoutes: MetadataRoute.Sitemap = [
     {
       url: siteUrl.origin,
-      lastModified,
-      changeFrequency: "daily", // Increased frequency for homepage
-      priority: 1,
+      lastModified: now,
+      changeFrequency: "daily",
+      priority: 1.0,
     },
     {
       url: `${siteUrl.origin}/about`,
-      lastModified,
-      changeFrequency: "weekly", // Increased from monthly
-      priority: 0.9, // Increased priority
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
     {
       url: `${siteUrl.origin}/blog`,
-      lastModified,
-      changeFrequency: "daily", // Increased for fresh content
-      priority: 0.9, // Increased priority
+      lastModified: now,
+      changeFrequency: "daily",
+      priority: 0.9,
     },
   ]
 
-  // Location-specific SEO URLs for targeting Semarang and surrounding areas
+  // Location-specific SEO pages
   const locationRoutes: MetadataRoute.Sitemap = [
     {
       url: `${siteUrl.origin}/jasa-pembuatan-website-semarang`,
-      lastModified,
+      lastModified: now,
       changeFrequency: "weekly",
-      priority: 0.95,
+      priority: 0.9,
     },
     {
       url: `${siteUrl.origin}/web-developer-semarang`,
-      lastModified,
+      lastModified: now,
       changeFrequency: "weekly",
-      priority: 0.9,
+      priority: 0.8,
     },
     {
       url: `${siteUrl.origin}/jasa-web-design-semarang`,
-      lastModified, 
+      lastModified: now,
       changeFrequency: "weekly",
-      priority: 0.9,
+      priority: 0.8,
     },
   ]
 
-  // Section anchors on the homepage
-  const sectionAnchors = [
-    "home",
-    "services",
-    "process",
-    "pricing",
-    "student-packages",
-    "portfolio",
-    "testimonials",
-    "faq",
-    "contact",
-  ]
-
-  // Enhanced section routes with better priority distribution for SEO
-  const sectionRoutes: MetadataRoute.Sitemap = sectionAnchors.map((anchor) => {
-    // Customize priority and frequency based on section importance
-    let priority = 0.8;
-    let changeFrequency: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never" = "weekly";
-    
-    // Assign specific values based on section importance for SEO
-    switch(anchor) {
-      case "services":
-        priority = 0.95;
-        changeFrequency = "weekly";
-        break;
-      case "pricing":
-        priority = 0.9;
-        changeFrequency = "weekly";
-        break;
-      case "portfolio":
-        priority = 0.9;
-        changeFrequency = "weekly";
-        break;
-      case "contact":
-        priority = 0.85;
-        changeFrequency = "monthly";
-        break;
-      default:
-        priority = 0.8;
-        changeFrequency = "monthly";
-    }
-    
-    return {
-      url: `${siteUrl.origin}/#${anchor}`,
-      lastModified,
-      changeFrequency,
-      priority,
-    };
-  });
-
-  // Service-specific pages for better SEO targeting
+  // Service-specific pages
   const serviceRoutes: MetadataRoute.Sitemap = [
     {
       url: `${siteUrl.origin}/layanan/company-profile`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.9,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
     {
       url: `${siteUrl.origin}/layanan/toko-online`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.9,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
     {
       url: `${siteUrl.origin}/layanan/landing-page`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.9,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
     {
       url: `${siteUrl.origin}/layanan/aplikasi-web`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.9,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
-  ];
+  ]
 
-  // Combine all routes for the complete sitemap
-  return [...primaryRoutes, ...locationRoutes, ...serviceRoutes, ...sectionRoutes];
+  return [...primaryRoutes, ...locationRoutes, ...serviceRoutes]
 }
