@@ -5,6 +5,13 @@ import { JetBrains_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
+import dynamic from "next/dynamic"
+
+// Dynamically load the floating chat widget to ensure it's client-side only
+const WorkingFloatingChat = dynamic(
+  () => import("../components/working-floating-chat").then(mod => ({ default: mod.WorkingFloatingChat })),
+  { ssr: false }
+)
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -200,6 +207,9 @@ export default function RootLayout({
         className={`${poppins.variable} ${jetbrainsMono.variable} font-sans antialiased`}
       >
         <Suspense fallback={null}>{children}</Suspense>
+        <Suspense fallback={null}>
+          <WorkingFloatingChat />
+        </Suspense>
         <Analytics />
       </body>
     </html>

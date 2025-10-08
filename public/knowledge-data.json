@@ -1,0 +1,98 @@
+{
+  "knowledgeData": [
+    {
+      "id": "meow-labs-1",
+      "document": "Meow Labs adalah jasa pembuatan website profesional yang berbasis di Semarang, dipimpin oleh Hasrinata Arya Afendi. Kami berfokus pada penyediaan layanan web development berkualitas tinggi dengan harga terjangkau untuk UMKM, startup, dan bisnis lokal.",
+      "metadata": {
+        "section": "Tentang Meow Labs",
+        "category": "company_info"
+      }
+    },
+    {
+      "id": "meow-labs-2",
+      "document": "Visi kami adalah membantu UMKM dan bisnis lokal Indonesia untuk 'Go Digital' dengan solusi website yang profesional namun tetap terjangkau. Kami berkomitmen untuk memberikan layanan berkualitas tinggi yang membantu klien kami berkembang di dunia digital.",
+      "metadata": {
+        "section": "Visi dan Misi",
+        "category": "company_info"
+      }
+    },
+    {
+      "id": "meow-labs-team-1",
+      "document": "Tim profesional Meow Labs terdiri dari: 1. Hasrinata Arya Afendi - Founder, Visioner di balik berdirinya Meow Labs. 2. Yusuf Nur Cahyo - IOT Developer & Social Media Strategist. 3. Habib Khulafa Panji Langit - Project Manager. 4. Muhammad Fikar Firdiansyah - UI/UX Designer.",
+      "metadata": {
+        "section": "Tim Kami",
+        "category": "team"
+      }
+    },
+    {
+      "id": "meow-labs-team-2",
+      "document": "Tim profesional lainnya meliputi: 5. Alfian Nugroho Jati - Social Media Strategist. 6. Ahmad Munip - Backend Developer. 7. Arisyad Faizon - Executive Assistant. 8. Sahad Ibrohim dan Rafi Yudha - Growth Strategist. 9. Herinta Armantya - Frontend Developer.",
+      "metadata": {
+        "section": "Tim Kami",
+        "category": "team"
+      }
+    },
+    {
+      "id": "meow-labs-services-1",
+      "document": "Website Company Profile: Website profesional untuk meningkatkan kredibilitas dan citra perusahaan Anda. Fitur yang disertakan: Desain modern dan profesional, Halaman About Us, Services, Portfolio, Contact, Form kontak yang terhubung dengan email, Optimasi SEO dasar, Mobile responsive design, Social media integration, Google Maps location, Galeri foto/portfolio.",
+      "metadata": {
+        "section": "Layanan Utama",
+        "category": "services",
+        "service_type": "company_profile"
+      }
+    },
+    {
+      "id": "meow-labs-services-2",
+      "document": "Website Toko Online: E-commerce lengkap dengan sistem pembayaran dan manajemen produk. Fitur yang disertakan: Katalog produk dengan kategori, Shopping cart & checkout system, Integrasi payment gateway, Manajemen order & inventori, Notifikasi WhatsApp otomatis, Dashboard admin yang mudah digunakan, Product search & filtering, Responsive design for mobile shopping.",
+      "metadata": {
+        "section": "Layanan Utama",
+        "category": "services",
+        "service_type": "toko_online"
+      }
+    },
+    {
+      "id": "meow-labs-pricing-1",
+      "document": "Paket Hemat UMKM: Harga Normal: Rp749.000, Harga Promo: Rp525.000 (Diskon 30%), Biaya Perpanjangan: Rp500.000/tahun. Rekomendasi untuk UMKM/Yayasan yang baru memulai Go-Digital. Fitur: 1 Halaman Website, Free Domain .my.id, Aktif 1 Tahun, Basic Landing Page Design, Basic Copy Writing, Maintenance Gratis, Video Tutorial.",
+      "metadata": {
+        "section": "Paket Layanan dan Harga",
+        "category": "pricing",
+        "package": "hemat_umkm"
+      }
+    },
+    {
+      "id": "meow-labs-pricing-2",
+      "document": "Paket UMKM: Harga Normal: Rp1.499.000, Harga Promo: Rp1.000.000 (Diskon 33%), Biaya Perpanjangan: Rp700.000/tahun. Rekomendasi untuk UMKM yang ingin mengoptimalkan produknya dengan catalog lengkap. Fitur: 3 Halaman Website, Free Domain .com, Aktif 1 Tahun, Basic Web Design, Advanced Copy Writing, Maintenance Gratis, Video Tutorial, SEO Basic.",
+      "metadata": {
+        "section": "Paket Layanan dan Harga",
+        "category": "pricing",
+        "package": "umkm"
+      }
+    },
+    {
+      "id": "meow-labs-pricing-3",
+      "document": "Paket Bisnis: Harga Normal: Rp3.599.000, Harga Promo: Rp2.525.000 (Diskon 30%), Biaya Perpanjangan: Rp1.000.000/tahun. Cocok untuk Profile Bisnis, Portal Berita, Sekolah/Yayasan, Portofolio. Fitur: 10 Halaman Website, Free Domain .com .id .org .or.id, Shared Hosting Premium, Aktif 1 Tahun, Custom Web Design, Free Logo Design, Advanced Copy Writing, SEO Optimized, Maintenance Gratis, Live Chat Support.",
+      "metadata": {
+        "section": "Paket Layanan dan Harga",
+        "category": "pricing",
+        "package": "bisnis"
+      }
+    },
+    {
+      "id": "meow-labs-pricing-4",
+      "document": "Paket Bisnis Plus: Harga Normal: Rp7.499.000, Harga Promo: Rp5.000.000 (Diskon 33%), Biaya Perpanjangan: Rp1.500.000/tahun. Rekomendasi untuk perusahaan yang membutuhkan tampilan premium dan performa tinggi. Fitur: 20+ Halaman Website, Free Domain Premium, VPS Hosting, Aktif 1 Tahun, Premium Web Design, Corporate Identity Design, SEO Advanced, Google Analytics Integration, Social Media Integration, Premium Support 24/7.",
+      "metadata": {
+        "section": "Paket Layanan dan Harga",
+        "category": "pricing",
+        "package": "bisnis_plus"
+      }
+    },
+    {
+      "id": "meow-labs-contact",
+      "document": "Informasi Kontak: Email: admin@meowlabs.id, WhatsApp: +62 895-3862-88683, Lokasi: Semarang, Jawa Tengah, Indonesia, Jam Operasional: Senin-Minggu, 08:00-22:00 WIB. Media Sosial: Instagram: @meowlabs.id, Facebook: meowlabs.id, Website: https://meowlabs.id",
+      "metadata": {
+        "section": "Kontak dan Informasi",
+        "category": "contact"
+      }
+    }
+  ]
+}
