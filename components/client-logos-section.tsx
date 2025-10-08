@@ -32,6 +32,10 @@ export function ClientLogosSection() {
     {
       name: "Telkom",
       url: "/logo-telkom.svg",
+    },
+    {
+      name: "Jeka Towing",
+      url: "/logo-jeka-towing.webp",
     }
   ]
 
