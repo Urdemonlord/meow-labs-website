@@ -35,7 +35,7 @@ export default function HomePage() {
       <ContactSection />
       <Footer />
       <WhatsAppWidget />
-      <DiscountPopup />
+      {/* <DiscountPopup /> */}
     </main>
   )
 }
