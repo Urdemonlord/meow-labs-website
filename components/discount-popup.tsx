@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react'
 import { X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { openBookingPage } from '@/lib/booking'
 
 export function DiscountPopup() {
   const [isOpen, setIsOpen] = useState(false)
@@ -17,10 +16,12 @@ export function DiscountPopup() {
     return () => clearTimeout(timer)
   }, [])
 
-  const handleBookingContact = () => {
-    openBookingPage({
-      message: "Saya ingin klaim promo diskon 30% untuk 10 klien pertama",
-    })
+  const handleWhatsAppContact = () => {
+    const phoneNumber = "62895386288683"
+    const message = "Halo! Saya ingin mendapatkan promo diskon 30% untuk 10 klien pertama!"
+    const encodedMessage = encodeURIComponent(message)
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`
+    window.open(whatsappUrl, "_blank")
   }
 
   if (!isOpen) return null
@@ -64,8 +65,8 @@ export function DiscountPopup() {
         </div>
         
         <div className="space-y-3">
-          <Button
-            onClick={handleBookingContact}
+          <Button 
+            onClick={handleWhatsAppContact}
             className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
           >
             Klaim Diskon 30% Sekarang!

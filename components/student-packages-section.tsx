@@ -6,11 +6,13 @@ import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Check, ArrowRight } from 'lucide-react'
 import { useCallback } from 'react'
-import { openBookingPage } from '@/lib/booking'
 
 export function StudentPackagesSection() {
-  const handleBookingContact = useCallback((message: string) => {
-    openBookingPage({ message })
+  const handleWhatsAppContact = useCallback((message: string) => {
+    const phoneNumber = "62895386288683" // Nomor WhatsApp admin
+    const encodedMessage = encodeURIComponent(message)
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`
+    window.open(whatsappUrl, "_blank")
   }, [])
 
   const packages = [
@@ -156,9 +158,9 @@ export function StudentPackagesSection() {
 
                 <Button
                   className="w-full bg-primary text-white hover:bg-primary/90"
-                  onClick={() => handleBookingContact(pkg.whatsappMessage)}
+                  onClick={() => handleWhatsAppContact(pkg.whatsappMessage)}
                 >
-                  Booking Konsultasi
+                  Konsultasi Gratis
                   <ArrowRight className="ml-1 h-4 w-4" />
                 </Button>
               </div>
@@ -170,10 +172,10 @@ export function StudentPackagesSection() {
           <p className="text-muted-foreground">
             Butuh paket custom untuk tugas akademik lainnya? Hubungi kami untuk diskusi lebih lanjut.
           </p>
-          <Button
-            variant="outline"
+          <Button 
+            variant="outline" 
             className="mt-4"
-            onClick={() => handleBookingContact("Saya ingin booking konsultasi untuk kebutuhan project akademik custom")}
+            onClick={() => handleWhatsAppContact("Hallo admin, saya ingin konsultasi untuk kebutuhan project akademik custom")}
           >
             Diskusi Kebutuhan Custom
           </Button>

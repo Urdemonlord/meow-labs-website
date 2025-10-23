@@ -4,7 +4,6 @@ import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Globe, Cpu, Smartphone, Database, Shield, Zap, X, CheckCircle, LucideIcon } from "lucide-react"
-import { openBookingPage } from "@/lib/booking"
 
 // Define interfaces for type safety
 interface ServiceFeature {
@@ -34,10 +33,12 @@ export function ServicesSection() {
     setIsModalOpen(false)
   }
 
-  const handleBookingContact = (serviceName: string) => {
-    openBookingPage({
-      message: `Saya ingin booking konsultasi untuk layanan ${serviceName} dari Meow Labs`,
-    })
+  const handleWhatsAppContact = (serviceName: string) => {
+    const phoneNumber = "62895386288683" // Nomor WhatsApp admin
+    const message = `Halo admin saya ingin konsultasi gratis tentang pembuatan website ${serviceName}`
+    const encodedMessage = encodeURIComponent(message)
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`
+    window.open(whatsappUrl, "_blank")
   }
   const services: ServiceFeature[] = [
     {
@@ -262,11 +263,11 @@ export function ServicesSection() {
                     </Button>
                     <Button
                       size="sm"
-                      variant="default"
+                      variant="default" 
                       className={`flex-1 bg-${service.color} text-${service.color === "primary" ? "primary-foreground" : "secondary-foreground"} hover:bg-${service.color}/90`}
-                      onClick={() => handleBookingContact(service.title)}
+                      onClick={() => handleWhatsAppContact(service.title)}
                     >
-                      Booking Konsultasi
+                      Hubungi Kami
                     </Button>
                   </div>
                 </CardContent>
@@ -283,12 +284,12 @@ export function ServicesSection() {
               Setiap bisnis memiliki kebutuhan yang unik. Mari diskusikan bagaimana kami dapat membantu mewujudkan visi
               teknologi Anda dengan solusi yang tepat sasaran.
             </p>
-            <Button
-              size="lg"
+            <Button 
+              size="lg" 
               className="bg-primary text-primary-foreground hover:bg-primary/90 glow-animation"
-              onClick={() => handleBookingContact("Custom Solution")}
+              onClick={() => handleWhatsAppContact("Custom Solution")}
             >
-              Booking Konsultasi
+              Konsultasi Gratis
             </Button>
           </div>
         </div>
@@ -361,15 +362,15 @@ export function ServicesSection() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <Button
-                    size="lg"
+                  <Button 
+                    size="lg" 
                     className={`w-full bg-${selectedService.color} text-${selectedService.color === "primary" ? "primary-foreground" : "secondary-foreground"} hover:bg-${selectedService.color}/90`}
                     onClick={() => {
-                      handleBookingContact(selectedService.title)
+                      handleWhatsAppContact(selectedService.title)
                       handleCloseModal()
                     }}
                   >
-                    Booking Konsultasi
+                    Konsultasi via WhatsApp
                   </Button>
                   <Button 
                     variant="outline" 

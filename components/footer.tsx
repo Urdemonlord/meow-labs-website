@@ -2,21 +2,18 @@
 
 import Image from "next/image"
 import { MapPin, Phone, Mail, Clock, Star, ExternalLink, Instagram, Facebook, Linkedin } from "lucide-react"
-import { openBookingPage } from "@/lib/booking"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
 
-  const handleBookingContact = () => {
-    openBookingPage({
-      message: "Saya tertarik dengan layanan pembuatan website Meow Labs dan ingin booking konsultasi",
-    })
+  const handleWhatsAppContact = () => {
+    const message = encodeURIComponent("Halo Meow Labs! Saya tertarik dengan layanan pembuatan website. Mohon info lebih lanjut.")
+    window.open(`https://wa.me/62895386288683?text=${message}`, '_blank')
   }
 
   const handlePhoneClick = () => {
-    openBookingPage({
-      message: "Saya ingin booking konsultasi pembuatan website dengan Meow Labs",
-    })
+    const message = encodeURIComponent("Halo Meow Labs! Saya tertarik dengan layanan pembuatan website dan ingin konsultasi.")
+    window.open(`https://wa.me/62895386288683?text=${message}`, '_blank')
   }
 
   const techPartners = [
@@ -219,14 +216,6 @@ export function Footer() {
               </div>
               <span className="text-sm text-muted-foreground">4.9/5 dari 100+ klien</span>
             </div>
-
-            <button
-              onClick={handleBookingContact}
-              className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
-            >
-              <Phone className="h-4 w-4" />
-              Booking Konsultasi
-            </button>
 
             {/* Social Media Links */}
             <div className="flex items-center gap-3">
