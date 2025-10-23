@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { openBookingPage } from "@/lib/booking"
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -19,16 +20,18 @@ export function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission via WhatsApp
-    const message = `Hallo admin, saya ingin konsultasi pembuatan website.%0A%0ANama: ${formData.name}%0AEmail: ${formData.email}%0APerusahaan: ${formData.organization}%0A%0APesan: ${formData.message}`
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=62895386288683&text=${message}`
-    window.open(whatsappUrl, "_blank")
+    openBookingPage({
+      name: formData.name,
+      email: formData.email,
+      organization: formData.organization,
+      message: formData.message,
+    })
   }
 
-  const handleWhatsAppContact = () => {
-    const message = "Hallo admin saya ingin konsultasi pembuatan website..."
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=62895386288683&text=${encodeURIComponent(message)}`
-    window.open(whatsappUrl, "_blank")
+  const handleBookingContact = () => {
+    openBookingPage({
+      message: "Saya ingin booking konsultasi cepat dengan tim Meow Labs",
+    })
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -129,7 +132,7 @@ export function ContactSection() {
                   className="w-full bg-primary text-primary-foreground hover:bg-primary/90 glow-animation"
                 >
                   <Send className="mr-2 h-4 w-4" />
-                  Kirim Pesan
+                  Lanjut ke Booking
                 </Button>
               </form>
             </CardContent>
@@ -193,14 +196,16 @@ export function ContactSection() {
 
             {/* CTA */}
             <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-xl p-6 text-center">
-              <h4 className="font-semibold text-foreground mb-2">Butuh Konsultasi Cepat?</h4>
-              <p className="text-sm text-muted-foreground mb-4">Chat langsung dengan tim kami via WhatsApp untuk konsultasi gratis!</p>
-              <Button 
+              <h4 className="font-semibold text-foreground mb-2">Siap Mulai Sekarang?</h4>
+              <p className="text-sm text-muted-foreground mb-4">
+                Booking jadwal konsultasi gratis dan pilih waktu yang paling cocok untuk Anda.
+              </p>
+              <Button
                 className="bg-secondary text-secondary-foreground hover:bg-secondary/90"
-                onClick={handleWhatsAppContact}
+                onClick={handleBookingContact}
               >
                 <Phone className="mr-2 h-4 w-4" />
-                WhatsApp Sekarang
+                Booking Konsultasi
               </Button>
             </div>
           </div>

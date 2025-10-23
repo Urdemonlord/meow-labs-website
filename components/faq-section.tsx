@@ -4,6 +4,7 @@ import { useState } from "react"
 import { ChevronDown, MessageCircle } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { openBookingPage } from "@/lib/booking"
 
 interface FAQItem {
   question: string
@@ -21,9 +22,10 @@ export function FAQSection() {
     )
   }
 
-  const handleWhatsAppContact = () => {
-    const message = encodeURIComponent("Halo Meow Labs! Saya punya pertanyaan tentang layanan pembuatan website.")
-    window.open(`https://wa.me/62895386288683?text=${message}`, '_blank')
+  const handleBookingContact = () => {
+    openBookingPage({
+      message: "Saya ingin booking sesi tanya jawab mengenai layanan Meow Labs",
+    })
   }
 
   const faqs: FAQItem[] = [
@@ -126,8 +128,8 @@ export function FAQSection() {
                 <p className="text-muted-foreground mb-6 text-pretty">
                   Tim kami siap membantu menjawab pertanyaan spesifik tentang kebutuhan website Anda
                 </p>
-                <Button onClick={handleWhatsAppContact} className="w-full sm:w-auto">
-                  Tanya via WhatsApp
+                <Button onClick={handleBookingContact} className="w-full sm:w-auto">
+                  Booking Sesi Tanya Jawab
                 </Button>
               </div>
             </div>

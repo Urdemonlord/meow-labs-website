@@ -6,13 +6,11 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Check, MessageCircle, ExternalLink, Users, Code2, Brain } from "lucide-react"
 import { useCallback } from "react"
+import { openBookingPage } from "@/lib/booking"
 
 export function PricingSection() {
-  const handleWhatsAppContact = useCallback((message: string) => {
-    const phoneNumber = "62895386288683"
-    const encodedMessage = encodeURIComponent(message)
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`
-    window.open(whatsappUrl, "_blank")
+  const handleBookingContact = useCallback((message: string) => {
+    openBookingPage({ message })
   }, [])
 
   const handlePortfolioClick = useCallback(() => {
@@ -463,12 +461,12 @@ export function PricingSection() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <Button 
-                      onClick={() => handleWhatsAppContact(pkg.whatsappMessage)}
+                    <Button
+                      onClick={() => handleBookingContact(pkg.whatsappMessage)}
                       className="w-full mt-6 bg-primary hover:bg-primary/90 text-primary-foreground group"
                     >
                       <MessageCircle className="mr-2 h-4 w-4" />
-                      PILIH PAKET
+                      BOOKING PAKET
                     </Button>
                   </motion.div>
                 </CardContent>
@@ -492,14 +490,14 @@ export function PricingSection() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <Button 
-                  onClick={() => handleWhatsAppContact("Hallo admin saya ingin konsultasi gratis pembuatan website paket custom")}
-                  variant="outline" 
+                <Button
+                  onClick={() => handleBookingContact("Saya ingin booking konsultasi untuk paket website custom")}
+                  variant="outline"
                   size="lg"
                   className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
                 >
                   <MessageCircle className="mr-2 h-4 w-4" />
-                  Konsultasi Gratis
+                  Booking Paket Custom
                 </Button>
               </motion.div>
               
@@ -647,12 +645,12 @@ export function PricingSection() {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      <Button 
+                      <Button
                         className="w-full mt-6 bg-primary hover:bg-primary/90 text-primary-foreground group"
-                        onClick={() => handleWhatsAppContact(pkg.whatsappMessage)}
+                        onClick={() => handleBookingContact(pkg.whatsappMessage)}
                       >
                         <MessageCircle className="mr-2 h-4 w-4" />
-                        PILIH PAKET
+                        BOOKING PAKET
                       </Button>
                     </motion.div>
                   </CardContent>
@@ -774,12 +772,12 @@ export function PricingSection() {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      <Button 
+                      <Button
                         className="w-full mt-6 bg-primary hover:bg-primary/90 text-primary-foreground group"
-                        onClick={() => handleWhatsAppContact(pkg.whatsappMessage)}
+                        onClick={() => handleBookingContact(pkg.whatsappMessage)}
                       >
                         <MessageCircle className="mr-2 h-4 w-4" />
-                        PILIH PAKET
+                        BOOKING PAKET
                       </Button>
                     </motion.div>
                   </CardContent>
@@ -901,12 +899,12 @@ export function PricingSection() {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      <Button 
+                      <Button
                         className="w-full mt-6 bg-primary hover:bg-primary/90 text-primary-foreground group"
-                        onClick={() => handleWhatsAppContact(pkg.whatsappMessage)}
+                        onClick={() => handleBookingContact(pkg.whatsappMessage)}
                       >
                         <MessageCircle className="mr-2 h-4 w-4" />
-                        PILIH PAKET
+                        BOOKING PAKET
                       </Button>
                     </motion.div>
                   </CardContent>
@@ -1008,12 +1006,12 @@ export function PricingSection() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <Button 
+                    <Button
                       className="w-full mt-6 bg-primary hover:bg-primary/90 text-primary-foreground"
-                      onClick={() => handleWhatsAppContact("Hallo admin saya ingin berlangganan paket maintenance basic untuk website saya")}
+                      onClick={() => handleBookingContact("Saya ingin booking paket maintenance basic untuk website saya")}
                     >
                       <MessageCircle className="mr-2 h-4 w-4" />
-                      PILIH BASIC
+                      BOOKING BASIC
                     </Button>
                   </motion.div>
                 </CardContent>
@@ -1089,12 +1087,12 @@ export function PricingSection() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <Button 
+                    <Button
                       className="w-full mt-6 bg-secondary hover:bg-secondary/90 text-secondary-foreground"
-                      onClick={() => handleWhatsAppContact("Hallo admin saya ingin berlangganan paket maintenance pro untuk website saya")}
+                      onClick={() => handleBookingContact("Saya ingin booking paket maintenance pro untuk website saya")}
                     >
                       <MessageCircle className="mr-2 h-4 w-4" />
-                      PILIH PRO
+                      BOOKING PRO
                     </Button>
                   </motion.div>
                 </CardContent>
@@ -1111,12 +1109,12 @@ export function PricingSection() {
           >
             <p className="text-sm text-muted-foreground">
               💡 <span className="font-medium">Tips:</span> Paket maintenance dapat disesuaikan dengan kebutuhan website Anda. 
-              <Button 
-                variant="link" 
+              <Button
+                variant="link"
                 className="text-primary p-0 h-auto font-medium underline"
-                onClick={() => handleWhatsAppContact("Hallo admin saya ingin konsultasi paket maintenance custom untuk website saya")}
+                onClick={() => handleBookingContact("Saya ingin booking konsultasi untuk paket maintenance custom")}
               >
-                Konsultasi gratis untuk paket custom
+                Booking konsultasi untuk paket custom
               </Button>
             </p>
           </motion.div>

@@ -2,21 +2,23 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { 
-  MessageSquare, 
-  PenTool, 
-  Code2, 
-  Rocket, 
+import {
+  MessageSquare,
+  PenTool,
+  Code2,
+  Rocket,
   CheckCircle,
   Clock,
   Users,
   Headphones
 } from "lucide-react"
+import { openBookingPage } from "@/lib/booking"
 
 export function ProcessSection() {
-  const handleWhatsAppContact = () => {
-    const message = encodeURIComponent("Halo Meow Labs! Saya ingin memulai project website. Mohon info prosesnya.")
-    window.open(`https://wa.me/62895386288683?text=${message}`, '_blank')
+  const handleBookingContact = () => {
+    openBookingPage({
+      message: "Saya ingin booking konsultasi untuk membahas proses pembuatan website",
+    })
   }
 
   const processes = [
@@ -173,8 +175,8 @@ export function ProcessSection() {
               Konsultasi gratis untuk membahas kebutuhan website Anda. 
               Tim kami siap membantu mewujudkan website impian bisnis Anda!
             </p>
-            <Button onClick={handleWhatsAppContact} size="lg" className="text-lg px-8">
-              Mulai Konsultasi Gratis
+            <Button onClick={handleBookingContact} size="lg" className="text-lg px-8">
+              Booking Konsultasi
             </Button>
           </div>
         </div>
