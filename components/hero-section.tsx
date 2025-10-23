@@ -3,13 +3,14 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Mail } from "lucide-react"
-import { openBookingPage } from "@/lib/booking"
 
 export function HeroSection() {
-  function handleBookingClick() {
-    openBookingPage({
-      message: "Saya ingin booking konsultasi pembuatan website dengan Meow Labs",
-    })
+  function handleWhatsAppContact() {
+    const phoneNumber = "62895386288683" // Nomor WhatsApp admin
+    const message = "Hallo admin saya ingin konsultasi gratis untuk pembuatan website"
+    const encodedMessage = encodeURIComponent(message)
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`
+    window.open(whatsappUrl, "_blank")
   }
 
   function handlePortfolioClick() {
@@ -53,12 +54,12 @@ export function HeroSection() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button
-                size="lg"
+              <Button 
+                size="lg" 
                 className="bg-primary text-primary-foreground hover:bg-primary/90 glow-animation group"
-                onClick={handleBookingClick}
+                onClick={handleWhatsAppContact}
               >
-                Booking Konsultasi
+                Konsultasi Gratis
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button

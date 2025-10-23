@@ -67,9 +67,13 @@ export function Navigation() {
                 {item.label}
               </Link>
             ))}
-            <a href="https://booking.meowlabs.id/" rel="noopener noreferrer" target="_blank">
+            <a
+              href="https://wa.me/62895386288683?text=Halo%20Meow%20Labs!%20Saya%20ingin%20konsultasi%20pembuatan%20website"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 glow-animation">
-                Booking Sekarang
+                Hubungi Kami
               </Button>
             </a>
           </div>
@@ -109,9 +113,13 @@ export function Navigation() {
                 </Link>
               ))}
               <div className="px-3 py-2">
-                <a href="https://booking.meowlabs.id/" rel="noopener noreferrer" target="_blank">
+                <a
+                  href="https://wa.me/62895386288683?text=Halo%20Meow%20Labs!%20Saya%20ingin%20konsultasi%20pembuatan%20website"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                    Booking Sekarang
+                    Hubungi Kami
                   </Button>
                 </a>
               </div>
