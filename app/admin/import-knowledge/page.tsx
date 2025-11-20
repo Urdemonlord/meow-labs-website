@@ -16,7 +16,6 @@ export default function KnowledgeImporter() {
       setResult(data);
       setStatus(data.success ? "success" : "error");
     } catch (error) {
-      console.error("Error importing knowledge:", error);
       setStatus("error");
       setResult({ message: "An error occurred" });
     }
@@ -28,7 +27,7 @@ export default function KnowledgeImporter() {
       const data = await response.json();
       setResult(data);
     } catch (error) {
-      console.error("Error checking status:", error);
+      // Silently handle error
     }
   };
 

@@ -27,7 +27,6 @@ export default function ImportKnowledgeJSON() {
       setResult(result);
       setStatus(result.success ? "success" : "error");
     } catch (error) {
-      console.error("Error importing knowledge:", error);
       setStatus("error");
       setResult({ message: "An error occurred" });
     }
@@ -57,7 +56,6 @@ export default function ImportKnowledgeJSON() {
       setResult(result);
       setStatus(result.success ? "success" : "error");
     } catch (error) {
-      console.error("Error adding test data:", error);
       setStatus("error");
       setResult({ message: "An error occurred" });
     }
@@ -69,7 +67,7 @@ export default function ImportKnowledgeJSON() {
       const data = await response.json();
       setResult(data);
     } catch (error) {
-      console.error("Error checking status:", error);
+      // Silently handle error
     }
   };
 

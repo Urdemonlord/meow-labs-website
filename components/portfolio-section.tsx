@@ -36,7 +36,6 @@ export function PortfolioSection() {
       // Untuk development, gunakan localhost
       // const apiUrl = 'http://localhost:3000/api/projects';
       
-      console.log('Fetching projects from:', apiUrl);
       const response = await fetch(apiUrl);
       
       if (!response.ok) {
@@ -44,12 +43,10 @@ export function PortfolioSection() {
       }
       
       const data = await response.json();
-      console.log('Projects loaded:', data.length);
       setProjects(data);
       setError(null);
     } catch (error) {
-      console.error('Error fetching projects:', error);
-      setError('Gagal memuat proyek. Silakan coba lagi nanti.');
+      // Silently handle error, gunakan fallback projects
       
       // Fallback to sample projects if API fails
       setProjects([
