@@ -40,11 +40,9 @@ export function PricingSection() {
       features: [
         "1 Halaman Website",
         "Free Domain .my.id",
-        "Aktif 1 Tahun",
         "Basic Landing Page Design",
         "Basic Copy Writing",
         "Maintenance Gratis",
-        "Video Tutorial",
       ],
       popular: false,
       color: "primary",
@@ -60,16 +58,31 @@ export function PricingSection() {
       features: [
         "3 Halaman Website",
         "Free Domain .com",
-        "Aktif 1 Tahun",
-        "Basic Web Design",
+        "Advanced Web Design",
         "Advanced Copy Writing",
-        "Maintenance Gratis",
-        "Video Tutorial",
         "SEO Basic",
       ],
       popular: true,
       color: "secondary",
       whatsappMessage: "Hallo admin saya ingin konsultasi gratis untuk paket UMKM",
+    },
+    {
+      name: "Company Profile Basic",
+      originalPrice: "1.299.000",
+      price: "1.199.000",
+      renewalPrice: "600.000",
+      discount: "8%",
+      description: "Untuk perusahaan/korporat yang butuh website profil profesional",
+      features: [
+        "5 Halaman Website",
+        "Free Domain .com",
+        "Custom Responsive Design",
+        "Form Kontak & Google Maps",
+        "SEO On-Page Basic",
+      ],
+      popular: false,
+      color: "primary",
+      whatsappMessage: "Hallo admin saya ingin konsultasi gratis untuk paket Company Profile Basic",
     },
     {
       name: "Paket Bisnis",
@@ -81,14 +94,9 @@ export function PricingSection() {
       features: [
         "10 Halaman Website",
         "Free Domain .com .id .org .or.id",
-        "Shared Hosting Premium",
-        "Aktif 1 Tahun",
         "Custom Web Design",
         "Free Logo Design",
-        "Advanced Copy Writing",
         "SEO Optimized",
-        "Maintenance Gratis",
-        "Live Chat Support",
       ],
       popular: false,
       color: "primary",
@@ -104,16 +112,9 @@ export function PricingSection() {
       features: [
         "20 Halaman Website",
         "Free Domain Premium",
-        "Dedicated Hosting",
-        "Aktif 1 Tahun",
         "Custom Professional Design",
-        "Free Logo & Brand Identity",
         "Advanced Copy Writing",
-        "SEO Advanced",
-        "Google Ads Setup",
-        "Maintenance Premium",
         "Priority Support 24/7",
-        "Multi Language",
       ],
       popular: false,
       color: "secondary",
@@ -130,12 +131,11 @@ export function PricingSection() {
       discount: "25%",
       description: "Cocok untuk content creator, KOL, dan profesional yang ingin memulai personal branding",
       features: [
-        "Subdomain gratis (atau domain add-on)",
-        "2-3 Halaman (Profil, Portofolio, Kontak)",
+        "Subdomain gratis atau domain add-on",
+        "2-3 Halaman website",
         "Template elegan & mobile friendly",
         "Desain modern untuk personal brand",
-        "Konten basic copy writing",
-        "Maintenance 3 bulan",
+        "Basic copy writing",
       ],
       popular: false,
       color: "primary",
@@ -151,12 +151,10 @@ export function PricingSection() {
       description: "Untuk influencer dan profesional yang ingin tampil eksklusif dengan branding kuat",
       features: [
         "Domain .com pribadi",
-        "4-6 Halaman (Home, Profil, Portofolio, Blog mini, Kontak)",
+        "4-6 Halaman website",
         "Desain semi-custom sesuai branding",
-        "Warna & style personal branding",
-        "1x revisi besar",
+        "SEO Basic + Analytics",
         "Support 1 bulan",
-        "SEO Basic",
       ],
       popular: true,
       color: "secondary",
@@ -171,13 +169,11 @@ export function PricingSection() {
       discount: "27%",
       description: "Solusi premium untuk dosen, seniman, dan profesional high-profile",
       features: [
-        "Semua fitur Pro",
         "Desain full custom eksklusif",
-        "Integrasi LinkedIn, GitHub, Instagram",
+        "Integrasi media sosial (LinkedIn, GitHub, Instagram)",
         "Blog aktif + SEO advanced",
-        "Personal portfolio showcase",
-        "Support 3 bulan",
         "Priority support 24/7",
+        "Personal portfolio showcase",
       ],
       popular: false,
       color: "primary",
@@ -195,12 +191,11 @@ export function PricingSection() {
       discount: "28%",
       description: "Web app sederhana untuk mahasiswa, startup kecil, dan mini project",
       features: [
-        "Web app sederhana",
-        "Kalkulator atau sistem booking kecil",
-        "Todo app atau tools simple",
-        "Cocok untuk demo startup",
+        "Web app sederhana atau kalkulator",
+        "Sistem booking atau todo app",
         "Basic database integration",
-        "Mobile responsive",
+        "Mobile responsive design",
+        "Demo-ready untuk startup",
       ],
       popular: false,
       color: "primary",
@@ -218,9 +213,8 @@ export function PricingSection() {
         "Sistem Point of Sale lengkap",
         "Manajemen produk & stok",
         "Laporan transaksi & penjualan",
-        "Multi-user login",
+        "Multi-user login system",
         "Web atau mobile app",
-        "Training & support 2 bulan",
       ],
       popular: true,
       color: "secondary",
@@ -237,11 +231,9 @@ export function PricingSection() {
       features: [
         "Monitoring sensor IoT (suhu, pintu, listrik)",
         "Dashboard realtime + notifikasi",
-        "Integrasi hardware IoT",
-        "ESP32, Raspberry Pi support",
+        "Integrasi hardware IoT (ESP32, Raspberry Pi)",
         "Mobile & web dashboard",
-        "Setup hardware assistance",
-        "Support 3 bulan",
+        "Setup hardware & support 3 bulan",
       ],
       popular: false,
       color: "primary",
@@ -256,14 +248,11 @@ export function PricingSection() {
       discount: "28%",
       description: "Sistem besar untuk perusahaan: inventaris, sekolah, dashboard enterprise",
       features: [
-        "Sistem manajemen inventaris",
-        "Sistem sekolah / dashboard perusahaan",
+        "Sistem manajemen inventaris / sekolah",
         "Integrasi API khusus",
         "Multi-role user management",
         "Advanced reporting system",
-        "Custom workflow",
-        "Support 6 bulan",
-        "Training team",
+        "Support 6 bulan + training team",
       ],
       popular: false,
       color: "primary",
@@ -282,9 +271,8 @@ export function PricingSection() {
       description: "Setup model ML untuk skripsi, tugas kuliah, dan project penelitian",
       features: [
         "Setup model ML untuk skripsi",
-        "Data preprocessing basic",
-        "Model training & evaluation",
-        "Documentation lengkap",
+        "Data preprocessing & model training",
+        "Model evaluation & documentation",
         "Konsultasi methodology",
         "Support 1 bulan",
       ],
@@ -301,13 +289,11 @@ export function PricingSection() {
       discount: "26%",
       description: "Proyek AI end-to-end: rekomendasi produk, image classification, chatbot",
       features: [
-        "Data cleaning & preprocessing",
+        "Data cleaning & preprocessing lengkap",
         "Model training & evaluation",
         "Rekomendasi produk / image classification",
-        "Chatbot dasar implementation",
         "Web interface untuk model",
         "Support 2 bulan",
-        "Performance optimization",
       ],
       popular: true,
       color: "secondary",
@@ -323,7 +309,6 @@ export function PricingSection() {
       description: "Layanan data cleaning, analisis deskriptif, dan visualisasi data",
       features: [
         "Data cleaning & normalisasi",
-        "Split training/testing dataset",
         "Analisis deskriptif lengkap",
         "Visualisasi data (Excel, PowerBI, Python)",
         "Statistical analysis",
@@ -345,11 +330,8 @@ export function PricingSection() {
         "Chatbot custom untuk instansi/UMKM",
         "Forecasting penjualan dengan AI",
         "Natural Language Processing (NLP)",
-        "IoT + AI integration",
         "Dashboard AI analytics",
-        "Custom AI solutions",
-        "Support 6 bulan",
-        "Training & maintenance",
+        "Support 6 bulan + training",
       ],
       popular: false,
       color: "primary",
@@ -389,93 +371,221 @@ export function PricingSection() {
           </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {packages.map((pkg, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -8, transition: { duration: 0.2 } }}
-            >
-              <Card
-                className={`relative overflow-hidden transition-all duration-300 hover:shadow-2xl h-full ${
-                  pkg.popular 
-                    ? "ring-2 ring-primary/50 shadow-xl" 
-                    : "hover:shadow-xl"
-                }`}
+        {/* UMKM Packages Section */}
+        <motion.div 
+          className="mb-20"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <motion.div 
+            className="text-center mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-2xl font-bold text-foreground mb-2">🏪 Paket <span className="text-primary">UMKM</span></h3>
+            <p className="text-muted-foreground">Untuk toko online, UMKM, dan bisnis kecil menengah</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {packages.slice(0, 2).map((pkg, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -8, transition: { duration: 0.2 } }}
               >
-                {pkg.popular && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                    viewport={{ once: true }}
-                  >
-                    <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground animate-pulse">
-                      Most Popular
-                    </Badge>
-                  </motion.div>
-                )}
-                
-                <CardHeader className="text-center pb-4">
-                  <CardTitle className="text-xl font-bold mb-2">{pkg.name}</CardTitle>
-                  <motion.div 
-                    className="mb-4"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div className="flex items-center justify-center gap-2 mb-1">
-                      <span className="text-muted-foreground line-through text-sm">Rp{pkg.originalPrice}</span>
-                      <span className="inline-block bg-red-100 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-medium px-2 py-0.5 rounded-md">
-                        HEMAT {pkg.discount}
-                      </span>
-                    </div>
-                    <span className="text-3xl font-bold text-primary">
-                      Rp{pkg.price}
-                    </span>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      {pkg.renewalPrice} di tahun berikutnya
-                    </p>
-                  </motion.div>
-                  <p className="text-sm text-muted-foreground">{pkg.description}</p>
-                </CardHeader>
-
-                <CardContent className="space-y-4">
-                  <div className="space-y-3">
-                    {pkg.features.map((feature, featureIndex) => (
-                      <motion.div 
-                        key={featureIndex} 
-                        className="flex items-center gap-3"
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.4, delay: featureIndex * 0.05 }}
-                        viewport={{ once: true }}
-                      >
-                        <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                        <span className="text-sm">{feature}</span>
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <Button 
-                      onClick={() => handleWhatsAppContact(pkg.whatsappMessage)}
-                      className="w-full mt-6 bg-primary hover:bg-primary/90 text-primary-foreground group"
+                <Card
+                  className={`relative overflow-hidden transition-all duration-300 hover:shadow-2xl h-full ${
+                    pkg.popular 
+                      ? "ring-2 ring-primary/50 shadow-xl" 
+                      : "hover:shadow-xl"
+                  }`}
+                >
+                  {pkg.popular && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5, delay: 0.3 }}
+                      viewport={{ once: true }}
                     >
-                      <MessageCircle className="mr-2 h-4 w-4" />
-                      PILIH PAKET
-                    </Button>
-                  </motion.div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+                      <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground animate-pulse">
+                        Most Popular
+                      </Badge>
+                    </motion.div>
+                  )}
+                  
+                  <CardHeader className="text-center pb-4">
+                    <CardTitle className="text-xl font-bold mb-2">{pkg.name}</CardTitle>
+                    <motion.div 
+                      className="mb-4"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <div className="flex items-center justify-center gap-2 mb-1">
+                        <span className="text-muted-foreground line-through text-sm">Rp{pkg.originalPrice}</span>
+                        <span className="inline-block bg-red-100 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-medium px-2 py-0.5 rounded-md">
+                          HEMAT {pkg.discount}
+                        </span>
+                      </div>
+                      <span className="text-3xl font-bold text-primary">
+                        Rp{pkg.price}
+                      </span>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        {pkg.renewalPrice} di tahun berikutnya
+                      </p>
+                    </motion.div>
+                    <p className="text-sm text-muted-foreground">{pkg.description}</p>
+                  </CardHeader>
+
+                  <CardContent className="space-y-4">
+                    <div className="space-y-3">
+                      {pkg.features.map((feature, featureIndex) => (
+                        <motion.div 
+                          key={featureIndex} 
+                          className="flex items-center gap-3"
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.4, delay: featureIndex * 0.05 }}
+                          viewport={{ once: true }}
+                        >
+                          <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
+                          <span className="text-sm">{feature}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Button 
+                        onClick={() => handleWhatsAppContact(pkg.whatsappMessage)}
+                        className="w-full mt-6 bg-primary hover:bg-primary/90 text-primary-foreground group"
+                      >
+                        <MessageCircle className="mr-2 h-4 w-4" />
+                        PILIH PAKET
+                      </Button>
+                    </motion.div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Korporat Packages Section */}
+        <motion.div 
+          className="mb-20 pt-16 border-t border-border"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <motion.div 
+            className="text-center mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-2xl font-bold text-foreground mb-2">🏢 Paket <span className="text-primary">Korporat</span></h3>
+            <p className="text-muted-foreground">Untuk perusahaan, instansi, dan bisnis besar yang membutuhkan website profesional</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {packages.slice(2, 4).map((pkg, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -8, transition: { duration: 0.2 } }}
+              >
+                <Card
+                  className={`relative overflow-hidden transition-all duration-300 hover:shadow-2xl h-full ${
+                    pkg.popular 
+                      ? "ring-2 ring-primary/50 shadow-xl" 
+                      : "hover:shadow-xl"
+                  }`}
+                >
+                  {pkg.popular && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5, delay: 0.3 }}
+                      viewport={{ once: true }}
+                    >
+                      <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground animate-pulse">
+                        Most Popular
+                      </Badge>
+                    </motion.div>
+                  )}
+                  
+                  <CardHeader className="text-center pb-4">
+                    <CardTitle className="text-xl font-bold mb-2">{pkg.name}</CardTitle>
+                    <motion.div 
+                      className="mb-4"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <div className="flex items-center justify-center gap-2 mb-1">
+                        <span className="text-muted-foreground line-through text-sm">Rp{pkg.originalPrice}</span>
+                        <span className="inline-block bg-red-100 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-medium px-2 py-0.5 rounded-md">
+                          HEMAT {pkg.discount}
+                        </span>
+                      </div>
+                      <span className="text-3xl font-bold text-primary">
+                        Rp{pkg.price}
+                      </span>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        {pkg.renewalPrice} di tahun berikutnya
+                      </p>
+                    </motion.div>
+                    <p className="text-sm text-muted-foreground">{pkg.description}</p>
+                  </CardHeader>
+
+                  <CardContent className="space-y-4">
+                    <div className="space-y-3">
+                      {pkg.features.map((feature, featureIndex) => (
+                        <motion.div 
+                          key={featureIndex} 
+                          className="flex items-center gap-3"
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.4, delay: featureIndex * 0.05 }}
+                          viewport={{ once: true }}
+                        >
+                          <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
+                          <span className="text-sm">{feature}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Button 
+                        onClick={() => handleWhatsAppContact(pkg.whatsappMessage)}
+                        className="w-full mt-6 bg-primary hover:bg-primary/90 text-primary-foreground group"
+                      >
+                        <MessageCircle className="mr-2 h-4 w-4" />
+                        PILIH PAKET
+                      </Button>
+                    </motion.div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
           <motion.div
             className="text-center mt-12 space-y-4"
