@@ -37,7 +37,7 @@ export function WorkingChatInterface() {
           timestamp: new Date(m.timestamp)
         })));
       } catch (e) {
-        console.error("Failed to load chat history:", e);
+        // Silently fail to load chat history
       }
     }
   }, []);
@@ -85,8 +85,6 @@ export function WorkingChatInterface() {
 
       setMessages((prev) => [...prev, botMessage]);
     } catch (error) {
-      console.error("Error:", error);
-      
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         type: "bot",

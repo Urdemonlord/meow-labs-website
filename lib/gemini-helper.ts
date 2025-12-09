@@ -49,7 +49,6 @@ JAWABAN:`;
     
     return response.text || "Maaf, saya tidak dapat memproses pertanyaan Anda saat ini. Silakan hubungi tim kami di WhatsApp +62 895-3862-88683";
   } catch (error) {
-    console.error("Error generating Gemini response:", error);
     throw error;
   }
 }
@@ -81,7 +80,6 @@ Gunakan emoji dan bahasa casual tapi profesional. Maksimal 150 kata.`;
            "• Cara menghubungi tim\n\n" +
            "Silakan tanya apa saja! 😊";
   } catch (error) {
-    console.error("Error generating greeting:", error);
     return "Halo! 👋 Selamat datang di Meow Labs!\n\n" +
            "Saya asisten virtual yang siap membantu Anda dengan informasi tentang layanan web development kami.\n\n" +
            "Anda bisa bertanya tentang:\n" +
@@ -121,7 +119,6 @@ Maksimal 100 kata.`;
            "✉️ Email: admin@meowlabs.id\n\n" +
            "Tim kami siap membantu Anda!";
   } catch (error) {
-    console.error("Error generating fallback:", error);
     return "Maaf, saya tidak memiliki informasi spesifik tentang pertanyaan Anda. 😔\n\n" +
            "Namun, Anda bisa menghubungi tim Meow Labs langsung untuk informasi lebih detail:\n" +
            "📱 WhatsApp: +62 895-3862-88683\n" +

@@ -70,7 +70,6 @@ export async function generateResponse(query: string): Promise<string> {
     // Use Gemini to generate response with ChromaDB context
     return await generateGeminiResponse(query, documents);
   } catch (error) {
-    console.error("Error generating response:", error);
     return "Maaf, terjadi kesalahan teknis saat mencari jawaban. 😔\n\n" +
            "Silakan coba lagi atau hubungi tim kami langsung:\n" +
            "📱 WhatsApp: +62 895-3862-88683\n" +

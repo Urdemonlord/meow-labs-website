@@ -49,7 +49,6 @@ export async function POST() {
       count: chunks.length,
     });
   } catch (error) {
-    console.error("Error adding knowledge base:", error);
     return NextResponse.json(
       { success: false, message: "Failed to add knowledge base" },
       { status: 500 },
@@ -68,7 +67,6 @@ export async function GET() {
       count,
     });
   } catch (error) {
-    console.error("Error getting knowledge base info:", error);
     return NextResponse.json(
       { success: false, message: "Failed to get knowledge base information" },
       { status: 500 },
