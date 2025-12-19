@@ -9,7 +9,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@chroma-core/default-embed": "^0.1.8",
     "@google/genai": "^1.22.0",
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "1.2.2",
@@ -41,7 +40,6 @@
     "@radix-ui/react-tooltip": "1.1.6",
     "@vercel/analytics": "latest",
     "autoprefixer": "^10.4.20",
-    "chromadb": "^3.0.17",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "1.0.4",

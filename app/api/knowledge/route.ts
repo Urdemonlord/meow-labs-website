@@ -1,29 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
-import { CloudClient, Collection } from "chromadb";
+import { getOrCreateCollection, addToCollection } from "@/lib/chroma-api";
 import { parseKnowledgeBase } from "@/lib/knowledge-parser";
 
-const chromaClient = new CloudClient({
-  apiKey: process.env.CHROMA_API_KEY,
-  tenant: process.env.CHROMA_TENANT,
-  database: process.env.CHROMA_DATABASE,
-});
+let collectionId: string | null = null;
 
-let knowledgeCollection: Collection | null = null;
-
-const getKnowledgeCollection = async () => {
-  if (!knowledgeCollection) {
-    knowledgeCollection = await chromaClient.getOrCreateCollection({
-      name: "knowledge_base",
-    });
+const getKnowledgeCollectionId = async () => {
+  if (!collectionId) {
+    collectionId = await getOrCreateCollection("knowledge_base");
   }
-  return knowledgeCollection;
+  return collectionId;
 };
 
 export async function POST() {
   try {
     // Parse knowledge base into chunks
     const { chunks, metadatas } = parseKnowledgeBase();
-    const collection = await getKnowledgeCollection();
+    const collId = await getKnowledgeCollectionId();
     
     // Generate IDs based on metadata
     const ids = metadatas.map(metadata => metadata.chunk_id);
@@ -36,11 +28,7 @@ export async function POST() {
       const batchMetadatas = metadatas.slice(i, i + batchSize);
       
       // Add data to ChromaDB in batches
-      await collection.add({
-        ids: batchIds,
-        documents: batchChunks,
-        metadatas: batchMetadatas,
-      });
+      await addToCollection(collId, batchIds, batchChunks, batchMetadatas);
     }
 
     return NextResponse.json({
@@ -49,6 +37,7 @@ export async function POST() {
       count: chunks.length,
     });
   } catch (error) {
+    console.error("Error:", error);
     return NextResponse.json(
       { success: false, message: "Failed to add knowledge base" },
       { status: 500 },
@@ -58,13 +47,11 @@ export async function POST() {
 
 export async function GET() {
   try {
-    const collection = await getKnowledgeCollection();
-    const count = await collection.count();
+    await getKnowledgeCollectionId();
     
     return NextResponse.json({
       success: true,
-      message: "Knowledge base information retrieved",
-      count,
+      message: "Knowledge base collection ready",
     });
   } catch (error) {
     return NextResponse.json(
