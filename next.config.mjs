@@ -10,11 +10,21 @@ const nextConfig = {
     unoptimized: true,
   },
   webpack: (config, { isServer }) => {
-    config.externals = [...(config.externals || []), 'onnxruntime-node'];
+    // Exclude large native modules that shouldn't be bundled
+    const externals = [
+      'onnxruntime-node',
+      '@huggingface/transformers',
+      'sharp',
+      ...(config.externals || []),
+    ];
+    config.externals = externals;
+    
+    // Handle .node binary files
     config.module.rules.push({
       test: /\.node$/,
       use: 'node-loader',
     });
+    
     return config;
   },
 }
