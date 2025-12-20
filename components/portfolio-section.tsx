@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -26,9 +26,14 @@ export function PortfolioSection() {
   const [projects, setProjects] = useState<ShowcaseProject[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const isFetchingRef = useRef(false)
   
   // Function to fetch projects from Showcase-IT API
   const fetchProjects = async () => {
+    // Prevent concurrent fetch requests
+    if (isFetchingRef.current) return;
+    
+    isFetchingRef.current = true;
     setLoading(true);
     try {
       // Gunakan URL production untuk deployment
@@ -80,6 +85,7 @@ export function PortfolioSection() {
       ]);
     } finally {
       setLoading(false);
+      isFetchingRef.current = false;
     }
   };
   
@@ -95,13 +101,13 @@ export function PortfolioSection() {
   }, []);
 
   // Extract unique tags from projects for filtering
-  const allTags = ["All", ...new Set(projects.flatMap(project => project.tags))].filter(Boolean);
+  const allTags = ["All", ...new Set((Array.isArray(projects) ? projects : []).flatMap(project => project.tags || []))].filter(Boolean);
   
   // Filter projects based on selected tag
   const filteredProjects =
     activeFilter === "All" 
-      ? projects 
-      : projects.filter((project) => project.tags && project.tags.includes(activeFilter));
+      ? (Array.isArray(projects) ? projects : [])
+      : (Array.isArray(projects) ? projects : []).filter((project) => project.tags && project.tags.includes(activeFilter));
 
   return (
     <section id="portfolio" className="py-20 bg-card/50">

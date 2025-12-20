@@ -49,24 +49,30 @@ export function LiveChatWidget() {
     if (!newMessage.trim()) return
 
     const userMessage: Message = {
-      id: messages.length + 1,
+      id: (Array.isArray(messages) ? messages.length : 0) + 1,
       text: newMessage,
       isUser: true,
       timestamp: new Date()
     }
 
-    setMessages(prev => [...prev, userMessage])
+    setMessages(prev => {
+      const currentMessages = Array.isArray(prev) ? prev : [];
+      return [...currentMessages, userMessage];
+    })
     setNewMessage('')
 
     // Auto reply after 2 seconds
     setTimeout(() => {
       const autoReply: Message = {
-        id: messages.length + 2,
+        id: (Array.isArray(messages) ? messages.length : 0) + 2,
         text: "Terima kasih atas pertanyaan Anda! Tim kami akan merespon dalam 2-3 menit. Untuk respon lebih cepat, silakan hubungi WhatsApp kami di +62 895-3862-88683 📱",
         isUser: false,
         timestamp: new Date()
       }
-      setMessages(prev => [...prev, autoReply])
+      setMessages(prev => {
+        const currentMessages = Array.isArray(prev) ? prev : [];
+        return [...currentMessages, autoReply];
+      })
     }, 2000)
   }
 
@@ -148,7 +154,7 @@ export function LiveChatWidget() {
             {/* Messages */}
             <CardContent className="p-0">
               <div className="h-80 overflow-y-auto p-4 space-y-3">
-                {messages.map((message) => (
+                {Array.isArray(messages) && messages.map((message) => (
                   <div
                     key={message.id}
                     className={`flex ${message.isUser ? 'justify-end' : 'justify-start'}`}

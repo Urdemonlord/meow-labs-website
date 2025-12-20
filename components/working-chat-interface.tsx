@@ -22,28 +22,47 @@ export function WorkingChatInterface() {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const isFetchingRef = useRef(false);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
   useEffect(() => {
-    const savedMessages = localStorage.getItem("meow-chat-history");
-    if (savedMessages) {
-      try {
+    try {
+      const savedMessages = localStorage.getItem("meow-chat-history");
+      if (savedMessages) {
         const parsed = JSON.parse(savedMessages);
-        setMessages(parsed.map((m: any) => ({
-          ...m,
-          timestamp: new Date(m.timestamp)
-        })));
-      } catch (e) {
-        // Silently fail to load chat history
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          const validMessages = parsed.map((m: any) => {
+            if (m && typeof m === 'object' && m.id && m.type && m.text && m.timestamp) {
+              return {
+                id: String(m.id),
+                type: m.type as 'user' | 'bot',
+                text: String(m.text),
+                timestamp: new Date(m.timestamp)
+              };
+            }
+            return null;
+          }).filter((m): m is Message => m !== null);
+          
+          if (validMessages.length > 0) {
+            setMessages(validMessages);
+          }
+        }
+      }
+    } catch (e) {
+      // Clear corrupted localStorage data
+      try {
+        localStorage.removeItem("meow-chat-history");
+      } catch {
+        // Ignore localStorage errors
       }
     }
   }, []);
 
   useEffect(() => {
-    if (messages.length > 1) {
+    if (Array.isArray(messages) && messages.length > 1) {
       localStorage.setItem("meow-chat-history", JSON.stringify(messages));
     }
   }, [messages]);
@@ -61,11 +80,19 @@ export function WorkingChatInterface() {
       timestamp: new Date(),
     };
 
-    setMessages((prev) => [...prev, userMessage]);
+    setMessages((prev) => {
+      const currentMessages = Array.isArray(prev) ? prev : [];
+      return [...currentMessages, userMessage];
+    });
     setInputValue("");
     setIsLoading(true);
 
     try {
+      // Prevent concurrent fetch requests
+      if (isFetchingRef.current) return;
+      
+      isFetchingRef.current = true;
+      
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -83,7 +110,10 @@ export function WorkingChatInterface() {
         timestamp: new Date(),
       };
 
-      setMessages((prev) => [...prev, botMessage]);
+      setMessages((prev) => {
+        const currentMessages = Array.isArray(prev) ? prev : [];
+        return [...currentMessages, botMessage];
+      });
     } catch (error) {
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
@@ -92,9 +122,13 @@ export function WorkingChatInterface() {
         timestamp: new Date(),
       };
 
-      setMessages((prev) => [...prev, errorMessage]);
+      setMessages((prev) => {
+        const currentMessages = Array.isArray(prev) ? prev : [];
+        return [...currentMessages, errorMessage];
+      });
     } finally {
       setIsLoading(false);
+      isFetchingRef.current = false;
       inputRef.current?.focus();
     }
   };
@@ -116,7 +150,7 @@ export function WorkingChatInterface() {
 
       {/* Messages */}
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
-        {messages.map((message) => (
+        {Array.isArray(messages) && messages.map((message) => (
           <div
             key={message.id}
             className={`flex ${

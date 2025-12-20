@@ -14,11 +14,12 @@ export function FAQSection() {
   const [openItems, setOpenItems] = useState<number[]>([0]) // First item open by default
 
   const toggleItem = (index: number) => {
-    setOpenItems(prev => 
-      prev.includes(index) 
+    setOpenItems(prev => {
+      if (!Array.isArray(prev)) return [index];
+      return prev.includes(index) 
         ? prev.filter(i => i !== index)
-        : [...prev, index]
-    )
+        : [...prev, index];
+    })
   }
 
   const handleWhatsAppContact = () => {
@@ -96,13 +97,13 @@ export function FAQSection() {
                     </h3>
                     <ChevronDown 
                       className={`h-5 w-5 text-muted-foreground transition-transform ${
-                        openItems.includes(index) ? 'rotate-180' : ''
+                        Array.isArray(openItems) && openItems.includes(index) ? 'rotate-180' : ''
                       }`}
                     />
                   </div>
                 </button>
                 
-                {openItems.includes(index) && (
+                {Array.isArray(openItems) && openItems.includes(index) && (
                   <CardContent className="pt-0 pb-6">
                     <div className="border-t border-border pt-4">
                       <p className="text-muted-foreground leading-relaxed text-pretty">

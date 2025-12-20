@@ -1,13 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   typescript: {
     ignoreBuildErrors: true,
   },
   images: {
     unoptimized: true,
+  },
+  turbopack: {
+    root: '.',
+    resolveAlias: {
+      canvas: './empty-module.js',
+    },
   },
   webpack: (config, { isServer }) => {
     // Exclude large native modules that shouldn't be bundled
