@@ -50,11 +50,11 @@ export function Footer() {
     },
     {
       name: "BCA",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/512px-Bank_Central_Asia.svg.png",
+      url: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg",
     },
     {
       name: "Mandiri",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo_2016.svg/512px-Bank_Mandiri_logo_2016.svg.png",
+      url: "https://upload.wikimedia.org/wikipedia/commons/a/ad/Bank_Mandiri_logo_2016.svg",
     },
     {
       name: "BNI",
@@ -62,7 +62,7 @@ export function Footer() {
     },
     {
       name: "BRI",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/BRI_2020.svg/512px-BRI_2020.svg.png",
+      url: "https://upload.wikimedia.org/wikipedia/commons/2/2e/BRI_2020.svg",
     },
     {
       name: "GoPay",
@@ -70,19 +70,19 @@ export function Footer() {
     },
     {
       name: "OVO",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Logo_ovo_purple.svg/512px-Logo_ovo_purple.svg.png",
+      url: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Logo_ovo_purple.svg",
     },
     {
       name: "DANA",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/512px-Logo_dana_blue.svg.png",
+      url: "https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg",
     },
     {
       name: "ShopeePay",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Shopee.svg/512px-Shopee.svg.png",
+      url: "https://upload.wikimedia.org/wikipedia/commons/f/fe/Shopee.svg",
     },
     {
       name: "LinkAja",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/LinkAja.svg/512px-LinkAja.svg.png",
+      url: "https://upload.wikimedia.org/wikipedia/commons/8/85/LinkAja.svg",
     },
     {
       name: "Jenius",
@@ -90,7 +90,7 @@ export function Footer() {
     },
     {
       name: "BSI",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Bank_Syariah_Indonesia.svg/512px-Bank_Syariah_Indonesia.svg.png",
+      url: "https://upload.wikimedia.org/wikipedia/commons/a/a0/Bank_Syariah_Indonesia.svg",
     }
   ]
 
