@@ -1,6 +1,6 @@
-"use client";
+"use client"
 
-import dynamic from "next/dynamic";
+import dynamic from "next/dynamic"
 
 const WorkingFloatingChat = dynamic(
   () =>
@@ -8,11 +8,11 @@ const WorkingFloatingChat = dynamic(
       default: mod.WorkingFloatingChat,
     })),
   { ssr: false }
-);
+)
 
 const SnowfallEffect = dynamic(() => import("./snowfall-effect"), {
   ssr: false,
-});
+})
 
 export default function ClientComponents() {
   return (
@@ -20,5 +20,5 @@ export default function ClientComponents() {
       <SnowfallEffect />
       <WorkingFloatingChat />
     </>
-  );
+  )
 }

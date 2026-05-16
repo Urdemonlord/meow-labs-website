@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState, useEffect } from 'react'
 import { Button } from "@/components/ui/button"
@@ -18,7 +18,7 @@ export function LiveChatWidget() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
-      text: "Halo! Selamat datang di Meow Labs! 👋\n\nSaya customer service Meow Labs. Ada yang bisa saya bantu mengenai pembuatan website?",
+      text: "Halo. Selamat datang di Meow Labs.\n\nSaya customer service Meow Labs. Ada yang bisa saya bantu mengenai pembuatan website?",
       isUser: false,
       timestamp: new Date()
     }
@@ -65,7 +65,7 @@ export function LiveChatWidget() {
     setTimeout(() => {
       const autoReply: Message = {
         id: (Array.isArray(messages) ? messages.length : 0) + 2,
-        text: "Terima kasih atas pertanyaan Anda! Tim kami akan merespon dalam 2-3 menit. Untuk respon lebih cepat, silakan hubungi WhatsApp kami di +62 895-3862-88683 📱",
+        text: "Terima kasih atas pertanyaan Anda. Tim kami akan merespons dalam 2-3 menit. Untuk respons lebih cepat, silakan hubungi WhatsApp kami di +62 851-1717-0198.",
         isUser: false,
         timestamp: new Date()
       }

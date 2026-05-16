@@ -1,85 +1,63 @@
-"use client";
+"use client"
 
-import { useState, useRef, useEffect } from "react";
-import { WorkingChatInterface } from "./working-chat-interface";
+import { useEffect, useRef, useState } from "react"
+import { MessageSquare, X } from "lucide-react"
+import { WorkingChatInterface } from "./working-chat-interface"
+import { useUiText } from "./ui-preferences-provider"
 
 export function WorkingFloatingChat() {
-  const [isOpen, setIsOpen] = useState(false);
-  const widgetRef = useRef<HTMLDivElement>(null);
+  const [isOpen, setIsOpen] = useState(false)
+  const widgetRef = useRef<HTMLDivElement>(null)
+  const copy = useUiText()
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        widgetRef.current &&
-        !widgetRef.current.contains(event.target as Node)
-      ) {
-        setIsOpen(false);
+      if (widgetRef.current && !widgetRef.current.contains(event.target as Node)) {
+        setIsOpen(false)
       }
-    };
+    }
 
     if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside)
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isOpen]);
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [isOpen])
 
   return (
-    <div className="fixed bottom-6 right-6 z-50" ref={widgetRef}>
+    <div className="fixed bottom-4 right-4 z-50 sm:bottom-6 sm:right-6" ref={widgetRef}>
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="bg-blue-600 hover:bg-blue-700 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg transition-all hover:scale-110"
-          aria-label="Open chat"
+          className="flex h-14 w-14 items-center justify-center rounded-full border border-primary/30 bg-card text-primary shadow-[0_18px_45px_rgba(0,0,0,0.45)] transition-all hover:scale-105 hover:bg-primary hover:text-primary-foreground"
+          aria-label={copy.chat.open}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-7 w-7"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-            />
-          </svg>
+          <MessageSquare className="h-6 w-6" />
         </button>
       )}
 
       {isOpen && (
-        <div className="bg-white rounded-lg shadow-2xl w-96 h-[500px] flex flex-col overflow-hidden">
-          <div className="flex justify-end p-2 border-b border-gray-200">
+        <div className="flex h-[min(76vh,36rem)] w-[min(92vw,24rem)] flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-[0_24px_70px_rgba(0,0,0,0.55)]">
+          <div className="flex items-center justify-between border-b border-border bg-background/90 px-4 py-3">
+            <div className="min-w-0">
+              <div className="truncate text-sm font-semibold text-foreground">{copy.chat.title}</div>
+              <div className="truncate text-xs text-muted-foreground">{copy.chat.subtitle}</div>
+            </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="text-gray-500 hover:text-gray-700"
-              aria-label="Close chat"
+              className="rounded-full p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              aria-label={copy.chat.close}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              <X className="h-5 w-5" />
             </button>
           </div>
-          <div className="flex-1 overflow-hidden">
+          <div className="min-h-0 flex-1">
             <WorkingChatInterface />
           </div>
         </div>
       )}
     </div>
-  );
+  )
 }

@@ -34,7 +34,7 @@ export async function GET(request: NextRequest) {
       success: true,
       message: 'CSRF token generated',
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { 
         success: false, 

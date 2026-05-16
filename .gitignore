@@ -25,3 +25,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# submission hygiene
+/docs/
+*.png
+!public/**/*.png
+!README.md
+!knowledge.md

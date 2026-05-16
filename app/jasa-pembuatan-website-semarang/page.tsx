@@ -1,7 +1,5 @@
 import type { Metadata } from "next"
 
-import RedirectMessage from "@/components/redirect-message"
-
 // Metadata for this specific page
 export const metadata: Metadata = {
   title: "Jasa Pembuatan Website Profesional #1 di Semarang | Meow Labs",

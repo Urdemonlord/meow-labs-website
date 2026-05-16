@@ -1,183 +1,82 @@
 "use client"
 
-import React from 'react'
-import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Check, ArrowRight } from 'lucide-react'
-import { useCallback } from 'react'
+import { ArrowRight, Check } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
+import { useUiText } from "./ui-preferences-provider"
 
 export function StudentPackagesSection() {
-  const handleWhatsAppContact = useCallback((message: string) => {
-    const phoneNumber = "62895386288683" // Nomor WhatsApp admin
-    const encodedMessage = encodeURIComponent(message)
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`
-    window.open(whatsappUrl, "_blank")
-  }, [])
+  const copy = useUiText()
 
-  const packages = [
-    {
-      name: "Paket Tugas Kuliah Lite",
-      originalPrice: "399.000",
-      price: "300.000",
-      description: "Untuk tugas kuliah sederhana (website tugas, mini project coding).",
-      features: [
-        "Website statis 1–2 halaman (HTML/React sederhana)",
-        "Basic desain (template standar)",
-        "Tanpa maintenance",
-        "Waktu pengerjaan cepat (2–3 hari)",
-      ],
-      popular: false,
-      color: "primary",
-      whatsappMessage: "Hallo admin saya ingin konsultasi gratis untuk paket Tugas Kuliah Lite",
-      discount: "25%",
-      deliveryTime: "2-3 hari"
-    },
-    {
-      name: "Paket Skripsi / Data Lite",
-      originalPrice: "1.999.000",
-      price: "1.500.000",
-      description: "Untuk mahasiswa skripsi yang butuh bantuan data atau AI dasar.",
-      features: [
-        "Preprocessing dataset",
-        "Model machine learning sederhana (klasifikasi/regresi)",
-        "Dokumentasi dasar untuk laporan skripsi",
-        "Revisi 1x",
-      ],
-      popular: true,
-      color: "secondary",
-      whatsappMessage: "Hallo admin saya ingin konsultasi gratis untuk paket Skripsi / Data Lite",
-      discount: "25%",
-      deliveryTime: "7-14 hari"
-    },
-    {
-      name: "Paket Aplikasi Mini",
-      originalPrice: "2.499.000",
-      price: "2.000.000",
-      description: "Untuk project akhir mata kuliah atau prototype startup mahasiswa.",
-      features: [
-        "Aplikasi web sederhana (login, CRUD, dashboard)",
-        "Database (MySQL/Postgres)",
-        "Hosting gratisan (Heroku/Vercel)",
-        "Dokumentasi singkat + presentasi",
-      ],
-      popular: false,
-      color: "primary",
-      whatsappMessage: "Hallo admin saya ingin konsultasi gratis untuk paket Aplikasi Mini",
-      discount: "20%",
-      deliveryTime: "14-21 hari"
-    },
-    {
-      name: "Paket Skripsi Premium",
-      originalPrice: "5.000.000",
-      price: "4.000.000",
-      description: "Untuk skripsi/tesis dengan AI/Data lebih kompleks.",
-      features: [
-        "Full pipeline: data preprocessing, model training, evaluasi",
-        "Bisa custom (NLP, Computer Vision, Recommender)",
-        "Laporan teknis detail (grafik evaluasi)",
-        "2x revisi + support 1 bulan",
-      ],
-      popular: false,
-      color: "secondary",
-      whatsappMessage: "Hallo admin saya ingin konsultasi gratis untuk paket Skripsi Premium",
-      discount: "20%",
-      deliveryTime: "21-30 hari"
-    },
-    {
-      name: "Paket Branding Mahasiswa",
-      originalPrice: "1.999.000",
-      price: "1.500.000",
-      description: "Untuk mahasiswa/fresh graduate yang ingin punya website personal untuk CV/portofolio.",
-      features: [
-        "Website personal (3–4 halaman)",
-        "Domain .com 1 tahun",
-        "Showcase project & skill",
-        "Integrasi LinkedIn/GitHub",
-      ],
-      popular: false,
-      color: "primary",
-      whatsappMessage: "Hallo admin saya ingin konsultasi gratis untuk paket Branding Mahasiswa",
-      discount: "25%",
-      deliveryTime: "7-14 hari"
-    },
-  ]
+  const handleWhatsAppContact = (message: string) => {
+    const encodedMessage = encodeURIComponent(message)
+    window.open(`https://api.whatsapp.com/send?phone=6285117170198&text=${encodedMessage}`, "_blank")
+  }
 
   return (
-    <section id="student-packages" className="py-20 bg-muted/50">
+    <section id="student-packages" className="bg-muted/50 py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="mb-16 text-center">
           <Badge variant="outline" className="mb-4 border-primary text-primary">
-            Khusus Mahasiswa
+            {copy.student.badge}
           </Badge>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            📦 Paket Mahasiswa – <span className="text-primary">Meow Labs</span>
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-            Paket khusus untuk membantu kebutuhan akademis dan portofolio mahasiswa dengan harga spesial
+          <h2 className="mb-4 text-3xl font-bold text-foreground sm:text-4xl">{copy.student.title}</h2>
+          <p className="mx-auto max-w-3xl text-lg text-muted-foreground">
+            {copy.student.description}
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {packages.map((pkg, index) => (
-            <Card key={index} className={`relative overflow-hidden border-2 ${pkg.popular ? 'border-secondary shadow-lg scale-105' : 'border-border'}`}>
-              {pkg.popular && (
-                <div className="absolute top-0 right-0 bg-secondary text-secondary-foreground px-3 py-1 text-xs font-bold rounded-bl-lg">
-                  POPULER
+        <div className="grid gap-6 lg:grid-cols-3">
+          {copy.student.packages.map((pkg, index) => (
+            <Card
+              key={pkg.name}
+              className={`overflow-hidden border-border bg-card/95 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
+                index === 1 ? "ring-2 ring-secondary/40" : ""
+              }`}
+            >
+              <div className="mb-4 flex min-h-[5.5rem] flex-col justify-between gap-2">
+                <div>
+                  <h3 className="text-xl font-bold text-foreground">{pkg.name}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{pkg.description}</p>
                 </div>
-              )}
-              
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">🎓 {pkg.name}</h3>
-                <div className="mb-4">
-                  <span className="text-muted-foreground line-through text-sm">Rp{pkg.originalPrice}</span>
-                  <span className="ml-2 inline-block bg-red-100 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-medium px-2 py-0.5 rounded-md">
-                    HEMAT {pkg.discount}
-                  </span>
-                  <div className="mt-1 flex items-baseline">
-                    <span className="text-3xl font-bold text-primary">Rp{pkg.price}</span>
-                  </div>
-                </div>
-                
-                <p className="text-muted-foreground text-sm mb-6">
-                  📌 {pkg.description}
-                </p>
-                
-                <div className="space-y-3 mb-6">
-                  <div className="text-sm font-medium">Fitur:</div>
-                  {pkg.features.map((feature, i) => (
-                    <div key={i} className="flex items-start">
-                      <Check className="h-5 w-5 text-primary shrink-0 mr-2" />
-                      <span className="text-sm">{feature}</span>
-                    </div>
-                  ))}
-                  <div className="flex items-start mt-4">
-                    <span className="text-xs text-muted-foreground">⏱️ Estimasi waktu pengerjaan: {pkg.deliveryTime}</span>
-                  </div>
-                </div>
-
-                <Button
-                  className="w-full bg-primary text-white hover:bg-primary/90"
-                  onClick={() => handleWhatsAppContact(pkg.whatsappMessage)}
-                >
-                  Konsultasi Gratis
-                  <ArrowRight className="ml-1 h-4 w-4" />
-                </Button>
               </div>
+
+              <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
+                <div className="text-2xl font-bold text-primary">{pkg.price}</div>
+                <div className="text-sm font-medium text-secondary">{pkg.timeline}</div>
+              </div>
+
+              <div className="mb-6 space-y-3">
+                {pkg.features.map((feature) => (
+                  <div key={feature} className="flex items-start gap-3">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    <span className="text-sm text-foreground/90">{feature}</span>
+                  </div>
+                ))}
+              </div>
+
+              <Button
+                className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                onClick={() => handleWhatsAppContact(pkg.whatsappMessage)}
+              >
+                {copy.student.cta}
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
             </Card>
           ))}
         </div>
 
-        <div className="mt-16 text-center">
+        <div className="mt-12 text-center">
           <p className="text-muted-foreground">
-            Butuh paket custom untuk tugas akademik lainnya? Hubungi kami untuk diskusi lebih lanjut.
+            {copy.student.description}
           </p>
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             className="mt-4"
-            onClick={() => handleWhatsAppContact("Hallo admin, saya ingin konsultasi untuk kebutuhan project akademik custom")}
+            onClick={() => handleWhatsAppContact(copy.student.customMessage)}
           >
-            Diskusi Kebutuhan Custom
+            {copy.student.customCta}
           </Button>
         </div>
       </div>

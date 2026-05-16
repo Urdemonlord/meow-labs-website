@@ -1,4 +1,4 @@
-# Meow Labs Knowledge Base
+﻿# Meow Labs Knowledge Base
 
 Dokumentasi lengkap tentang layanan, paket, dan informasi Meow Labs yang dapat digunakan untuk menjawab pertanyaan menggunakan Retrieval Augmented Generation (RAG).
 
@@ -16,31 +16,7 @@ Tim profesional Meow Labs terdiri dari:
 
 1. **Hasrinata Arya Afendi** - Founder
    Visioner di balik berdirinya Meow Labs, yang memimpin arah dan strategi perusahaan dengan fokus pada solusi teknologi inovatif untuk UMKM.
-
-2. **Yusuf Nur Cahyo** - IOT Developer & Social Media Strategist
-   Menggabungkan keahlian teknologi IoT dengan strategi media sosial untuk memberikan solusi terintegrasi bagi klien.
-
-3. **Habib Khulafa Panji Langit** - Project Manager
-   Mengkoordinasikan tim dan mengelola timeline proyek untuk memastikan setiap website selesai tepat waktu dan sesuai ekspektasi klien.
-
-4. **Muhammad Fikar Firdiansyah** - UI/UX Designer
-   Merancang pengalaman pengguna yang intuitif dan desain antarmuka yang memanjakan mata di setiap perangkat.
-
-5. **Alfian Nugroho Jati** - Social Media Strategist
-   Mengembangkan strategi media sosial yang efektif untuk meningkatkan visibilitas brand dan mendukung tujuan pemasaran digital.
-
-6. **Ahmad Munip** - Backend Developer
-   Membangun infrastruktur dan logika backend yang kuat dan aman untuk mendukung berbagai fitur website dan aplikasi.
-
-7. **Arisyad Faizon** - Executive Assistant
-   Mendukung operasional dan manajemen proyek, memastikan semua kegiatan internal dan eksternal berjalan dengan lancar.
-
-8. **Sahad Ibrohim** dan **Rafi Yudha** - Growth Strategist
-   Menganalisis data dan tren pasar untuk mengembangkan strategi pertumbuhan bisnis yang berkelanjutan bagi klien.
-
-9. **Herinta Armantya** - Frontend Developer
-   Mengembangkan antarmuka pengguna yang responsif, cepat dan menarik dengan fokus pada pengalaman pengguna yang optimal.
-
+   
 ## Layanan Utama
 
 Meow Labs menawarkan berbagai layanan web development untuk memenuhi berbagai kebutuhan bisnis:
@@ -182,7 +158,7 @@ Meow Labs memiliki paket khusus untuk mahasiswa dan pelajar dengan harga yang le
 
 ### Informasi Kontak
 - **Email:** admin@meowlabs.id
-- **WhatsApp:** +62 895-3862-88683
+- **WhatsApp:** +62 851-1717-0198
 - **Lokasi:** Semarang, Jawa Tengah, Indonesia
 - **Jam Operasional:** Senin-Minggu, 08:00-22:00 WIB
 

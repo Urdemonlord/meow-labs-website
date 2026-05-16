@@ -1,0 +1,428 @@
+{
+  "id": {
+    "nav": {
+      "items": {
+        "home": "Home",
+        "about": "About",
+        "services": "Layanan",
+        "pricing": "Paket",
+        "students": "Mahasiswa",
+        "portfolio": "Portfolio",
+        "blog": "Blog",
+        "contact": "Kontak"
+      },
+      "contactCta": "Hubungi Kami",
+      "language": "Bahasa",
+      "santaMode": "Santa Mode",
+      "openMenu": "Buka menu",
+      "closeMenu": "Tutup menu"
+    },
+    "hero": {
+      "badge": "Jasa pembuatan website profesional di Semarang",
+      "titleLines": [
+        "Jasa Pembuatan Website",
+        "Murah untuk UMKM",
+        "& Personal"
+      ],
+      "description": "Layanan pembuatan website untuk UMKM, kafe, hingga personal branding dengan desain profesional mulai dari 500 ribuan. Website responsive, SEO-friendly, dan siap dipakai untuk bisnis.",
+      "primaryCta": "Konsultasi Gratis",
+      "secondaryCta": "Lihat Portfolio",
+      "whatsappMessage": "Halo admin, saya ingin konsultasi gratis untuk pembuatan website.",
+      "stats": [
+        {
+          "value": "30+",
+          "label": "Website Online"
+        },
+        {
+          "value": "95%",
+          "label": "Klien Repeat Order"
+        },
+        {
+          "value": "<2h",
+          "label": "Respons Awal"
+        }
+      ]
+    },
+    "social": {
+      "title": "Ikuti Meow Labs",
+      "description": "Ikuti update project terbaru, insight web development, dan konten singkat dari Meow Labs di kanal yang memang aktif kami gunakan.",
+      "followLabel": "Ikuti",
+      "platforms": [
+        {
+          "name": "Instagram",
+          "handle": "@meowlabs.id",
+          "url": "https://instagram.com/meowlabs.id",
+          "description": "Update project, visual branding, dan behind the scenes."
+        },
+        {
+          "name": "TikTok",
+          "handle": "@meowlabs.id",
+          "url": "https://www.tiktok.com/@meowlabs.id",
+          "description": "Konten singkat seputar web, AI, dan workflow digital."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Paket website yang jelas dan relevan untuk kebutuhan paling umum.",
+      "description": "Kami ringkas penawaran supaya user cepat paham titik mulai yang paling masuk akal, lalu scope bisa dibahas lebih detail saat konsultasi.",
+      "selectCta": "Pilih Paket",
+      "highlight": "Paling relevan",
+      "packages": [
+        {
+          "name": "Starter Launch",
+          "price": "Mulai Rp500 ribu",
+          "timeline": "3-5 hari kerja",
+          "audience": "Untuk landing page, UMKM kecil, dan kebutuhan cepat tayang.",
+          "features": [
+            "1-3 halaman utama",
+            "Desain mobile-friendly",
+            "CTA WhatsApp dan kontak bisnis",
+            "Setup domain dan publish awal"
+          ],
+          "whatsappMessage": "Halo admin, saya ingin konsultasi paket Starter Launch."
+        },
+        {
+          "name": "Growth Website",
+          "price": "Mulai Rp1,5 juta",
+          "timeline": "7-14 hari kerja",
+          "audience": "Untuk bisnis yang butuh company profile, katalog, dan alur lead lebih rapi.",
+          "features": [
+            "4-8 halaman website",
+            "Struktur konten lebih lengkap",
+            "SEO dasar dan analytics",
+            "Katalog, blog, atau booking ringan"
+          ],
+          "whatsappMessage": "Halo admin, saya ingin konsultasi paket Growth Website."
+        },
+        {
+          "name": "Custom Build",
+          "price": "Mulai Rp4 juta",
+          "timeline": "2-6 minggu",
+          "audience": "Untuk dashboard, sistem internal, atau website dengan alur yang lebih kompleks.",
+          "features": [
+            "Scope dan fitur custom",
+            "Role user, data, dan workflow",
+            "Integrasi API atau automasi",
+            "Pendekatan iteratif sesuai kebutuhan"
+          ],
+          "whatsappMessage": "Halo admin, saya ingin konsultasi paket Custom Build."
+        }
+      ]
+    },
+    "student": {
+      "badge": "Khusus Mahasiswa",
+      "title": "Paket mahasiswa yang tetap relevan dan tidak berlebihan.",
+      "description": "Diringkas untuk kebutuhan yang paling sering dicari: tugas web, project data, dan personal portfolio.",
+      "cta": "Konsultasi Gratis",
+      "customCta": "Diskusi Kebutuhan Custom",
+      "customMessage": "Halo admin, saya ingin konsultasi kebutuhan project akademik custom.",
+      "packages": [
+        {
+          "name": "Web Project Lite",
+          "price": "Mulai Rp300 ribu",
+          "timeline": "2-4 hari",
+          "description": "Untuk tugas web sederhana atau mini project mata kuliah.",
+          "features": [
+            "Website 1-2 halaman",
+            "Layout rapi dan responsive",
+            "Deploy dasar",
+            "Dokumentasi singkat"
+          ],
+          "whatsappMessage": "Halo admin, saya ingin konsultasi paket Web Project Lite."
+        },
+        {
+          "name": "Skripsi Data Starter",
+          "price": "Mulai Rp1,5 juta",
+          "timeline": "7-14 hari",
+          "description": "Untuk preprocessing data dan model machine learning dasar.",
+          "features": [
+            "Data cleaning dan preprocessing",
+            "Model klasifikasi atau regresi",
+            "Evaluasi dasar",
+            "Revisi 1x"
+          ],
+          "whatsappMessage": "Halo admin, saya ingin konsultasi paket Skripsi Data Starter."
+        },
+        {
+          "name": "Portfolio Personal",
+          "price": "Mulai Rp1,5 juta",
+          "timeline": "5-10 hari",
+          "description": "Untuk mahasiswa atau fresh graduate yang butuh website portfolio personal.",
+          "features": [
+            "3-4 halaman personal site",
+            "Showcase project dan skill",
+            "Domain .com 1 tahun",
+            "Kontak dan CTA profesional"
+          ],
+          "whatsappMessage": "Halo admin, saya ingin konsultasi paket Portfolio Personal."
+        }
+      ]
+    },
+    "footer": {
+      "techTitle": "Teknologi & Platform",
+      "techDescription": "Teknologi yang kami gunakan untuk membangun website dan sistem digital.",
+      "paymentTitle": "Metode Pembayaran",
+      "paymentDescription": "Pembayaran fleksibel untuk kebutuhan UMKM, bisnis, dan institusi.",
+      "paymentSupport": "Transfer bank, e-wallet, QRIS, dan virtual account.",
+      "brandTitle": "Meow Labs",
+      "brandDescription": "Jasa pembuatan website yang fokus pada hasil bisnis, kredibilitas, dan workflow digital yang bisa dipakai jangka panjang.",
+      "location": "Semarang dan sekitarnya",
+      "responseTime": "Respons awal < 2 jam",
+      "ratingText": "4.9/5 dari 100+ klien",
+      "followUs": "Ikuti kami:",
+      "servicesTitle": "Layanan Kami",
+      "serviceLinks": [
+        "Website Company Profile",
+        "Toko Online/E-commerce",
+        "Landing Page Bisnis",
+        "Website Personal Branding",
+        "POS / Aplikasi Bisnis",
+        "Aplikasi AI/ML Custom",
+        "Website Sekolah/Yayasan"
+      ],
+      "companyTitle": "Perusahaan",
+      "testimonialsLabel": "Testimoni",
+      "privacy": "Kebijakan Privasi",
+      "terms": "Syarat & Ketentuan",
+      "copyright": "Meow Labs - Jasa Pembuatan Website Profesional Semarang. All rights reserved."
+    },
+    "chat": {
+      "open": "Buka chat",
+      "close": "Tutup chat",
+      "title": "Meow Labs Assistant",
+      "subtitle": "Tanya layanan, harga, timeline, atau kebutuhan website",
+      "greeting": "Halo, saya siap bantu soal layanan, harga, timeline, dan kebutuhan website Anda.",
+      "placeholder": "Tulis pertanyaan Anda...",
+      "send": "Kirim",
+      "loading": "Memproses jawaban...",
+      "error": "Maaf, terjadi kendala. Coba lagi sebentar lagi.",
+      "empty": "Maaf, saya belum bisa memproses permintaan itu.",
+      "locale": "id-ID"
+    },
+    "chatbotPage": {
+      "title": "Asisten Virtual Meow Labs",
+      "description": "Tanyakan layanan, harga, portfolio, atau timeline project langsung dari halaman ini.",
+      "helpTitle": "Yang Bisa Ditanyakan",
+      "helpItems": [
+        "Layanan web development yang tersedia",
+        "Paket website yang paling cocok",
+        "Timeline pengerjaan dan alur project",
+        "Kontak tim Meow Labs"
+      ],
+      "note": "Jawaban AI tetap dibatasi singkat, fokus, dan berbasis knowledge Meow Labs."
+    }
+  },
+  "en": {
+    "nav": {
+      "items": {
+        "home": "Home",
+        "about": "About",
+        "services": "Services",
+        "pricing": "Pricing",
+        "students": "Students",
+        "portfolio": "Portfolio",
+        "blog": "Blog",
+        "contact": "Contact"
+      },
+      "contactCta": "Contact Us",
+      "language": "Language",
+      "santaMode": "Santa Mode",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu"
+    },
+    "hero": {
+      "badge": "Professional website development in Semarang",
+      "titleLines": [
+        "Website Development",
+        "Affordable for Small Business",
+        "& Personal Brands"
+      ],
+      "description": "Website development for small businesses, cafes, and personal brands with professional design starting from Rp500k. Responsive, SEO-friendly, and ready for real business use.",
+      "primaryCta": "Free Consultation",
+      "secondaryCta": "View Portfolio",
+      "whatsappMessage": "Hello, I want a free consultation for website development.",
+      "stats": [
+        {
+          "value": "30+",
+          "label": "Websites Launched"
+        },
+        {
+          "value": "95%",
+          "label": "Repeat Clients"
+        },
+        {
+          "value": "<2h",
+          "label": "First Response"
+        }
+      ]
+    },
+    "social": {
+      "title": "Follow Meow Labs",
+      "description": "Stay updated with recent projects, web development insights, and short-form content from the channels we actively maintain.",
+      "followLabel": "Follow",
+      "platforms": [
+        {
+          "name": "Instagram",
+          "handle": "@meowlabs.id",
+          "url": "https://instagram.com/meowlabs.id",
+          "description": "Project updates, brand visuals, and behind-the-scenes content."
+        },
+        {
+          "name": "TikTok",
+          "handle": "@meowlabs.id",
+          "url": "https://www.tiktok.com/@meowlabs.id",
+          "description": "Short content about web, AI, and digital workflow."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Website packages that are clear and relevant for the most common needs.",
+      "description": "We trimmed the offer so visitors can quickly understand the best starting point, then refine the scope during consultation.",
+      "selectCta": "Choose Package",
+      "highlight": "Best fit",
+      "packages": [
+        {
+          "name": "Starter Launch",
+          "price": "From Rp500k",
+          "timeline": "3-5 working days",
+          "audience": "For landing pages, small businesses, and fast launches.",
+          "features": [
+            "1-3 core pages",
+            "Mobile-friendly design",
+            "WhatsApp CTA and business contact",
+            "Domain setup and initial launch"
+          ],
+          "whatsappMessage": "Hello, I want to discuss the Starter Launch package."
+        },
+        {
+          "name": "Growth Website",
+          "price": "From Rp1.5m",
+          "timeline": "7-14 working days",
+          "audience": "For businesses that need a company profile, catalog, and cleaner lead flow.",
+          "features": [
+            "4-8 website pages",
+            "More complete content structure",
+            "Basic SEO and analytics",
+            "Catalog, blog, or light booking"
+          ],
+          "whatsappMessage": "Hello, I want to discuss the Growth Website package."
+        },
+        {
+          "name": "Custom Build",
+          "price": "From Rp4m",
+          "timeline": "2-6 weeks",
+          "audience": "For dashboards, internal systems, or more complex website workflows.",
+          "features": [
+            "Custom scope and features",
+            "User roles, data, and workflow",
+            "API integration or automation",
+            "Iterative approach based on actual needs"
+          ],
+          "whatsappMessage": "Hello, I want to discuss the Custom Build package."
+        }
+      ]
+    },
+    "student": {
+      "badge": "For Students",
+      "title": "Student packages kept relevant and concise.",
+      "description": "Trimmed to the most common needs: web assignments, data projects, and personal portfolio sites.",
+      "cta": "Free Consultation",
+      "customCta": "Discuss Custom Need",
+      "customMessage": "Hello, I want to discuss a custom academic project need.",
+      "packages": [
+        {
+          "name": "Web Project Lite",
+          "price": "From Rp300k",
+          "timeline": "2-4 days",
+          "description": "For simple web assignments or small course projects.",
+          "features": [
+            "1-2 page website",
+            "Clean responsive layout",
+            "Basic deployment",
+            "Short documentation"
+          ],
+          "whatsappMessage": "Hello, I want to discuss the Web Project Lite package."
+        },
+        {
+          "name": "Data Thesis Starter",
+          "price": "From Rp1.5m",
+          "timeline": "7-14 days",
+          "description": "For data preprocessing and basic machine learning models.",
+          "features": [
+            "Data cleaning and preprocessing",
+            "Classification or regression model",
+            "Basic evaluation",
+            "1 revision"
+          ],
+          "whatsappMessage": "Hello, I want to discuss the Data Thesis Starter package."
+        },
+        {
+          "name": "Personal Portfolio",
+          "price": "From Rp1.5m",
+          "timeline": "5-10 days",
+          "description": "For students or fresh graduates who need a personal portfolio website.",
+          "features": [
+            "3-4 page personal site",
+            "Project and skill showcase",
+            "1-year .com domain",
+            "Professional contact CTA"
+          ],
+          "whatsappMessage": "Hello, I want to discuss the Personal Portfolio package."
+        }
+      ]
+    },
+    "footer": {
+      "techTitle": "Technology & Platform",
+      "techDescription": "Technology we use to build websites and digital systems.",
+      "paymentTitle": "Payment Methods",
+      "paymentDescription": "Flexible payment options for small business, brands, and institutions.",
+      "paymentSupport": "Bank transfer, e-wallet, QRIS, and virtual account.",
+      "brandTitle": "Meow Labs",
+      "brandDescription": "Website development focused on business outcomes, credibility, and digital workflows that last.",
+      "location": "Semarang and surrounding area",
+      "responseTime": "First response < 2 hours",
+      "ratingText": "4.9/5 from 100+ clients",
+      "followUs": "Follow us:",
+      "servicesTitle": "Services",
+      "serviceLinks": [
+        "Company Profile Website",
+        "Online Store/E-commerce",
+        "Business Landing Page",
+        "Personal Branding Website",
+        "POS / Business App",
+        "Custom AI/ML App",
+        "School/Foundation Website"
+      ],
+      "companyTitle": "Company",
+      "testimonialsLabel": "Testimonials",
+      "privacy": "Privacy Policy",
+      "terms": "Terms & Conditions",
+      "copyright": "Meow Labs - Professional Website Development in Semarang. All rights reserved."
+    },
+    "chat": {
+      "open": "Open chat",
+      "close": "Close chat",
+      "title": "Meow Labs Assistant",
+      "subtitle": "Ask about services, pricing, timeline, or website needs",
+      "greeting": "Hello, I can help with services, pricing, timeline, and your website needs.",
+      "placeholder": "Type your question...",
+      "send": "Send",
+      "loading": "Preparing reply...",
+      "error": "Sorry, something went wrong. Please try again shortly.",
+      "empty": "Sorry, I cannot process that request yet.",
+      "locale": "en-US"
+    },
+    "chatbotPage": {
+      "title": "Meow Labs Virtual Assistant",
+      "description": "Ask about services, pricing, portfolio, or project timeline directly from this page.",
+      "helpTitle": "You Can Ask About",
+      "helpItems": [
+        "Available web development services",
+        "The most suitable website package",
+        "Project timeline and workflow",
+        "How to contact the Meow Labs team"
+      ],
+      "note": "AI answers stay concise, focused, and based on Meow Labs knowledge."
+    }
+  }
+}

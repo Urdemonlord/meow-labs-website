@@ -1,18 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  typescript: {
-    ignoreBuildErrors: true,
-  },
   images: {
     unoptimized: true,
   },
   turbopack: {
-    root: '.',
+    root: process.cwd(),
     resolveAlias: {
       canvas: './empty-module.js',
     },
   },
-  webpack: (config, { isServer }) => {
+  webpack: (config) => {
     // Exclude large native modules that shouldn't be bundled
     const externals = [
       'onnxruntime-node',

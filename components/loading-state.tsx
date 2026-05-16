@@ -21,7 +21,7 @@ export function LoadingState({ children, fallback }: LoadingStateProps) {
   }, [])
 
   if (!isLoaded) {
-    return (
+    return fallback || (
       <div className="flex items-center justify-center py-12">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
       </div>
@@ -66,10 +66,6 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
 
   static getDerivedStateFromError(error: Error): ErrorBoundaryState {
     return { hasError: true, error }
-  }
-
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-    // Error caught by ErrorBoundary - silently handled
   }
 
   render() {

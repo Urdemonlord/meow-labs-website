@@ -2,7 +2,6 @@ import { Suspense } from "react"
 import { Navigation } from "@/components/navigation"
 import { BlogSection } from "@/components/blog-section"
 import { Footer } from "@/components/footer"
-import { LiveChatWidget } from "@/components/live-chat-widget"
 import { LoadingState } from "@/components/loading-state"
 
 import type { Metadata } from "next"
@@ -52,7 +51,6 @@ export default function BlogPage() {
         </Suspense>
       </div>
       <Footer />
-      <LiveChatWidget />
       
       {/* Schema.org structured data for blog */}
       <script

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Security utilities for input validation and sanitization
  * Prevents XSS, SQL Injection, and other attacks
  */
@@ -110,6 +110,65 @@ export function sanitizeChatMessage(message: string): string | null {
   return safe
 }
 
+type PromptInjectionCheck = {
+  blocked: boolean
+  reason?: string
+}
+
+const promptInjectionPatterns: Array<{ pattern: RegExp; reason: string }> = [
+  {
+    pattern: /(ignore|lupakan).{0,30}(previous|sebelumnya).{0,30}(instruction|instruksi)/i,
+    reason: "override_instructions",
+  },
+  {
+    pattern: /(reveal|show|bocorkan|tampilkan).{0,30}(system prompt|prompt sistem|developer message|instruksi sistem)/i,
+    reason: "prompt_exfiltration",
+  },
+  {
+    pattern: /\b(jailbreak|do anything now|dan mode|developer mode|god mode)\b/i,
+    reason: "jailbreak_attempt",
+  },
+  {
+    pattern: /(act as|berpura-pura sebagai|pretend to be).{0,30}(system|developer|admin)/i,
+    reason: "role_hijacking",
+  },
+  {
+    pattern: /(<\s*system\s*>|<\s*developer\s*>|BEGIN\s+SYSTEM\s+PROMPT|END\s+SYSTEM\s+PROMPT)/i,
+    reason: "prompt_control_tokens",
+  },
+]
+
+export function detectPromptInjection(message: string): PromptInjectionCheck {
+  if (!message || typeof message !== "string") {
+    return { blocked: false }
+  }
+
+  const normalized = message.trim()
+  if (!normalized) {
+    return { blocked: false }
+  }
+
+  for (const entry of promptInjectionPatterns) {
+    if (entry.pattern.test(normalized)) {
+      return { blocked: true, reason: entry.reason }
+    }
+  }
+
+  return { blocked: false }
+}
+
+// 8b. Normalize LLM output so UI text stays plain and readable.
+export function sanitizeGeneratedText(text: string): string {
+  if (!text || typeof text !== "string") return ""
+
+  return text
+    .replace(/[*]+/g, "")
+    .replace(/[\u2013\u2014]/g, "-")
+    .replace(/\s{2,}/g, " ")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim()
+}
+
 // 9. Generate secure random token
 export function generateSecureToken(length: number = 32): string {
   const array = new Uint8Array(length)
@@ -214,6 +273,8 @@ export const SecurityUtils = {
   sanitizeUrl,
   checkRateLimit,
   sanitizeChatMessage,
+  detectPromptInjection,
+  sanitizeGeneratedText,
   generateSecureToken,
   isValidFilePath,
   isValidContentType,
@@ -224,3 +285,4 @@ export const SecurityUtils = {
   isValidJSON,
   hashSensitiveData,
 }
+

@@ -13,7 +13,6 @@ import { SocialMediaSection } from "@/components/social-media-section"
 import { FAQSection } from "@/components/faq-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
-import { DiscountPopup } from "@/components/discount-popup"
 
 export default function HomePage() {
   return (
@@ -33,7 +32,6 @@ export default function HomePage() {
       <FAQSection />
       <ContactSection />
       <Footer />
-      {/* <DiscountPopup /> */}
     </main>
   )
 }

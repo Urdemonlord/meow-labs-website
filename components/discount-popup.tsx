@@ -17,7 +17,7 @@ export function DiscountPopup() {
   }, [])
 
   const handleWhatsAppContact = () => {
-    const phoneNumber = "62895386288683"
+    const phoneNumber = "6285117170198"
     const message = "Halo! Saya ingin mendapatkan promo diskon 30% untuk 10 klien pertama!"
     const encodedMessage = encodeURIComponent(message)
     const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`

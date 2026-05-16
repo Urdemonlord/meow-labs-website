@@ -1,44 +1,60 @@
 "use client"
 
+import { Award, Palette, Users, Video, Wrench, Zap } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Users, Wrench, Palette, Zap, Video, Award } from "lucide-react"
+import { useUiPreferences } from "./ui-preferences-provider"
 
 export function WhyChooseUsSection() {
+  const { locale } = useUiPreferences()
+  const isEn = locale === "en"
+
   const advantages = [
     {
       icon: Users,
-      title: "Harga Murah & Terjangkau",
-      description: "Website berkualitas tidak harus mahal. Mulai dari Rp 500.000 saja, website profesional sudah bisa Anda miliki untuk UMKM atau personal",
+      title: isEn ? "Affordable and Clear Pricing" : "Harga Murah dan Terjangkau",
+      description: isEn
+        ? "A professional website does not need to be expensive. Start from Rp500,000 for small businesses and personal brands."
+        : "Website berkualitas tidak harus mahal. Mulai dari Rp500.000 saja untuk UMKM dan kebutuhan personal.",
       color: "primary",
     },
     {
       icon: Wrench,
-      title: "Layanan Maintenance Gratis 1 Tahun",
-      description: "Jangan khawatir pengelolaan website, kami berikan pelayanan maintenance GRATIS selama 1 tahun pertama untuk semua paket",
+      title: isEn ? "1 Year Free Maintenance" : "Maintenance Gratis 1 Tahun",
+      description: isEn
+        ? "We include one-year maintenance so your site stays stable, secure, and updated after launch."
+        : "Kami berikan maintenance gratis selama 1 tahun agar website tetap stabil, aman, dan terbarui.",
       color: "secondary",
     },
     {
       icon: Palette,
-      title: "Design Website Profesional & Responsif",
-      description: "Website yang kami buat khusus untuk UMKM selalu menggunakan desain modern, profesional, dan dapat diakses dengan baik di semua device",
+      title: isEn ? "Professional Responsive Design" : "Desain Profesional dan Responsif",
+      description: isEn
+        ? "Modern visual style that works well across mobile, tablet, and desktop for better trust and usability."
+        : "Desain modern yang tampil baik di mobile, tablet, dan desktop untuk meningkatkan trust pengguna.",
       color: "primary",
     },
     {
       icon: Zap,
-      title: "Website Anti Lemot & SEO Friendly",
-      description: "Website murah bukan berarti lemot. Nikmati kecepatan website yang stabil dan optimasi SEO yang efektif untuk meningkatkan ranking di Google",
+      title: isEn ? "Fast and SEO-Friendly Build" : "Performa Cepat dan SEO Friendly",
+      description: isEn
+        ? "Performance and SEO are optimized from the start so your site loads fast and is easier to find."
+        : "Performa dan SEO dioptimalkan sejak awal agar website cepat dan lebih mudah ditemukan di pencarian.",
       color: "secondary",
     },
     {
       icon: Video,
-      title: "Video Tutorial Penggunaan",
-      description: "Kami buatkan modul atau video tutorial untuk mempermudah Anda dalam mengelola website sendiri",
+      title: isEn ? "Usage Guide Included" : "Panduan Penggunaan Disertakan",
+      description: isEn
+        ? "We provide practical guidance so your team can manage content and updates without friction."
+        : "Kami sediakan panduan praktis agar Anda bisa mengelola konten dan update website dengan mudah.",
       color: "primary",
     },
     {
       icon: Award,
-      title: "Jaminan Kepuasan 100%",
-      description: "Kami berkomitmen memberikan hasil terbaik dengan garansi revisi dan dukungan penuh hingga Anda puas",
+      title: isEn ? "Satisfaction Commitment" : "Komitmen Kepuasan Klien",
+      description: isEn
+        ? "We focus on measurable outcomes and keep refining until the solution matches your business needs."
+        : "Kami fokus pada hasil nyata dan terus menyempurnakan sampai solusi sesuai kebutuhan bisnis Anda.",
       color: "secondary",
     },
   ]
@@ -46,65 +62,69 @@ export function WhyChooseUsSection() {
   return (
     <section id="why-choose-us" className="py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-balance">
-            Mengapa Pilih Jasa Pembuatan Website di <span className="text-primary">Meow Labs</span>?
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 text-balance text-3xl font-bold text-foreground sm:text-4xl">
+            {isEn ? "Why Choose " : "Mengapa Pilih "}
+            <span className="text-primary">Meow Labs</span>
+            {isEn ? " for Your Website Project?" : " untuk Proyek Website Anda?"}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-pretty">
-            Kami adalah pilihan terbaik untuk kebutuhan website profesional Anda di Semarang. 
-            Dengan pengalaman dan dedikasi tinggi, kami siap wujudkan website impian Anda.
+          <p className="mx-auto max-w-3xl text-lg text-muted-foreground text-pretty">
+            {isEn
+              ? "We build practical digital solutions with clear scope, reliable execution, and business-first priorities."
+              : "Kami membangun solusi digital yang praktis dengan scope jelas, eksekusi rapi, dan fokus pada kebutuhan bisnis."}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {advantages.map((advantage, index) => {
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {advantages.map((advantage) => {
             const IconComponent = advantage.icon
+            const toneClass =
+              advantage.color === "primary"
+                ? "from-primary/5 via-primary/3 to-transparent"
+                : "from-secondary/5 via-secondary/3 to-transparent"
+            const iconClass =
+              advantage.color === "primary"
+                ? "bg-primary/10 text-primary"
+                : "bg-secondary/10 text-secondary"
+
             return (
               <Card
-                key={index}
-                className="group relative overflow-hidden border-0 bg-gradient-to-br from-background to-muted/30 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                key={advantage.title}
+                className="group relative overflow-hidden border-0 bg-gradient-to-br from-background to-muted/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
               >
-                {/* Decorative gradient background */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${
-                  advantage.color === 'primary' 
-                    ? 'from-primary/5 via-primary/3 to-transparent' 
-                    : 'from-secondary/5 via-secondary/3 to-transparent'
-                } opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-                
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${toneClass} opacity-0 transition-opacity duration-500 group-hover:opacity-100`}
+                />
+
                 <CardHeader className="relative z-10">
-                  <div className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-4 ${
-                    advantage.color === 'primary'
-                      ? 'bg-primary/10 text-primary'
-                      : 'bg-secondary/10 text-secondary'
-                  } group-hover:scale-110 transition-transform duration-300`}>
+                  <div
+                    className={`mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl ${iconClass} transition-transform duration-300 group-hover:scale-110`}
+                  >
                     <IconComponent className="h-7 w-7" />
                   </div>
-                  <CardTitle className="text-xl font-bold text-balance leading-tight">
+                  <CardTitle className="text-balance text-xl font-bold leading-tight">
                     {advantage.title}
                   </CardTitle>
                 </CardHeader>
-                
+
                 <CardContent className="relative z-10">
-                  <p className="text-muted-foreground text-pretty leading-relaxed">
+                  <p className="text-pretty leading-relaxed text-muted-foreground">
                     {advantage.description}
                   </p>
                 </CardContent>
-
-                {/* Decorative corner accent */}
-                <div className={`absolute top-0 right-0 w-20 h-20 ${
-                  advantage.color === 'primary'
-                    ? 'bg-primary/5'
-                    : 'bg-secondary/5'
-                } rounded-bl-full transform translate-x-8 -translate-y-8 group-hover:scale-150 transition-transform duration-500`}></div>
               </Card>
             )
           })}
         </div>
 
-        <div className="text-center mt-16">
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-primary/10 text-primary rounded-full font-medium">
+        <div className="mt-16 text-center">
+          <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-6 py-3 font-medium text-primary">
             <Award className="h-5 w-5" />
-            <span>Dipercaya oleh 100+ klien di Semarang dan sekitarnya</span>
+            <span>
+              {isEn
+                ? "Trusted by 100+ clients in Semarang and beyond"
+                : "Dipercaya oleh 100+ klien di Semarang dan sekitarnya"}
+            </span>
           </div>
         </div>
       </div>

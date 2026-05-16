@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
 import ClientComponents from "../components/client-components"
+import { UiPreferencesProvider } from "../components/ui-preferences-provider"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Jasa Pembuatan Website Murah & Profesional | Meow Labs",
   description:
-    "Meow Labs melayani jasa pembuatan website murah untuk UMKM, kafe, hingga personal branding. Website responsive & mobile-friendly mulai Rp500 ribu saja! Hubungi kami sekarang ☎️ 0895-3862-88683",
+    "Meow Labs melayani jasa pembuatan website murah untuk UMKM, kafe, hingga personal branding. Website responsive dan mobile-friendly mulai Rp500 ribu. Hubungi kami di 0851-1717-0198.",
   generator: "Meow Labs",
   icons: {
     icon: [
@@ -144,8 +145,8 @@ export default function RootLayout({
               name: "Meow Labs",
               description:
                 "Jasa pembuatan website murah untuk UMKM & personal di Semarang oleh tim profesional dipimpin oleh Hasrinata Arya Afendi",
-              url: "https://meowlabs.store",
-              telephone: "+6289538628863",
+              url: siteUrl,
+              telephone: "+6285117170198",
               email: "meowlabs.store@gmail.com",
               address: {
                 "@type": "PostalAddress",
@@ -182,17 +183,17 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Meow Labs",
-              url: "https://meowlabs.store",
+              url: siteUrl,
               logo: {
                 "@type": "ImageObject",
-                url: "https://meowlabs.store/images/meow-logo.png",
+                url: `${siteUrl}/images/meow-logo.png`,
                 width: "512",
                 height: "512",
                 caption: "Meow Labs Logo",
               },
               sameAs: [
                 "https://instagram.com/meowlabs.id",
-                "https://facebook.com/meowlabs.id",
+                "https://www.tiktok.com/@meowlabs.id",
               ],
             }),
           }}
@@ -201,11 +202,13 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${jetbrainsMono.variable} font-sans antialiased`}
       >
-        <Suspense fallback={null}>
-          <ClientComponents />
-        </Suspense>
-        <Suspense fallback={null}>{children}</Suspense>
-        <Analytics />
+        <UiPreferencesProvider>
+          <Suspense fallback={null}>
+            <ClientComponents />
+          </Suspense>
+          <Suspense fallback={null}>{children}</Suspense>
+          <Analytics />
+        </UiPreferencesProvider>
       </body>
     </html>
   )

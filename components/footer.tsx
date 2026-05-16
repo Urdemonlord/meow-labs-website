@@ -1,19 +1,30 @@
-"use client"
+﻿"use client"
 
 import Image from "next/image"
-import { MapPin, Phone, Mail, Clock, Star, ExternalLink, Instagram, Facebook, Linkedin } from "lucide-react"
+import {
+  Clock,
+  ExternalLink,
+  Instagram,
+  Mail,
+  MapPin,
+  Music2,
+  Phone,
+  Star,
+} from "lucide-react"
+import { useUiText } from "./ui-preferences-provider"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
-
-  const handleWhatsAppContact = () => {
-    const message = encodeURIComponent("Halo Meow Labs! Saya tertarik dengan layanan pembuatan website. Mohon info lebih lanjut.")
-    window.open(`https://wa.me/62895386288683?text=${message}`, '_blank')
-  }
+  const copy = useUiText()
 
   const handlePhoneClick = () => {
-    const message = encodeURIComponent("Halo Meow Labs! Saya tertarik dengan layanan pembuatan website dan ingin konsultasi.")
-    window.open(`https://wa.me/62895386288683?text=${message}`, '_blank')
+    const message = encodeURIComponent(
+      copy.chat.locale === "en-US"
+        ? "Hello Meow Labs, I want to discuss a website project."
+        : "Halo Meow Labs, saya ingin konsultasi project website."
+    )
+
+    window.open(`https://wa.me/6285117170198?text=${message}`, "_blank")
   }
 
   const techPartners = [
@@ -40,83 +51,42 @@ export function Footer() {
     {
       name: "PHP",
       url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
-    }
+    },
   ]
 
   const paymentMethods = [
-    {
-      name: "QRIS",
-      url: "https://imgur.com/YOztJcM.png",
-    },
-    {
-      name: "BCA",
-      url: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg",
-    },
-    {
-      name: "Mandiri",
-      url: "https://upload.wikimedia.org/wikipedia/commons/a/ad/Bank_Mandiri_logo_2016.svg",
-    },
-    {
-      name: "BNI",
-      url: "https://imgur.com/kmNckLb.png",
-    },
-    {
-      name: "BRI",
-      url: "https://upload.wikimedia.org/wikipedia/commons/2/2e/BRI_2020.svg",
-    },
-    {
-      name: "GoPay",
-      url: "https://imgur.com/1drCNcm.png",
-    },
-    {
-      name: "OVO",
-      url: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Logo_ovo_purple.svg",
-    },
-    {
-      name: "DANA",
-      url: "https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg",
-    },
-    {
-      name: "ShopeePay",
-      url: "https://upload.wikimedia.org/wikipedia/commons/f/fe/Shopee.svg",
-    },
-    {
-      name: "LinkAja",
-      url: "https://upload.wikimedia.org/wikipedia/commons/8/85/LinkAja.svg",
-    },
-    {
-      name: "Jenius",
-      url: "https://imgur.com/p2uT769.png",
-    },
-    {
-      name: "BSI",
-      url: "https://upload.wikimedia.org/wikipedia/commons/a/a0/Bank_Syariah_Indonesia.svg",
-    }
+    { name: "QRIS", url: "https://imgur.com/YOztJcM.png" },
+    { name: "BCA", url: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg" },
+    { name: "Mandiri", url: "https://upload.wikimedia.org/wikipedia/commons/a/ad/Bank_Mandiri_logo_2016.svg" },
+    { name: "BNI", url: "https://imgur.com/kmNckLb.png" },
+    { name: "BRI", url: "https://upload.wikimedia.org/wikipedia/commons/2/2e/BRI_2020.svg" },
+    { name: "GoPay", url: "https://imgur.com/1drCNcm.png" },
+    { name: "OVO", url: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Logo_ovo_purple.svg" },
+    { name: "DANA", url: "https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" },
+    { name: "ShopeePay", url: "https://upload.wikimedia.org/wikipedia/commons/f/fe/Shopee.svg" },
+    { name: "LinkAja", url: "https://upload.wikimedia.org/wikipedia/commons/8/85/LinkAja.svg" },
+    { name: "Jenius", url: "https://imgur.com/p2uT769.png" },
+    { name: "BSI", url: "https://upload.wikimedia.org/wikipedia/commons/a/a0/Bank_Syariah_Indonesia.svg" },
   ]
 
   return (
-    <footer className="bg-card border-t border-border">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Teknologi Partner Section */}
+    <footer className="border-t border-border bg-card">
+      <div className="container mx-auto px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
         <div className="mb-12 border-b border-border pb-8">
-          <div className="text-center mb-8">
-            <h3 className="text-lg font-semibold text-foreground mb-2">
-              Teknologi & Platform Yang Kami Kuasai
-            </h3>
-            <p className="text-muted-foreground text-sm">
-              Menggunakan teknologi terdepan untuk hasil terbaik
-            </p>
+          <div className="mb-8 text-center">
+            <h3 className="mb-2 text-lg font-semibold text-foreground">{copy.footer.techTitle}</h3>
+            <p className="text-sm text-muted-foreground">{copy.footer.techDescription}</p>
           </div>
-          <div className="grid grid-cols-3 sm:grid-cols-6 gap-6 items-center">
-            {techPartners.map((tech, index) => (
-              <div key={index} className="flex items-center justify-center group">
-                <div className="p-3 bg-background rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+          <div className="grid grid-cols-3 items-center gap-6 sm:grid-cols-6">
+            {techPartners.map((tech) => (
+              <div key={tech.name} className="group flex items-center justify-center">
+                <div className="rounded-lg bg-background p-3 shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-md">
                   <Image
                     src={tech.url}
                     alt={tech.name}
                     width={40}
                     height={40}
-                    className="max-w-full h-auto opacity-60 group-hover:opacity-100 transition-opacity filter grayscale group-hover:grayscale-0"
+                    className="h-auto max-w-full opacity-60 transition-opacity filter grayscale group-hover:opacity-100 group-hover:grayscale-0"
                   />
                 </div>
               </div>
@@ -124,231 +94,162 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Metode Pembayaran Section */}
         <div className="mb-12 border-b border-border pb-8">
-          <div className="text-center mb-8">
-            <h3 className="text-lg font-semibold text-foreground mb-2">
-              💳 Metode Pembayaran Yang Didukung
-            </h3>
-            <p className="text-muted-foreground text-sm">
-              Pembayaran mudah dengan berbagai pilihan metode yang tersedia
-            </p>
+          <div className="mb-8 text-center">
+            <h3 className="mb-2 text-lg font-semibold text-foreground">{copy.footer.paymentTitle}</h3>
+            <p className="text-sm text-muted-foreground">{copy.footer.paymentDescription}</p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-12 gap-4 items-center">
-            {paymentMethods.map((payment, index) => (
-              <div key={index} className="flex items-center justify-center group">
-                <div className="p-3 bg-background rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-border/50">
+          <div className="grid grid-cols-2 items-center gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-12">
+            {paymentMethods.map((payment) => (
+              <div key={payment.name} className="group flex items-center justify-center">
+                <div className="rounded-lg border border-border/50 bg-background p-3 shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-md">
                   <Image
                     src={payment.url}
                     alt={payment.name}
                     width={32}
                     height={32}
-                    className="max-w-full h-auto opacity-70 group-hover:opacity-100 transition-opacity"
+                    className="h-auto max-w-full opacity-70 transition-opacity group-hover:opacity-100"
                   />
                 </div>
               </div>
             ))}
           </div>
-          <div className="text-center mt-6">
-            <p className="text-xs text-muted-foreground">
-              ✅ Transfer Bank • ✅ E-Wallet • ✅ QRIS • ✅ Virtual Account
-            </p>
+          <div className="mt-6 text-center">
+            <p className="text-xs text-muted-foreground">{copy.footer.paymentSupport}</p>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-8">
-          {/* Brand & Contact Info */}
+        <div className="grid gap-8 md:grid-cols-4">
           <div className="md:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
-              <Image src="/images/meow-logo.png" alt="Meow Labs Logo" width={32} height={32} className="rounded-lg" />
-              <span className="text-xl font-bold text-foreground">Meow Labs</span>
+            <div className="mb-4 flex items-center space-x-3">
+              <Image
+                src="/images/meow-logo.png"
+                alt="Meow Labs Logo"
+                width={32}
+                height={32}
+                className="rounded-lg"
+              />
+              <span className="text-xl font-bold text-foreground">{copy.footer.brandTitle}</span>
             </div>
-            <p className="text-muted-foreground text-pretty mb-6 max-w-md">
-              <span className="font-semibold text-primary">Jasa Pembuatan Website #1 di Semarang</span>
-              <br />
-              Menciptakan solusi web profesional untuk mengembangkan bisnis Anda dengan teknologi terdepan.
-            </p>
+            <p className="mb-6 max-w-md text-pretty text-muted-foreground">{copy.footer.brandDescription}</p>
 
-            {/* Contact Information */}
-            <div className="space-y-3 mb-6">
+            <div className="mb-6 space-y-3">
               <div className="flex items-center gap-3 text-sm">
-                <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
                   <MapPin className="h-4 w-4 text-primary" />
                 </div>
-                <span className="text-muted-foreground">Semarang & Sekitarnya</span>
+                <span className="text-muted-foreground">{copy.footer.location}</span>
               </div>
               <div className="flex items-center gap-3 text-sm">
-                <div className="w-8 h-8 bg-green-500/10 rounded-lg flex items-center justify-center">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-green-500/10">
                   <Phone className="h-4 w-4 text-green-600" />
                 </div>
-                <span 
+                <button
+                  type="button"
                   onClick={handlePhoneClick}
-                  className="text-muted-foreground hover:text-green-600 transition-colors cursor-pointer"
+                  className="text-left text-muted-foreground transition-colors hover:text-green-600"
                 >
-                  +62 895-3862-88683
-                </span>
+                  +62 851-1717-0198
+                </button>
               </div>
               <div className="flex items-center gap-3 text-sm">
-                <div className="w-8 h-8 bg-blue-500/10 rounded-lg flex items-center justify-center">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500/10">
                   <Mail className="h-4 w-4 text-blue-600" />
                 </div>
-                <a 
+                <a
                   href="mailto:admin@meowlabs.id"
-                  className="text-muted-foreground hover:text-blue-600 transition-colors"
+                  className="break-all text-muted-foreground transition-colors hover:text-blue-600"
                 >
                   admin@meowlabs.id
                 </a>
               </div>
               <div className="flex items-center gap-3 text-sm">
-                <div className="w-8 h-8 bg-orange-500/10 rounded-lg flex items-center justify-center">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-500/10">
                   <Clock className="h-4 w-4 text-orange-600" />
                 </div>
-                <span className="text-muted-foreground">Response Time: &lt;2 Jam</span>
+                <span className="text-muted-foreground">{copy.footer.responseTime}</span>
               </div>
             </div>
 
-            {/* Rating */}
-            <div className="flex items-center gap-2 mb-6">
+            <div className="mb-6 flex items-center gap-2">
               <div className="flex items-center gap-1">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <Star key={index} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
-              <span className="text-sm text-muted-foreground">4.9/5 dari 100+ klien</span>
+              <span className="text-sm text-muted-foreground">{copy.footer.ratingText}</span>
             </div>
 
-            {/* Social Media Links */}
             <div className="flex items-center gap-3">
-              <span className="text-sm text-muted-foreground">Follow us:</span>
+              <span className="text-sm text-muted-foreground">{copy.footer.followUs}</span>
               <div className="flex gap-3">
                 <a
                   href="https://instagram.com/meowlabs.id"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 bg-pink-500/10 rounded-lg flex items-center justify-center text-pink-600 hover:bg-pink-500 hover:text-white transition-all duration-300"
-                  aria-label="Follow us on Instagram"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-pink-500/10 text-pink-500 transition-all duration-300 hover:bg-pink-500 hover:text-white"
+                  aria-label="Instagram"
                 >
                   <Instagram className="h-4 w-4" />
                 </a>
                 <a
-                  href="https://facebook.com/meowlabs.id"
+                  href="https://www.tiktok.com/@meowlabs.id"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 bg-blue-500/10 rounded-lg flex items-center justify-center text-blue-600 hover:bg-blue-500 hover:text-white transition-all duration-300"
-                  aria-label="Follow us on Facebook"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-cyan-500/10 text-cyan-400 transition-all duration-300 hover:bg-cyan-500 hover:text-background"
+                  aria-label="TikTok"
                 >
-                  <Facebook className="h-4 w-4" />
-                </a>
-                <a
-                  href="https://linkedin.com/company/meowlabs"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 bg-blue-600/10 rounded-lg flex items-center justify-center text-blue-700 hover:bg-blue-600 hover:text-white transition-all duration-300"
-                  aria-label="Connect with us on LinkedIn"
-                >
-                  <Linkedin className="h-4 w-4" />
+                  <Music2 className="h-4 w-4" />
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Services */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Layanan Kami</h3>
-            <ul className="space-y-3 text-muted-foreground text-sm">
-              <li>
-                <a href="#services" className="hover:text-primary transition-colors flex items-center gap-2">
-                  <ExternalLink className="h-3 w-3" />
-                  Website Company Profile
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-primary transition-colors flex items-center gap-2">
-                  <ExternalLink className="h-3 w-3" />
-                  Toko Online/E-commerce
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-primary transition-colors flex items-center gap-2">
-                  <ExternalLink className="h-3 w-3" />
-                  Landing Page Bisnis
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-primary transition-colors flex items-center gap-2">
-                  <ExternalLink className="h-3 w-3" />
-                  Personal Branding Website
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-primary transition-colors flex items-center gap-2">
-                  <ExternalLink className="h-3 w-3" />
-                  POS / Aplikasi Bisnis
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-primary transition-colors flex items-center gap-2">
-                  <ExternalLink className="h-3 w-3" />
-                  Aplikasi AI/ML Custom
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-primary transition-colors flex items-center gap-2">
-                  <ExternalLink className="h-3 w-3" />
-                  Website Sekolah/Yayasan
-                </a>
-              </li>
+            <h3 className="mb-4 font-semibold text-foreground">{copy.footer.servicesTitle}</h3>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              {copy.footer.serviceLinks.map((item) => (
+                <li key={item}>
+                  <a href="#services" className="flex items-center gap-2 transition-colors hover:text-primary">
+                    <ExternalLink className="h-3 w-3" />
+                    {item}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Company */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Perusahaan</h3>
-            <ul className="space-y-3 text-muted-foreground text-sm">
-              <li>
-                <a href="#why-choose-us" className="hover:text-primary transition-colors flex items-center gap-2">
-                  <ExternalLink className="h-3 w-3" />
-                  Tentang Kami
-                </a>
-              </li>
-              <li>
-                <a href="#portfolio" className="hover:text-primary transition-colors flex items-center gap-2">
-                  <ExternalLink className="h-3 w-3" />
-                  Portfolio
-                </a>
-              </li>
-              <li>
-                <a href="#pricing" className="hover:text-primary transition-colors flex items-center gap-2">
-                  <ExternalLink className="h-3 w-3" />
-                  Harga & Paket
-                </a>
-              </li>
-              <li>
-                <a href="#testimonials" className="hover:text-primary transition-colors flex items-center gap-2">
-                  <ExternalLink className="h-3 w-3" />
-                  Testimoni Klien
-                </a>
-              </li>
-              <li>
-                <a href="#faq" className="hover:text-primary transition-colors flex items-center gap-2">
-                  <ExternalLink className="h-3 w-3" />
-                  FAQ
-                </a>
-              </li>
+            <h3 className="mb-4 font-semibold text-foreground">{copy.footer.companyTitle}</h3>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              {[
+                { href: "#why-choose-us", label: copy.nav.items.about },
+                { href: "#portfolio", label: copy.nav.items.portfolio },
+                { href: "#pricing", label: copy.nav.items.pricing },
+                { href: "#testimonials", label: copy.footer.testimonialsLabel },
+                { href: "#faq", label: "FAQ" },
+              ].map((item) => (
+                <li key={item.href}>
+                  <a href={item.href} className="flex items-center gap-2 transition-colors hover:text-primary">
+                    <ExternalLink className="h-3 w-3" />
+                    {item.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-muted-foreground text-sm">
-            © {currentYear} Meow Labs - Jasa Pembuatan Website Profesional Semarang. All rights reserved.
+        <div className="mt-12 flex flex-col items-center justify-between border-t border-border pt-8 md:flex-row">
+          <p className="text-center text-sm text-muted-foreground md:text-left">
+            © {currentYear} {copy.footer.copyright}
           </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-muted-foreground hover:text-primary text-sm transition-colors">
-              Kebijakan Privasi
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-6 md:mt-0">
+            <a href="/kebijakan-privasi" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+              {copy.footer.privacy}
             </a>
-            <a href="#" className="text-muted-foreground hover:text-primary text-sm transition-colors">
-              Syarat & Ketentuan
+            <a href="/syarat-ketentuan" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+              {copy.footer.terms}
             </a>
           </div>
         </div>

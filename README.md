@@ -1,196 +1,141 @@
-# 🐱‍💻 Meow Labs - Website Development Services
+﻿# Meow Labs Website
 
-**Jasa Pembuatan Website Profesional #1 di Semarang**
+Website resmi Meow Labs untuk layanan pembuatan website profesional di Semarang. Proyek ini dibangun dengan Next.js App Router, memiliki homepage multi-section, chatbot AI berbasis `knowledge.md`, portfolio dari API eksternal, serta halaman legal.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/azazels-projects/v0-meow-labs-website)
-[![Built with Next.js](https://img.shields.io/badge/Built%20with-Next.js-black?style=for-the-badge&logo=next.js)](https://nextjs.org)
+## Overview
 
-## 🚀 Overview
+- Framework: Next.js 16 + React 18 + TypeScript
+- Styling: Tailwind CSS + komponen UI lokal (`components/ui`)
+- Chat AI: Google Gemini (`@google/genai`) dengan guard keamanan
+- Knowledge source: `knowledge.md`
+- Portfolio source: API eksternal Showcase-IT
+- Deployment target: Vercel
 
-Meow Labs adalah layanan pembuatan website profesional terpercaya di Semarang. Kami mengkhususkan diri dalam pengembangan website modern, responsif, dan SEO-friendly untuk berbagai jenis bisnis mulai dari UMKM hingga perusahaan besar.
+## Fitur Aktif
 
-## ✨ Features
+### 1. Homepage Marketing
+- Hero, layanan, proses, pricing, portfolio, testimoni, FAQ, kontak
+- Global switch bahasa `ID/EN`
+- Santa Mode (snowfall) dapat diaktifkan/dimatikan dan disimpan di `localStorage`
+- Floating chat yang konsisten dengan tema website
 
-### 🌐 **Layanan Website**
-- **Company Profile** - Website profesional untuk meningkatkan kredibilitas perusahaan
-- **Toko Online** - E-commerce lengkap dengan sistem pembayaran
-- **Website Sekolah/Yayasan** - Platform informasi untuk lembaga pendidikan
-- **Landing Page** - Halaman pendaratan untuk kampanye marketing
-- **Website Custom** - Solusi khusus sesuai kebutuhan bisnis
+### 2. Chatbot AI
+- Route API: `POST /api/chat`
+- Prompt injection guard + sanitasi input/output
+- Jawaban ringkas, manusiawi, tanpa karakter dekoratif berlebihan
+- Fallback kontak otomatis ke WhatsApp dan email jika AI gagal
 
-### 🔧 **Technical Features**
-- ⚡ **Performance Optimized** - Fast loading dan SEO friendly
-- 📱 **Mobile Responsive** - Perfect di semua device
-- 🌙 **Dark Mode Support** - Modern dark theme
-- 🔒 **SEO Optimized** - Dijamin page 1 Google
-- 💬 **WhatsApp Integration** - Direct customer contact
-- 📊 **Analytics Integration** - Google Analytics ready
-- 🛡️ **Error Handling** - Robust error boundaries
-- ⏳ **Loading States** - Smooth user experience
+### 3. Portfolio API Eksternal
+- Mengambil data langsung dari API eksternal
+- Loading skeleton saat fetch berjalan
+- Error state modern saat API gagal
+- Tanpa inject data dummy lokal
 
-### 🎯 **Business Features**
-- 📞 **Live Chat Widget** - Real-time customer support
-- 📱 **WhatsApp Floating Widget** - Quick contact options  
-- 📝 **Blog System** - Content management ready
-- 🏆 **Client Testimonials** - Social proof system
-- 📈 **Portfolio Showcase** - Project gallery
-- 💰 **Pricing Calculator** - Transparent pricing
+### 4. Halaman Legal
+- ` /kebijakan-privasi`
+- ` /syarat-ketentuan`
 
-## 🛠️ Tech Stack
+### 5. SEO dan Metadata
+- Metadata utama di `app/layout.tsx`
+- Sitemap dan robots di `app/sitemap.ts` dan `app/robots.ts`
 
-### **Frontend Framework**
-- **Next.js 14** - React framework with App Router
-- **TypeScript** - Type-safe development
-- **Tailwind CSS** - Utility-first CSS framework
-- **Radix UI** - Accessible component primitives
+## Setup Lokal
 
-### **UI Components**
-- **Lucide React** - Beautiful icons
-- **Framer Motion** - Smooth animations
-- **React Hook Form** - Form management
-- **Shadcn/ui** - Modern UI components
+### Prasyarat
+- Node.js 18+
+- npm 9+
 
-### **Development Tools**
-- **ESLint** - Code linting
-- **Prettier** - Code formatting
-- **Git** - Version control
-- **Vercel** - Deployment platform
-
-### **Integrations**
-- **WhatsApp Business API** - Customer communication
-- **Google Analytics** - Website analytics
-- **DevIcons CDN** - Technology logos
-- **Social Media APIs** - Instagram, Facebook integration
-
-## 📊 Project Statistics
-
-- 🏆 **200+ Klien Puas** di Semarang dan sekitarnya
-- ⭐ **4.9/5 Rating** kepuasan dari klien
-- 🕐 **5+ Tahun** pengalaman di industri web development
-- 💯 **100%** garansi kepuasan dengan maintenance gratis 1 tahun
-
-## 🚀 Quick Start
-
-### Prerequisites
+### Instalasi
 ```bash
-Node.js 18+ 
-npm atau pnpm
+npm install
 ```
 
-### Installation
+### Jalankan Development
 ```bash
-# Clone repository
-git clone https://github.com/Urdemonlord/meow-labs-website.git
-
-# Navigate to directory
-cd meow-labs-website
-
-# Install dependencies
-pnpm install
-
-# Start development server
-pnpm dev
+npm run dev
 ```
 
-### Environment Variables
+### Build Production
 ```bash
-# .env.local
-NEXT_PUBLIC_GA_ID=your_google_analytics_id
-NEXT_PUBLIC_WHATSAPP_NUMBER=6289538628863
+npm run build
+npm run start
 ```
 
-## 📁 Project Structure
+## Environment Variables
 
-```
-meow-labs-website/
-├── app/                    # Next.js App Router
-│   ├── blog/              # Blog pages
-│   ├── globals.css        # Global styles
-│   ├── layout.tsx         # Root layout
-│   └── page.tsx           # Homepage
-├── components/            # React components
-│   ├── ui/               # Reusable UI components
-│   ├── hero-section.tsx  # Landing section
-│   ├── services-section.tsx
-│   ├── portfolio-section.tsx
-│   └── ...               # Other sections
-├── public/               # Static assets
-│   └── images/          # Images and logos
-├── lib/                 # Utilities
-└── styles/              # CSS styles
+Buat file `.env.local`:
+
+```env
+GEMINI_API_KEY=your_gemini_api_key
+NEXT_PUBLIC_SITE_URL=https://meowlabs.id
+NEXT_PUBLIC_APP_URL=http://localhost:3000
 ```
 
-## 🎨 Customization
+Catatan:
+- `GEMINI_API_KEY` wajib untuk chatbot AI.
+- `NEXT_PUBLIC_SITE_URL` dipakai untuk metadata, sitemap, dan robots.
+- `NEXT_PUBLIC_APP_URL` dipakai pada validasi origin di `proxy.ts`.
 
-### Colors & Branding
-Semua warna dan branding dapat disesuaikan melalui:
-- `tailwind.config.js` - Color palette
-- `app/globals.css` - CSS variables
-- `public/images/` - Logo dan assets
+## Quality Gate
 
-### Content Management
-- Edit konten di masing-masing component
-- Update harga di `pricing-section.tsx`
-- Tambah portfolio di `portfolio-section.tsx`
-- Edit testimonials di `testimonials-section.tsx`
+```bash
+npm run check:text-integrity
+npm run lint
+npm run build
+```
 
-## 📱 Contact Information
+Perintah `check:text-integrity` akan gagal jika ditemukan pola karakter rusak (mojibake) di:
+- `README.md`
+- folder `app`
+- folder `components`
+- folder `lib`
 
-### Meow Labs - Web Development Services
-- 📍 **Lokasi**: Semarang & Sekitarnya
-- 📞 **WhatsApp**: +62 895-3862-88683
-- 📧 **Email**: admin@meowlabs.id
-- 🌐 **Website**: [meowlabs.id](https://meowlabs.id)
-- 📱 **Instagram**: [@meowlabs.id](https://instagram.com/meowlabs.id)
+## Struktur Project
 
-### Business Hours
-- **Senin - Sabtu**: 09:00 - 21:00 WIB
-- **Minggu**: 10:00 - 18:00 WIB
-- **Konsultasi**: Gratis via WhatsApp
+```txt
+app/
+  api/
+    chat/route.ts
+    csrf-token/route.ts
+  blog/
+  chatbot/
+  kebijakan-privasi/
+  syarat-ketentuan/
+  layout.tsx
+  page.tsx
+components/
+  navigation.tsx
+  hero-section.tsx
+  pricing-section.tsx
+  portfolio-section.tsx
+  working-chat-interface.tsx
+  working-floating-chat.tsx
+  ui-preferences-provider.tsx
+lib/
+  ui-copy.json
+  security-utils.ts
+  chat-helper.ts
+  gemini-helper.ts
+knowledge.md
+```
 
-## 💰 Pricing
+## Deploy
 
-### Paket Website Profesional
-- 🥉 **Starter** - Rp 2.500.000 (Company Profile)
-- 🥈 **Business** - Rp 5.000.000 (Toko Online)
-- 🥇 **Enterprise** - Rp 8.000.000 (Custom Features)
+Alur deploy standar:
 
-**Termasuk:**
-- ✅ Domain & Hosting gratis 1 tahun
-- ✅ SSL Certificate
-- ✅ SEO Optimization
-- ✅ Mobile Responsive
-- ✅ Maintenance gratis 1 tahun
-- ✅ Training penggunaan
-- ✅ WhatsApp integration
+```bash
+npm run build
+```
 
-## 🤝 Contributing
+Lalu deploy ke Vercel sesuai workflow tim/repository.
 
-Kami menerima kontribusi untuk meningkatkan website ini:
+## Kontak
 
-1. Fork repository
-2. Buat branch baru (`git checkout -b feature/improvement`)
-3. Commit perubahan (`git commit -am 'Add new feature'`)
-4. Push ke branch (`git push origin feature/improvement`)
-5. Buat Pull Request
+- WhatsApp: [https://wa.me/6285117170198](https://wa.me/6285117170198)
+- Email: admin@meowlabs.id
+- Instagram: [https://instagram.com/meowlabs.id](https://instagram.com/meowlabs.id)
+- TikTok: [https://www.tiktok.com/@meowlabs.id](https://www.tiktok.com/@meowlabs.id)
 
-## 📄 License
+## Lisensi
 
-© 2024 Meow Labs. All rights reserved.
-
-Website ini dibuat dengan ❤️ untuk mendukung bisnis lokal di Semarang.
-
----
-
-## 🌟 Deployment
-
-Project ini secara otomatis ter-deploy di:
-- **Production**: [https://vercel.com/azazels-projects/meow-labs-website](https://vercel.com/azazels-projects/meow-labs-website.vercel.app)
-
-
-### Deploy to Vercel
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Urdemonlord/meow-labs-website)
-
----
-
-**🐱‍💻 Meow Labs - Mengembangkan bisnis Anda dengan teknologi terdepan!**
+Hak cipta 2026 Meow Labs. All rights reserved.

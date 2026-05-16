@@ -1,32 +1,35 @@
-"use client";
+"use client"
 
-import React, { useEffect, useState } from "react";
-import Snowfall from "react-snowfall";
+import { useEffect, useMemo, useState } from "react"
+import Snowfall from "react-snowfall"
+import { useUiPreferences } from "./ui-preferences-provider"
 
 export default function SnowfallEffect() {
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = useState(false)
+  const [isCompactViewport, setIsCompactViewport] = useState(false)
+  const { santaMode } = useUiPreferences()
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    setMounted(true)
+    const mediaQuery = window.matchMedia("(max-width: 768px)")
+    const updateViewport = () => setIsCompactViewport(mediaQuery.matches)
 
-  if (!mounted) return null;
+    updateViewport()
+    mediaQuery.addEventListener("change", updateViewport)
+
+    return () => mediaQuery.removeEventListener("change", updateViewport)
+  }, [])
+
+  const snowflakeCount = useMemo(() => (isCompactViewport ? 48 : 110), [isCompactViewport])
+
+  if (!mounted || !santaMode) return null
 
   return (
-    <div style={{ 
-      position: 'fixed', 
-      top: 0, 
-      left: 0, 
-      width: '100vw', 
-      height: '100vh', 
-      pointerEvents: 'none', 
-      zIndex: 1,
-      overflow: 'hidden'
-    }}>
-      <Snowfall
-        color="white"
-        snowflakeCount={150}
-      />
+    <div
+      aria-hidden="true"
+      className="pointer-events-none fixed inset-0 z-[1] overflow-hidden"
+    >
+      <Snowfall color="white" snowflakeCount={snowflakeCount} speed={[0.4, 1.2]} wind={[-0.15, 0.15]} />
     </div>
-  );
+  )
 }

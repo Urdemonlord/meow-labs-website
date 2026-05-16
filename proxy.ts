@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const response = NextResponse.next()
 
   // 1. Content Security Policy (CSP) - Critical untuk prevent XSS
@@ -83,7 +83,7 @@ export function middleware(request: NextRequest) {
   return response
 }
 
-// Apply middleware to all routes except static files
+// Apply proxy to all routes except static files
 export const config = {
   matcher: [
     /*

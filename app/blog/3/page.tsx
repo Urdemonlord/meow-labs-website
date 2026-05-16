@@ -1,6 +1,5 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import { LiveChatWidget } from "@/components/live-chat-widget"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
@@ -304,7 +303,6 @@ export default function BlogPostPage() {
         </div>
       </div>
       <Footer />
-      <LiveChatWidget />
       
       {/* Schema.org structured data for article */}
       <script

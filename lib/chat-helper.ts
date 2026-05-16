@@ -1,56 +1,61 @@
-import { queryCollection } from "./chroma-api";
-import { 
-  generateGeminiResponse, 
-  generateGreetingResponse, 
-  generateFallbackResponse 
-} from "./gemini-helper";
+import fs from "fs"
+import path from "path"
+import { generateGeminiResponse, generateGreetingResponse } from "./gemini-helper"
+import type { Locale } from "./ui-copy"
 
-// Query the knowledge base and generate a response using Gemini
-export async function generateResponse(query: string): Promise<string> {
+let cachedKnowledgeBase: string | null = null
+
+function getKnowledgeBase(): string {
+  if (cachedKnowledgeBase) return cachedKnowledgeBase
+
   try {
-    // Normalize query
-    const normalizedQuery = query.toLowerCase().trim();
-    
-    // Handle greetings with Gemini
-    if (isGreeting(normalizedQuery)) {
-      return await generateGreetingResponse();
-    }
-    
-    // Query the knowledge base
-    try {
-      const results = await queryCollection("knowledge_base", query, 5);
-      
-      // Extract documents from results
-      const documents = (results.documents?.[0] || []).filter(
-        (doc): doc is string => typeof doc === 'string' && doc !== null
-      );
-      
-      if (documents.length > 0) {
-        // Use Gemini to generate response with knowledge base context
-        return await generateGeminiResponse(query, documents);
-      }
-    } catch (chromaError) {
-      console.error("Chroma query error:", chromaError);
-      // Fall back to Gemini without context
-    }
-    
-    // Use Gemini fallback when no context found
-    return await generateFallbackResponse(query);
+    const filePath = path.join(process.cwd(), "knowledge.md")
+    cachedKnowledgeBase = fs.readFileSync(filePath, "utf8")
+    return cachedKnowledgeBase
   } catch (error) {
-    console.error("Error generating response:", error);
-    return "Maaf, terjadi kesalahan teknis saat mencari jawaban. 😔\n\n" +
-           "Silakan coba lagi atau hubungi tim kami langsung:\n" +
-           "📱 WhatsApp: +62 895-3862-88683\n" +
-           "✉️ Email: admin@meowlabs.id";
+    console.error("Error reading knowledge.md:", error)
+    return ""
   }
 }
 
-// Check if message is a greeting
+export async function generateResponse(query: string, locale: Locale = "id"): Promise<string> {
+  try {
+    const normalizedQuery = query.toLowerCase().trim()
+
+    if (isGreeting(normalizedQuery)) {
+      return await generateGreetingResponse(locale)
+    }
+
+    const knowledgeContent = getKnowledgeBase()
+    if (knowledgeContent) {
+      return await generateGeminiResponse(query, [knowledgeContent], locale)
+    }
+
+    return await generateGeminiResponse(query, [""], locale)
+  } catch (error) {
+    console.error("Error generating response:", error)
+
+    return locale === "en"
+      ? "The AI assistant is temporarily unavailable. Please contact our team via WhatsApp +62 851-1717-0198 or email admin@meowlabs.id."
+      : "Sistem AI sedang offline untuk sementara. Silakan hubungi tim kami via WhatsApp +62 851-1717-0198 atau email admin@meowlabs.id."
+  }
+}
+
 function isGreeting(query: string): boolean {
   const greetings = [
-    'hai', 'halo', 'hi', 'hello', 'hey', 'selamat pagi', 
-    'selamat siang', 'selamat sore', 'selamat malam',
-    'assalamualaikum', 'salam', 'permisi'
-  ];
-  return greetings.some(greeting => query.startsWith(greeting));
+    "hai",
+    "halo",
+    "hi",
+    "hello",
+    "hey",
+    "selamat pagi",
+    "selamat siang",
+    "selamat sore",
+    "selamat malam",
+    "assalamualaikum",
+    "salam",
+    "permisi",
+  ]
+
+  return greetings.some((greeting) => query.startsWith(greeting))
 }
