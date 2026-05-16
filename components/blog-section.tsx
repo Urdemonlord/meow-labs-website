@@ -1,12 +1,12 @@
-"use client"
+﻿"use client"
 
-import Link from "next/link"
 import Image from "next/image"
+import Link from "next/link"
 import { ArrowRight, BookOpen, Calendar } from "lucide-react"
+import { ErrorBoundary, LoadingState } from "@/components/loading-state"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ErrorBoundary, LoadingState } from "@/components/loading-state"
 import { useUiPreferences } from "./ui-preferences-provider"
 
 type BlogPost = {
@@ -157,14 +157,16 @@ export function BlogSection() {
                           {isEn ? "Featured" : "Unggulan"}
                         </Badge>
                       </div>
-                      <div className="flex flex-col justify-center p-8">
-                        <div className="mb-4 flex items-center gap-4">
-                          <Badge variant="outline">{post.category}</Badge>
-                          <div className="flex items-center text-sm text-muted-foreground">
+                      <div className="flex flex-col justify-center p-6 sm:p-8">
+                        <div className="mb-4 flex flex-wrap items-center gap-2 sm:gap-4">
+                          <Badge variant="outline" className="whitespace-nowrap">
+                            {post.category}
+                          </Badge>
+                          <div className="flex items-center whitespace-nowrap text-sm text-muted-foreground">
                             <Calendar className="mr-1 h-4 w-4" />
                             {post.date}
                           </div>
-                          <span className="text-sm text-muted-foreground">
+                          <span className="whitespace-nowrap text-sm text-muted-foreground">
                             {post.readTime} {isEn ? "read" : "baca"}
                           </span>
                         </div>
@@ -203,13 +205,13 @@ export function BlogSection() {
                       </Badge>
                     </div>
                     <CardContent className="p-6">
-                      <div className="mb-3 flex items-center gap-2 text-xs text-muted-foreground">
-                        <div className="flex items-center">
+                      <div className="mb-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted-foreground">
+                        <div className="flex items-center whitespace-nowrap">
                           <Calendar className="mr-1 h-3 w-3" />
                           {post.date}
                         </div>
-                        <span>•</span>
-                        <span>
+                        <span className="hidden sm:inline">•</span>
+                        <span className="whitespace-nowrap">
                           {post.readTime} {isEn ? "read" : "baca"}
                         </span>
                       </div>
