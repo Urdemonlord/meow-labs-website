@@ -147,7 +147,7 @@ export default function RootLayout({
                 "Jasa pembuatan website murah untuk UMKM & personal di Semarang oleh tim profesional dipimpin oleh Hasrinata Arya Afendi",
               url: siteUrl,
               telephone: "+6285117170198",
-              email: "meowlabs.store@gmail.com",
+              email: "meowlabs.id@gmail.com",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Semarang",
