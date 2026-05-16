@@ -11,7 +11,7 @@ export function proxy(request: NextRequest) {
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     img-src 'self' blob: data: https: https://www.googletagmanager.com https://www.google-analytics.com;
     font-src 'self' data: https://fonts.gstatic.com;
-    connect-src 'self' https://api.trychroma.com https://show-case-it-05.vercel.app https://www.google-analytics.com https://generativelanguage.googleapis.com https://api.whatsapp.com;
+    connect-src 'self' https://show-case-it-05.vercel.app https://www.google-analytics.com https://generativelanguage.googleapis.com https://api.whatsapp.com;
     media-src 'self';
     object-src 'none';
     frame-src 'self';
@@ -55,13 +55,32 @@ export function proxy(request: NextRequest) {
 
   // 9. CORS - Strict origin validation (handled per route, but set base policy)
   const origin = request.headers.get('origin')
-  const allowedOrigins = [
-    'https://meowlabs.id',
-    'https://www.meowlabs.id',
-    process.env.NEXT_PUBLIC_APP_URL,
-  ].filter(Boolean)
+  const publicSiteUrl = process.env.NEXT_PUBLIC_SITE_URL
+  const localAppUrl = process.env.NEXT_PUBLIC_APP_URL
+  const allowedOrigins = new Set<string>()
 
-  if (origin && allowedOrigins.includes(origin)) {
+  if (publicSiteUrl) {
+    try {
+      const parsed = new URL(publicSiteUrl)
+      allowedOrigins.add(parsed.origin)
+      allowedOrigins.add(`${parsed.protocol}//www.${parsed.hostname.replace(/^www\./, '')}`)
+    } catch {
+      // Ignore invalid URL values from env.
+    }
+  }
+
+  if (localAppUrl) {
+    try {
+      allowedOrigins.add(new URL(localAppUrl).origin)
+    } catch {
+      // Ignore invalid URL values from env.
+    }
+  }
+
+  allowedOrigins.add('https://meowlabs.id')
+  allowedOrigins.add('https://www.meowlabs.id')
+
+  if (origin && allowedOrigins.has(origin)) {
     response.headers.set('Access-Control-Allow-Origin', origin)
     response.headers.set('Access-Control-Allow-Credentials', 'true')
     response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')

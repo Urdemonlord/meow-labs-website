@@ -76,25 +76,29 @@ export function TestimonialsSection() {
                 key={`${testimonial.name}-${testimonial.project}`}
                 className="group relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
-                <div className="absolute right-4 top-4 text-primary/10 transition-colors group-hover:text-primary/20">
+                <div className="absolute right-3 top-3 text-primary/10 transition-colors group-hover:text-primary/20 sm:right-4 sm:top-4">
                   <Quote className="h-12 w-12" />
                 </div>
 
                 <CardHeader className="pb-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                      <User className="h-6 w-6 text-primary" />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="font-semibold text-foreground">{testimonial.name}</div>
-                      <div className="truncate text-sm text-muted-foreground">{testimonial.company}</div>
-                      <div className="mt-1 flex items-center gap-1">
-                        {Array.from({ length: testimonial.rating }).map((_, index) => (
-                          <Star key={index} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                        ))}
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+                    <div className="flex min-w-0 flex-1 items-center gap-3 sm:gap-4">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10">
+                        <User className="h-6 w-6 text-primary" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="font-semibold text-foreground">{testimonial.name}</div>
+                        <div className="truncate text-sm text-muted-foreground">{testimonial.company}</div>
+                        <div className="mt-1 flex items-center gap-1">
+                          {Array.from({ length: testimonial.rating }).map((_, index) => (
+                            <Star key={index} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                          ))}
+                        </div>
                       </div>
                     </div>
-                    <div className="rounded-full bg-primary/10 px-3 py-1 text-xs text-primary">{testimonial.project}</div>
+                    <div className="max-w-full self-start rounded-full bg-primary/10 px-3 py-1 text-xs text-primary sm:max-w-[16rem] sm:self-auto">
+                      <span className="break-words">{testimonial.project}</span>
+                    </div>
                   </div>
                 </CardHeader>
 
