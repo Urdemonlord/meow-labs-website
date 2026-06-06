@@ -17,14 +17,14 @@ export function proxy(request: NextRequest) {
     frame-src 'self';
     base-uri 'self';
     form-action 'self';
-    frame-ancestors 'none';
+    frame-ancestors 'self' https://gather.town https://*.gather.town;
     upgrade-insecure-requests;
   `.replace(/\s{2,}/g, ' ').trim()
 
   response.headers.set('Content-Security-Policy', cspHeader)
 
   // 2. X-Frame-Options - Prevent Clickjacking
-  response.headers.set('X-Frame-Options', 'DENY')
+  response.headers.set('X-Frame-Options', 'SAMEORIGIN')
 
   // 3. X-Content-Type-Options - Prevent MIME sniffing
   response.headers.set('X-Content-Type-Options', 'nosniff')
