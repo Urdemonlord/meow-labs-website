@@ -1,0 +1,29 @@
+Tutorial Mendapatkan 11 USD di tianyuai
+
+Model : 
+gpt-5.2-openai-compact
+gpt-5.3-codex
+gpt-5.3-codex-openai-compact
+gpt-5.4
+gpt-5.4-mini
+gpt-5.4-openai-compact
+gpt-5.5
+gpt-5.5-openai-compact
+gpt-image-2
+claude-haiku-4-5-20251001
+claude-opus-4-1-20250805
+claude-opus-4-20250514
+claude-opus-4-5-20251101
+claude-opus-4-6
+claude-opus-4-7
+claude-opus-4-8
+claude-sonnet-4-20250514
+claude-sonnet-4-5-20250929
+claude-sonnet-4-6
+
+1. Gunakan link referal https://tianyuai.lol/register?aff=3qBk untuk registrasi
+2. Lakukan registrasi seperti biasa
+3. Login
+4. Otomatis akan dapat 10 USD
+5. Klik Personal Settings di sidebar, klik Check in now
+6. Akan mendapatkan 1-2 usd tambahan (random)

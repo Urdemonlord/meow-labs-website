@@ -1,0 +1,19 @@
+Tutorial Claim DeepSeek V4 Flash Untuk Agentic Coding:
+
+[Perhatian]
+Region Indonesia sepertinya hanya mendapat DeepSeek V4 Flash. Namun mungkin bisa diakalin pakai vpn atau proxy (US).
+
+[Models] 
+DeepSeek V4 Flash
+DeepSeek V4 Pro
+MiniMax M2.7
+Kimi K.26
+
+Steps : 
+1. Pastikan NPM terinstall ya
+2. Buka terminal favoritmu, paste npm install -g freebuff
+3. Tunggu instalasi selesai
+4. jalankan freebuff dengan perintah freebuff di terminal. Jika terdeteksi, mulai ulang terminalnya kemudian ketik lagi freebuff.
+5. login dengan GitHub (hanya sekali saja)
+
+Kenapa ini bisa gratis ? kocagnya di agent freebuffnya ada iklan baris (tidak mengganggu, tidak mencolok hanya teks dalam box saja)

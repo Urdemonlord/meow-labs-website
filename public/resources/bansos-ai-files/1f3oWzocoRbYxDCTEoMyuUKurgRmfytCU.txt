@@ -1,0 +1,16 @@
+Tutorial Claim Bansos Dari OpenCode
+
+Model yang akan didapatkan : DeepSeek V4 Flash, MiniMax M2.5, Nemotron 3 Super, Qwen 3.6
+
+1. Lakukan instalasi opencode
+1.a curl -fsSL https://opencode.ai/install | bash
+1.b npm i -g opencode-ai
+
+Pilih saja salah satu. 
+
+2. Buka terminal baru, ketik saja opencode
+3. Ketik /connect kemudian login
+
+Selain free model di atas, juga terdapat OpenCode Go yang sedang diskon. Pengguna akan mendapatkan paket 10 USD dengan hanya 5 USD (90k-an). 
+
+Ohya, untuk opencode sendiri sekarang sudah ada appnya ya jadi tidak hanya cli saja.

@@ -1,0 +1,15 @@
+Tutorial Claim GenseeAI
+
+Anda akan dapat : 
+1 vCPU + 4 GB RAM
+10 GB Storage
+20M token/bulan
+Fitur auto pause jika tidak ada aktivitas (jadi lebih hemat) setiap heartbeat
+
+Cara claim : 
+
+1. Dengan akun yang terdaftar, kunjungi https://webapp.gensee.ai/ui?referral=UT8XB6DL (gunakan referral biar sama-sama dapat bonus).
+2. Langsung klik Sign-In
+3. Pilih salah satu, lebih mudah pakai Google saja
+4. Isi survey (ngasal saja gpp)
+5. Akun bisa dipakai

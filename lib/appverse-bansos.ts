@@ -1,3 +1,5 @@
+import { BANSOS_TUTORIALS_BY_SLUG } from "@/data/bansos-drive-tutorials"
+
 export type BansosItem = {
   slug: string
   title: string
@@ -5,6 +7,10 @@ export type BansosItem = {
   href: string
   imageUrl?: string
   date?: string
+  tutorialText?: string
+  tutorialFileName?: string
+  tutorialDownloadUrl?: string
+  tutorialSourceType?: "text" | "pdf"
 }
 
 function decodeHtmlEntities(text: string): string {
@@ -20,7 +26,6 @@ function decodeHtmlEntities(text: string): string {
 }
 
 function parseBansosItemsFromHtml(html: string): BansosItem[] {
-  // Extract items from LD+JSON ItemList first (stable, structured)
   const ldJsonMatch = html.match(
     /<script type="application\/ld\+json"[^>]*>(\[[\s\S]*?]|{[\s\S]*?})<\/script>/g
   )
@@ -52,12 +57,9 @@ function parseBansosItemsFromHtml(html: string): BansosItem[] {
 
   if (ldItems.length === 0) return []
 
-  // Now extract descriptions, dates, and images from the rendered HTML
-  // by matching each LD+JSON title to the HTML element
   const items: BansosItem[] = []
 
   for (const ld of ldItems) {
-    // Find this item's section in HTML by looking for the title text
     const titleEscaped = ld.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
     const sectionPattern = new RegExp(
       `<h3[^>]*>${titleEscaped.replace(/&/g, "&amp;").replace(/'/g, "&#x27;")}</h3>(.*?)(?=<h3|<footer|</section)`,
@@ -72,46 +74,41 @@ function parseBansosItemsFromHtml(html: string): BansosItem[] {
     if (sectionMatch) {
       const section = sectionMatch[1]
 
-      // Description
       const descMatch = section.match(
         /<p[^>]*class="[^"]*line-clamp-3[^"]*"[^>]*>(.*?)<\/p>/
       )
       if (descMatch) {
-        description = decodeHtmlEntities(
-          descMatch[1].replace(/<[^>]+>/g, "").trim()
-        )
+        description = decodeHtmlEntities(descMatch[1].replace(/<[^>]+>/g, "").trim())
       }
 
-      // Date
-      const dateMatch = section.match(
-        /Dibuat pada:\s*<!--\s*-->([^<]+)/
-      )
+      const dateMatch = section.match(/Dibuat pada:\s*<!--\s*-->([^<]+)/)
       if (dateMatch) {
         date = dateMatch[1].trim()
       }
 
-      // Image
-      const imgMatch = section.match(
-        /<img[^>]*src="([^"]+)"[^>]*alt="[^"]*"[^>]*\/>/
-      )
+      const imgMatch = section.match(/<img[^>]*src="([^"]+)"[^>]*alt="[^"]*"[^>]*\/>/)
       if (imgMatch) {
         imageUrl = imgMatch[1]
       }
     }
 
-    // Extract slug from anchor URL
     const slugMatch = ld.url.match(/item-([a-f0-9-]+)$/)
     const slug = slugMatch?.[1] || `bansos-${ld.position}`
+    const tutorial = BANSOS_TUTORIALS_BY_SLUG[slug]
 
-    // Build the actual href to the go-link
-    // We'll construct it from the slug
     items.push({
       slug,
       title: decodeHtmlEntities(ld.name),
       description,
-      href: `https://appverse.id/bansos-ai/resources/${slug}/go`,
+      href: `https://appverse.id/bansos-ai#item-${slug}`,
       imageUrl,
       date,
+      tutorialText: tutorial?.text || undefined,
+      tutorialFileName: tutorial?.fileName || undefined,
+      tutorialDownloadUrl: tutorial
+        ? `/resources/bansos-ai-files/${tutorial.fileId}.${tutorial.sourceType === "pdf" ? "pdf" : "txt"}`
+        : undefined,
+      tutorialSourceType: tutorial?.sourceType || undefined,
     })
   }
 
@@ -122,6 +119,7 @@ export async function fetchAppVerseBansos(): Promise<{
   items: BansosItem[]
   total: number
   lastSync: string
+  tutorialCoverage: number
 }> {
   const res = await fetch("https://appverse.id/bansos-ai", {
     next: { revalidate: 3600 },
@@ -138,12 +136,10 @@ export async function fetchAppVerseBansos(): Promise<{
   const html = await res.text()
   const items = parseBansosItemsFromHtml(html)
 
-  // Extract last sync date from the items
   const dates = items
     .map((i) => i.date)
     .filter((d): d is string => !!d)
     .map((d) => {
-      // Parse Indonesian date format
       const months: Record<string, string> = {
         Januari: "01",
         Februari: "02",
@@ -158,9 +154,7 @@ export async function fetchAppVerseBansos(): Promise<{
         November: "11",
         Desember: "12",
       }
-      const m = d.match(
-        /(\w+),\s*(\d+)\s+(\w+)\s+(\d+)/
-      )
+      const m = d.match(/(\w+),\s*(\d+)\s+(\w+)\s+(\d+)/)
       if (m) {
         return `${m[4]}-${months[m[3]] || "01"}-${m[2].padStart(2, "0")}`
       }
@@ -171,6 +165,7 @@ export async function fetchAppVerseBansos(): Promise<{
     .reverse()
 
   const lastSync = dates[0] || "-"
+  const tutorialCoverage = items.filter((item) => item.tutorialFileName).length
 
-  return { items, total: items.length, lastSync }
+  return { items, total: items.length, lastSync, tutorialCoverage }
 }

@@ -1,0 +1,15 @@
+Tutorial Claim BluesMinds
+
+[Model] = Terdapat 166 Model yang bisa digunakan mulai dari claude-sonnet-4-6, GPT 5 dan sebagainya (cukup banyak, Anda bisa mencoba-coba).
+
+1. Kunjungi https://api.bluesminds.com/register?aff=cyjK (gunakan link tersebut untuk mendapatkan credits tambahan)
+2. Lakukan registasi, di halaman link point 1 jika ada belum pernah mendaftar akan ada 2 opsi pilihan login : GitHub atau User Pass (bebas pilih saja salah satu). Jika menggunakan GitHub, pastikan berikan izin (Authorize).
+3. Setelah registrasi seharusnya akan langsung login.
+4. Anda sudah bisa langsung memakai layanan BluesMinds
+
+Cara Memakai : 
+1. Buat api key di menu Token Management. Cukup isi nama dan klik submit saja sisanya biarkan saja.
+2. Model yang bisa dipakai, ada didalam menu Model Marketplace ( https://api.bluesminds.com/pricing ) pastikan anda sudah login ketika membuka halaman itu.
+3. Copy endpoint https://api.bluesminds.com/v1 sebagai base url, dan api key yang diatur di point 2 sebagai apikey ke agent favorit Anda.
+
+Endpoint yang digunakan adalah OpenAI-Compatible endpoint.

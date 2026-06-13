@@ -1,0 +1,13 @@
+Tutorial claim freemodel.dev (300 USD)
+
+
+Model : GPT 5.5, GPT 5.4 Mini GPT 5.4, GPT 5.3 Codex
+
+1. Kunjungi https://freemodel.dev/invite/FRE-b7e5c2af (gunakan link tersebut untuk bonus extra credit)
+2. Klik verify now (Bisa pakai salah satu, saya sih pakai telegram aja)
+3. Buat api tokennya dan simpan api token ditempat aman
+4. Dokumentasi penggunaan ada di https://freemodel.dev/dashboard/keys
+5. Tinggal masukkan endpoint api.freemodel.dev dan key nya ke agent favoritmu.
+
+[Potensi di tuyul]
+Belum dicoba tp seharusnya bisa asal punya akun tele > 1 mah.

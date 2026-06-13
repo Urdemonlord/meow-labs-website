@@ -1,0 +1,17 @@
+Tutorial Mendapatkan Bansos TryBonsAI
+
+[Harap diperhatikan]
+
+TryBonsAI akan mempelajari data / source code jadi sebaiknya hanya digunakan pada side project JANGAN digunakan pada project corporate / kantor Anda karna terkait kerahaasiaan business / data nya.
+
+Model = GPT 5, GLM, Opus, Sonnet, QWEN, Dsb
+
+Pricing = Free
+
+1. Kunjungi https://www.trybons.ai/
+2. Daftar menggunakan akun GitHub / Google
+3. Jika diminta isi data, maka isi saja asal
+4. Install cli nya
+5. Tidak bisa dipasang di router atau cli lainnya karna agen ai nya khusus (sepertinya menggunakan claude)
+
+Masing-masing akun memiliki daily limit namun bisa diakali dengan membuat beberapa akun (siapkan saja gmail / GitHub nya)

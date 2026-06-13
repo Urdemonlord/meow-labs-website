@@ -1,0 +1,13 @@
+Tutorial Mendapatkan 50 USD Kimchi.Dev (Setiap bulan dapat)
+Model : 
+1. Kimi K2.6
+2. MiniMaX M2.7
+3. Minimax M3
+4. Nemotron 3 Ultra 
+
+1. Kunjungi https://kimchi.dev/
+2. Klik Start Free
+3. Verifikasi cloudflare (jika ada)
+4. Sign in dengan Google, GitHub, SSO atau HuggingFace *Pilih salah satu saja
+5. Pasang authenticator https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=id
+6. Anda mendapat 50 USD (Reload setiap bulan)

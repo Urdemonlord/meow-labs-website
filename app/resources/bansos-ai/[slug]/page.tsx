@@ -5,13 +5,56 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, ExternalLink } from "lucide-react"
+import { ArrowLeft, Download } from "lucide-react"
 import Link from "next/link"
 
 import { fetchAppVerseBansos } from "@/lib/appverse-bansos"
 
 type Props = {
   params: Promise<{ slug: string }>
+}
+
+function renderTutorialText(text: string) {
+  return text
+    .split(/\n{2,}/)
+    .map((block) => block.trim())
+    .filter(Boolean)
+    .map((block, index) => {
+      const lines = block.split("\n").map((line) => line.trim()).filter(Boolean)
+      const isList = lines.length > 1 && lines.every((line) => /^([0-9]+[.)]|[-*]|\[[^\]]+\])/.test(line))
+      const isHeadingBlock =
+        lines.length === 1 &&
+        lines[0].length <= 80 &&
+        !/^([0-9]+[.)]|[-*]|https?:\/\/)/.test(lines[0])
+
+      if (isHeadingBlock) {
+        return (
+          <h3 key={index} className="text-lg font-semibold tracking-tight text-foreground">
+            {lines[0]}
+          </h3>
+        )
+      }
+
+      if (isList) {
+        return (
+          <ul key={index} className="list-disc space-y-2 pl-5 text-sm leading-7 text-foreground/90">
+            {lines.map((line) => (
+              <li key={line}>{line}</li>
+            ))}
+          </ul>
+        )
+      }
+
+      return (
+        <div key={index} className="space-y-2">
+          {lines.map((line) => (
+            <p key={line} className="text-sm leading-7 text-foreground/90 whitespace-pre-wrap">
+              {line}
+            </p>
+          ))}
+        </div>
+      )
+    })
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -47,6 +90,9 @@ export default async function BansosDetailPage({ params }: Props) {
     notFound()
   }
 
+  const hasTutorialText = Boolean(item.tutorialText?.trim())
+  const hasTutorialFile = Boolean(item.tutorialFileName && item.tutorialDownloadUrl)
+
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Navigation />
@@ -64,7 +110,8 @@ export default async function BansosDetailPage({ params }: Props) {
             <div className="space-y-4">
               <div className="flex flex-wrap items-center gap-2">
                 <Badge variant="default">Bansos AI</Badge>
-                <Badge variant="secondary">AppVerse</Badge>
+                <Badge variant="secondary">Meow Labs</Badge>
+                {hasTutorialFile && <Badge variant="outline">Arsip internal</Badge>}
               </div>
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">{item.title}</h1>
               {item.date && (
@@ -93,54 +140,72 @@ export default async function BansosDetailPage({ params }: Props) {
               </div>
             )}
 
-            <div className="prose prose-invert max-w-none space-y-6 text-foreground">
-              <p className="text-base leading-7 text-muted-foreground">
-                {item.description}
-              </p>
+            <div className="space-y-6">
+              {hasTutorialText ? (
+                <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6 sm:p-8 space-y-5">
+                  <div className="space-y-2">
+                    <h2 className="text-2xl font-semibold tracking-tight">Tutorial mirror</h2>
+                    <p className="text-sm leading-7 text-muted-foreground">
+                      Isi di bawah sudah diarsipkan ke Meow Labs. Tetap verifikasi lagi sebelum dipakai karena method, kuota, dan eligibility bisa berubah kapan saja.
+                    </p>
+                  </div>
+                  <div className="space-y-4">{renderTutorialText(item.tutorialText ?? "")}</div>
+                </div>
+              ) : hasTutorialFile ? (
+                <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6 space-y-4">
+                  <h2 className="text-2xl font-semibold tracking-tight">File arsip tersedia</h2>
+                  <p className="text-sm leading-7 text-muted-foreground">
+                    File tutorial untuk item ini sudah diarsipkan di Meow Labs sebagai {item.tutorialSourceType?.toUpperCase()}. Teks belum berhasil diekstrak otomatis, jadi buka file arsipnya untuk melihat langkah lengkap.
+                  </p>
+                </div>
+              ) : (
+                <div className="rounded-2xl border border-amber-500/20 bg-amber-500/10 p-6 space-y-3">
+                  <h2 className="text-xl font-semibold tracking-tight">Belum ada arsip internal</h2>
+                  <p className="text-sm leading-7 text-muted-foreground">
+                    Untuk item ini, Meow Labs baru punya ringkasan metadata. Arsip tutorial detailnya belum masuk ke koleksi internal.
+                  </p>
+                </div>
+              )}
 
-              <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6 space-y-4">
-                <h2 className="text-xl font-semibold">Cara Klaim & Tutorial</h2>
-                <p className="text-sm leading-7">
-                  Bansos ini dikurasi dari AppVerse.id. Untuk mendapatkan info terbaru, cara klaim lengkap, dan tutorial step-by-step, kunjungi halaman bansos di AppVerse:
-                </p>
-                <Button asChild className="w-full justify-center gap-2">
-                  <a href="https://appverse.id/bansos-ai" target="_blank" rel="noopener noreferrer">
-                    Lihat semua bansos di AppVerse
-                    <ExternalLink className="h-4 w-4" />
-                  </a>
-                </Button>
-                <p className="text-xs text-muted-foreground">
-                  Di halaman tersebut, cari bansos ini dan buka untuk melihat tutorial & cara claim lengkap dari komunitas.
-                </p>
-              </div>
+              {!hasTutorialText && (
+                <div className="grid gap-3 sm:grid-cols-1">
+                  {hasTutorialFile && item.tutorialDownloadUrl && (
+                    <Button asChild size="lg" className="gap-2">
+                      <a href={item.tutorialDownloadUrl} target="_blank" rel="noopener noreferrer">
+                        Buka file arsip Meow Labs
+                        <Download className="h-4 w-4" />
+                      </a>
+                    </Button>
+                  )}
+                </div>
+              )}
 
               <div className="rounded-2xl border border-border/70 bg-muted/30 p-6 space-y-3">
-                <h3 className="font-semibold">Informasi Bansos</h3>
+                <h3 className="font-semibold">Informasi arsip</h3>
                 <ul className="space-y-2 text-sm leading-7">
-                  <li>
-                    <strong>Sumber:</strong> AppVerse.id — Platform kurasi bansos AI
-                  </li>
                   {item.date && (
                     <li>
-                      <strong>Terakhir update:</strong> {item.date}
+                      <strong>Tanggal item:</strong> {item.date}
                     </li>
                   )}
                   <li>
-                    <strong>Status:</strong> Selalu verifikasi di AppVerse — promo, method, dan eligibility bisa berubah
+                    <strong>File arsip:</strong> {item.tutorialFileName ?? "Belum tersedia"}
                   </li>
                   <li>
-                    <strong>Catatan:</strong> Meow Labs tidak bertanggung jawab atas perubahan promo atau syarat dari sumber asli
+                    <strong>Lokasi:</strong> Meow Labs internal archive
+                  </li>
+                  <li>
+                    <strong>Status:</strong> Selalu verifikasi manual sebelum claim
                   </li>
                 </ul>
               </div>
 
               <div className="rounded-2xl border border-accent/20 bg-accent/5 p-6 space-y-3">
-                <h3 className="font-semibold text-accent">Pro Tips</h3>
-                <ul className="space-y-2 text-sm leading-7 list-disc list-inside">
-                  <li>Selalu baca syarat & ketentuan di sumber resmi sebelum klaim</li>
-                  <li>Verifikasi identitas dan region eligibility terlebih dahulu</li>
-                  <li>Screenshot bukti promonya untuk referensi pribadi</li>
-                  <li>Jika ada perubahan, laporkan ke AppVerse untuk update</li>
+                <h3 className="font-semibold text-accent">Checklist sebelum coba</h3>
+                <ul className="list-disc space-y-2 pl-5 text-sm leading-7">
+                  <li>Pastikan akun, region, dan metode pembayaran sesuai syarat promo terbaru</li>
+                  <li>Jangan anggap semua promo masih aktif hanya karena file tutorial masih ada</li>
+                  <li>Simpan bukti, screenshot, dan catatan tanggal saat kamu verifikasi sendiri</li>
                 </ul>
               </div>
             </div>
