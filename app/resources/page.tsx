@@ -7,7 +7,9 @@ import { Footer } from "@/components/footer"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { resourceHubSections, resourcesLastUpdated } from "@/lib/resources-data"
+import { fetchAppVerseBansos } from "@/lib/appverse-bansos"
+import { fetchAwesomeIndonesia } from "@/lib/awesome-indonesia"
+import { fetchTokenGratis } from "@/lib/tokengratis"
 
 export const metadata: Metadata = {
   title: "Resources AI Gratis & Open Source | Meow Labs",
@@ -38,7 +40,37 @@ const iconMap = {
   "Open Source Pilihan": FolderGit2,
 } as const
 
-export default function ResourcesHubPage() {
+export default async function ResourcesHubPage() {
+  const [bansos, tokenGratis, openSource] = await Promise.all([
+    fetchAppVerseBansos(),
+    fetchTokenGratis(),
+    fetchAwesomeIndonesia(),
+  ])
+
+  const resourceHubSections = [
+    {
+      title: "Bansos AI",
+      href: "/resources/bansos-ai",
+      description:
+        "Promo, kredit, dan resource AI hemat yang diarsipkan ulang ke Meow Labs supaya tutorialnya bisa dibaca di sini.",
+      count: bansos.total,
+    },
+    {
+      title: "API AI Gratis",
+      href: "/resources/api-ai-gratis",
+      description:
+        "Direktori provider AI gratis dengan ringkasan claim dasar dan metadata utama, dibaca langsung di Meow Labs.",
+      count: tokenGratis.total,
+    },
+    {
+      title: "Open Source Pilihan",
+      href: "/resources/open-source",
+      description:
+        "Proyek open source Indonesia dari komunitas, ditarik live dari GitHub untuk discovery cepat tanpa list basi.",
+      count: openSource.total,
+    },
+  ]
+
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Navigation />
@@ -54,8 +86,9 @@ export default function ResourcesHubPage() {
                 Resource hub untuk builder yang pengin gerak cepat
               </h1>
               <p className="text-lg leading-8 text-muted-foreground">
-                Bukan clone mentah aggregator. Ini adalah landing hub Meow Labs untuk resource AI gratis,
-                direktori API, dan proyek open source yang relevan buat validasi, eksperimen, dan bangun MVP.
+                Bukan clone mentah aggregator. Ini hub Meow Labs untuk resource AI gratis, direktori API,
+                dan proyek open source yang relevan buat validasi, eksperimen, dan bangun MVP. Intinya:
+                discovery tetap cepat, tapi tutorial ringkasnya dibaca di Meow Labs.
               </p>
             </div>
 
@@ -63,19 +96,19 @@ export default function ResourcesHubPage() {
               <Card className="gap-3 border-border/70 bg-background/80 py-5">
                 <CardContent className="space-y-1 px-5">
                   <p className="text-2xl font-semibold">3 vertikal</p>
-                  <p className="text-sm text-muted-foreground">Bansos API · API Gratis · Open Source</p>
+                  <p className="text-sm text-muted-foreground">Bansos AI · API Gratis · Open Source</p>
                 </CardContent>
               </Card>
               <Card className="gap-3 border-border/70 bg-background/80 py-5">
                 <CardContent className="space-y-1 px-5">
-                  <p className="text-2xl font-semibold">27 provider</p>
-                  <p className="text-sm text-muted-foreground">273+ model gratis — live dari tokengratis</p>
+                  <p className="text-2xl font-semibold">{tokenGratis.total} provider</p>
+                  <p className="text-sm text-muted-foreground">Tutorial dasar provider AI gratis di Meow Labs</p>
                 </CardContent>
               </Card>
               <Card className="gap-3 border-border/70 bg-background/80 py-5">
                 <CardContent className="space-y-1 px-5">
-                  <p className="text-2xl font-semibold">52+ proyek</p>
-                  <p className="text-sm text-muted-foreground">Open source Indonesia (live dari GitHub)</p>
+                  <p className="text-2xl font-semibold">{openSource.total}+ proyek</p>
+                  <p className="text-sm text-muted-foreground">Open source Indonesia live dari GitHub</p>
                 </CardContent>
               </Card>
             </div>

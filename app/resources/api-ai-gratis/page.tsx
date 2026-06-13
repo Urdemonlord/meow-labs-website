@@ -7,7 +7,7 @@ import { fetchTokenGratis } from "@/lib/tokengratis"
 export const metadata: Metadata = {
   title: "Direktori Provider API AI Gratis | Meow Labs Resources",
   description:
-    "27 provider API AI gratis — free tier, free credits, model, context window, dan modality. Data aggregasi live dari tokengratis.id.",
+    "Provider API AI gratis yang dibaca di Meow Labs: free tier, free credits, model, context window, dan tutorial claim dasar per provider.",
   keywords: [
     "api ai gratis",
     "free token ai",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Direktori Provider API AI Gratis | Meow Labs Resources",
     description:
-      "27 provider API AI gratis dengan free tier dan free credits. Data live dari tokengratis.id.",
+      "Direktori provider API AI gratis dengan tutorial claim dasar dan metadata penting, disajikan di Meow Labs.",
     type: "website",
     url: "https://meowlabs.id/resources/api-ai-gratis",
   },
@@ -35,7 +35,6 @@ function mapProviderToResourceItem(
     { label: `${p.modelCount} model`, variant: "default" },
   ]
 
-  // modality badges
   for (const mod of p.modalities.slice(0, 3)) {
     badgeList.push({
       label: mod,
@@ -48,23 +47,19 @@ function mapProviderToResourceItem(
     title: p.name,
     description:
       p.description ||
-      `${p.modelCount} model tersedia. ${p.freeLimit ? `Gratis: ${p.freeLimit}.` : ""} Cek halaman provider untuk detail lengkap.`,
-    href: p.href,
-    ctaLabel: "Lihat provider",
+      `${p.modelCount} model tersedia. ${p.freeLimit ? `Gratis: ${p.freeLimit}.` : ""} Buka detail di Meow Labs untuk lihat langkah claim dasar dan metadata provider.`,
+    href: `/resources/api-ai-gratis/${p.slug}`,
+    ctaLabel: "Lihat tutorial",
     imageUrl: p.logo || undefined,
     badges: badgeList,
     meta: [
       { label: "Model", value: String(p.modelCount) },
       { label: "Modality", value: p.modalities.slice(0, 4).join(", ") || "-" },
-      ...(p.freeLimit
-        ? [{ label: "Gratis", value: p.freeLimit }]
-        : []),
-      ...(p.maxContext
-        ? [{ label: "Max context", value: p.maxContext }]
-        : []),
+      ...(p.freeLimit ? [{ label: "Gratis", value: p.freeLimit }] : []),
+      ...(p.maxContext ? [{ label: "Max context", value: p.maxContext }] : []),
     ],
     notes: [
-      `Data aggregasi dari tokengratis.id. ${p.freeLimit ? `Free limit: ${p.freeLimit}.` : "Free limit tidak disebutkan."} Verifikasi langsung di halaman provider untuk syarat & ketentuan terbaru.`,
+      `Halaman detail Meow Labs merangkum data provider ini dari tokengratis.id dan sumber komunitas. Tetap verifikasi syarat promo dan quota di situs resmi provider.`,
     ],
   }
 }
@@ -76,13 +71,13 @@ export default async function ApiAiGratisPage() {
   return (
     <ResourcePageTemplate
       eyebrow="API AI Gratis"
-      title={`${total} provider API AI gratis — lengkap dengan model & free tier`}
-      description={`Direktori provider API AI gratis dari tokengratis.id. Data di-aggregate dari 5 sumber komunitas (freellm.net, GitHub awesome lists, models.dev, OpenRouter API). Menampilkan model, modality, free limit, dan context window tiap provider.`}
-      highlightedNote="tokengratis.id adalah aggregator — bukan verifier. Data ditampilkan apa adanya dari sumber. Selalu cek syarat & ketentuan masing-masing provider langsung di halaman mereka."
+      title={`${total} provider API AI gratis, dibaca langsung di Meow Labs`}
+      description={`Direktori ini menampilkan provider API AI gratis beserta free tier, model, modality, dan jalur claim dasar tanpa melempar user keluar dari Meow Labs untuk baca ringkasannya.`}
+      highlightedNote="Sumber utamanya tetap data komunitas seperti tokengratis.id. Meow Labs merangkum ulang supaya discovery dan tutorial dasar tetap ada di satu tempat. Selalu cek syarat resmi provider sebelum dipakai di workflow penting."
       stats={[
         { label: "Total provider", value: `${total}` },
-        { label: "Total model", value: "273+" },
-        { label: "Sumber data", value: "5 direktori" },
+        { label: "Tutorial internal", value: `${total}` },
+        { label: "Sumber data", value: "Komunitas" },
         { label: "Sinkron", value: lastSync || "-" },
       ]}
       items={items}
