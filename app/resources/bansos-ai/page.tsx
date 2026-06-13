@@ -1,22 +1,24 @@
 import type { Metadata } from "next"
+import type { ResourceItem } from "@/lib/resources-data"
 
 import { ResourcePageTemplate } from "@/components/resources/resource-page-template"
-import { bansosAiItems } from "@/lib/resources-data"
+import { fetchAppVerseBansos } from "@/lib/appverse-bansos"
 
 export const metadata: Metadata = {
   title: "Bansos AI & Promo Kredit AI | Meow Labs Resources",
   description:
-    "Kurasi metadata publik bansos AI, promo kredit, dan resource hemat untuk builder. Fokus pada discovery cepat, lalu verifikasi manual di sumber akhir.",
+    "Bansos AI, promo kredit, dan resource hemat untuk builder — data live dari AppVerse. Fokus pada discovery cepat, lalu verifikasi manual di sumber akhir.",
   keywords: [
     "bansos ai",
     "promo ai gratis",
     "kredit ai gratis",
     "resource ai indonesia",
+    "appverse bansos",
   ],
   openGraph: {
     title: "Bansos AI & Promo Kredit AI | Meow Labs Resources",
     description:
-      "Kumpulan metadata publik untuk promo AI, bansos AI, dan credit-based resources yang bisa dipakai builder untuk eksperimen cepat.",
+      "Kumpulan bansos AI dan promo kredit dari AppVerse. Data live — selalu yang terbaru.",
     type: "website",
     url: "https://meowlabs.id/resources/bansos-ai",
   },
@@ -25,20 +27,47 @@ export const metadata: Metadata = {
   },
 }
 
-export default function BansosAiPage() {
+function mapBansosToResourceItem(
+  b: Awaited<ReturnType<typeof fetchAppVerseBansos>>["items"][0]
+): ResourceItem {
+  return {
+    slug: b.slug,
+    title: b.title,
+    description: b.description || "Lihat halaman bansos untuk detail dan cara klaim.",
+    href: b.href,
+    ctaLabel: "Buka bansos",
+    imageUrl: b.imageUrl,
+    badges: [
+      { label: "Bansos AI", variant: "default" as const },
+      { label: "AppVerse", variant: "secondary" as const },
+    ],
+    meta: [
+      ...(b.date ? [{ label: "Tanggal", value: b.date }] : []),
+      { label: "Sumber", value: "AppVerse" },
+    ],
+    notes: [
+      "Data metadata publik dari AppVerse.id. Validitas promo, method, dan eligibility tetap perlu dicek ulang di sumber akhir.",
+    ],
+  }
+}
+
+export default async function BansosAiPage() {
+  const { items: bansosItems, total, lastSync } = await fetchAppVerseBansos()
+  const items = bansosItems.map(mapBansosToResourceItem)
+
   return (
     <ResourcePageTemplate
       eyebrow="Bansos AI"
-      title="Kurasi bansos AI yang bisa dipakai buat testing, coding, dan eksperimen"
-      description="Halaman ini mengambil metadata publik yang sebelumnya berhasil kami scrape dari AppVerse. Kami sengaja tampilkan sebagai layer discovery saja: cepat buat lihat peluang, tapi tetap harus verifikasi sendiri karena promo, method, atau eligibility bisa berubah kapan pun."
-      highlightedNote="Label di halaman ini sengaja konservatif. Hampir semua item kami tandai sebagai community/external karena sumber akhirnya berada di luar Meow Labs dan validitasnya bisa berubah. Gunakan untuk riset cepat, bukan anggap guarantee."
+      title={`${total} bansos AI terbaru — live dari AppVerse`}
+      description={`Metadata publik bansos AI dari AppVerse.id. Halaman ini adalah layer discovery cepat: cocok buat lihat peluang promo tanpa buka satu-satu, tapi tetap harus verifikasi sendiri karena promo, method, atau eligibility bisa berubah kapan pun.`}
+      highlightedNote="Semua item marked sebagai AppVerse karena sumber akhirnya di luar Meow Labs. Gunakan untuk riset cepat, bukan sebagai garansi."
       stats={[
-        { label: "Total item seed", value: String(bansosAiItems.length) },
-        { label: "Sumber dataset", value: "Metadata publik" },
-        { label: "Status kurasi", value: "Community-first" },
-        { label: "Arah penggunaan", value: "Discovery cepat" },
+        { label: "Total bansos", value: `${total}` },
+        { label: "Sumber", value: "AppVerse" },
+        { label: "Metode", value: "Live fetch" },
+        { label: "Sinkron", value: lastSync || "-" },
       ]}
-      items={bansosAiItems}
+      items={items}
       breadcrumbs={[
         { label: "Home", href: "/" },
         { label: "Resources", href: "/resources" },

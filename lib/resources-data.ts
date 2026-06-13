@@ -639,8 +639,8 @@ export const openSourceItems: ResourceItem[] = [
 ]
 
 export const resourceHubSections = [
-  { title: "Bansos AI", href: "/resources/bansos-ai", description: "Promo, kredit, dan resource AI hemat yang dikurasi dari metadata publik AppVerse.", count: bansosAiItems.length },
-  { title: "API AI Gratis", href: "/resources/api-ai-gratis", description: `Direktori, katalog model, dan aggregator (tokengratis.id: 27 provider, 273 model gratis via multi-source).`, count: apiGratisItems.length },
+  { title: "Bansos AI", href: "/resources/bansos-ai", description: "Promo, kredit, dan resource AI hemat — live dari AppVerse. Data otomatis terbaru tiap request.", count: 0 },
+  { title: "API AI Gratis", href: "/resources/api-ai-gratis", description: `27 provider, 273+ model gratis — aggregasi live dari tokengratis.id.`, count: 27 },
   { title: "Open Source Pilihan", href: "/resources/open-source", description: `52+ proyek open source Indonesia dari IndopenSource/awesome-indonesia — data live dari GitHub API.`, count: 52 },
 ]
 

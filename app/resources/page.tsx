@@ -69,7 +69,7 @@ export default function ResourcesHubPage() {
               <Card className="gap-3 border-border/70 bg-background/80 py-5">
                 <CardContent className="space-y-1 px-5">
                   <p className="text-2xl font-semibold">27 provider</p>
-                  <p className="text-sm text-muted-foreground">273+ model gratis via aggregator</p>
+                  <p className="text-sm text-muted-foreground">273+ model gratis — live dari tokengratis</p>
                 </CardContent>
               </Card>
               <Card className="gap-3 border-border/70 bg-background/80 py-5">
