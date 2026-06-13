@@ -34,6 +34,7 @@ export function Navigation() {
     { label: copy.nav.items.pricing, href: createSectionHref("pricing") },
     { label: copy.nav.items.students, href: createSectionHref("student-packages") },
     { label: copy.nav.items.portfolio, href: createSectionHref("portfolio") },
+    { label: copy.nav.items.resources, href: "/resources" },
     { label: copy.nav.items.blog, href: "/blog" },
     { label: copy.nav.items.contact, href: createSectionHref("contact") },
   ]

@@ -223,6 +223,9 @@ export function Footer() {
             <h3 className="mb-4 font-semibold text-foreground">{copy.footer.companyTitle}</h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
               {[
+                { href: "/resources", label: "Resource Hub" },
+                { href: "/resources/bansos-ai", label: "Bansos AI" },
+                { href: "/resources/open-source", label: "Open Source Pilihan" },
                 { href: "#why-choose-us", label: copy.nav.items.about },
                 { href: "#portfolio", label: copy.nav.items.portfolio },
                 { href: "#pricing", label: copy.nav.items.pricing },
