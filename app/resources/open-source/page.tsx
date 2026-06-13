@@ -1,22 +1,23 @@
 import type { Metadata } from "next"
 
 import { ResourcePageTemplate } from "@/components/resources/resource-page-template"
-import { openSourceItems } from "@/lib/resources-data"
+import { fetchAwesomeIndonesia, mapToResourceItems } from "@/lib/awesome-indonesia"
 
 export const metadata: Metadata = {
-  title: "Project Open Source Pilihan | Meow Labs Resources",
+  title: "Project Open Source Indonesia | Meow Labs Resources",
   description:
-    "Kurasi project open source yang layak dipelajari atau dijadikan fondasi produk: infra, workflow, CMS, docs, dan internal tools.",
+    "52+ proyek open source Indonesia dari IndopenSource/awesome-indonesia — stars, bahasa, lisensi, dan metadata lengkap. Di-sync live dari GitHub API.",
   keywords: [
-    "project open source pilihan",
+    "proyek open source indonesia",
+    "awesome indonesia",
     "open source untuk startup",
-    "open source indonesia",
-    "tools open source terbaik",
+    "tools open source",
+    "IndopenSource",
   ],
   openGraph: {
-    title: "Project Open Source Pilihan | Meow Labs Resources",
+    title: "Project Open Source Indonesia | Meow Labs Resources",
     description:
-      "Kumpulan project open source yang berguna untuk membangun MVP, tooling internal, konten platform, dan deployment VPS-first.",
+      "52+ proyek open source Indonesia dari komunitas IndopenSource. Data live dari GitHub API.",
     type: "website",
     url: "https://meowlabs.id/resources/open-source",
   },
@@ -25,33 +26,36 @@ export const metadata: Metadata = {
   },
 }
 
-export default function OpenSourcePage() {
+export default async function OpenSourcePage() {
+  const { projects, lastSync, total } = await fetchAwesomeIndonesia()
+  const items = mapToResourceItems(projects)
+
   return (
     <ResourcePageTemplate
-      eyebrow="Open Source Pilihan"
-      title="Proyek open source yang layak dijadikan fondasi, bukan cuma bookmark"
-      description="Halaman ini fokus ke proyek yang punya leverage praktis: bisa mempercepat MVP, operasional, content engine, atau deploy stack tanpa bikin semua dari nol. Sumber utama direktori: IndopenSource/awesome-indonesia + GitHub API, di-sync live."
-      highlightedNote="Kurasi ini sengaja bias ke proyek yang membantu validasi cepat, operasional ringan, dan VPS-first execution. Kalau tujuannya cuma keren-kerenan stack, biasanya justru melambatkan shipping."
+      eyebrow="Open Source Indonesia"
+      title={`${total} proyek open source hasil kurasi komunitas`}
+      description={`Proyek open source Indonesia dari IndopenSource/awesome-indonesia. Diurutkan berdasarkan jumlah GitHub stars. Data di-fetch langsung dari GitHub API setiap request — selalu fresh.`}
+      highlightedNote="Beberapa proyek mungkin tidak memiliki deskripsi atau lisensi yang jelas. Cek langsung di masing-masing repo untuk validasi. Halaman ini adalah mirror langsung dari awesome-indonesia tanpa kurasi tambahan."
       stats={[
-        { label: "Total proyek (awesome-indonesia)", value: "49+" },
+        { label: "Total proyek", value: `${total}+` },
         { label: "Sumber", value: "GitHub API" },
         { label: "Kurasi oleh", value: "IndopenSource" },
-        { label: "Sinkron", value: "13 Jun 2026" },
+        { label: "Sinkron", value: lastSync },
       ]}
-      items={openSourceItems}
+      items={items}
       breadcrumbs={[
         { label: "Home", href: "/" },
         { label: "Resources", href: "/resources" },
-        { label: "Open Source Pilihan", href: "/resources/open-source" },
+        { label: "Open Source Indonesia", href: "/resources/open-source" },
       ]}
       cta={{
-        title: "Mau open source ini dijadikan produk nyata?",
+        title: "Mau ikut nambahin proyek ke daftar ini?",
         description:
-          "Kami bisa bantu pilih fondasi yang paling rasional, mengurangi overengineering, lalu bungkus jadi website, dashboard, atau SaaS ringan yang siap diuji ke user asli.",
+          "Awesome-indonesia adalah proyek open source — siapa aja bisa kontribusi lewat GitHub. Kalau ada proyek Indonesia yang layak masuk, bikin PR di repositori IndopenSource.",
         primaryLabel: "Kembali ke hub resources",
         primaryHref: "/resources",
-        secondaryLabel: "Hubungi Meow Labs",
-        secondaryHref: "https://wa.me/62895386288683?text=Halo%20Meow%20Labs!%20Saya%20ingin%20diskusi%20membangun%20produk%20dari%20open%20source",
+        secondaryLabel: "Kontribusi ke awesome-indonesia",
+        secondaryHref: "https://github.com/IndopenSource/awesome-indonesia",
       }}
     />
   )
