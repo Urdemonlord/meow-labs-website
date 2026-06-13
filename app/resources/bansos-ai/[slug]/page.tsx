@@ -38,7 +38,7 @@ export async function generateStaticParams() {
   return items.map((item) => ({ slug: item.slug }))
 }
 
-export default async function BansosDtailPage({ params }: Props) {
+export default async function BansosDetailPage({ params }: Props) {
   const { slug } = await params
   const { items } = await fetchAppVerseBansos()
   const item = items.find((i) => i.slug === slug)
@@ -99,26 +99,26 @@ export default async function BansosDtailPage({ params }: Props) {
               </p>
 
               <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6 space-y-4">
-                <h2 className="text-xl font-semibold">Tutorial & Cara Klaim</h2>
+                <h2 className="text-xl font-semibold">Cara Klaim & Tutorial</h2>
                 <p className="text-sm leading-7">
-                  Untuk cara lengkap dan update terbaru cara klaim bansos ini, silakan kunjungi halaman resmi di AppVerse:
+                  Bansos ini dikurasi dari AppVerse.id. Untuk mendapatkan info terbaru, cara klaim lengkap, dan tutorial step-by-step, kunjungi halaman bansos di AppVerse:
                 </p>
                 <Button asChild className="w-full justify-center gap-2">
-                  <a href={item.href} target="_blank" rel="noopener noreferrer">
-                    Buka di AppVerse
+                  <a href="https://appverse.id/bansos-ai" target="_blank" rel="noopener noreferrer">
+                    Lihat semua bansos di AppVerse
                     <ExternalLink className="h-4 w-4" />
                   </a>
                 </Button>
                 <p className="text-xs text-muted-foreground">
-                  Catatan: Selalu verifikasi di sumber resmi. Method, syarat, dan eligibility bisa berubah sewaktu-waktu.
+                  Di halaman tersebut, cari bansos ini dan buka untuk melihat tutorial & cara claim lengkap dari komunitas.
                 </p>
               </div>
 
               <div className="rounded-2xl border border-border/70 bg-muted/30 p-6 space-y-3">
-                <h3 className="font-semibold">Informasi Tambahan</h3>
+                <h3 className="font-semibold">Informasi Bansos</h3>
                 <ul className="space-y-2 text-sm leading-7">
                   <li>
-                    <strong>Sumber:</strong> AppVerse.id — platform kurasi bansos AI
+                    <strong>Sumber:</strong> AppVerse.id — Platform kurasi bansos AI
                   </li>
                   {item.date && (
                     <li>
@@ -126,8 +126,21 @@ export default async function BansosDtailPage({ params }: Props) {
                     </li>
                   )}
                   <li>
-                    <strong>Status:</strong> Verifikasi ulang sebelum klaim — promo bisa berubah
+                    <strong>Status:</strong> Selalu verifikasi di AppVerse — promo, method, dan eligibility bisa berubah
                   </li>
+                  <li>
+                    <strong>Catatan:</strong> Meow Labs tidak bertanggung jawab atas perubahan promo atau syarat dari sumber asli
+                  </li>
+                </ul>
+              </div>
+
+              <div className="rounded-2xl border border-accent/20 bg-accent/5 p-6 space-y-3">
+                <h3 className="font-semibold text-accent">Pro Tips</h3>
+                <ul className="space-y-2 text-sm leading-7 list-disc list-inside">
+                  <li>Selalu baca syarat & ketentuan di sumber resmi sebelum klaim</li>
+                  <li>Verifikasi identitas dan region eligibility terlebih dahulu</li>
+                  <li>Screenshot bukti promonya untuk referensi pribadi</li>
+                  <li>Jika ada perubahan, laporkan ke AppVerse untuk update</li>
                 </ul>
               </div>
             </div>
