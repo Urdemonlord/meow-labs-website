@@ -123,7 +123,7 @@ export function Footer() {
           <div className="md:col-span-2">
             <div className="mb-4 flex items-center space-x-3">
               <Image
-                src="/images/meow-logo.png"
+                src="/images/meow-logo.webp"
                 alt="Meow Labs Logo"
                 width={32}
                 height={32}

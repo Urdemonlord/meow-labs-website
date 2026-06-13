@@ -90,12 +90,13 @@ export function HeroSection() {
             <div className="relative">
               <div className="absolute inset-0 scale-110 rounded-full bg-primary/20 blur-2xl" />
               <Image
-                src="/images/meow-mascot.png"
+                src="/images/meow-mascot.webp"
                 alt="Meow Labs - Jasa Pembuatan Website Murah Semarang - Maskot Kucing Developer"
                 width={400}
                 height={400}
                 className="relative z-10 h-auto w-[280px] float-animation sm:w-[360px] lg:w-[400px]"
                 priority
+                sizes="(max-width: 640px) 280px, (max-width: 1024px) 360px, 400px"
               />
               <div className="absolute -left-10 top-10 hidden rounded-lg border border-border bg-card p-3 font-mono text-xs text-primary opacity-80 sm:block">
                 {"<MeowLabs />"}

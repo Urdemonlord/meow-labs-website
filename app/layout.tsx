@@ -187,7 +187,7 @@ export default function RootLayout({
               url: siteUrl,
               logo: {
                 "@type": "ImageObject",
-                url: `${siteUrl}/images/meow-logo.png`,
+                url: `${siteUrl}/images/meow-logo.webp`,
                 width: "512",
                 height: "512",
                 caption: "Meow Labs Logo",

@@ -72,7 +72,7 @@ export function Navigation() {
         <div className="flex h-16 items-center justify-between gap-3">
           <Link href="/" className="flex min-w-0 items-center space-x-2 sm:space-x-3">
             <Image
-              src="/images/meow-logo.png"
+              src="/images/meow-logo.webp"
               alt="Meow Labs Logo"
               width={40}
               height={40}
