@@ -1,0 +1,47 @@
+import { chromium } from 'playwright'
+
+const EMAIL = process.env.APPVERSE_EMAIL
+const PASSWORD = process.env.APPVERSE_PASSWORD
+if (!EMAIL || !PASSWORD) throw new Error('Missing APPVERSE_EMAIL / APPVERSE_PASSWORD')
+
+const browser = await chromium.launch({ headless: false, args: ['--no-sandbox', '--disable-blink-features=AutomationControlled'] })
+const context = await browser.newContext({ userAgent: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36' })
+const page = await context.newPage()
+
+await page.goto('https://appverse.id/login', { waitUntil: 'domcontentloaded', timeout: 60000 })
+await page.waitForTimeout(4000)
+const [popup] = await Promise.all([
+  context.waitForEvent('page'),
+  page.getByRole('button', { name: /Masuk dengan Google/i }).click()
+])
+await popup.waitForURL(/accounts\.google\.com/, { timeout: 60000 })
+await popup.waitForTimeout(4000)
+await popup.locator('input').first().fill(EMAIL, { force: true })
+await popup.getByRole('button', { name: /^Next$/i }).click({ force: true })
+await popup.waitForTimeout(5000)
+await popup.locator('input[name="Passwd"]').fill(PASSWORD, { force: true })
+await popup.getByRole('button', { name: /^Next$/i }).click({ force: true })
+await popup.waitForTimeout(8000)
+
+const tryAnother = popup.getByText(/Try another way/i)
+if (await tryAnother.count()) {
+  await tryAnother.click({ force: true }).catch(() => {})
+  await popup.waitForTimeout(3000)
+}
+
+const phoneTabletOption = popup.getByText(/Use your phone or tablet to get a security code/i)
+if (await phoneTabletOption.count()) {
+  await phoneTabletOption.click({ force: true })
+  await popup.waitForTimeout(5000)
+}
+
+const body = await popup.locator('body').innerText()
+console.log('URL:', popup.url())
+console.log('BODY_START')
+console.log(body.slice(0, 3000))
+console.log('BODY_END')
+const numbers = [...new Set((body.match(/\b\d{1,3}\b/g) || []))]
+console.log('NUMBERS:', JSON.stringify(numbers))
+await popup.screenshot({ path: '/tmp/google-phone-approval-inspect.png', fullPage: true })
+console.log('SCREENSHOT:/tmp/google-phone-approval-inspect.png')
+await browser.close()

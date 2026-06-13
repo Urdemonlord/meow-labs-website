@@ -20,6 +20,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://meowlabs.id"
+const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 
 export const viewport = {
   width: "device-width",
@@ -198,6 +199,26 @@ export default function RootLayout({
             }),
           }}
         />
+
+        {/* GA4 tracking (conditional) */}
+        {gaId && (
+          <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${gaId}', {
+                    page_path: window.location.pathname,
+                    page_title: document.title,
+                  });
+                `,
+              }}
+            />
+          </>
+        )}
       </head>
       <body
         className={`${poppins.variable} ${jetbrainsMono.variable} font-sans antialiased`}

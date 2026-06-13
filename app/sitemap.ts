@@ -1,83 +1,106 @@
-import type { MetadataRoute } from "next"
-
-const fallbackBaseUrl = "https://meowlabs.id"
-const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? fallbackBaseUrl).replace(/\/$/, "")
-const siteUrl = new URL(baseUrl)
+import { MetadataRoute } from "next"
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date()
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://meowlabs.id"
 
-  // Main pages
-  const primaryRoutes: MetadataRoute.Sitemap = [
+  const staticPages: MetadataRoute.Sitemap = [
     {
-      url: siteUrl.origin,
-      lastModified: now,
-      changeFrequency: "daily",
-      priority: 1.0,
+      url: baseUrl,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1,
     },
     {
-      url: `${siteUrl.origin}/about`,
-      lastModified: now,
+      url: `${baseUrl}/layanan/aplikasi-web`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/layanan/landing-page`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/layanan/toko-online`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/layanan/company-profile`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/resources`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/resources/bansos-ai`,
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/resources/api-ai-gratis`,
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/resources/open-source`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/about`,
+      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
-      url: `${siteUrl.origin}/blog`,
-      lastModified: now,
-      changeFrequency: "daily",
-      priority: 0.9,
+      url: `${baseUrl}/jasa-pembuatan-website-semarang`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/jasa-web-design-semarang`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/web-developer-semarang`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/kebijakan-privasi`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/syarat-ketentuan`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.5,
     },
   ]
 
-  // Location-specific SEO pages
-  const locationRoutes: MetadataRoute.Sitemap = [
-    {
-      url: `${siteUrl.origin}/jasa-pembuatan-website-semarang`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${siteUrl.origin}/web-developer-semarang`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${siteUrl.origin}/jasa-web-design-semarang`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-  ]
-
-  // Service-specific pages
-  const serviceRoutes: MetadataRoute.Sitemap = [
-    {
-      url: `${siteUrl.origin}/layanan/company-profile`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${siteUrl.origin}/layanan/toko-online`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${siteUrl.origin}/layanan/landing-page`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${siteUrl.origin}/layanan/aplikasi-web`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-  ]
-
-  return [...primaryRoutes, ...locationRoutes, ...serviceRoutes]
+  return staticPages
 }

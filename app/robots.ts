@@ -1,28 +1,17 @@
-import type { MetadataRoute } from "next"
-
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://meowlabs.id"
-const siteUrl = new URL(baseUrl)
+import { MetadataRoute } from "next"
 
 export default function robots(): MetadataRoute.Robots {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://meowlabs.id"
+
   return {
     rules: [
       {
         userAgent: "*",
-        allow: ["/"],
-        disallow: ["/admin/", "/api/", "/private/", "/_next/", "*.js$", "*.css$"],
-        crawlDelay: 1,
-      },
-      {
-        userAgent: "Googlebot",
-        allow: ["/"],
-        disallow: ["/admin/", "/api/", "/private/", "/_next/"],
-      },
-      {
-        userAgent: "Googlebot-Image",
-        allow: ["/images/", "/public/images/"],
+        allow: "/",
+        disallow: ["/api/", "/admin/", "/_next/"],
       },
     ],
-    sitemap: `${siteUrl.origin}/sitemap.xml`,
-    host: siteUrl.host,
+    sitemap: `${baseUrl}/sitemap.xml`,
+    host: baseUrl,
   }
 }
