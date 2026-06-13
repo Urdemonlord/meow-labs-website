@@ -224,6 +224,7 @@ export default function BlogPostPage() {
                     src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=1769&q=80" 
                     alt="Tren Website Development 2025" 
                     fill 
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform group-hover:scale-105"
                   />
                 </div>
@@ -237,6 +238,7 @@ export default function BlogPostPage() {
                     src="https://images.unsplash.com/photo-1517292987719-0369a794ec0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80" 
                     alt="Website atau Aplikasi Mobile" 
                     fill 
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform group-hover:scale-105"
                   />
                 </div>

@@ -163,6 +163,7 @@ export default function BlogPostPage() {
                     src="https://images.unsplash.com/photo-1562577309-4932fdd64cd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1674&q=80" 
                     alt="Strategi SEO Lokal untuk Bisnis di Semarang" 
                     fill 
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform group-hover:scale-105"
                   />
                 </div>
@@ -176,6 +177,7 @@ export default function BlogPostPage() {
                     src="https://images.unsplash.com/photo-1517292987719-0369a794ec0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80" 
                     alt="Website atau Aplikasi Mobile" 
                     fill 
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform group-hover:scale-105"
                   />
                 </div>

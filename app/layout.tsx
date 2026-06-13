@@ -36,15 +36,13 @@ export const metadata: Metadata = {
   generator: "Meow Labs",
   icons: {
     icon: [
-      { url: "/favicon.jpg", type: "image/jpeg" },
       { url: "/favicon.ico", type: "image/x-icon" },
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
       { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
       { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
     ],
-    shortcut: "/favicon.jpg",
+    shortcut: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
   keywords: [
@@ -119,11 +117,9 @@ export default function RootLayout({
 
         {/* Favicon support */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="mask-icon" href="/favicon.svg" color="#0f172a" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
         <meta name="msapplication-TileColor" content="#0f172a" />
@@ -133,7 +129,6 @@ export default function RootLayout({
         <meta name="geo.placename" content="Semarang" />
         <meta name="ICBM" content="-7.0051,110.4381" />
         <meta name="google-site-verification" content="89bed686282f82f4" />
-        <meta name="msvalidate.01" content="your-bing-verification-code" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
         {/* Schema.org structured data */}
