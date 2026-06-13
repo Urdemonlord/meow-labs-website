@@ -206,6 +206,7 @@ Model :
   {
     slug: `088afbbf-96eb-485b-b825-a7e11e25a54b`,
     title: `Tutorial Nuyul ChatGPT Plus 1 Bulan`,
+    description: `Tutorial klaim gratis ChatGPT Plus 1 bulan lewat method yang dishare komunitas AppVerse.`,
     href: `https://appverse.id/bansos-ai/resources/9633c21f-336b-4d5d-b4dd-d74749da9912/go`,
     imageUrl: `https://assets.appverse.id/bansos/images/f0905a4b-17f3-4b63-8b60-8b827dff7aa9.png`,
     ctaLabel: `Buka resource`,
