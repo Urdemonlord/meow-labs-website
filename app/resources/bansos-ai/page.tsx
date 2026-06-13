@@ -33,9 +33,9 @@ function mapBansosToResourceItem(
   return {
     slug: b.slug,
     title: b.title,
-    description: b.description || "Lihat halaman bansos untuk detail dan cara klaim.",
-    href: b.href,
-    ctaLabel: "Buka bansos",
+    description: b.description || "Lihat artikel untuk detail lengkap dan cara klaim.",
+    href: `/resources/bansos-ai/${b.slug}`,
+    ctaLabel: "Baca artikel",
     imageUrl: b.imageUrl,
     badges: [
       { label: "Bansos AI", variant: "default" as const },
@@ -46,7 +46,7 @@ function mapBansosToResourceItem(
       { label: "Sumber", value: "AppVerse" },
     ],
     notes: [
-      "Data metadata publik dari AppVerse.id. Validitas promo, method, dan eligibility tetap perlu dicek ulang di sumber akhir.",
+      "Artikel ini berisi panduan cara klaim dan link ke tutorial resmi di AppVerse.",
     ],
   }
 }
