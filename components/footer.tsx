@@ -12,19 +12,19 @@ import {
   Star,
 } from "lucide-react"
 import { useUiText } from "./ui-preferences-provider"
+import { buildWhatsAppUrl, MEOWLABS_ADMIN_PHONE_DISPLAY } from "@/lib/whatsapp"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
   const copy = useUiText()
 
   const handlePhoneClick = () => {
-    const message = encodeURIComponent(
+    const message =
       copy.chat.locale === "en-US"
         ? "Hello Meow Labs, I want to discuss a website project."
         : "Halo Meow Labs, saya ingin konsultasi project website."
-    )
 
-    window.open(`https://wa.me/6285117170198?text=${message}`, "_blank")
+    window.open(buildWhatsAppUrl(message), "_blank")
   }
 
   const techPartners = [
@@ -149,7 +149,7 @@ export function Footer() {
                   onClick={handlePhoneClick}
                   className="text-left text-muted-foreground transition-colors hover:text-green-600"
                 >
-                  +62 851-1717-0198
+                  {MEOWLABS_ADMIN_PHONE_DISPLAY}
                 </button>
               </div>
               <div className="flex items-center gap-3 text-sm">
