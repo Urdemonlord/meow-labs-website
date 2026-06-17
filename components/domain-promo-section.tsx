@@ -34,14 +34,14 @@ export function DomainPromoSection() {
 
   const bullets = isEn
     ? [
-        "Check your preferred domain name via WhatsApp.",
-        "Our team verifies availability and confirms the promo price manually.",
-        "Payment and activation are handled with clear admin assistance.",
+        "Choose a domain name that feels more personal and easier to remember.",
+        "Get promo pricing after admin confirms availability for your target name.",
+        "Finish the order faster with direct assistance until the domain is active.",
       ]
     : [
-        "Cek nama domain yang kamu mau lewat WhatsApp.",
-        "Tim kami cek ketersediaan dan konfirmasi harga promo secara manual.",
-        "Pembayaran dan aktivasi dibantu langsung oleh admin.",
+        "Pilih nama domain yang lebih personal dan gampang diingat.",
+        "Dapatkan harga promo setelah admin cek ketersediaan domain incaranmu.",
+        "Order lebih cepat karena dibantu langsung sampai domain aktif.",
       ]
 
   return (
@@ -53,12 +53,12 @@ export function DomainPromoSection() {
               {isEn ? "Domain promo" : "Promo domain"}
             </Badge>
             <h2 className="max-w-3xl text-balance text-3xl font-bold text-foreground sm:text-4xl">
-              {isEn ? "Get web.id, my.id, and biz.id domains starting from Rp3.000" : "Dapatkan domain web.id, my.id, dan biz.id mulai Rp3.000"}
+              {isEn ? "Get web.id, my.id, and biz.id domains starting from Rp3.000" : "Pakai domain yang lebih meyakinkan mulai Rp3.000"}
             </h2>
             <p className="mt-4 max-w-2xl text-pretty text-lg text-muted-foreground">
               {isEn
-                ? "Display the offer on Meow Labs and let visitors order through WhatsApp. Availability and activation are confirmed manually by our admin."
-                : "Tampilkan promo di Meow Labs dan arahkan pengunjung untuk pesan lewat WhatsApp. Ketersediaan dan aktivasi domain dikonfirmasi manual oleh admin kami."}
+                ? "Perfect for personal brands, small businesses, and online shops that want a stronger first impression without a big upfront budget."
+                : "Cocok untuk personal brand, UMKM, dan toko online yang mau tampil lebih serius tanpa keluar budget besar di awal."}
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -120,14 +120,14 @@ export function DomainPromoSection() {
               <p className="mt-1 text-sm text-muted-foreground">{MEOWLABS_ADMIN_PHONE_DISPLAY}</p>
               <p className="mt-3 text-sm leading-6 text-muted-foreground">
                 {isEn
-                  ? "The CTA uses the same admin number shown in the footer so the order flow stays consistent."
-                  : "CTA ini memakai nomor admin yang sama seperti di footer supaya alur pemesanan tetap konsisten."}
+                  ? "This button opens the same admin WhatsApp listed in the footer."
+                  : "Klik tombol di bawah untuk langsung cek domain ke admin."}
               </p>
             </div>
 
             <Button size="lg" className="mt-6 w-full bg-primary text-primary-foreground hover:bg-primary/90" onClick={handleWhatsAppClick}>
               <MessageCircle className="mr-2 h-4 w-4" />
-              {isEn ? "Order via WhatsApp" : "Pesan via WhatsApp"}
+              {isEn ? "Check Domain via WhatsApp" : "Cek Domain via WhatsApp"}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
 

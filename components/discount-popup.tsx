@@ -75,24 +75,24 @@ export function DiscountPopup() {
 
         <Badge className="mb-4 bg-primary/10 text-primary hover:bg-primary/10">
           <Sparkles className="mr-2 h-3.5 w-3.5" />
-          {isEn ? "Limited domain promo" : "Promo domain terbatas"}
+          {isEn ? "Special domain offer" : "Promo spesial domain"}
         </Badge>
 
         <h3 className="max-w-md text-balance text-2xl font-bold text-foreground sm:text-3xl">
-          {isEn ? "Claim web.id, my.id, and biz.id starting from Rp3.000" : "Klaim web.id, my.id, dan biz.id mulai Rp3.000"}
+          {isEn ? "Secure your ideal domain starting from Rp3.000" : "Amankan domain impianmu mulai Rp3.000"}
         </h3>
 
         <p className="mt-3 max-w-xl text-sm leading-6 text-muted-foreground sm:text-base">
           {isEn
-            ? "Order through WhatsApp first. Our admin checks availability manually before payment and activation."
-            : "Pesan dulu lewat WhatsApp. Admin kami cek ketersediaan domain secara manual sebelum pembayaran dan aktivasi."}
+            ? "Great for personal branding, small business, and online stores. Chat our admin first to check availability before checkout."
+            : "Cocok untuk personal branding, UMKM, sampai toko online. Chat admin dulu untuk cek ketersediaan sebelum lanjut checkout."}
         </p>
 
         <div className="mt-5 grid gap-3 sm:grid-cols-3">
           {[
-            isEn ? "Promo for web.id" : "Promo untuk web.id",
-            isEn ? "Promo for my.id" : "Promo untuk my.id",
-            isEn ? "Promo for biz.id" : "Promo untuk biz.id",
+            isEn ? "web.id from Rp3.000" : "web.id mulai Rp3.000",
+            isEn ? "my.id from Rp3.000" : "my.id mulai Rp3.000",
+            isEn ? "biz.id from Rp3.000" : "biz.id mulai Rp3.000",
           ].map((item) => (
             <div key={item} className="rounded-2xl border border-border/70 bg-muted/40 px-4 py-3 text-sm font-medium text-foreground">
               {item}
@@ -103,15 +103,15 @@ export function DiscountPopup() {
         <div className="mt-5 rounded-2xl border border-dashed border-primary/30 bg-primary/5 p-4">
           <p className="text-sm leading-6 text-muted-foreground">
             {isEn
-              ? "Renewal pricing and registration requirements are confirmed during the admin chat so visitors get the exact next step."
-              : "Harga renewal dan syarat registrasi dikonfirmasi saat chat dengan admin supaya pengunjung langsung dapat langkah berikutnya dengan jelas."}
+              ? "Promo quota and renewal details are explained by admin during chat, so you can decide fast without guessing."
+              : "Kuota promo dan detail renewal dijelaskan langsung oleh admin, jadi kamu bisa ambil keputusan tanpa nebak-nebak."}
           </p>
         </div>
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <Button className="w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90" onClick={handleWhatsAppContact}>
             <MessageCircle className="mr-2 h-4 w-4" />
-            {isEn ? "Order via WhatsApp" : "Pesan via WhatsApp"}
+            {isEn ? "Check Domain Now" : "Cek Domain Sekarang"}
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
           <Button type="button" variant="outline" className="w-full rounded-full" onClick={closePopup}>
