@@ -19,7 +19,6 @@ type Release = {
   versionCode: number
   versionName: string
   apkUrl: string
-  sha256: string
   sizeBytes: number
   publishedAt: string
   notes: string[]
@@ -110,31 +109,6 @@ export default async function PosDownloadPage() {
                     </ul>
                   </div>
                 )}
-
-                <div className="mt-8 border-t border-border pt-6">
-                  <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-                    Verifikasi berkas
-                  </h3>
-                  <p className="mt-3 text-sm text-muted-foreground">
-                    Setelah mengunduh, Anda bisa memastikan berkasnya utuh dengan
-                    mencocokkan nilai berikut.
-                  </p>
-                  <dl className="mt-4 space-y-3 text-sm">
-                    <div>
-                      <dt className="font-medium">Ukuran</dt>
-                      <dd className="mt-1 text-muted-foreground">
-                        {release.sizeBytes.toLocaleString("id-ID")} byte (
-                        {formatSize(release.sizeBytes)})
-                      </dd>
-                    </div>
-                    <div>
-                      <dt className="font-medium">SHA-256</dt>
-                      <dd className="mt-1 break-all rounded-lg bg-muted px-3 py-2 font-mono text-xs text-muted-foreground">
-                        {release.sha256}
-                      </dd>
-                    </div>
-                  </dl>
-                </div>
               </div>
             ) : (
               <div className="rounded-2xl border border-border bg-card p-8 text-center shadow-sm">
