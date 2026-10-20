@@ -9,7 +9,7 @@ export function HeroSection() {
   const copy = useUiText()
 
   function handleWhatsAppContact() {
-    const phoneNumber = "6285117170198"
+    const phoneNumber = "62895386288683"
     const message = copy.hero.whatsappMessage
     const encodedMessage = encodeURIComponent(message)
     const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`

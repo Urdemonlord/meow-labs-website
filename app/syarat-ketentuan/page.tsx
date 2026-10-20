@@ -73,8 +73,8 @@ export default function TermsPage() {
                 admin@meowlabs.id
               </a>{" "}
               atau WhatsApp{" "}
-              <a href="https://wa.me/6285117170198" target="_blank" rel="noreferrer" className="text-primary hover:underline">
-                +62 851-1717-0198
+              <a href="https://wa.me/62895386288683" target="_blank" rel="noreferrer" className="text-primary hover:underline">
+                +62 895-3862-88683
               </a>
               .
             </LegalBlock>

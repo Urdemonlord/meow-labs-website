@@ -24,7 +24,8 @@ COMPANY INFORMATION:
 ${context}
 
 CONTACT:
-- WhatsApp: +62 851-1717-0198
+- WhatsApp Admin 1: +62 895-3862-88683
+- WhatsApp Admin 2 (Sahad): +62 813-2547-6958
 - Email: admin@meowlabs.id
 - Website: https://meowlabs.id
 - Location: Semarang, Central Java
@@ -55,7 +56,8 @@ INFORMASI PERUSAHAAN:
 ${context}
 
 KONTAK:
-- WhatsApp: +62 851-1717-0198
+- WhatsApp Admin 1: +62 895-3862-88683
+- WhatsApp Admin 2 (Sahad): +62 813-2547-6958
 - Email: admin@meowlabs.id
 - Website: https://meowlabs.id
 - Lokasi: Semarang, Jawa Tengah
@@ -96,8 +98,8 @@ export async function generateGeminiResponse(
   return normalizeAssistantTone(
     response.text ||
       (locale === "en"
-        ? "Sorry, I cannot process that request right now. Please contact our team via WhatsApp +62 851-1717-0198."
-        : "Maaf, saya tidak dapat memproses pertanyaan Anda saat ini. Silakan hubungi tim kami di WhatsApp +62 851-1717-0198.")
+        ? "Sorry, I cannot process that request right now. Please contact our team via WhatsApp +62 895-3862-88683."
+        : "Maaf, saya tidak dapat memproses pertanyaan Anda saat ini. Silakan hubungi tim kami di WhatsApp +62 895-3862-88683.")
   )
 }
 
@@ -164,7 +166,7 @@ User asks: "${userQuery}"
 Create a fallback answer that:
 1. Is brief and polite.
 2. States that the exact info is unavailable.
-3. Directs the user to WhatsApp +62 851-1717-0198 and email admin@meowlabs.id.
+3. Directs the user to WhatsApp +62 895-3862-88683 and email admin@meowlabs.id.
 4. Maximum 70 words.
 5. No decorative emoji.
 6. Do not use * characters or em dash.`
@@ -175,7 +177,7 @@ User bertanya: "${userQuery}"
 Buat jawaban fallback yang:
 1. Singkat dan sopan.
 2. Menyatakan info belum tersedia.
-3. Mengarahkan ke WhatsApp +62 851-1717-0198 dan email admin@meowlabs.id.
+3. Mengarahkan ke WhatsApp +62 895-3862-88683 dan email admin@meowlabs.id.
 4. Maksimal 70 kata.
 5. Hindari emoji dekoratif.
 6. Jangan gunakan karakter * atau tanda em dash.`
@@ -188,12 +190,12 @@ Buat jawaban fallback yang:
     return normalizeAssistantTone(
       response.text ||
         (locale === "en"
-          ? "Sorry, I do not have the exact information for that yet. Please contact Meow Labs via WhatsApp +62 851-1717-0198 or email admin@meowlabs.id."
-          : "Maaf, saya belum punya informasi spesifik untuk pertanyaan itu. Silakan hubungi Meow Labs via WhatsApp +62 851-1717-0198 atau email admin@meowlabs.id.")
+          ? "Sorry, I do not have the exact information for that yet. Please contact Meow Labs via WhatsApp +62 895-3862-88683 or email admin@meowlabs.id."
+          : "Maaf, saya belum punya informasi spesifik untuk pertanyaan itu. Silakan hubungi Meow Labs via WhatsApp +62 895-3862-88683 atau email admin@meowlabs.id.")
     )
   } catch {
     return locale === "en"
-      ? "Sorry, I do not have the exact information for that yet. Please contact Meow Labs via WhatsApp +62 851-1717-0198 or email admin@meowlabs.id."
-      : "Maaf, saya belum punya informasi spesifik untuk pertanyaan itu. Silakan hubungi Meow Labs via WhatsApp +62 851-1717-0198 atau email admin@meowlabs.id."
+      ? "Sorry, I do not have the exact information for that yet. Please contact Meow Labs via WhatsApp +62 895-3862-88683 or email admin@meowlabs.id."
+      : "Maaf, saya belum punya informasi spesifik untuk pertanyaan itu. Silakan hubungi Meow Labs via WhatsApp +62 895-3862-88683 atau email admin@meowlabs.id."
   }
 }

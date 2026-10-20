@@ -1,4 +1,4 @@
-﻿# Meow Labs Website
+# Meow Labs Website
 
 Website resmi Meow Labs untuk layanan pembuatan website profesional di Semarang. Proyek ini dibangun dengan Next.js App Router, memiliki homepage multi-section, chatbot AI berbasis `knowledge.md`, portfolio dari API eksternal, serta halaman legal.
 
@@ -131,7 +131,7 @@ Lalu deploy ke Vercel sesuai workflow tim/repository.
 
 ## Kontak
 
-- WhatsApp: [https://wa.me/6285117170198](https://wa.me/6285117170198)
+- WhatsApp: [https://wa.me/62895386288683](https://wa.me/62895386288683)
 - Email: admin@meowlabs.id
 - Instagram: [https://instagram.com/meowlabs.id](https://instagram.com/meowlabs.id)
 - TikTok: [https://www.tiktok.com/@meowlabs.id](https://www.tiktok.com/@meowlabs.id)

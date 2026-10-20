@@ -36,8 +36,8 @@ export async function generateResponse(query: string, locale: Locale = "id"): Pr
     console.error("Error generating response:", error)
 
     return locale === "en"
-      ? "The AI assistant is temporarily unavailable. Please contact our team via WhatsApp +62 851-1717-0198 or email admin@meowlabs.id."
-      : "Sistem AI sedang offline untuk sementara. Silakan hubungi tim kami via WhatsApp +62 851-1717-0198 atau email admin@meowlabs.id."
+      ? "The AI assistant is temporarily unavailable. Please contact our team via WhatsApp +62 895-3862-88683 or email admin@meowlabs.id."
+      : "Sistem AI sedang offline untuk sementara. Silakan hubungi tim kami via WhatsApp +62 895-3862-88683 atau email admin@meowlabs.id."
   }
 }
 

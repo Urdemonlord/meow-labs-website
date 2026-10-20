@@ -1,4 +1,4 @@
-﻿"use client"
+"use client"
 
 import { useUiPreferences } from "@/components/ui-preferences-provider"
 import { Button } from "@/components/ui/button"
@@ -67,7 +67,7 @@ export function AboutPageContent() {
             <p className="mt-3 text-muted-foreground">{copy.ctaBody}</p>
             <div className="mt-6">
               <a
-                href="https://wa.me/6285117170198?text=Halo%20Meowlabs.id%2C%20saya%20ingin%20konsultasi%20website"
+                href="https://wa.me/62895386288683?text=Halo%20Meowlabs.id%2C%20saya%20ingin%20konsultasi%20website"
                 target="_blank"
                 rel="noopener noreferrer"
               >

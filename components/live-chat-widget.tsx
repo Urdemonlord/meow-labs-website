@@ -1,4 +1,4 @@
-﻿"use client"
+"use client"
 
 import { useState, useEffect } from 'react'
 import { Button } from "@/components/ui/button"
@@ -65,7 +65,7 @@ export function LiveChatWidget() {
     setTimeout(() => {
       const autoReply: Message = {
         id: (Array.isArray(messages) ? messages.length : 0) + 2,
-        text: "Terima kasih atas pertanyaan Anda. Tim kami akan merespons dalam 2-3 menit. Untuk respons lebih cepat, silakan hubungi WhatsApp kami di +62 851-1717-0198.",
+        text: "Terima kasih atas pertanyaan Anda. Tim kami akan merespons dalam 2-3 menit. Untuk respons lebih cepat, silakan hubungi WhatsApp kami di +62 895-3862-88683.",
         isUser: false,
         timestamp: new Date()
       }

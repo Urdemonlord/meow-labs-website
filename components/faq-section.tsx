@@ -136,7 +136,7 @@ export function FAQSection() {
         ? "Hello Meow Labs, I have a question about your website development service."
         : "Halo Meow Labs, saya punya pertanyaan tentang layanan pembuatan website."
     )
-    window.open(`https://wa.me/6285117170198?text=${message}`, "_blank")
+    window.open(`https://wa.me/62895386288683?text=${message}`, "_blank")
   }
 
   return (

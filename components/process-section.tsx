@@ -24,7 +24,7 @@ export function ProcessSection() {
         ? "Hello Meow Labs, I want to start a website project. Please share the process."
         : "Halo Meow Labs, saya ingin memulai project website. Mohon info prosesnya."
     )
-    window.open(`https://wa.me/6285117170198?text=${message}`, "_blank")
+    window.open(`https://wa.me/62895386288683?text=${message}`, "_blank")
   }
 
   const processes = [

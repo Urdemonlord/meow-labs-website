@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Jasa Pembuatan Website Murah & Profesional | Meow Labs",
   description:
-    "Meow Labs melayani jasa pembuatan website murah untuk UMKM, kafe, hingga personal branding. Website responsive dan mobile-friendly mulai Rp500 ribu. Hubungi kami di 0851-1717-0198.",
+    "Meow Labs melayani jasa pembuatan website murah untuk UMKM, kafe, hingga personal branding. Website responsive dan mobile-friendly mulai Rp500 ribu. Hubungi kami di 0895-3862-88683.",
   generator: "Meow Labs",
   icons: {
     icon: [
@@ -142,7 +142,7 @@ export default function RootLayout({
               description:
                 "Jasa pembuatan website murah untuk UMKM & personal di Semarang oleh tim profesional dipimpin oleh Hasrinata Arya Afendi",
               url: siteUrl,
-              telephone: "+6285117170198",
+              telephone: "+62895386288683",
               email: "meowlabs.id@gmail.com",
               address: {
                 "@type": "PostalAddress",

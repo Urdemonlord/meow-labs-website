@@ -24,7 +24,7 @@ export function ContactSection() {
     const message = isEn
       ? `Hello admin, I want to consult about website development.%0A%0AName: ${formData.name}%0AEmail: ${formData.email}%0AOrganization: ${formData.organization}%0A%0AMessage: ${formData.message}`
       : `Halo admin, saya ingin konsultasi pembuatan website.%0A%0ANama: ${formData.name}%0AEmail: ${formData.email}%0AOrganisasi: ${formData.organization}%0A%0APesan: ${formData.message}`
-    window.open(`https://api.whatsapp.com/send?phone=6285117170198&text=${message}`, "_blank")
+    window.open(`https://api.whatsapp.com/send?phone=62895386288683&text=${message}`, "_blank")
   }
 
   const handleWhatsAppContact = () => {
@@ -33,7 +33,7 @@ export function ContactSection() {
         ? "Hello admin, I want a quick website consultation."
         : "Halo admin, saya ingin konsultasi cepat terkait website."
     )
-    window.open(`https://api.whatsapp.com/send?phone=6285117170198&text=${message}`, "_blank")
+    window.open(`https://api.whatsapp.com/send?phone=62895386288683&text=${message}`, "_blank")
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -182,8 +182,18 @@ export function ContactSection() {
                       <Phone className="h-5 w-5 text-secondary" />
                     </div>
                     <div>
-                      <div className="font-medium text-foreground">WhatsApp</div>
-                      <div className="text-muted-foreground">+62 851-1717-0198</div>
+                      <div className="font-medium text-foreground">WhatsApp Admin 1</div>
+                      <div className="text-muted-foreground">+62 895-3862-88683</div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center space-x-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary/10">
+                      <Phone className="h-5 w-5 text-secondary" />
+                    </div>
+                    <div>
+                      <div className="font-medium text-foreground">WhatsApp Admin 2 (Sahad)</div>
+                      <div className="text-muted-foreground">+62 813-2547-6958</div>
                     </div>
                   </div>
 
@@ -220,10 +230,26 @@ export function ContactSection() {
                   ? "Chat directly with our team through WhatsApp."
                   : "Chat langsung dengan tim kami melalui WhatsApp."}
               </p>
-              <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90" onClick={handleWhatsAppContact}>
-                <Phone className="mr-2 h-4 w-4" />
-                {isEn ? "WhatsApp Now" : "WhatsApp Sekarang"}
-              </Button>
+              <div className="flex flex-col gap-2 sm:flex-row sm:justify-center">
+                <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90" onClick={handleWhatsAppContact}>
+                  <Phone className="mr-2 h-4 w-4" />
+                  {isEn ? "WhatsApp Admin 1" : "WhatsApp Admin 1"}
+                </Button>
+                <Button
+                  className="bg-primary text-primary-foreground hover:bg-primary/90"
+                  onClick={() => {
+                    const msg = encodeURIComponent(
+                      isEn
+                        ? "Hello Sahad, I want a quick website consultation."
+                        : "Halo Sahad, saya ingin konsultasi cepat terkait website."
+                    )
+                    window.open(`https://api.whatsapp.com/send?phone=6281325476958&text=${msg}`, "_blank")
+                  }}
+                >
+                  <Phone className="mr-2 h-4 w-4" />
+                  {isEn ? "WhatsApp Sahad" : "WhatsApp Sahad"}
+                </Button>
+              </div>
             </div>
           </div>
         </div>

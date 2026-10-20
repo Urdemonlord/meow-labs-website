@@ -47,7 +47,7 @@ Goal: dapat 10-20 backlink relevan untuk meowlabs.id dalam 30 hari, fokus pada q
 - Brand: Meow Labs
 - Domain: https://meowlabs.id
 - Email: meowlabs.id@gmail.com
-- Phone: 0851-1717-0198
+- Phone: 0895-3862-88683
 - City: Semarang
 
 ## Fastest wins

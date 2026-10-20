@@ -69,7 +69,7 @@ export default function NotFound() {
           <div className="border-t border-border pt-8">
             <p className="text-sm text-muted-foreground mb-3">Butuh bantuan lain?</p>
             <Button asChild size="lg" variant="default">
-              <a href="https://wa.me/6285117170198?text=Halo%20Meow%20Labs!%20Saya%20ingin%20konsultasi" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/62895386288683?text=Halo%20Meow%20Labs!%20Saya%20ingin%20konsultasi" target="_blank" rel="noopener noreferrer">
                 Hubungi kami via WhatsApp
               </a>
             </Button>

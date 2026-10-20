@@ -1,4 +1,4 @@
-﻿# Meow Labs Knowledge Base
+# Meow Labs Knowledge Base
 
 Dokumentasi lengkap tentang layanan, paket, dan informasi Meow Labs yang dapat digunakan untuk menjawab pertanyaan menggunakan Retrieval Augmented Generation (RAG).
 
@@ -158,7 +158,8 @@ Meow Labs memiliki paket khusus untuk mahasiswa dan pelajar dengan harga yang le
 
 ### Informasi Kontak
 - **Email:** admin@meowlabs.id
-- **WhatsApp:** +62 851-1717-0198
+- **WhatsApp Admin 1:** +62 895-3862-88683
+- **WhatsApp Admin 2 (Sahad):** +62 813-2547-6958
 - **Lokasi:** Semarang, Jawa Tengah, Indonesia
 - **Jam Operasional:** Senin-Minggu, 08:00-22:00 WIB
 

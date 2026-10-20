@@ -351,7 +351,7 @@ export function ServicesSection() {
       ? `Hello admin, I want a free consultation for ${serviceName}.`
       : `Halo admin, saya ingin konsultasi gratis untuk ${serviceName}.`
     const encodedMessage = encodeURIComponent(message)
-    window.open(`https://api.whatsapp.com/send?phone=6285117170198&text=${encodedMessage}`, "_blank")
+    window.open(`https://api.whatsapp.com/send?phone=62895386288683&text=${encodedMessage}`, "_blank")
   }
 
   return (
