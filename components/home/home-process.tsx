@@ -11,7 +11,7 @@ export function HomeProcess() {
   return (
     <section className="relative isolate overflow-hidden bg-dark-surface text-paper-light">
       <div aria-hidden="true" className="absolute inset-y-0 right-0 -z-10 w-full lg:w-3/5">
-        <Image src="/art/palm-terrace.webp" alt="" fill loading="lazy" sizes="60vw" className="object-cover opacity-80" />
+        <Image src="/art/palm-terrace.webp" alt="" fill loading="lazy" sizes="(max-width: 1024px) 100vw, 60vw" className="object-cover opacity-80" />
         <div className="absolute inset-0 bg-gradient-to-r from-dark-surface via-dark-surface/60 to-transparent" />
       </div>
       <div className="ml-container ml-section grid gap-12 lg:grid-cols-12">

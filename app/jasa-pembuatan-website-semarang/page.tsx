@@ -38,6 +38,10 @@ export const metadata: Metadata = {
   },
 }
 
+// Halaman ini membidik pencarian jasa website, jadi layanan non-website
+// (integrasi AI) tidak ikut ditampilkan di daftar layanannya.
+const websiteServices = servicesWithPage.filter((service) => service.slug !== "integrasi-ai")
+
 const serviceAreas = ["Kota Semarang", "Kabupaten Semarang & Ungaran", "Kendal", "Demak", "Salatiga", "Grobogan"]
 
 const localFaqs = [
@@ -167,7 +171,7 @@ export default function JasaPembuatanWebsiteSemarang() {
             Pilih titik mulai yang paling sesuai. Setiap layanan punya halaman detail berisi fitur, harga, dan timeline.
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {servicesWithPage.map((service) => (
+            {websiteServices.map((service) => (
               <Link
                 key={service.slug}
                 href={`/layanan/${service.slug}`}

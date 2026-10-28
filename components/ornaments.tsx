@@ -5,20 +5,22 @@ interface OrnamentProps {
   className?: string
 }
 
+// Garis grid dipotong tepat di tepi lingkaran (tali busur), jadi tidak perlu
+// clipPath ber-ID yang bisa bentrok saat ornamen dipakai lebih dari sekali.
+const discChords = [20, 40, 60, 80].map((p) => {
+  const half = Math.sqrt(50 * 50 - (p - 50) * (p - 50))
+  return { p, start: 50 - half, end: 50 + half }
+})
+
 export function GridDisc({ className = "" }: OrnamentProps) {
   return (
     <svg viewBox="0 0 100 100" aria-hidden="true" className={className}>
-      <defs>
-        <clipPath id="grid-disc-clip">
-          <circle cx="50" cy="50" r="50" />
-        </clipPath>
-      </defs>
       <circle cx="50" cy="50" r="50" fill="var(--vermilion)" />
-      <g clipPath="url(#grid-disc-clip)" stroke="var(--paper-light)" strokeOpacity="0.45" strokeWidth="0.6">
-        {[20, 40, 60, 80].map((p) => (
+      <g stroke="var(--paper-light)" strokeOpacity="0.45" strokeWidth="0.6">
+        {discChords.map(({ p, start, end }) => (
           <g key={p}>
-            <line x1={p} y1="0" x2={p} y2="100" />
-            <line x1="0" y1={p} x2="100" y2={p} />
+            <line x1={p} y1={start} x2={p} y2={end} />
+            <line x1={start} y1={p} x2={end} y2={p} />
           </g>
         ))}
       </g>

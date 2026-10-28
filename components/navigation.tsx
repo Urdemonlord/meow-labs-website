@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { ArrowUpRight, Menu, X } from "lucide-react"
@@ -20,6 +20,8 @@ const whatsappHref = buildWhatsAppUrl("Halo MeowLabs, saya ingin mendiskusikan p
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
+  const toggleRef = useRef<HTMLButtonElement>(null)
+  const menuRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setIsMenuOpen(false)
@@ -30,11 +32,42 @@ export function Navigation() {
     return () => document.body.classList.remove("overflow-hidden")
   }, [isMenuOpen])
 
+  // Menu mobile menutupi halaman, jadi fokus keyboard dikunci di navigasi
+  // selama menu terbuka, Escape menutupnya, dan fokus kembali ke tombol menu.
+  useEffect(() => {
+    if (!isMenuOpen) return
+    menuRef.current?.querySelector<HTMLElement>("a")?.focus()
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false)
+        toggleRef.current?.focus()
+        return
+      }
+      if (event.key !== "Tab") return
+      const focusable = [toggleRef.current, ...Array.from(menuRef.current?.querySelectorAll<HTMLElement>("a") ?? [])].filter(
+        (element): element is HTMLElement => element !== null
+      )
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault()
+        first.focus()
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown)
+    return () => document.removeEventListener("keydown", handleKeyDown)
+  }, [isMenuOpen])
+
   return (
     <nav className="sticky top-0 z-50 border-b border-rule bg-paper/95 backdrop-blur supports-[backdrop-filter]:bg-paper/85">
       <div className="ml-container flex h-16 items-center justify-between gap-6">
         <Link href="/" aria-label="MeowLabs, ke beranda" className="shrink-0">
-          <BrandLogo size={30} />
+          <BrandLogo size={30} priority />
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -56,6 +89,7 @@ export function Navigation() {
             <ArrowUpRight className="h-4 w-4" />
           </a>
           <button
+            ref={toggleRef}
             type="button"
             onClick={() => setIsMenuOpen((open) => !open)}
             aria-label={isMenuOpen ? "Tutup menu" : "Buka menu"}
@@ -69,7 +103,11 @@ export function Navigation() {
       </div>
 
       {isMenuOpen && (
-        <div id="mobile-menu" className="h-[calc(100dvh-4rem)] border-t border-rule bg-paper md:hidden">
+        <div
+          id="mobile-menu"
+          ref={menuRef}
+          className="h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-rule bg-paper md:hidden"
+        >
           <div className="ml-container flex flex-col py-6">
             {navItems.map((item, index) => (
               <Link
