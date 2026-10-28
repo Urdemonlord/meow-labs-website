@@ -220,7 +220,7 @@ export default function JasaPembuatanWebsiteSemarang() {
       </section>
 
       <PricingSection />
-      <ProcessSection />
+      <ProcessSection showDurations={false} />
 
       <section className="py-16">
         <div className="container mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">

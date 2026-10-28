@@ -14,7 +14,13 @@ import {
 } from "lucide-react"
 import { useUiPreferences } from "./ui-preferences-provider"
 
-export function ProcessSection() {
+interface ProcessSectionProps {
+  // Durasi per tahap menggambarkan proyek custom. Halaman dengan timeline
+  // lebih pendek (landing page, paket Starter) menyembunyikannya.
+  showDurations?: boolean
+}
+
+export function ProcessSection({ showDurations = true }: ProcessSectionProps) {
   const { locale } = useUiPreferences()
   const isEn = locale === "en"
 
@@ -161,10 +167,12 @@ export function ProcessSection() {
                   {process.description}
                 </p>
 
-                <div className="mb-4 flex items-center gap-2">
-                  <Clock className="h-4 w-4 text-primary" />
-                  <span className="text-xs font-medium text-primary">{process.duration}</span>
-                </div>
+                {showDurations && (
+                  <div className="mb-4 flex items-center gap-2">
+                    <Clock className="h-4 w-4 text-primary" />
+                    <span className="text-xs font-medium text-primary">{process.duration}</span>
+                  </div>
+                )}
 
                 <ul className="space-y-1">
                   {process.features.map((feature) => (
