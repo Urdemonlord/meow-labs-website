@@ -98,9 +98,6 @@ export const metadata: Metadata = {
   verification: {
     google: "89bed686282f82f4",
   },
-  alternates: {
-    canonical: siteUrl,
-  },
 }
 
 export default function RootLayout({
@@ -113,7 +110,6 @@ export default function RootLayout({
       <head>
         {/* Primary favicon information for search engines */}
         {/* <!-- This site's preferred favicon --> */}
-        <link rel="canonical" href={siteUrl} />
 
         {/* Favicon support */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -143,7 +139,7 @@ export default function RootLayout({
                 "Jasa pembuatan website murah untuk UMKM & personal di Semarang oleh tim profesional dipimpin oleh Hasrinata Arya Afendi",
               url: siteUrl,
               telephone: "+62895386288683",
-              email: "meowlabs.id@gmail.com",
+              email: "admin@meowlabs.id",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Semarang",
@@ -157,11 +153,6 @@ export default function RootLayout({
               },
               openingHours: "Mo-Su 08:00-22:00",
               priceRange: "Rp 500.000 - Rp 5.000.000",
-              aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: "4.9",
-                reviewCount: "100",
-              },
               service: [
                 "Website Company Profile",
                 "Toko Online E-commerce",

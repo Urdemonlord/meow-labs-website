@@ -4,6 +4,7 @@ import RedirectMessage from "@/components/redirect-message"
 
 // Metadata for this specific page
 export const metadata: Metadata = {
+  alternates: { canonical: "/jasa-web-design-semarang" },
   title: "Jasa Web Design Semarang Terbaik | Meow Labs",
   description: "Jasa web design Semarang dengan desain UI/UX modern dan profesional. Tingkatkan kesan pertama bisnis Anda dengan website yang menarik dan responsif. Hubungi Meow Labs sekarang!",
   keywords: [

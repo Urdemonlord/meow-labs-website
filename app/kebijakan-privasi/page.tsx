@@ -5,6 +5,7 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/kebijakan-privasi" },
   title: "Kebijakan Privasi | Meow Labs",
   description:
     "Kebijakan Privasi Meow Labs menjelaskan data apa yang dikumpulkan, bagaimana data dipakai, dan hak pengguna terkait layanan kami.",

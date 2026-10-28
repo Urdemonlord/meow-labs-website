@@ -4,6 +4,7 @@ import RedirectMessage from "@/components/redirect-message"
 
 // Metadata for this specific service page
 export const metadata: Metadata = {
+  alternates: { canonical: "/layanan/toko-online" },
   title: "Jasa Pembuatan Toko Online di Semarang | Meow Labs",
   description: "Jasa pembuatan website toko online dan e-commerce di Semarang. Tingkatkan penjualan bisnis Anda dengan website e-commerce yang profesional dan user-friendly.",
   keywords: [

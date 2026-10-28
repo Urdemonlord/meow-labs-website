@@ -5,6 +5,7 @@ import { Footer } from "@/components/footer"
 import { Navigation } from "@/components/navigation"
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
   title: "Tentang Meowlabs.id | Jasa Website UMKM",
   description:
     "Meowlabs.id adalah UMKM jasa pembuatan website oleh mahasiswa Unimus, didirikan oleh Hasrinata Arya Afendi untuk membantu UMKM dan personal brand membangun website yang rapi dan efektif.",

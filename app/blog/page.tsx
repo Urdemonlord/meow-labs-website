@@ -7,6 +7,7 @@ import { LoadingState } from "@/components/loading-state"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/blog" },
   title: "Blog - Tips & Artikel Web Development 2025 | Meow Labs Semarang",
   description: "Baca artikel terbaru tentang web development, SEO tips, dan strategi digital marketing dari tim ahli Meow Labs Semarang. Update 2025 seputar pembuatan website murah untuk UMKM.",
   keywords: [

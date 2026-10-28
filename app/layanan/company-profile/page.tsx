@@ -4,6 +4,7 @@ import RedirectMessage from "@/components/redirect-message"
 
 // Metadata for this specific service page
 export const metadata: Metadata = {
+  alternates: { canonical: "/layanan/company-profile" },
   title: "Jasa Pembuatan Website Company Profile di Semarang | Meow Labs",
   description: "Jasa pembuatan website company profile profesional di Semarang. Tingkatkan citra perusahaan Anda dengan website yang elegan dan informatif. Mulai dari Rp 500rb!",
   keywords: [

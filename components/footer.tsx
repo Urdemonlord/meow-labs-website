@@ -4,12 +4,12 @@ import Image from "next/image"
 import {
   Clock,
   ExternalLink,
+  Globe,
   Instagram,
   Mail,
   MapPin,
   Music2,
   Phone,
-  Star,
 } from "lucide-react"
 import { useUiText } from "./ui-preferences-provider"
 import { buildWhatsAppUrl, MEOWLABS_ADMIN_PHONE_DISPLAY } from "@/lib/whatsapp"
@@ -172,12 +172,8 @@ export function Footer() {
             </div>
 
             <div className="mb-6 flex items-center gap-2">
-              <div className="flex items-center gap-1">
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <Star key={index} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                ))}
-              </div>
-              <span className="text-sm text-muted-foreground">{copy.footer.ratingText}</span>
+              <Globe className="h-4 w-4 text-primary" />
+              <span className="text-sm text-muted-foreground">{copy.footer.trustText}</span>
             </div>
 
             <div className="flex items-center gap-3">

@@ -4,6 +4,7 @@ import RedirectMessage from "@/components/redirect-message"
 
 // Metadata for this specific service page
 export const metadata: Metadata = {
+  alternates: { canonical: "/layanan/landing-page" },
   title: "Jasa Pembuatan Landing Page Profesional di Semarang | Meow Labs",
   description: "Jasa pembuatan landing page konversi tinggi di Semarang. Desain modern, responsif, dan fokus pada CTA untuk meningkatkan penjualan dan lead bisnis Anda.",
   keywords: [

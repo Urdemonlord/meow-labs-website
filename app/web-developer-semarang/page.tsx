@@ -4,6 +4,7 @@ import RedirectMessage from "@/components/redirect-message"
 
 // Metadata for this specific page
 export const metadata: Metadata = {
+  alternates: { canonical: "/web-developer-semarang" },
   title: "Web Developer Profesional Semarang | Meow Labs",
   description: "Tim web developer profesional Semarang dengan portofolio terbaik. Ahli dalam pengembangan website modern, aplikasi web, dan solusi e-commerce. Konsultasi gratis!",
   keywords: [

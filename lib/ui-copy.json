@@ -35,8 +35,8 @@
           "label": "Website Online"
         },
         {
-          "value": "95%",
-          "label": "Klien Repeat Order"
+          "value": "3-5 hari",
+          "label": "Estimasi Tayang"
         },
         {
           "value": "<2h",
@@ -169,7 +169,7 @@
       "brandDescription": "Jasa pembuatan website yang fokus pada hasil bisnis, kredibilitas, dan workflow digital yang bisa dipakai jangka panjang.",
       "location": "Semarang dan sekitarnya",
       "responseTime": "Respons awal < 2 jam",
-      "ratingText": "4.9/5 dari 100+ klien",
+      "trustText": "30+ website klien sudah online",
       "followUs": "Ikuti kami:",
       "servicesTitle": "Layanan Kami",
       "serviceLinks": [
@@ -249,8 +249,8 @@
           "label": "Websites Launched"
         },
         {
-          "value": "95%",
-          "label": "Repeat Clients"
+          "value": "3-5 days",
+          "label": "Time to Launch"
         },
         {
           "value": "<2h",
@@ -383,7 +383,7 @@
       "brandDescription": "Website development focused on business outcomes, credibility, and digital workflows that last.",
       "location": "Semarang and surrounding area",
       "responseTime": "First response < 2 hours",
-      "ratingText": "4.9/5 from 100+ clients",
+      "trustText": "30+ client websites live",
       "followUs": "Follow us:",
       "servicesTitle": "Services",
       "serviceLinks": [

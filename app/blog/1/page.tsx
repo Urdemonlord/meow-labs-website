@@ -6,6 +6,7 @@ import Link from "next/link"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/blog/1" },
   title: "10 Tren Website Development 2025 untuk UMKM di Indonesia | Meow Labs",
   description: "Temukan 10 tren website development terbaru tahun 2025 untuk UMKM di Indonesia. Tips dari ahli web developer Meow Labs Semarang untuk meningkatkan kehadiran digital bisnis Anda.",
   keywords: [
