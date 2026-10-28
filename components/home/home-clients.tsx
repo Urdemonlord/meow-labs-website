@@ -11,12 +11,19 @@ export function HomeClients() {
             Dipercaya UMKM, institusi, dan perusahaan.
           </h2>
           <p className="mt-6 text-ink-muted">Lebih dari 30 website klien sudah online.</p>
-          <div className="relative mt-10 aspect-[2/1] overflow-hidden rounded-[4px] bg-ink">
-            <Image src="/art/map.webp" alt="" fill loading="lazy" sizes="(max-width: 1024px) 100vw, 400px" className="object-cover" />
-            <span className="ml-eyebrow absolute bottom-2 right-3 text-[0.6rem] text-paper-light/80">Semarang → Indonesia</span>
+          <div className="relative mt-10 aspect-[3/1] overflow-hidden rounded-[4px] bg-ink">
+            <Image
+              src="/art/indonesia-map.webp"
+              alt=""
+              fill
+              loading="lazy"
+              sizes="(max-width: 1024px) 100vw, 400px"
+              className="object-contain p-3"
+            />
           </div>
+          <p className="ml-eyebrow mt-3 text-ink-muted">Semarang → Indonesia</p>
         </div>
-        <ul className="grid grid-cols-2 border-l border-t border-rule sm:grid-cols-4 lg:col-span-8">
+        <ul className="grid grid-cols-2 self-start border-l border-t border-rule sm:grid-cols-4 lg:col-span-8">
           {clientLogos.map((client) => (
             <li
               key={client.name}

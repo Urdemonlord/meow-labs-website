@@ -35,12 +35,18 @@ export function HomeCta() {
           </div>
         </div>
         <div className="relative lg:col-span-5">
-          <div className="relative mx-auto w-full max-w-[460px]">
-            <GridDisc className="absolute -right-6 -top-8 h-24 w-24 sm:h-28 sm:w-28" />
-            <PlusMark className="absolute -left-8 top-6 h-6 w-6 text-paper-light/60" />
-            <div className="relative aspect-[42/34] overflow-hidden rounded-[4px]">
-              <Image src="/art/cats.webp" alt="" fill loading="lazy" sizes="460px" className="object-cover" />
-            </div>
+          {/* Maskot ditampilkan seukuran aslinya (326px) agar tidak buram. */}
+          <div className="relative mx-auto w-full max-w-[326px]">
+            <GridDisc className="absolute -right-2 -top-10 h-20 w-20 sm:-right-10 sm:-top-12 sm:h-28 sm:w-28" />
+            <PlusMark className="absolute left-0 top-2 h-6 w-6 text-paper-light/60 sm:-left-10 sm:top-6" />
+            <Image
+              src="/art/mascot-laptop.webp"
+              alt=""
+              width={326}
+              height={250}
+              loading="lazy"
+              className="relative h-auto w-full"
+            />
           </div>
         </div>
       </div>

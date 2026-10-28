@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { CtaBand, PageHeader } from "@/components/editorial"
 
 const pillars = [
@@ -33,7 +34,10 @@ export function AboutPageContent() {
 
       <section className="border-b border-rule">
         <div className="ml-container ml-section grid gap-12 lg:grid-cols-12">
-          <p className="ml-eyebrow text-ink-muted lg:col-span-4">{"// Profil dan pendekatan kerja"}</p>
+          <div className="lg:col-span-4">
+            <p className="ml-eyebrow text-ink-muted">{"// Profil dan pendekatan kerja"}</p>
+            <Image src="/art/mascot-sitting.webp" alt="" width={233} height={280} loading="lazy" className="mt-10 h-auto w-[180px]" />
+          </div>
           <div className="space-y-6 text-pretty text-xl leading-relaxed text-ink lg:col-span-8">
             <p>
               Meow Labs didirikan oleh Hasrinata Arya Afendi, mahasiswa Universitas Muhammadiyah Semarang (Unimus),

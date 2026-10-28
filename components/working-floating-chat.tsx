@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 import { MessageSquare, X } from "lucide-react"
 import { WorkingChatInterface } from "./working-chat-interface"
@@ -31,10 +32,16 @@ export function WorkingFloatingChat() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="flex h-14 w-14 items-center justify-center rounded-full border border-primary/30 bg-card text-primary shadow-[0_18px_45px_rgba(0,0,0,0.45)] transition-all hover:scale-105 hover:bg-primary hover:text-primary-foreground"
+          className="relative h-14 w-14 rounded-full border border-ink bg-ink shadow-[0_18px_45px_rgba(0,0,0,0.35)] transition-transform hover:scale-105"
           aria-label={copy.chat.open}
         >
-          <MessageSquare className="h-6 w-6" />
+          {/* Wajah maskot sebagai tombol chat; badge kecil menandakan fungsinya. */}
+          <span className="absolute inset-0 overflow-hidden rounded-full">
+            <Image src="/art/mascot-head.webp" alt="" width={214} height={256} className="h-full w-full scale-125 object-cover object-top" />
+          </span>
+          <span className="absolute -right-1 -top-1 flex h-6 w-6 items-center justify-center rounded-full border-2 border-paper bg-vermilion text-ink">
+            <MessageSquare className="h-3 w-3" />
+          </span>
         </button>
       )}
 

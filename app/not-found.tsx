@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { Navigation } from "@/components/navigation"
@@ -44,6 +45,7 @@ export default function NotFound() {
           </div>
 
           <nav aria-label="Navigasi cepat" className="lg:col-span-4 lg:col-start-9">
+            <Image src="/art/mascot-box.webp" alt="" width={290} height={238} className="mb-10 h-auto w-[220px]" />
             <p className="ml-eyebrow text-ink-muted">Navigasi cepat</p>
             <ul className="mt-5 border-t border-ink">
               {quickLinks.map((link) => (

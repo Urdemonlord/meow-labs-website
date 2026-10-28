@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 import { SendHorizonal } from "lucide-react"
 import { useUiText } from "./ui-preferences-provider"
@@ -175,8 +176,10 @@ export function WorkingChatInterface({ autoFocusInput = true }: { autoFocusInput
   return (
     <div className="flex h-full flex-col bg-card">
       <div className="border-b border-border bg-gradient-to-r from-background to-card px-4 py-3">
-        <div className="flex items-center gap-2">
-          <span className="h-2.5 w-2.5 rounded-full bg-primary" />
+        <div className="flex items-center gap-3">
+          <span className="h-8 w-8 shrink-0 overflow-hidden rounded-full bg-ink">
+            <Image src="/art/mascot-head.webp" alt="" width={214} height={256} className="h-full w-full scale-125 object-cover object-top" />
+          </span>
           <h3 className="text-sm font-semibold text-foreground">{copy.chat.title}</h3>
         </div>
         <p className="mt-1 text-xs text-muted-foreground">{copy.chat.subtitle}</p>
