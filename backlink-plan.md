@@ -14,8 +14,8 @@ Goal: dapat 10-20 backlink relevan untuk meowlabs.id dalam 30 hari, fokus pada q
 ## Target pages
 - Homepage: https://meowlabs.id
 - Money page: https://meowlabs.id/jasa-pembuatan-website-semarang
-- Resource hub: https://meowlabs.id/resources
-- API AI Gratis: https://meowlabs.id/resources/api-ai-gratis
+- Produk: https://meowlabs.id/produk
+- Catatan: https://meowlabs.id/blog
 
 ## Anchor distribution
 - 60% branded: Meow Labs, meowlabs.id
@@ -30,16 +30,16 @@ Goal: dapat 10-20 backlink relevan untuk meowlabs.id dalam 30 hari, fokus pada q
 - Instagram/TikTok bio -> homepage
 
 ## Week 2
-- Medium article: Checklist Website UMKM 2026 -> jasa page + resources
-- Dev.to article: SEO/Next.js case study -> resources
+- Medium article: Checklist Website UMKM 2026 -> jasa page + blog
+- Dev.to article: SEO/Next.js case study -> blog
 - 1 client backlink -> homepage
 
 ## Week 3
-- 2 client backlinks -> jasa page/resources
+- 2 client backlinks -> jasa page/produk
 - 2 local directory/citation placements -> homepage/jasa page
 
 ## Week 4
-- 1 community thread / Kaskus / local founder forum -> resources
+- 1 community thread / Kaskus / local founder forum -> produk
 - 1 founder/startup directory placement -> homepage
 - Review indexation + live status for all links
 

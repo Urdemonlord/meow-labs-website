@@ -7,6 +7,9 @@ const nextConfig = {
       { source: "/web-developer-semarang", destination: "/jasa-pembuatan-website-semarang", permanent: true },
       // MeowLabs POS sudah dihentikan dari website; arahkan pengunjung lama ke daftar produk.
       { source: "/pos", destination: "/produk", permanent: true },
+      // Resource hub (bansos AI, API AI gratis, open source) dihapus; arahkan ke catatan studio.
+      { source: "/resources", destination: "/blog", permanent: true },
+      { source: "/resources/:path*", destination: "/blog", permanent: true },
     ]
   },
   images: {

@@ -21,7 +21,6 @@ const columns = [
       { label: "Produk", href: "/produk" },
       { label: "Catatan", href: "/blog" },
       { label: "Tentang", href: "/about" },
-      { label: "Resources", href: "/resources" },
     ],
   },
 ]
