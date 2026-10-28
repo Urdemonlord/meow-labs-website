@@ -9,21 +9,21 @@ const notes = [
     title: "10 Tren Website Development 2025 untuk UMKM di Indonesia",
     date: "29 Sep 2025",
     category: "Web Development",
-    image: "/art/mountain.webp",
+    image: "/art/arca-dewi.webp",
   },
   {
     href: "/blog/2",
     title: "Strategi SEO Lokal untuk Bisnis di Semarang",
     date: "20 Sep 2025",
     category: "SEO",
-    image: "/art/terrace.webp",
+    image: "/art/mountain-small.webp",
   },
   {
     href: "/blog/3",
     title: "Website atau Aplikasi Mobile: Mana yang Tepat untuk UMKM?",
     date: "15 Sep 2025",
     category: "Bisnis",
-    image: "/art/house.webp",
+    image: "/art/trees.webp",
   },
 ]
 

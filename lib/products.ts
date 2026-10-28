@@ -34,7 +34,7 @@ export const products: Product[] = [
     status: "Tersedia",
     tagline: "Learn · Build · Ship",
     description: "Platform belajar teknologi dari MeowLabs: kursus, dokumentasi, dan proyek nyata.",
-    image: "/art/house.webp",
+    image: "/art/candi-kecil.webp",
   },
   {
     slug: "toefl",
@@ -52,7 +52,7 @@ export const products: Product[] = [
     status: "Tersedia",
     tagline: "CV ramah ATS",
     description: "Bikin CV ramah ATS dengan bantuan AI, cocokkan dengan lowongan, lalu ekspor ke PDF atau DOCX.",
-    image: "/art/leaves.webp",
+    image: "/art/arca-twins.webp",
   },
 ]
 

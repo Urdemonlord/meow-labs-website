@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
+import { GridDisc, PlusMark } from "@/components/ornaments"
 import { buildWhatsAppUrl } from "@/lib/whatsapp"
 
 export function HomeCta() {
@@ -33,9 +34,16 @@ export function HomeCta() {
             </a>
           </div>
         </div>
-        <div className="lg:col-span-5">
-          <div className="relative mx-auto aspect-[42/34] w-full max-w-[460px] overflow-hidden rounded-[4px]">
-            <Image src="/art/cats.webp" alt="" fill loading="lazy" sizes="460px" className="object-cover" />
+        <div className="relative lg:col-span-5">
+          <div className="relative mx-auto w-full max-w-[460px]">
+            <GridDisc className="absolute -right-6 -top-8 h-24 w-24 sm:h-28 sm:w-28" />
+            <PlusMark className="absolute -left-8 top-6 h-6 w-6 text-paper-light/60" />
+            <div className="relative aspect-[42/34] overflow-hidden rounded-[4px]">
+              <Image src="/art/cats.webp" alt="" fill loading="lazy" sizes="460px" className="object-cover" />
+            </div>
+            <div className="relative -mt-10 ml-auto mr-[-1rem] aspect-[295/250] w-40 overflow-hidden rounded-[4px] border-4 border-ink sm:w-48">
+              <Image src="/art/stupa.webp" alt="" fill loading="lazy" sizes="192px" className="object-cover" />
+            </div>
           </div>
         </div>
       </div>
