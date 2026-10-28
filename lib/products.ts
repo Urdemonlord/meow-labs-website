@@ -1,9 +1,19 @@
 // Produk milik Meow Labs yang dipromosikan di website: halaman /produk,
 // section produk di homepage, dan kolom footer. Deskripsi TOEFL, GenCV, dan
 // meowlabs ai disamakan dengan katalog produk di repo meowlabs-academy; MeowPloy
-// dari SITE_DESCRIPTION di repo meowploy.
+// dari SITE_DESCRIPTION di repo meowploy; Workspace dari metadata repo
+// meowlabs-ai-workspace; Clipper dari README repo meowlabs-clipper.
 
-export type ProductIconName = "Store" | "Rocket" | "Sparkles" | "School" | "GraduationCap" | "BookOpen" | "FileText"
+export type ProductIconName =
+  | "Store"
+  | "Rocket"
+  | "Sparkles"
+  | "LayoutGrid"
+  | "Scissors"
+  | "School"
+  | "GraduationCap"
+  | "BookOpen"
+  | "FileText"
 
 export type ProductCategory = "bisnis" | "karier"
 
@@ -75,6 +85,36 @@ export const products: Product[] = [
     },
     en: {
       tagline: "Ideas into apps",
+    },
+  },
+  {
+    slug: "workspace",
+    name: "MeowLabs Workspace",
+    url: "https://chat.meowlabs.id/",
+    icon: "LayoutGrid",
+    category: "bisnis",
+    id: {
+      tagline: "Riset & analisis dengan AI",
+      description:
+        "Workspace AI untuk chat, riset dengan sumber, analisis pasar dan kompetitor, ringkasan berita, serta pelacakan sinyal dalam satu tempat.",
+    },
+    en: {
+      tagline: "AI research & analysis",
+    },
+  },
+  {
+    slug: "clipper",
+    name: "Clipper",
+    url: "https://clipper.meowlabs.id/",
+    icon: "Scissors",
+    category: "bisnis",
+    id: {
+      tagline: "Clip dari video & YouTube",
+      description:
+        "Bikin clip dari video lokal atau YouTube dengan alur transcript-first: ambil transkrip, dapatkan saran potongan, lalu potong clip final per rentang waktu.",
+    },
+    en: {
+      tagline: "Clips from video & YouTube",
     },
   },
   {

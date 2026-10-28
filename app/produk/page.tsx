@@ -12,7 +12,7 @@ import { buildWhatsAppUrl } from "@/lib/whatsapp"
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://meowlabs.id"
 
 const description =
-  "Produk buatan Meow Labs: MeowLabs POS untuk kasir dan QRIS, MeowPloy untuk deploy aplikasi, meowlabs ai, MeowLabs Academy, SidangAI, TOEFL MeowLabs, dan GenCV."
+  "Produk buatan Meow Labs: MeowLabs POS, MeowPloy, meowlabs ai, MeowLabs Workspace, Clipper, MeowLabs Academy, SidangAI, TOEFL MeowLabs, dan GenCV."
 
 export const metadata: Metadata = {
   title: "Produk MeowLabs: POS, MeowPloy, Academy, SidangAI & lainnya | Meow Labs",
