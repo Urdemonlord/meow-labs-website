@@ -32,7 +32,7 @@ export function ProductsSection() {
           </p>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {products.map((product) => {
             const copy = isEn ? product.en : product.id
             const external = isExternalProduct(product)

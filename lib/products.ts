@@ -1,8 +1,9 @@
 // Produk milik Meow Labs yang dipromosikan di website: halaman /produk,
 // section produk di homepage, dan kolom footer. Deskripsi TOEFL, GenCV, dan
-// meowlabs ai disamakan dengan katalog produk di repo meowlabs-academy.
+// meowlabs ai disamakan dengan katalog produk di repo meowlabs-academy; MeowPloy
+// dari SITE_DESCRIPTION di repo meowploy.
 
-export type ProductIconName = "Store" | "Sparkles" | "GraduationCap" | "BookOpen" | "FileText"
+export type ProductIconName = "Store" | "Rocket" | "Sparkles" | "School" | "GraduationCap" | "BookOpen" | "FileText"
 
 export type ProductCategory = "bisnis" | "karier"
 
@@ -48,6 +49,21 @@ export const products: Product[] = [
     },
   },
   {
+    slug: "meowploy",
+    name: "MeowPloy",
+    url: "https://meowploy.meowlabs.id/",
+    icon: "Rocket",
+    category: "bisnis",
+    id: {
+      tagline: "Deploy tanpa ribet VPS",
+      description:
+        "Deploy aplikasi tanpa ribet VPS. MeowPloy mendeteksi framework otomatis, menerjemahkan error build, dan menerbitkan situsmu dalam hitungan menit.",
+    },
+    en: {
+      tagline: "Deploy without VPS hassle",
+    },
+  },
+  {
     slug: "meowlabs-ai",
     name: "meowlabs ai",
     url: "https://ai.meowlabs.id/",
@@ -59,6 +75,20 @@ export const products: Product[] = [
     },
     en: {
       tagline: "Ideas into apps",
+    },
+  },
+  {
+    slug: "academy",
+    name: "MeowLabs Academy",
+    url: "https://academy.meowlabs.id/",
+    icon: "School",
+    category: "karier",
+    id: {
+      tagline: "Learn · Build · Ship",
+      description: "Platform belajar teknologi dari Meow Labs: kursus, dokumentasi, dan proyek nyata.",
+    },
+    en: {
+      tagline: "Learn · Build · Ship",
     },
   },
   {
