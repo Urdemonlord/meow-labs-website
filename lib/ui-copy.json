@@ -179,7 +179,7 @@
         { "label": "Website Personal Branding", "href": "/#services" },
         { "label": "POS / Aplikasi Bisnis", "href": "/pos" },
         { "label": "Aplikasi AI/ML Custom", "href": "/layanan/aplikasi-web" },
-        { "label": "Website Sekolah/Yayasan", "href": "/#services" }
+        { "label": "Website Sekolah/Yayasan", "href": "/layanan/website-sekolah" }
       ],
       "companyTitle": "Perusahaan",
       "testimonialsLabel": "Testimoni",
@@ -393,7 +393,7 @@
         { "label": "Personal Branding Website", "href": "/#services" },
         { "label": "POS / Business App", "href": "/pos" },
         { "label": "Custom AI/ML App", "href": "/layanan/aplikasi-web" },
-        { "label": "School/Foundation Website", "href": "/#services" }
+        { "label": "School/Foundation Website", "href": "/layanan/website-sekolah" }
       ],
       "companyTitle": "Company",
       "testimonialsLabel": "Testimonials",

@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next"
+import { servicesWithPage } from "@/lib/services-data"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://meowlabs.id"
@@ -10,30 +11,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1,
     },
-    {
-      url: `${baseUrl}/layanan/aplikasi-web`,
+    ...servicesWithPage.map((service) => ({
+      url: `${baseUrl}/layanan/${service.slug}`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
+      changeFrequency: "monthly" as const,
       priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/layanan/landing-page`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/layanan/toko-online`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/layanan/company-profile`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
+    })),
     {
       url: `${baseUrl}/resources`,
       lastModified: new Date(),

@@ -285,10 +285,41 @@ export const services: ServiceData[] = [
       priceRange: "From Rp3,000,000 - Rp8,000,000",
       timeframe: "7-14 working days",
       targetAudience: "Media teams, communities, and organizations"
+    },
+    page: {
+      h1: "Jasa Pembuatan Website Portal Berita di Semarang",
+      metaTitle: "Jasa Pembuatan Website Portal Berita & Media Online | Meow Labs",
+      metaDescription: "Jasa pembuatan website portal berita dan media online mulai Rp3 juta. CMS dengan editor, akses multi-penulis, kategori dan tag, pencarian arsip, dan integrasi analytics.",
+      keywords: [
+        "jasa pembuatan portal berita",
+        "website berita online",
+        "website media online",
+        "website portal berita semarang",
+        "cms berita",
+        "website multi author"
+      ],
+      intro: [
+        "Media online, komunitas, dan humas instansi membutuhkan lebih dari blog biasa: banyak penulis, alur editorial yang jelas, kategori yang rapi, dan halaman yang tetap cepat saat arsip artikel terus bertambah.",
+        "Meow Labs membangun portal berita dengan CMS yang nyaman untuk redaksi, akses penulis berbasis peran, kategori dan tag, pencarian arsip, tombol berbagi ke media sosial, serta analytics untuk memantau artikel yang paling banyak dibaca."
+      ],
+      faqs: [
+        {
+          question: "Berapa biaya website portal berita?",
+          answer: "Mulai Rp3 juta hingga sekitar Rp8 juta, tergantung jumlah rubrik, peran pengguna, dan kebutuhan tambahan seperti slot iklan atau integrasi khusus."
+        },
+        {
+          question: "Apakah bisa dipakai banyak penulis dan editor?",
+          answer: "Bisa. Setiap pengguna mendapat akses sesuai perannya, misalnya penulis menyiapkan draf dan editor yang menerbitkan artikel."
+        },
+        {
+          question: "Apakah cocok untuk humas instansi atau kampus?",
+          answer: "Cocok. Struktur portal berita bisa dipakai sebagai kanal berita resmi instansi, kampus, atau organisasi yang rutin menerbitkan rilis dan liputan kegiatan."
+        }
+      ]
     }
   },
   {
-    slug: "sekolah-yayasan",
+    slug: "website-sekolah",
     icon: "Shield",
     color: "secondary",
     id: {
@@ -348,6 +379,37 @@ export const services: ServiceData[] = [
       priceRange: "From Rp2,500,000 - Rp7,000,000",
       timeframe: "7-14 working days",
       targetAudience: "Schools, training centers, and foundations"
+    },
+    page: {
+      h1: "Jasa Pembuatan Website Sekolah dan Yayasan di Semarang",
+      metaTitle: "Jasa Pembuatan Website Sekolah & Yayasan di Semarang | Meow Labs",
+      metaDescription: "Jasa pembuatan website sekolah dan yayasan di Semarang mulai Rp2,5 juta. Profil institusi, berita dan pengumuman, galeri prestasi, hingga form pendaftaran siswa baru online.",
+      keywords: [
+        "website sekolah semarang",
+        "jasa pembuatan website sekolah",
+        "website yayasan",
+        "website pendaftaran siswa baru",
+        "website madrasah",
+        "website profil sekolah"
+      ],
+      intro: [
+        "Orang tua calon siswa kini mencari informasi sekolah lewat Google sebelum datang langsung. Website sekolah yang rapi menjadi sumber resmi untuk profil, program, prestasi, pengumuman, dan informasi pendaftaran, sehingga pertanyaan yang sama tidak perlu dijawab berulang kali lewat chat.",
+        "Meow Labs membangun website untuk sekolah, madrasah, dan yayasan dengan konten yang bisa diperbarui sendiri. Berita, pengumuman, dan galeri kegiatan bisa ditambahkan operator sekolah, dan pendaftaran siswa baru bisa dibuka lewat form online."
+      ],
+      faqs: [
+        {
+          question: "Berapa biaya website sekolah?",
+          answer: "Mulai Rp2,5 juta hingga sekitar Rp7 juta, tergantung jumlah halaman, kebutuhan pendaftaran online, dan fitur tambahan seperti kalender kegiatan."
+        },
+        {
+          question: "Apakah operator sekolah bisa mengunggah berita dan pengumuman sendiri?",
+          answer: "Bisa. Kami siapkan panel pengelolaan konten beserta panduan penggunaan agar operator bisa menambah berita, pengumuman, dan galeri tanpa bantuan developer."
+        },
+        {
+          question: "Apakah bisa memakai domain .sch.id atau .or.id?",
+          answer: "Bisa. Domain .sch.id khusus untuk sekolah dan .or.id untuk organisasi atau yayasan, dan keduanya memerlukan dokumen resmi institusi. Admin kami akan memandu persyaratannya saat konsultasi."
+        }
+      ]
     }
   },
   {
