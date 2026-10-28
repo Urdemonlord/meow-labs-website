@@ -8,7 +8,8 @@ import { ProcessSection } from "@/components/process-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
 import { clientLogos } from "@/lib/client-logos"
-import { servicesWithPage } from "@/lib/services-data"
+import { servicesWithPage } from "@/lib/service-pages"
+import { sharedOpenGraph } from "@/lib/seo"
 import { buildWhatsAppUrl } from "@/lib/whatsapp"
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://meowlabs.id"
@@ -30,10 +31,10 @@ export const metadata: Metadata = {
     "programmer website semarang",
   ],
   openGraph: {
+    ...sharedOpenGraph,
     title: "Jasa Pembuatan Website Semarang | Meow Labs",
     description,
     url: "/jasa-pembuatan-website-semarang",
-    type: "website",
   },
 }
 

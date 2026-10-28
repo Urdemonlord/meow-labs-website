@@ -35,8 +35,8 @@
           "label": "Website Online"
         },
         {
-          "value": "3-5 hari",
-          "label": "Estimasi Tayang"
+          "value": "3 hari",
+          "label": "Tayang Paling Cepat"
         },
         {
           "value": "<2h",
@@ -249,8 +249,8 @@
           "label": "Websites Launched"
         },
         {
-          "value": "3-5 days",
-          "label": "Time to Launch"
+          "value": "3 days",
+          "label": "Fastest Launch"
         },
         {
           "value": "<2h",

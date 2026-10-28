@@ -4,13 +4,13 @@ import { Navigation } from "@/components/navigation"
 import { ProcessSection } from "@/components/process-section"
 import { Footer } from "@/components/footer"
 import { buildWhatsAppUrl } from "@/lib/whatsapp"
-import { servicesWithPage } from "@/lib/services-data"
-import type { ServiceData, ServicePageContent } from "@/lib/services-data"
+import { servicesWithPage } from "@/lib/service-pages"
+import type { ServiceWithPage } from "@/lib/service-pages"
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://meowlabs.id"
 
 interface ServicePageProps {
-  service: ServiceData & { page: ServicePageContent }
+  service: ServiceWithPage
 }
 
 // Halaman layanan dirender di server agar seluruh isinya terbaca mesin

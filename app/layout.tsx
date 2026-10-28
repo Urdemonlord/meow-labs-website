@@ -7,6 +7,7 @@ import { Suspense } from "react"
 import "./globals.css"
 import ClientComponents from "../components/client-components"
 import { UiPreferencesProvider } from "../components/ui-preferences-provider"
+import { sharedOpenGraph } from "@/lib/seo"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -72,21 +73,11 @@ export const metadata: Metadata = {
   publisher: "Meow Labs",
   robots: "index, follow",
   openGraph: {
-    type: "website",
-    locale: "id_ID",
+    ...sharedOpenGraph,
     url: siteUrl,
-    siteName: "Meow Labs - Jasa Website Semarang",
     title: "Jasa Pembuatan Website Murah untuk UMKM & Personal",
     description:
       "Meow Labs melayani jasa pembuatan website murah untuk UMKM, kafe, hingga personal branding di Semarang. Website responsive & mobile-friendly mulai Rp500 ribu saja!",
-    images: [
-      {
-        url: "/images/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Meow Labs - Jasa Website Semarang",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",

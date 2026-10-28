@@ -22,7 +22,7 @@ const serviceIcons: Record<ServiceIconName, LucideIcon> = {
 interface ServiceFeature extends ServiceContent {
   icon: LucideIcon
   color: ServiceData["color"]
-  href?: string
+  href: string
 }
 
 export function ServicesSection() {
@@ -37,7 +37,7 @@ export function ServicesSection() {
         ...(isEn ? service.en : service.id),
         icon: serviceIcons[service.icon],
         color: service.color,
-        href: service.page ? `/layanan/${service.slug}` : undefined,
+        href: `/layanan/${service.slug}`,
       })),
     [isEn]
   )
@@ -257,15 +257,9 @@ export function ServicesSection() {
                   >
                     {isEn ? "Consult via WhatsApp" : "Konsultasi via WhatsApp"}
                   </Button>
-                  {selectedService.href ? (
-                    <Button asChild variant="outline" size="lg" className="w-full">
-                      <Link href={selectedService.href}>{isEn ? "View service page" : "Lihat halaman layanan"}</Link>
-                    </Button>
-                  ) : (
-                    <Button variant="outline" size="lg" className="w-full" onClick={handleCloseModal}>
-                      {isEn ? "Close" : "Tutup"}
-                    </Button>
-                  )}
+                  <Button asChild variant="outline" size="lg" className="w-full">
+                    <Link href={selectedService.href}>{isEn ? "View service page" : "Lihat halaman layanan"}</Link>
+                  </Button>
                 </div>
               </div>
             </div>

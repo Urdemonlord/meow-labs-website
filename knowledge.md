@@ -35,7 +35,7 @@ Harga di bawah adalah titik mulai. Scope final dan harga pasti dibahas saat kons
 - CTA WhatsApp dan kontak bisnis
 - Setup domain dan publish awal
 
-### 2. Growth Website (paling banyak dipilih)
+### 2. Growth Website
 
 **Harga:** Mulai Rp1,5 juta
 **Waktu Pengerjaan:** 7-14 hari kerja
