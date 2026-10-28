@@ -15,7 +15,7 @@ export function BrandLogo({ tone = "ink", size = 32, className = "", preload = f
   return (
     <span className={`inline-flex items-center gap-2.5 ${tone === "ink" ? "text-ink" : "text-paper-light"} ${className}`}>
       <Image
-        src={tone === "ink" ? "/brand/meowlabs-mark-ink.png" : "/brand/meowlabs-mark-paper.png"}
+        src={tone === "ink" ? "/brand/meowlabs-mark-ink.webp" : "/brand/meowlabs-mark-paper.webp"}
         alt=""
         width={size}
         height={size}

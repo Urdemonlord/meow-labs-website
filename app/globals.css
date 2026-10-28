@@ -200,6 +200,161 @@ html {
   text-transform: uppercase;
 }
 
+/* Ornamen disk dan ubin bergaris (components/ornaments.tsx). Garis dibuat
+   dengan gradient pada posisi persis, tanpa garis di tepi, menggantikan SVG
+   berisi belasan <line>. */
+.ml-grid-disc {
+  border-radius: 9999px;
+  background-color: var(--vermilion);
+  --ml-line: rgb(250 248 242 / 0.45);
+  background-image:
+    linear-gradient(to right, transparent calc(20% - 0.5px), var(--ml-line) 0 calc(20% + 0.5px), transparent 0 calc(40% - 0.5px), var(--ml-line) 0 calc(40% + 0.5px), transparent 0 calc(60% - 0.5px), var(--ml-line) 0 calc(60% + 0.5px), transparent 0 calc(80% - 0.5px), var(--ml-line) 0 calc(80% + 0.5px), transparent 0),
+    linear-gradient(to bottom, transparent calc(20% - 0.5px), var(--ml-line) 0 calc(20% + 0.5px), transparent 0 calc(40% - 0.5px), var(--ml-line) 0 calc(40% + 0.5px), transparent 0 calc(60% - 0.5px), var(--ml-line) 0 calc(60% + 0.5px), transparent 0 calc(80% - 0.5px), var(--ml-line) 0 calc(80% + 0.5px), transparent 0);
+}
+.ml-grid-tile {
+  background-color: var(--cobalt);
+  --ml-line: rgb(250 248 242 / 0.35);
+  --ml-tile-lines: transparent calc(12.5% - 0.5px), var(--ml-line) 0 calc(12.5% + 0.5px), transparent 0 calc(25% - 0.5px),
+    var(--ml-line) 0 calc(25% + 0.5px), transparent 0 calc(37.5% - 0.5px), var(--ml-line) 0 calc(37.5% + 0.5px),
+    transparent 0 calc(50% - 0.5px), var(--ml-line) 0 calc(50% + 0.5px), transparent 0 calc(62.5% - 0.5px),
+    var(--ml-line) 0 calc(62.5% + 0.5px), transparent 0 calc(75% - 0.5px), var(--ml-line) 0 calc(75% + 0.5px),
+    transparent 0 calc(87.5% - 0.5px), var(--ml-line) 0 calc(87.5% + 0.5px), transparent 0;
+  background-image: linear-gradient(to right, var(--ml-tile-lines)), linear-gradient(to bottom, var(--ml-tile-lines));
+}
+
+/* Animasi. Hanya transform dan opacity agar dijalankan compositor (GPU)
+   tanpa membebani main thread, dan semuanya mati untuk pengguna yang
+   memilih "kurangi gerakan". Reveal saat scroll memakai scroll-driven
+   animation CSS (tanpa JavaScript); browser yang belum mendukungnya
+   langsung menampilkan konten tanpa animasi. */
+@keyframes ml-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+/* Hanya bergeser, tanpa fade: untuk judul dan paragraf pembuka yang biasanya
+   menjadi elemen LCP. Elemen dengan opacity 0 belum dihitung tampil oleh
+   browser, jadi fade di elemen ini akan memperlambat LCP. */
+@keyframes ml-lift {
+  from {
+    transform: translateY(14px);
+  }
+}
+@keyframes ml-settle {
+  from {
+    transform: scale(1.045);
+  }
+}
+@keyframes ml-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+}
+@keyframes ml-grow-y {
+  from {
+    transform: scaleY(0);
+  }
+}
+@keyframes ml-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes ml-float {
+  50% {
+    transform: translateY(-8px);
+  }
+}
+@keyframes ml-pulse {
+  50% {
+    transform: scale(1.12);
+    opacity: 0.55;
+  }
+}
+@keyframes ml-blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+@keyframes ml-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ml-rise {
+    animation: ml-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+    animation-delay: var(--ml-delay, 0ms);
+  }
+  .ml-lift {
+    animation: ml-lift 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+    animation-delay: var(--ml-delay, 0ms);
+  }
+  .ml-settle {
+    animation: ml-settle 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  }
+  .ml-spin-slow {
+    animation: ml-spin 60s linear infinite;
+  }
+  .ml-float {
+    animation: ml-float 6s ease-in-out infinite;
+  }
+  .ml-pop {
+    animation: ml-pop 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.3) 0.6s backwards;
+  }
+  /* Elemen SVG berputar/berdenyut di sekitar pusatnya sendiri. */
+  .ml-svg-pulse,
+  .ml-svg-spin,
+  .ml-grow-y {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  .ml-svg-pulse {
+    animation: ml-pulse 3.2s ease-in-out infinite;
+  }
+  .ml-svg-spin {
+    animation: ml-spin 14s linear infinite;
+  }
+  .ml-blink {
+    animation: ml-blink 2.4s steps(2, jump-none) infinite;
+  }
+
+  @supports (animation-timeline: view()) {
+    .ml-reveal {
+      animation: ml-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+    }
+    .ml-grow-y {
+      transform-origin: bottom;
+      animation: ml-grow-y linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 40%;
+    }
+  }
+}
+
+/* Garis bawah tautan navigasi yang memanjang saat hover/fokus. */
+.ml-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0 1px;
+}
+.ml-underline:hover,
+.ml-underline:focus-visible {
+  background-size: 100% 1px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .ml-underline {
+    transition: background-size 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+}
+
 /* Tipografi isi artikel dan halaman legal. */
 .ml-prose {
   color: var(--ink);

@@ -45,7 +45,7 @@ export default function NotFound() {
           </div>
 
           <nav aria-label="Navigasi cepat" className="lg:col-span-4 lg:col-start-9">
-            <Image src="/art/mascot-box.webp" alt="" width={290} height={238} className="mb-10 h-auto w-[220px]" />
+            <Image src="/art/mascot-box.webp" alt="" width={290} height={238} className="ml-float mb-10 h-auto w-[220px]" />
             <p className="ml-eyebrow text-ink-muted">Navigasi cepat</p>
             <ul className="mt-5 border-t border-ink">
               {quickLinks.map((link) => (

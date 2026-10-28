@@ -5,7 +5,7 @@ export function HomeClients() {
   return (
     <section id="klien" className="border-b border-rule">
       <div className="ml-container ml-section grid gap-12 lg:grid-cols-12">
-        <div className="lg:col-span-4">
+        <div className="ml-reveal lg:col-span-4">
           <p className="ml-eyebrow text-ink-muted">06 // Klien</p>
           <h2 className="mt-5 font-display text-[clamp(2.25rem,4.5vw,3.5rem)] leading-[1] text-ink">
             Dipercaya UMKM, institusi, dan perusahaan.
@@ -23,7 +23,7 @@ export function HomeClients() {
           </div>
           <p className="ml-eyebrow mt-3 text-ink-muted">Semarang → Indonesia</p>
         </div>
-        <ul className="grid grid-cols-2 self-start border-l border-t border-rule sm:grid-cols-4 lg:col-span-8">
+        <ul className="ml-reveal grid grid-cols-2 self-start border-l border-t border-rule sm:grid-cols-4 lg:col-span-8">
           {clientLogos.map((client) => (
             <li
               key={client.name}
@@ -35,7 +35,7 @@ export function HomeClients() {
                 width={120}
                 height={60}
                 loading="lazy"
-                className="max-h-14 w-auto object-contain opacity-80 grayscale transition hover:opacity-100 hover:grayscale-0"
+                className="max-h-14 w-auto max-w-full object-contain opacity-80 grayscale transition hover:opacity-100 hover:grayscale-0"
               />
             </li>
           ))}

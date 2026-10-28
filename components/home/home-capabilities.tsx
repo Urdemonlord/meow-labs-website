@@ -48,7 +48,7 @@ export function HomeCapabilities() {
   return (
     <section id="layanan" className="border-b border-rule">
       <div className="ml-container ml-section">
-        <div className="grid gap-6 lg:grid-cols-12">
+        <div className="ml-reveal grid gap-6 lg:grid-cols-12">
           <p className="ml-eyebrow text-ink-muted lg:col-span-4">03 // Apa yang kami bangun</p>
           <h2 className="font-display text-[clamp(2.25rem,4.5vw,3.5rem)] leading-[1] text-ink lg:col-span-8">
             Dari website pertama sampai sistem yang menjalankan operasional.
@@ -59,9 +59,9 @@ export function HomeCapabilities() {
           {capabilities.map((capability, index) => (
             <article
               key={capability.title}
-              className="flex flex-col border-b border-rule py-8 sm:px-6 sm:[&:nth-child(odd)]:pl-0 lg:border-b-0 lg:border-r lg:last:border-r-0 lg:[&:nth-child(odd)]:pl-6 lg:first:pl-0"
+              className="group ml-reveal flex flex-col border-b border-rule py-8 sm:px-6 sm:[&:nth-child(odd)]:pl-0 lg:border-b-0 lg:border-r lg:last:border-r-0 lg:[&:nth-child(odd)]:pl-6 lg:first:pl-0"
             >
-              <div className="mb-6 aspect-[4/3] overflow-hidden rounded-[4px] border border-rule">
+              <div className="mb-6 aspect-[4/3] overflow-hidden rounded-[4px] border border-rule transition-transform duration-500 ease-out group-hover:-translate-y-1">
                 <capability.Diagram />
               </div>
               <span className="ml-eyebrow text-ink-muted">{String(index + 1).padStart(2, "0")}</span>

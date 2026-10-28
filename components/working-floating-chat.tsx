@@ -1,10 +1,17 @@
 "use client"
 
 import Image from "next/image"
+import dynamic from "next/dynamic"
 import { useEffect, useRef, useState } from "react"
 import { MessageSquare, X } from "lucide-react"
-import { WorkingChatInterface } from "./working-chat-interface"
 import { useUiText } from "./ui-preferences-provider"
+
+// Isi chat (riwayat, pengiriman pesan) baru diunduh saat panel dibuka,
+// jadi halaman yang tidak memakai chat tidak ikut menanggung kodenya.
+const WorkingChatInterface = dynamic(
+  () => import("./working-chat-interface").then((mod) => mod.WorkingChatInterface),
+  { ssr: false, loading: () => <div className="h-full animate-pulse bg-paper-light" /> },
+)
 
 export function WorkingFloatingChat() {
   const [isOpen, setIsOpen] = useState(false)
@@ -32,12 +39,12 @@ export function WorkingFloatingChat() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="relative h-14 w-14 rounded-full border border-ink bg-ink shadow-[0_18px_45px_rgba(0,0,0,0.35)] transition-transform hover:scale-105"
+          className="ml-pop relative h-14 w-14 rounded-full border border-ink bg-ink shadow-[0_18px_45px_rgba(0,0,0,0.35)] transition-transform hover:scale-105"
           aria-label={copy.chat.open}
         >
           {/* Wajah maskot sebagai tombol chat; badge kecil menandakan fungsinya. */}
           <span className="absolute inset-0 overflow-hidden rounded-full">
-            <Image src="/art/mascot-head.webp" alt="" width={214} height={256} className="h-full w-full scale-125 object-cover object-top" />
+            <Image src="/art/mascot-avatar.webp" alt="" width={128} height={128} className="h-full w-full scale-125 object-cover object-top" />
           </span>
           <span className="absolute -right-1 -top-1 flex h-6 w-6 items-center justify-center rounded-full border-2 border-paper bg-vermilion text-ink">
             <MessageSquare className="h-3 w-3" />

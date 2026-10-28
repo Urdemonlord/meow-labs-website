@@ -7,7 +7,7 @@ export function HomeCta() {
   return (
     <section className="bg-ink text-paper-light">
       <div className="ml-container ml-section grid items-center gap-12 lg:grid-cols-12">
-        <div className="lg:col-span-7">
+        <div className="ml-reveal lg:col-span-7">
           <p className="ml-eyebrow text-dark-muted">08 // Kolaborasi</p>
           <h2 className="mt-6 font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[0.98]">
             Mari membangun sesuatu bersama.
@@ -37,7 +37,7 @@ export function HomeCta() {
         <div className="relative lg:col-span-5">
           {/* Maskot ditampilkan seukuran aslinya (326px) agar tidak buram. */}
           <div className="relative mx-auto w-full max-w-[326px]">
-            <GridDisc className="absolute -right-2 -top-10 h-20 w-20 sm:-right-10 sm:-top-12 sm:h-28 sm:w-28" />
+            <GridDisc className="ml-spin-slow absolute -right-2 -top-10 h-20 w-20 sm:-right-10 sm:-top-12 sm:h-28 sm:w-28" />
             <PlusMark className="absolute left-0 top-2 h-6 w-6 text-paper-light/60 sm:-left-10 sm:top-6" />
             <Image
               src="/art/mascot-laptop.webp"
@@ -45,7 +45,7 @@ export function HomeCta() {
               width={326}
               height={250}
               loading="lazy"
-              className="relative h-auto w-full"
+              className="ml-float relative h-auto w-full"
             />
           </div>
         </div>

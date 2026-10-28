@@ -13,7 +13,7 @@ export function PricingSection() {
       <div className="ml-container ml-section">
         <SectionHeading eyebrow="// Paket" title={copy.title} description={copy.description} />
 
-        <div className="mt-14 grid gap-px overflow-hidden rounded-[4px] border border-ink bg-ink lg:grid-cols-3">
+        <div className="ml-reveal mt-14 grid gap-px overflow-hidden rounded-[4px] border border-ink bg-ink lg:grid-cols-3">
           {copy.packages.map((pkg, index) => {
             const isHighlighted = index === 1
             return (

@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, useSyncExternalStore } from "react"
 import { SendHorizonal } from "lucide-react"
 import { useUiText } from "./ui-preferences-provider"
 
@@ -14,10 +14,21 @@ type Message = {
 
 const STORAGE_KEY = "meow-chat-history"
 
+// Jam pesan bergantung pada zona waktu pengguna, jadi baru dirender di browser.
+// Kalau dirender di server (UTC), teksnya berbeda dan memicu hydration mismatch.
+const subscribeNoop = () => () => {}
+const useIsClient = () =>
+  useSyncExternalStore(
+    subscribeNoop,
+    () => true,
+    () => false,
+  )
+
 // autoFocusInput dimatikan saat chat ditanam di halaman (/chatbot) agar fokus
 // otomatis tidak menggulir halaman ke bawah.
 export function WorkingChatInterface({ autoFocusInput = true }: { autoFocusInput?: boolean }) {
   const copy = useUiText()
+  const isClient = useIsClient()
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
@@ -178,9 +189,9 @@ export function WorkingChatInterface({ autoFocusInput = true }: { autoFocusInput
       <div className="border-b border-border bg-gradient-to-r from-background to-card px-4 py-3">
         <div className="flex items-center gap-3">
           <span className="h-8 w-8 shrink-0 overflow-hidden rounded-full bg-ink">
-            <Image src="/art/mascot-head.webp" alt="" width={214} height={256} className="h-full w-full scale-125 object-cover object-top" />
+            <Image src="/art/mascot-avatar.webp" alt="" width={128} height={128} className="h-full w-full scale-125 object-cover object-top" />
           </span>
-          <h3 className="text-sm font-semibold text-foreground">{copy.chat.title}</h3>
+          <p className="text-sm font-semibold text-foreground">{copy.chat.title}</p>
         </div>
         <p className="mt-1 text-xs text-muted-foreground">{copy.chat.subtitle}</p>
       </div>
@@ -205,7 +216,7 @@ export function WorkingChatInterface({ autoFocusInput = true }: { autoFocusInput
                     message.type === "user" ? "text-primary-foreground/75" : "text-muted-foreground"
                   }`}
                 >
-                  {formatTime(message.timestamp)}
+                  {isClient ? formatTime(message.timestamp) : "\u00a0"}
                 </p>
               </div>
             </div>

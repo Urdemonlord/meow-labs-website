@@ -36,15 +36,15 @@ export function ArticleLayout({ postId, title, cta, structuredData, children }: 
                 Catatan
               </Link>
             </nav>
-            <p className="ml-eyebrow flex flex-wrap gap-x-4 gap-y-1 text-ink-muted">
+            <p className="ml-eyebrow ml-rise flex flex-wrap gap-x-4 gap-y-1 text-ink-muted">
               <span>Catatan {String(postId).padStart(3, "0")}</span>
               {post && <span className="text-forest">{post.category}</span>}
             </p>
-            <h1 className="mt-6 max-w-4xl text-balance font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-[1] tracking-tight text-ink">
+            <h1 className="ml-lift mt-6 max-w-4xl text-balance font-display [--ml-delay:80ms] text-[clamp(2.5rem,6vw,4.5rem)] leading-[1] tracking-tight text-ink">
               {title}
             </h1>
             {post && (
-              <dl className="ml-eyebrow mt-10 flex flex-wrap gap-x-10 gap-y-3 border-t border-ink pt-5 text-ink-muted">
+              <dl className="ml-eyebrow ml-rise mt-10 flex [--ml-delay:160ms] flex-wrap gap-x-10 gap-y-3 border-t border-ink pt-5 text-ink-muted">
                 <div className="flex gap-2">
                   <dt>Ditulis</dt>
                   <dd className="text-ink">Tim Meow Labs</dd>
