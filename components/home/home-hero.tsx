@@ -54,7 +54,7 @@ export function HomeHero() {
         <div className="lg:col-span-6">
           <p className="ml-eyebrow text-ink-muted">01 // Studio teknologi independen</p>
           <h1 className="mt-6 font-display text-[clamp(2.75rem,6.4vw,5.25rem)] leading-[0.95] tracking-tight text-ink">
-            Kami membangun teknologi untuk Indonesia yang <em className="text-forest">lebih mungkin.</em>
+            Kami membangun teknologi untuk Indonesia yang <em className="text-forest">lebih maju.</em>
           </h1>
           <p className="mt-7 max-w-md text-pretty text-lg leading-relaxed text-ink-muted">
             Website, aplikasi, dan sistem AI untuk bisnis dan institusi, dikerjakan dari Semarang. Website UMKM mulai
