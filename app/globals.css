@@ -200,26 +200,17 @@ html {
   text-transform: uppercase;
 }
 
-/* Ornamen disk dan ubin bergaris (components/ornaments.tsx). Garis dibuat
-   dengan gradient pada posisi persis, tanpa garis di tepi, menggantikan SVG
-   berisi belasan <line>. */
+/* Ornamen disk dan ubin bergaris (components/ornaments.tsx). Grid berupa
+   SVG di dalam background-image: tampilannya sama persis dengan SVG lama
+   (stroke 0,6 pada viewBox 100, di-anti-alias), tapi tanpa elemen DOM dan
+   tanpa ID. Latar ikut terpotong border-radius, jadi grid disk berhenti di
+   tepi lingkaran. */
 .ml-grid-disc {
   border-radius: 9999px;
-  background-color: var(--vermilion);
-  --ml-line: rgb(250 248 242 / 0.45);
-  background-image:
-    linear-gradient(to right, transparent calc(20% - 0.5px), var(--ml-line) 0 calc(20% + 0.5px), transparent 0 calc(40% - 0.5px), var(--ml-line) 0 calc(40% + 0.5px), transparent 0 calc(60% - 0.5px), var(--ml-line) 0 calc(60% + 0.5px), transparent 0 calc(80% - 0.5px), var(--ml-line) 0 calc(80% + 0.5px), transparent 0),
-    linear-gradient(to bottom, transparent calc(20% - 0.5px), var(--ml-line) 0 calc(20% + 0.5px), transparent 0 calc(40% - 0.5px), var(--ml-line) 0 calc(40% + 0.5px), transparent 0 calc(60% - 0.5px), var(--ml-line) 0 calc(60% + 0.5px), transparent 0 calc(80% - 0.5px), var(--ml-line) 0 calc(80% + 0.5px), transparent 0);
+  background: var(--vermilion) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M20 0V100M40 0V100M60 0V100M80 0V100M0 20H100M0 40H100M0 60H100M0 80H100' stroke='%23faf8f2' stroke-opacity='0.45' stroke-width='0.6' fill='none'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
 }
 .ml-grid-tile {
-  background-color: var(--cobalt);
-  --ml-line: rgb(250 248 242 / 0.35);
-  --ml-tile-lines: transparent calc(12.5% - 0.5px), var(--ml-line) 0 calc(12.5% + 0.5px), transparent 0 calc(25% - 0.5px),
-    var(--ml-line) 0 calc(25% + 0.5px), transparent 0 calc(37.5% - 0.5px), var(--ml-line) 0 calc(37.5% + 0.5px),
-    transparent 0 calc(50% - 0.5px), var(--ml-line) 0 calc(50% + 0.5px), transparent 0 calc(62.5% - 0.5px),
-    var(--ml-line) 0 calc(62.5% + 0.5px), transparent 0 calc(75% - 0.5px), var(--ml-line) 0 calc(75% + 0.5px),
-    transparent 0 calc(87.5% - 0.5px), var(--ml-line) 0 calc(87.5% + 0.5px), transparent 0;
-  background-image: linear-gradient(to right, var(--ml-tile-lines)), linear-gradient(to bottom, var(--ml-tile-lines));
+  background: var(--cobalt) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M12.5 0V100M25 0V100M37.5 0V100M50 0V100M62.5 0V100M75 0V100M87.5 0V100M0 12.5H100M0 25H100M0 37.5H100M0 50H100M0 62.5H100M0 75H100M0 87.5H100' stroke='%23faf8f2' stroke-opacity='0.35' stroke-width='0.6' fill='none'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
 }
 
 /* Animasi. Hanya transform dan opacity agar dijalankan compositor (GPU)
@@ -338,20 +329,27 @@ html {
   }
 }
 
-/* Garis bawah tautan navigasi yang memanjang saat hover/fokus. */
+/* Garis bawah tautan navigasi yang memanjang saat hover/fokus. Memakai
+   transform scaleX agar dijalankan compositor, bukan repaint per frame. */
 .ml-underline {
-  background-image: linear-gradient(currentColor, currentColor);
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-  background-size: 0 1px;
+  position: relative;
 }
-.ml-underline:hover,
-.ml-underline:focus-visible {
-  background-size: 100% 1px;
+.ml-underline::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.ml-underline:hover::after,
+.ml-underline:focus-visible::after {
+  transform: scaleX(1);
 }
 @media (prefers-reduced-motion: no-preference) {
-  .ml-underline {
-    transition: background-size 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+  .ml-underline::after {
+    transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
   }
 }
 

@@ -4,11 +4,10 @@ interface OrnamentProps {
   className?: string
 }
 
-// Disk dan ubin bergaris digambar dengan latar CSS, bukan SVG berisi
-// belasan <line>. Tampilannya sama, tapi DOM dan payload React jauh lebih
-// kecil, sehingga hydration homepage tidak memblokir main thread di HP.
-// Latar otomatis terpotong mengikuti border-radius, jadi grid disk tetap
-// berhenti di tepi lingkaran.
+// Grid disk dan ubin digambar sebagai SVG di background-image (.ml-grid-*
+// di globals.css), bukan SVG inline berisi belasan <line>. Tampilannya sama,
+// tapi DOM dan payload RSC lebih kecil, jadi parsing HTML dan hydration
+// homepage lebih ringan di HP.
 
 export function GridDisc({ className = "" }: OrnamentProps) {
   return <div aria-hidden="true" className={`ml-grid-disc ${className}`} />
