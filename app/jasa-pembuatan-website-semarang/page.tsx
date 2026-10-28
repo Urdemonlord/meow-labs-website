@@ -1,8 +1,9 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
-import { MapPin, MessageCircle } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 import { Navigation } from "@/components/navigation"
+import { buttonPrimary, buttonSecondary, FaqList, PageHeader, SectionHeading } from "@/components/editorial"
 import { PricingSection } from "@/components/pricing-section"
 import { ProcessSection } from "@/components/process-section"
 import { ContactSection } from "@/components/contact-section"
@@ -37,6 +38,10 @@ export const metadata: Metadata = {
     url: "/jasa-pembuatan-website-semarang",
   },
 }
+
+// Halaman ini membidik pencarian jasa website, jadi layanan non-website
+// (integrasi AI) tidak ikut ditampilkan di daftar layanannya.
+const websiteServices = servicesWithPage.filter((service) => service.slug !== "integrasi-ai")
 
 const serviceAreas = ["Kota Semarang", "Kabupaten Semarang & Ungaran", "Kendal", "Demak", "Salatiga", "Grobogan"]
 
@@ -105,116 +110,109 @@ export default function JasaPembuatanWebsiteSemarang() {
   const whatsappHref = buildWhatsAppUrl("Halo admin Meow Labs, saya dari Semarang dan ingin konsultasi pembuatan website.")
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="min-h-screen bg-paper text-ink">
       <Navigation />
 
-      <section className="border-b border-border bg-gradient-to-b from-background via-muted/20 to-background py-16 sm:py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-sm font-medium text-primary">
-            <MapPin className="h-4 w-4" />
-            Tim lokal di Semarang
-          </span>
-          <h1 className="mt-5 max-w-3xl text-balance text-3xl font-bold leading-tight sm:text-5xl">
-            Jasa Pembuatan Website di Semarang
-          </h1>
-          <p className="mt-5 max-w-3xl text-pretty text-base text-muted-foreground sm:text-lg">
-            Meow Labs adalah studio web dan aplikasi yang berbasis di Semarang. Kami membuat website company profile,
-            toko online, landing page, sampai sistem custom untuk UMKM, sekolah, rumah sakit, dan instansi di Jawa
-            Tengah, mulai dari Rp500 ribu.
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href={whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3 font-semibold text-primary-foreground transition-opacity hover:opacity-90"
-            >
-              <MessageCircle className="mr-2 h-4 w-4" />
-              Konsultasi Gratis
-            </a>
-            <a
-              href="#pricing"
-              className="inline-flex items-center justify-center rounded-xl border border-border px-6 py-3 font-semibold transition-colors hover:border-primary hover:text-primary"
-            >
-              Lihat Paket Harga
-            </a>
-          </div>
+      <PageHeader
+        eyebrow="// Tim lokal di Semarang"
+        title="Jasa Pembuatan Website di Semarang"
+        intro="Meow Labs adalah studio web dan aplikasi yang berbasis di Semarang. Kami membuat website company profile, toko online, landing page, sampai sistem custom untuk UMKM, sekolah, rumah sakit, dan instansi di Jawa Tengah, mulai dari Rp500 ribu."
+      >
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className={buttonPrimary}>
+            Konsultasi Gratis
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
+          <a href="#pricing" className={buttonSecondary}>
+            Lihat Paket Harga
+          </a>
         </div>
-      </section>
+      </PageHeader>
 
-      <section className="py-14">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-center text-lg font-semibold text-muted-foreground">
-            Klien yang pernah bekerja sama dengan Meow Labs
-          </h2>
-          <ul className="mt-8 flex flex-wrap items-center justify-center gap-6">
+      <section className="border-b border-rule">
+        <div className="ml-container py-12">
+          <p className="ml-eyebrow text-ink-muted">Klien yang pernah bekerja sama dengan Meow Labs</p>
+          <ul className="mt-6 grid grid-cols-2 border-l border-t border-rule sm:grid-cols-4 lg:grid-cols-8">
             {clientLogos.map((client) => (
               <li
                 key={client.name}
-                className="flex h-20 w-20 items-center justify-center rounded-2xl border border-border bg-card p-4"
+                className="flex aspect-[3/2] items-center justify-center border-b border-r border-rule bg-paper-light p-4"
               >
-                <Image src={client.url} alt={`Logo ${client.name}`} width={64} height={64} className="h-auto max-w-full" />
+                <Image
+                  src={client.url}
+                  alt={`Logo ${client.name}`}
+                  width={96}
+                  height={48}
+                  className="max-h-10 w-auto object-contain opacity-80 grayscale"
+                />
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      <section className="border-t border-border py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold sm:text-3xl">Layanan website untuk bisnis di Semarang</h2>
-          <p className="mt-3 max-w-3xl text-muted-foreground">
-            Pilih titik mulai yang paling sesuai. Setiap layanan punya halaman detail berisi fitur, harga, dan timeline.
-          </p>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {servicesWithPage.map((service) => (
-              <Link
-                key={service.slug}
-                href={`/layanan/${service.slug}`}
-                className="rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary"
-              >
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 className="text-lg font-semibold">{service.id.title}</h3>
-                  <span className="text-sm text-primary">{service.id.priceRange}</span>
-                </div>
-                <p className="mt-2 text-sm text-muted-foreground">{service.id.description}</p>
-              </Link>
+      <section className="border-b border-rule">
+        <div className="ml-container ml-section">
+          <SectionHeading
+            eyebrow="// Layanan"
+            title="Layanan website untuk bisnis di Semarang."
+            description="Pilih titik mulai yang paling sesuai. Setiap layanan punya halaman detail berisi fitur, harga, dan timeline."
+          />
+          <ul className="mt-12 grid border-t border-ink sm:grid-cols-2">
+            {websiteServices.map((service) => (
+              <li key={service.slug} className="border-b border-rule sm:odd:border-r sm:odd:pr-6 sm:even:pl-6">
+                <Link href={`/layanan/${service.slug}`} className="group block py-6">
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <h3 className="text-lg font-medium text-ink group-hover:underline">{service.id.title}</h3>
+                    <span className="ml-eyebrow text-forest">{service.id.priceRange}</span>
+                  </div>
+                  <p className="mt-2 text-sm text-ink-muted">{service.id.description}</p>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
-      <section className="border-t border-border py-16">
-        <div className="container mx-auto grid gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-          <div>
-            <h2 className="text-2xl font-bold sm:text-3xl">Kenapa memilih tim web lokal?</h2>
-            <ul className="mt-6 space-y-4 text-muted-foreground">
-              <li>
-                <span className="font-semibold text-foreground">Paham konteks bisnis lokal.</span> Kami mengerti cara
-                pelanggan di Semarang mencari dan memilih jasa, jadi struktur dan bahasa website disesuaikan dengan
-                mereka.
-              </li>
-              <li>
-                <span className="font-semibold text-foreground">Mudah dihubungi.</span> Admin aktif setiap hari pukul
-                08:00-22:00 WIB dengan respons awal kurang dari 2 jam.
-              </li>
-              <li>
-                <span className="font-semibold text-foreground">Bisa bertemu bila perlu.</span> Untuk proyek yang lebih
-                besar, diskusi tatap muka di Semarang bisa diatur.
-              </li>
+      <section className="border-b border-rule">
+        <div className="ml-container ml-section grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-7">
+            <p className="ml-eyebrow text-ink-muted">{"// Kenapa lokal"}</p>
+            <h2 className="mt-5 font-display text-[clamp(2rem,4vw,3.25rem)] leading-[1] text-ink">
+              Kenapa memilih tim web lokal?
+            </h2>
+            <ul className="mt-8 border-t border-rule">
+              {[
+                {
+                  title: "Paham konteks bisnis lokal.",
+                  body: "Kami mengerti cara pelanggan di Semarang mencari dan memilih jasa, jadi struktur dan bahasa website disesuaikan dengan mereka.",
+                },
+                {
+                  title: "Mudah dihubungi.",
+                  body: "Admin aktif setiap hari pukul 08:00-22:00 WIB dengan respons awal kurang dari 2 jam.",
+                },
+                {
+                  title: "Bisa bertemu bila perlu.",
+                  body: "Untuk proyek yang lebih besar, diskusi tatap muka di Semarang bisa diatur.",
+                },
+              ].map((item) => (
+                <li key={item.title} className="border-b border-rule py-5 text-ink-muted">
+                  <span className="font-medium text-ink">{item.title}</span> {item.body}
+                </li>
+              ))}
             </ul>
           </div>
-          <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
-            <h2 className="text-xl font-bold">Area layanan</h2>
-            <ul className="mt-4 grid grid-cols-2 gap-3">
-              {serviceAreas.map((area) => (
-                <li key={area} className="flex items-center gap-2 text-sm">
-                  <MapPin className="h-4 w-4 shrink-0 text-primary" />
+          <div className="rounded-[4px] bg-ink p-8 text-paper-light lg:col-span-5 sm:p-10">
+            <p className="ml-eyebrow text-dark-muted">{"// Area layanan"}</p>
+            <ul className="mt-6 space-y-3">
+              {serviceAreas.map((area, index) => (
+                <li key={area} className="flex gap-4 border-b border-paper-light/15 pb-3 last:border-b-0">
+                  <span className="ml-eyebrow pt-1 text-dark-muted">{String(index + 1).padStart(2, "0")}</span>
                   {area}
                 </li>
               ))}
             </ul>
-            <p className="mt-4 text-sm text-muted-foreground">Klien dari kota lain dilayani penuh secara online.</p>
+            <p className="mt-6 text-sm text-dark-muted">Klien dari kota lain dilayani penuh secara online.</p>
           </div>
         </div>
       </section>
@@ -222,16 +220,16 @@ export default function JasaPembuatanWebsiteSemarang() {
       <PricingSection />
       <ProcessSection showDurations={false} />
 
-      <section className="py-16">
-        <div className="container mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold sm:text-3xl">Pertanyaan seputar jasa website di Semarang</h2>
-          <div className="mt-6 space-y-3">
-            {localFaqs.map((faq) => (
-              <details key={faq.question} className="rounded-2xl border border-border bg-card p-5">
-                <summary className="cursor-pointer list-none font-semibold marker:hidden">{faq.question}</summary>
-                <p className="mt-3 text-pretty text-muted-foreground">{faq.answer}</p>
-              </details>
-            ))}
+      <section className="border-b border-rule">
+        <div className="ml-container ml-section grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <p className="ml-eyebrow text-ink-muted">{"// FAQ"}</p>
+            <h2 className="mt-5 font-display text-[clamp(2rem,4vw,3.25rem)] leading-[1] text-ink">
+              Pertanyaan seputar jasa website di Semarang.
+            </h2>
+          </div>
+          <div className="lg:col-span-8">
+            <FaqList faqs={localFaqs} />
           </div>
         </div>
       </section>

@@ -1,189 +1,68 @@
-// Produk milik Meow Labs yang dipromosikan di website: halaman /produk,
-// section produk di homepage, dan kolom footer. Deskripsi TOEFL, GenCV, dan
-// meowlabs ai disamakan dengan katalog produk di repo meowlabs-academy; MeowPloy
-// dari SITE_DESCRIPTION di repo meowploy; Workspace dari metadata repo
-// meowlabs-ai-workspace; Clipper dari README repo meowlabs-clipper.
+// Produk milik MeowLabs yang dipromosikan di website: halaman /produk,
+// section produk di homepage, dan footer. Deskripsi TOEFL, GenCV, dan
+// meowlabs ai disamakan dengan katalog produk di repo meowlabs-academy.
 
-export type ProductIconName =
-  | "Store"
-  | "Rocket"
-  | "Sparkles"
-  | "LayoutGrid"
-  | "Scissors"
-  | "School"
-  | "GraduationCap"
-  | "BookOpen"
-  | "FileText"
+// Label status harus jujur dan akurat saat dipublikasikan.
+export type ProductStatus = "Tersedia" | "Beta" | "Eksperimen"
 
-export type ProductCategory = "bisnis" | "karier"
-
-export interface ProductCopy {
-  tagline: string
-  description: string
-}
-
-// Versi Inggris hanya dipakai section produk di homepage (yang mengikuti
-// toggle bahasa); halaman /produk berbahasa Indonesia seperti halaman layanan.
-export type ProductCopyEn = Pick<ProductCopy, "tagline">
+// Pola visual abstrak per produk, dipakai selama belum ada screenshot.
+export type ProductPattern = "grid" | "rings" | "bars" | "dots"
 
 export interface Product {
   slug: string
   name: string
-  // Path internal (diawali "/") atau URL produk di subdomain meowlabs.id.
   url: string
-  icon: ProductIconName
-  category: ProductCategory
-  id: ProductCopy
-  en: ProductCopyEn
-}
-
-export const productCategories: Record<ProductCategory, string> = {
-  bisnis: "Untuk usaha dan pembuat aplikasi",
-  karier: "Untuk mahasiswa dan pencari kerja",
+  status: ProductStatus
+  // Label pendek untuk kartu produk.
+  tagline: string
+  description: string
+  pattern: ProductPattern
+  // Screenshot produk; bila diisi, dipakai menggantikan pola abstrak.
+  screenshot?: string
 }
 
 export const products: Product[] = [
   {
-    slug: "pos",
-    name: "MeowLabs POS",
-    url: "/pos",
-    icon: "Store",
-    category: "bisnis",
-    id: {
-      tagline: "Kasir & QRIS",
-      description:
-        "Aplikasi kasir Android dengan pembayaran QRIS dan deteksi otomatis notifikasi bank, jadi transfer terkonfirmasi tanpa cek mutasi manual.",
-    },
-    en: {
-      tagline: "Cashier & QRIS",
-    },
-  },
-  {
-    slug: "meowploy",
-    name: "MeowPloy",
-    url: "https://meowploy.meowlabs.id/",
-    icon: "Rocket",
-    category: "bisnis",
-    id: {
-      tagline: "Deploy tanpa ribet VPS",
-      description:
-        "Deploy aplikasi tanpa ribet VPS. MeowPloy mendeteksi framework otomatis, menerjemahkan error build, dan menerbitkan situsmu dalam hitungan menit.",
-    },
-    en: {
-      tagline: "Deploy without VPS hassle",
-    },
-  },
-  {
     slug: "meowlabs-ai",
     name: "meowlabs ai",
     url: "https://ai.meowlabs.id/",
-    icon: "Sparkles",
-    category: "bisnis",
-    id: {
-      tagline: "Ide jadi aplikasi",
-      description: "Ceritakan ide aplikasimu, AI menyusun kode yang langsung jalan lengkap dengan preview.",
-    },
-    en: {
-      tagline: "Ideas into apps",
-    },
-  },
-  {
-    slug: "workspace",
-    name: "MeowLabs Workspace",
-    url: "https://chat.meowlabs.id/",
-    icon: "LayoutGrid",
-    category: "bisnis",
-    id: {
-      tagline: "Riset & analisis dengan AI",
-      description:
-        "Workspace AI untuk chat, riset dengan sumber, analisis pasar dan kompetitor, ringkasan berita, serta pelacakan sinyal dalam satu tempat.",
-    },
-    en: {
-      tagline: "AI research & analysis",
-    },
-  },
-  {
-    slug: "clipper",
-    name: "Clipper",
-    url: "https://clipper.meowlabs.id/",
-    icon: "Scissors",
-    category: "bisnis",
-    id: {
-      tagline: "Clip dari video & YouTube",
-      description:
-        "Bikin clip dari video lokal atau YouTube dengan alur transcript-first: ambil transkrip, dapatkan saran potongan, lalu potong clip final per rentang waktu.",
-    },
-    en: {
-      tagline: "Clips from video & YouTube",
-    },
+    status: "Tersedia",
+    tagline: "Ide jadi aplikasi",
+    description: "Ceritakan ide aplikasimu, AI menyusun kode yang langsung jalan lengkap dengan preview.",
+    pattern: "grid",
   },
   {
     slug: "academy",
     name: "MeowLabs Academy",
     url: "https://academy.meowlabs.id/",
-    icon: "School",
-    category: "karier",
-    id: {
-      tagline: "Learn · Build · Ship",
-      description: "Platform belajar teknologi dari Meow Labs: kursus, dokumentasi, dan proyek nyata.",
-    },
-    en: {
-      tagline: "Learn · Build · Ship",
-    },
-  },
-  {
-    slug: "sidangai",
-    name: "SidangAI",
-    url: "https://sidangah.meowlabs.id/",
-    icon: "GraduationCap",
-    category: "karier",
-    id: {
-      tagline: "Latihan sidang skripsi",
-      description:
-        "Latihan sidang skripsi dan tesis dengan AI sebagai dosen penguji, lengkap dengan voice call, berbagai karakter penguji, dan bank soal. Gratis.",
-    },
-    en: {
-      tagline: "Thesis defense practice",
-    },
+    status: "Tersedia",
+    tagline: "Learn · Build · Ship",
+    description: "Platform belajar teknologi dari MeowLabs: kursus, dokumentasi, dan proyek nyata.",
+    pattern: "rings",
   },
   {
     slug: "toefl",
     name: "TOEFL MeowLabs",
     url: "https://toefl.meowlabs.id/",
-    icon: "BookOpen",
-    category: "karier",
-    id: {
-      tagline: "Latihan TOEFL ITP",
-      description: "Latihan TOEFL ITP gratis: 450 soal, simulasi penuh berwaktu, dan bisa dipakai offline.",
-    },
-    en: {
-      tagline: "TOEFL ITP practice",
-    },
+    status: "Tersedia",
+    tagline: "Latihan TOEFL ITP",
+    description: "Latihan TOEFL ITP gratis: 450 soal, simulasi penuh berwaktu, dan bisa dipakai offline.",
+    pattern: "bars",
   },
   {
     slug: "gencv",
     name: "GenCV",
     url: "https://gencv.meowlabs.id/",
-    icon: "FileText",
-    category: "karier",
-    id: {
-      tagline: "CV ramah ATS",
-      description: "Bikin CV ramah ATS dengan bantuan AI, cocokkan dengan lowongan, lalu ekspor ke PDF atau DOCX.",
-    },
-    en: {
-      tagline: "ATS-friendly CVs",
-    },
+    status: "Tersedia",
+    tagline: "CV ramah ATS",
+    description: "Bikin CV ramah ATS dengan bantuan AI, cocokkan dengan lowongan, lalu ekspor ke PDF atau DOCX.",
+    pattern: "dots",
   },
 ]
 
-export function isExternalProduct(product: Product) {
-  return !product.url.startsWith("/")
-}
-
 // Tambahkan UTM agar kunjungan dari website terlihat di analitik produk
-// tujuan. medium membedakan asalnya: "produk", "homepage", atau "footer".
+// tujuan. medium membedakan asalnya, misalnya "produk" atau "homepage".
 export function productHref(product: Product, medium: string) {
-  if (!isExternalProduct(product)) return product.url
   const url = new URL(product.url)
   url.searchParams.set("utm_source", "meowlabs-website")
   url.searchParams.set("utm_medium", medium)

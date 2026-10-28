@@ -1,21 +1,18 @@
 import type { Metadata } from "next"
-import Link from "next/link"
-import { ArrowRight, ExternalLink, MessageCircle } from "lucide-react"
+import Image from "next/image"
+import { ArrowUpRight } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import { ProductIcon } from "@/components/product-icon"
-import { productCategories, productHref, products, isExternalProduct } from "@/lib/products"
-import type { ProductCategory } from "@/lib/products"
+import { ProductVisual } from "@/components/product-visual"
+import { productHref, products } from "@/lib/products"
 import { sharedOpenGraph } from "@/lib/seo"
 import { buildWhatsAppUrl } from "@/lib/whatsapp"
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://meowlabs.id"
-
 const description =
-  "Produk buatan Meow Labs: MeowLabs POS, MeowPloy, meowlabs ai, MeowLabs Workspace, Clipper, MeowLabs Academy, SidangAI, TOEFL MeowLabs, dan GenCV."
+  "Produk yang dibangun dan dijalankan MeowLabs: meowlabs ai, MeowLabs Academy, TOEFL MeowLabs, dan GenCV."
 
 export const metadata: Metadata = {
-  title: "Produk MeowLabs: POS, MeowPloy, Academy, SidangAI & lainnya | Meow Labs",
+  title: "Produk MeowLabs: meowlabs ai, Academy, TOEFL & GenCV | MeowLabs",
   description,
   alternates: { canonical: "/produk" },
   openGraph: {
@@ -26,11 +23,6 @@ export const metadata: Metadata = {
   },
 }
 
-const categoryOrder: ProductCategory[] = ["bisnis", "karier"]
-
-const buttonClass =
-  "mt-6 inline-flex items-center justify-center rounded-xl border border-border px-5 py-3 font-semibold transition-colors hover:border-primary hover:text-primary"
-
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "ItemList",
@@ -39,105 +31,85 @@ const structuredData = {
     "@type": "ListItem",
     position: index + 1,
     name: product.name,
-    url: isExternalProduct(product) ? product.url : `${siteUrl}${product.url}`,
+    url: product.url,
   })),
 }
 
 export default function ProdukPage() {
-  const whatsappHref = buildWhatsAppUrl("Halo admin Meow Labs, saya ingin konsultasi pembuatan aplikasi untuk bisnis saya.")
-
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="min-h-screen bg-paper text-ink">
       <Navigation />
 
-      <section className="border-b border-border bg-gradient-to-b from-background via-muted/20 to-background py-16 sm:py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="inline-flex rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-sm font-medium text-primary">
-            Dibangun dan dijalankan sendiri
-          </span>
-          <h1 className="mt-5 max-w-3xl text-balance text-3xl font-bold leading-tight sm:text-5xl">Produk MeowLabs</h1>
-          <p className="mt-5 max-w-3xl text-pretty text-base text-muted-foreground sm:text-lg">
-            Selain mengerjakan website dan sistem untuk klien, Meow Labs membangun dan menjalankan produknya sendiri.
-            Semua dibuat oleh tim yang sama yang akan menangani proyek Anda.
+      <section className="border-b border-rule">
+        <div className="ml-container py-16 sm:py-24">
+          <p className="ml-eyebrow text-ink-muted">Produk MeowLabs</p>
+          <h1 className="mt-6 max-w-3xl font-display text-[clamp(2.75rem,6vw,5rem)] leading-[0.95]">
+            Dibangun dan dijalankan sendiri.
+          </h1>
+          <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-ink-muted">
+            Selain mengerjakan proyek klien, MeowLabs membangun produk sendiri. Setiap produk diberi label status yang
+            jujur, dan dikerjakan oleh tim yang sama yang akan menangani proyek Anda.
           </p>
         </div>
       </section>
 
-      {categoryOrder.map((category) => (
-        <section key={category} className="py-14">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-bold sm:text-3xl">{productCategories[category]}</h2>
-            <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {products
-                .filter((product) => product.category === category)
-                .map((product) => {
-                  const external = isExternalProduct(product)
-                  return (
-                    <article
-                      key={product.slug}
-                      className="flex flex-col rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary/50"
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                          <ProductIcon name={product.icon} className="h-6 w-6" />
-                        </div>
-                        <div>
-                          <h3 className="text-lg font-semibold">{product.name}</h3>
-                          <p className="text-sm text-primary">{product.id.tagline}</p>
-                        </div>
-                      </div>
-                      <p className="mt-4 flex-1 text-pretty text-muted-foreground">{product.id.description}</p>
-                      {external ? (
-                        <a
-                          href={productHref(product, "produk")}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={buttonClass}
-                        >
-                          Buka {product.name}
-                          <ExternalLink className="ml-2 h-4 w-4" />
-                        </a>
-                      ) : (
-                        <Link href={product.url} className={buttonClass}>
-                          Unduh aplikasi
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
-                      )}
-                    </article>
-                  )
-                })}
-            </div>
-          </div>
-        </section>
-      ))}
+      <section>
+        <div className="ml-container py-8">
+          {products.map((product, index) => (
+            <article
+              key={product.slug}
+              className="grid items-center gap-6 border-b border-rule py-10 last:border-b-0 md:grid-cols-12 md:gap-10"
+            >
+              <div className="relative aspect-[16/10] overflow-hidden rounded-[4px] bg-ink md:col-span-5">
+                {product.screenshot ? (
+                  <Image src={product.screenshot} alt="" fill sizes="(max-width: 768px) 100vw, 40vw" className="object-cover" />
+                ) : (
+                  <ProductVisual pattern={product.pattern} layout="wide" />
+                )}
+              </div>
+              <div className="md:col-span-7">
+                <div className="flex items-center gap-3">
+                  <span className="ml-eyebrow text-ink-muted">Produk / {String(index + 1).padStart(2, "0")}</span>
+                  <span className="ml-eyebrow rounded-[2px] border border-forest px-2 py-0.5 text-[0.65rem] text-forest">
+                    {product.status}
+                  </span>
+                </div>
+                <h2 className="mt-4 font-display text-4xl leading-none sm:text-5xl">{product.name}</h2>
+                <p className="ml-eyebrow mt-3 text-ink-muted">{product.tagline}</p>
+                <p className="mt-5 max-w-xl text-pretty leading-relaxed text-ink-muted">{product.description}</p>
+                <a
+                  href={productHref(product, "produk")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center gap-2 rounded-[3px] border border-ink px-5 py-3 font-medium transition-colors hover:bg-ink hover:text-paper-light"
+                >
+                  Buka {product.name}
+                  <ArrowUpRight className="h-4 w-4" />
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
 
-      <section className="border-t border-border py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl bg-gradient-to-r from-primary/10 to-secondary/10 p-8 text-center md:p-12">
-            <h2 className="text-2xl font-bold">Butuh aplikasi seperti ini untuk bisnis Anda?</h2>
-            <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-              Kami bisa membangun sistem serupa yang disesuaikan dengan alur kerja Anda, dari dashboard internal sampai
-              aplikasi dengan fitur AI.
-            </p>
-            <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
-              <a
-                href={whatsappHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3 font-semibold text-primary-foreground transition-opacity hover:opacity-90"
-              >
-                <MessageCircle className="mr-2 h-4 w-4" />
-                Konsultasi Gratis
-              </a>
-              <Link
-                href="/layanan/aplikasi-web"
-                className="inline-flex items-center justify-center rounded-xl border border-border px-6 py-3 font-semibold transition-colors hover:border-primary hover:text-primary"
-              >
-                Lihat Layanan Aplikasi Web
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </div>
-          </div>
+      <section className="bg-ink text-paper-light">
+        <div className="ml-container ml-section">
+          <h2 className="max-w-2xl font-display text-[clamp(2.25rem,4.5vw,3.5rem)] leading-[1]">
+            Butuh sistem seperti ini untuk bisnis Anda?
+          </h2>
+          <p className="mt-5 max-w-xl text-dark-muted">
+            Kami bisa membangun aplikasi yang disesuaikan dengan alur kerja Anda, dari dashboard internal sampai aplikasi
+            dengan fitur AI.
+          </p>
+          <a
+            href={buildWhatsAppUrl("Halo MeowLabs, saya ingin konsultasi pembuatan aplikasi untuk bisnis saya.")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex items-center gap-2 rounded-[3px] bg-paper-light px-5 py-3.5 font-medium text-ink"
+          >
+            Diskusikan Proyek
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
         </div>
       </section>
 

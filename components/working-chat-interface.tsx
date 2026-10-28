@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 import { SendHorizonal } from "lucide-react"
 import { useUiText } from "./ui-preferences-provider"
@@ -13,7 +14,9 @@ type Message = {
 
 const STORAGE_KEY = "meow-chat-history"
 
-export function WorkingChatInterface() {
+// autoFocusInput dimatikan saat chat ditanam di halaman (/chatbot) agar fokus
+// otomatis tidak menggulir halaman ke bawah.
+export function WorkingChatInterface({ autoFocusInput = true }: { autoFocusInput?: boolean }) {
   const copy = useUiText()
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -25,12 +28,15 @@ export function WorkingChatInterface() {
   ])
   const [inputValue, setInputValue] = useState("")
   const [isLoading, setIsLoading] = useState(false)
-  const messagesEndRef = useRef<HTMLDivElement>(null)
+  const messagesContainerRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const isFetchingRef = useRef(false)
 
+  // Gulir kotak pesan saja; scrollIntoView ikut menggulir halaman saat chat
+  // ditanam di /chatbot.
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+    const container = messagesContainerRef.current
+    container?.scrollTo({ top: container.scrollHeight, behavior: "smooth" })
   }, [messages])
 
   useEffect(() => {
@@ -170,14 +176,16 @@ export function WorkingChatInterface() {
   return (
     <div className="flex h-full flex-col bg-card">
       <div className="border-b border-border bg-gradient-to-r from-background to-card px-4 py-3">
-        <div className="flex items-center gap-2">
-          <span className="h-2.5 w-2.5 rounded-full bg-primary" />
+        <div className="flex items-center gap-3">
+          <span className="h-8 w-8 shrink-0 overflow-hidden rounded-full bg-ink">
+            <Image src="/art/mascot-head.webp" alt="" width={214} height={256} className="h-full w-full scale-125 object-cover object-top" />
+          </span>
           <h3 className="text-sm font-semibold text-foreground">{copy.chat.title}</h3>
         </div>
         <p className="mt-1 text-xs text-muted-foreground">{copy.chat.subtitle}</p>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-4">
+      <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-4">
         <div className="space-y-4">
           {messages.map((message) => (
             <div
@@ -214,7 +222,6 @@ export function WorkingChatInterface() {
             </div>
           )}
 
-          <div ref={messagesEndRef} />
         </div>
       </div>
 
@@ -228,7 +235,7 @@ export function WorkingChatInterface() {
             placeholder={copy.chat.placeholder}
             className="min-w-0 flex-1 rounded-full border border-border bg-card px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary"
             disabled={isLoading}
-            autoFocus
+            autoFocus={autoFocusInput}
           />
           <button
             type="submit"

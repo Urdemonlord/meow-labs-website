@@ -12,7 +12,7 @@ export const sharedOpenGraph = {
       url: "/images/og-image.jpg",
       width: 1200,
       height: 630,
-      alt: "Meow Labs - Jasa Website Semarang",
+      alt: "MeowLabs: sistem AI, produk digital, dan software yang berguna",
     },
   ],
 } satisfies Metadata["openGraph"]

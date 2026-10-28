@@ -1,90 +1,65 @@
-"use client"
+import { ArrowUpRight } from "lucide-react"
+import { uiCopy } from "@/lib/ui-copy"
+import { buildWhatsAppUrl } from "@/lib/whatsapp"
+import { SectionHeading } from "./editorial"
 
-import { motion } from "framer-motion"
-import { Check, MessageCircle } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { useUiText } from "./ui-preferences-provider"
-
+// Paket website. Harga dan isi paket bersumber dari lib/ui-copy.json agar
+// sama dengan knowledge.md dan halaman layanan.
 export function PricingSection() {
-  const copy = useUiText()
-
-  const handleWhatsAppContact = (message: string) => {
-    const encodedMessage = encodeURIComponent(message)
-    window.open(`https://api.whatsapp.com/send?phone=62895386288683&text=${encodedMessage}`, "_blank")
-  }
+  const copy = uiCopy.id.pricing
 
   return (
-    <section id="pricing" className="bg-muted/50 py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          className="mb-14 text-center"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="mx-auto mb-4 max-w-4xl text-balance text-3xl font-bold text-foreground sm:text-4xl">
-            {copy.pricing.title}
-          </h2>
-          <p className="mx-auto max-w-3xl text-lg text-muted-foreground text-pretty">
-            {copy.pricing.description}
-          </p>
-        </motion.div>
+    <section id="pricing" className="border-b border-rule">
+      <div className="ml-container ml-section">
+        <SectionHeading eyebrow="// Paket" title={copy.title} description={copy.description} />
 
-        <div className="grid gap-6 lg:grid-cols-3">
-          {copy.pricing.packages.map((pkg, index) => {
+        <div className="mt-14 grid gap-px overflow-hidden rounded-[4px] border border-ink bg-ink lg:grid-cols-3">
+          {copy.packages.map((pkg, index) => {
             const isHighlighted = index === 1
-
             return (
-              <motion.div
+              <article
                 key={pkg.name}
-                initial={{ opacity: 0, y: 32 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-                viewport={{ once: true }}
+                className={`flex flex-col p-7 sm:p-8 ${isHighlighted ? "bg-ink text-paper-light" : "bg-paper-light text-ink"}`}
               >
-                <Card
-                  className={`relative h-full overflow-hidden border-border/80 bg-card/95 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${
-                    isHighlighted ? "ring-2 ring-primary/45" : ""
+                <div className="flex items-center justify-between">
+                  <span className={`ml-eyebrow ${isHighlighted ? "text-dark-muted" : "text-ink-muted"}`}>
+                    Paket {String(index + 1).padStart(2, "0")}
+                  </span>
+                  {isHighlighted && (
+                    <span className="ml-eyebrow rounded-[2px] border border-paper-light/40 px-2 py-0.5 text-[0.65rem]">
+                      {copy.highlight}
+                    </span>
+                  )}
+                </div>
+                <h3 className="mt-6 font-display text-3xl leading-none">{pkg.name}</h3>
+                <p className="mt-4 text-2xl font-medium">{pkg.price}</p>
+                <p className={`ml-eyebrow mt-2 ${isHighlighted ? "text-dark-muted" : "text-forest"}`}>{pkg.timeline}</p>
+                <p className={`mt-5 text-pretty leading-relaxed ${isHighlighted ? "text-dark-muted" : "text-ink-muted"}`}>
+                  {pkg.audience}
+                </p>
+                <ul className={`mt-6 flex-1 space-y-2.5 border-t pt-6 ${isHighlighted ? "border-paper-light/20" : "border-rule"}`}>
+                  {pkg.features.map((feature) => (
+                    <li key={feature} className="flex items-baseline gap-3 text-sm">
+                      <span aria-hidden="true">+</span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  aria-label={`${copy.selectCta}: ${pkg.name}`}
+                  href={buildWhatsAppUrl(pkg.whatsappMessage)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`mt-8 inline-flex items-center justify-center gap-2 rounded-[3px] px-5 py-3 font-medium transition-colors ${
+                    isHighlighted
+                      ? "bg-paper-light text-ink hover:bg-paper"
+                      : "border border-ink text-ink hover:bg-ink hover:text-paper-light"
                   }`}
                 >
-                  {isHighlighted && (
-                    <Badge className="absolute right-4 top-4 bg-primary text-primary-foreground">
-                      {copy.pricing.highlight}
-                    </Badge>
-                  )}
-
-                  <CardHeader className="space-y-4 pb-4">
-                    <div className="space-y-2">
-                      <CardTitle className="text-2xl text-foreground">{pkg.name}</CardTitle>
-                      <div className="text-3xl font-bold text-primary">{pkg.price}</div>
-                      <div className="text-sm font-medium text-secondary">{pkg.timeline}</div>
-                    </div>
-                    <p className="text-sm leading-relaxed text-muted-foreground">{pkg.audience}</p>
-                  </CardHeader>
-
-                  <CardContent className="flex h-full flex-col gap-6">
-                    <div className="space-y-3">
-                      {pkg.features.map((feature) => (
-                        <div key={feature} className="flex items-start gap-3">
-                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                          <span className="text-sm leading-relaxed text-foreground/90">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <Button
-                      onClick={() => handleWhatsAppContact(pkg.whatsappMessage)}
-                      className="mt-auto w-full bg-primary text-primary-foreground hover:bg-primary/90"
-                    >
-                      <MessageCircle className="mr-2 h-4 w-4" />
-                      {copy.pricing.selectCta}
-                    </Button>
-                  </CardContent>
-                </Card>
-              </motion.div>
+                  {copy.selectCta}
+                  <ArrowUpRight className="h-4 w-4" />
+                </a>
+              </article>
             )
           })}
         </div>

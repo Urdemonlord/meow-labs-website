@@ -1,82 +1,105 @@
-"use client"
+import Image from "next/image"
+import { CtaBand, PageHeader } from "@/components/editorial"
 
-import { useUiPreferences } from "@/components/ui-preferences-provider"
-import { Button } from "@/components/ui/button"
+const pillars = [
+  {
+    title: "Engineering",
+    body: "Membangun sistem untuk pelanggan: website, aplikasi, dan integrasi AI ke proses operasional. Ini yang membiayai studio.",
+  },
+  {
+    title: "Products",
+    body: "Mengembangkan sedikit produk unggulan yang menyelesaikan masalah nyata dan dipakai berulang, bukan sebanyak mungkin produk.",
+  },
+  {
+    title: "Research",
+    body: "Bereksperimen dengan AI agent, keamanan AI, dan infrastruktur, lalu memublikasikan hasilnya sebagai kode, benchmark, atau artikel.",
+  },
+]
 
-const aboutCopy = {
-  id: {
-    badge: "Tentang Meowlabs.id",
-    title: "UMKM Jasa Website oleh Mahasiswa Unimus",
-    intro:
-      "Meowlabs.id adalah UMKM jasa pembuatan website yang dibangun oleh mahasiswa Universitas Muhammadiyah Semarang (Unimus). Fokus kami membantu UMKM, personal brand, dan organisasi kecil punya website yang rapi, cepat, dan siap dipakai untuk kebutuhan bisnis.",
-    sectionTitle: "Profil dan Pendekatan Kerja",
-    sectionBody1:
-      "Founder Meowlabs.id adalah Hasrinata Arya Afendi. Kami menggabungkan proses development modern, automation, dan AI assistance untuk mempercepat delivery tanpa mengorbankan kualitas struktur kode maupun pengalaman pengguna.",
-    sectionBody2:
-      "Setiap project dikerjakan dengan alur yang jelas: discovery kebutuhan, desain yang relevan, implementasi teknis, lalu optimasi performa dan handover yang mudah dipahami klien.",
-    ctaTitle: "Siap diskusi kebutuhan website?",
-    ctaBody:
-      "Konsultasi awal gratis untuk membahas scope, timeline, dan rekomendasi paket yang paling sesuai.",
-    cta: "Konsultasi via WhatsApp",
-  },
-  en: {
-    badge: "About Meowlabs.id",
-    title: "Student-led Website Service for Small Businesses",
-    intro:
-      "Meowlabs.id is a small business website service founded by a student from Universitas Muhammadiyah Semarang (Unimus). We help small businesses, personal brands, and local organizations launch clean, fast, and practical websites for real business needs.",
-    sectionTitle: "Founder and Working Approach",
-    sectionBody1:
-      "Meowlabs.id was founded by Hasrinata Arya Afendi. We combine modern development workflow, automation, and AI assistance to improve delivery speed while keeping code quality and user experience consistent.",
-    sectionBody2:
-      "Each project follows a clear path: requirement discovery, relevant design direction, technical implementation, then performance optimization and an easy client handover.",
-    ctaTitle: "Ready to discuss your website needs?",
-    ctaBody:
-      "Free initial consultation to align scope, timeline, and the most suitable package recommendation.",
-    cta: "Consult via WhatsApp",
-  },
-} as const
+const principles = [
+  "Mulai dari masalah pelanggan, bukan dari tren teknologi.",
+  "Tidak memaksakan AI kalau software biasa sudah cukup.",
+  "Mengukur hasil dari masalah yang selesai dan pengguna yang kembali, bukan jumlah fitur.",
+  "Keamanan dan keandalan dirancang sejak awal, bukan ditambal belakangan.",
+]
 
 export function AboutPageContent() {
-  const { locale } = useUiPreferences()
-  const copy = aboutCopy[locale]
-
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-gradient-to-b from-background via-muted/40 to-background pb-20 pt-40">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex items-center rounded-full bg-primary/10 px-4 py-1 text-sm font-medium text-primary">
-              {copy.badge}
-            </span>
-            <h1 className="mt-6 text-4xl font-bold tracking-tight sm:text-5xl">{copy.title}</h1>
-            <p className="mt-6 text-lg text-muted-foreground">{copy.intro}</p>
+      <PageHeader
+        eyebrow="// Tentang Meowlabs.id"
+        title="Studio teknologi independen dari Indonesia."
+        intro="Meow Labs membangun produk AI-native, sistem yang aman, dan software yang berguna dari Semarang. Kami mengerjakan proyek untuk klien, membangun produk sendiri, dan mempublikasikan eksperimen teknologi kami."
+      />
+
+      <section className="border-b border-rule">
+        <div className="ml-container ml-section grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <p className="ml-eyebrow text-ink-muted">{"// Profil dan pendekatan kerja"}</p>
+            <Image src="/art/mascot-sitting.webp" alt="" width={233} height={280} loading="lazy" className="mt-10 h-auto w-[180px]" />
+          </div>
+          <div className="space-y-6 text-pretty text-xl leading-relaxed text-ink lg:col-span-8">
+            <p>
+              Meow Labs didirikan oleh Hasrinata Arya Afendi, mahasiswa Universitas Muhammadiyah Semarang (Unimus),
+              sebagai jasa pembuatan website untuk UMKM. Sekarang kami berkembang menjadi studio AI engineering dan produk
+              digital, tanpa meninggalkan layanan website yang menjadi awal kami.
+            </p>
+            <p className="text-ink-muted">
+              Di era AI, membuat website, dashboard, atau chatbot sederhana makin mudah. Karena itu kami tidak menjual baris
+              kode. Nilai yang kami tawarkan ada pada memahami masalah, merancang sistem, mengintegrasikan teknologi, menjaga
+              keandalan, dan menghasilkan dampak bisnis.
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="py-16 sm:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-4xl space-y-6 text-center">
-            <h2 className="text-3xl font-semibold">{copy.sectionTitle}</h2>
-            <p className="text-lg text-muted-foreground">{copy.sectionBody1}</p>
-            <p className="text-lg text-muted-foreground">{copy.sectionBody2}</p>
-          </div>
-
-          <div className="mx-auto mt-10 max-w-3xl rounded-2xl border border-border bg-card/70 p-6 text-center sm:p-8">
-            <h3 className="text-2xl font-semibold text-foreground">{copy.ctaTitle}</h3>
-            <p className="mt-3 text-muted-foreground">{copy.ctaBody}</p>
-            <div className="mt-6">
-              <a
-                href="https://wa.me/62895386288683?text=Halo%20Meowlabs.id%2C%20saya%20ingin%20konsultasi%20website"
-                target="_blank"
-                rel="noopener noreferrer"
+      <section className="border-b border-rule">
+        <div className="ml-container ml-section">
+          <p className="ml-eyebrow text-ink-muted">{"// Tiga pilar"}</p>
+          <div className="mt-10 grid border-t border-ink md:grid-cols-3">
+            {pillars.map((pillar, index) => (
+              <article
+                key={pillar.title}
+                className="border-b border-rule py-8 md:border-b-0 md:border-r md:px-8 md:first:pl-0 md:last:border-r-0 md:last:pr-0"
               >
-                <Button className="h-11 bg-primary text-primary-foreground hover:bg-primary/90">{copy.cta}</Button>
-              </a>
-            </div>
+                <span className="ml-eyebrow text-ink-muted">{String(index + 1).padStart(2, "0")}</span>
+                <h2 className="mt-4 font-display text-4xl leading-none text-ink">{pillar.title}</h2>
+                <p className="mt-4 text-pretty leading-relaxed text-ink-muted">{pillar.body}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
+
+      <section className="border-b border-rule">
+        <div className="ml-container ml-section grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-7">
+            <p className="ml-eyebrow text-ink-muted">{"// Prinsip yang kami pegang"}</p>
+            <ol className="mt-8 border-t border-ink">
+              {principles.map((principle, index) => (
+                <li key={principle} className="flex gap-5 border-b border-rule py-5 text-lg text-ink">
+                  <span className="ml-eyebrow pt-1.5 text-ink-muted">{String(index + 1).padStart(2, "0")}</span>
+                  {principle}
+                </li>
+              ))}
+            </ol>
+          </div>
+          <div className="rounded-[4px] bg-ink p-8 text-paper-light lg:col-span-5 sm:p-10">
+            <p className="ml-eyebrow text-dark-muted">{"// Identitas dari Indonesia"}</p>
+            <p className="mt-6 text-pretty leading-relaxed">
+              Arah visual Meow Labs dibangun dari logo kucing, kolase budaya Indonesia, tipografi editorial, dan dokumentasi
+              teknis. Budaya Indonesia menjadi perspektif studio, sementara produk kami tetap dirancang untuk relevan bagi
+              penggunanya.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <CtaBand
+        title="Punya masalah yang ingin diselesaikan?"
+        body="Konsultasi awal gratis untuk membahas masalahnya, lalu kami rekomendasikan solusi yang paling masuk akal: website, aplikasi, otomasi, atau integrasi AI."
+        whatsappMessage="Halo Meowlabs.id, saya ingin konsultasi project"
+      />
     </>
   )
 }

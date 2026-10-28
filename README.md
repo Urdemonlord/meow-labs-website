@@ -1,6 +1,6 @@
 # Meow Labs Website
 
-Website resmi Meow Labs untuk layanan pembuatan website profesional di Semarang. Proyek ini dibangun dengan Next.js App Router, memiliki homepage multi-section, chatbot AI berbasis `knowledge.md`, portfolio dari API eksternal, serta halaman legal.
+Website resmi Meow Labs untuk layanan pembuatan website profesional di Semarang. Proyek ini dibangun dengan Next.js App Router, memiliki homepage editorial multi-section, chatbot AI berbasis `knowledge.md`, halaman produk, serta halaman legal.
 
 ## Overview
 
@@ -8,15 +8,14 @@ Website resmi Meow Labs untuk layanan pembuatan website profesional di Semarang.
 - Styling: Tailwind CSS + komponen UI lokal (`components/ui`)
 - Chat AI: Google Gemini (`@google/genai`) dengan guard keamanan
 - Knowledge source: `knowledge.md`
-- Portfolio source: API eksternal Showcase-IT
 - Deployment target: Vercel
 
 ## Fitur Aktif
 
 ### 1. Homepage Marketing
-- Hero, layanan, proses, pricing, portfolio, testimoni, FAQ, kontak
-- Global switch bahasa `ID/EN`
-- Santa Mode (snowfall) dapat diaktifkan/dimatikan dan disimpan di `localStorage`
+- Hero, manifesto, layanan, produk, proses, klien, catatan, kontak (`components/home/`)
+- Design system editorial: token warna dan font di `app/globals.css`, artwork kolase di `public/art/`
+- Bahasa Indonesia; harga paket dan FAQ ada di halaman `/layanan/*` dan `/jasa-pembuatan-website-semarang`
 - Floating chat yang konsisten dengan tema website
 
 ### 2. Chatbot AI
@@ -25,11 +24,9 @@ Website resmi Meow Labs untuk layanan pembuatan website profesional di Semarang.
 - Jawaban ringkas, manusiawi, tanpa karakter dekoratif berlebihan
 - Fallback kontak otomatis ke WhatsApp dan email jika AI gagal
 
-### 3. Portfolio API Eksternal
-- Mengambil data langsung dari API eksternal
-- Loading skeleton saat fetch berjalan
-- Error state modern saat API gagal
-- Tanpa inject data dummy lokal
+### 3. Produk
+- Daftar produk di `lib/products.ts`, tampil di homepage dan `/produk`
+- Setiap produk punya label status yang jujur (`Tersedia`, `Beta`, `Eksperimen`)
 
 ### 4. Halaman Legal
 - ` /kebijakan-privasi`
@@ -105,9 +102,8 @@ app/
   page.tsx
 components/
   navigation.tsx
-  hero-section.tsx
+  home/
   pricing-section.tsx
-  portfolio-section.tsx
   working-chat-interface.tsx
   working-floating-chat.tsx
   ui-preferences-provider.tsx

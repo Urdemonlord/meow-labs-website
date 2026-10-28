@@ -4,11 +4,17 @@ Sumber informasi untuk asisten virtual Meow Labs. Isi dokumen ini harus selalu s
 
 ## Tentang Meow Labs
 
-Meow Labs adalah studio pembuatan website dan aplikasi yang berbasis di Semarang, dipimpin oleh Hasrinata Arya Afendi. Kami membantu UMKM, sekolah, instansi, dan perusahaan membangun website, sistem custom, dan aplikasi bisnis yang benar-benar dipakai untuk operasional sehari-hari.
+Meow Labs adalah studio teknologi independen yang berbasis di Semarang, dipimpin oleh Hasrinata Arya Afendi. Kami membangun sistem AI, produk digital, dan software yang berguna dari Indonesia. Kami membantu UMKM, sekolah, instansi, dan perusahaan membangun website, sistem custom, dan integrasi AI yang benar-benar dipakai untuk operasional sehari-hari. Jasa pembuatan website tetap menjadi salah satu layanan utama kami.
 
-### Visi dan Misi
+### Visi dan Arah
 
-Visi kami adalah membantu UMKM dan bisnis lokal Indonesia untuk "Go Digital" dengan solusi yang profesional namun tetap terjangkau. Kami berkomitmen memberikan layanan berkualitas yang membantu klien berkembang di dunia digital.
+Meow Labs ingin menjadi studio teknologi independen dari Indonesia yang membangun produk AI-native, sistem yang aman, dan software yang berguna. Kami bekerja lewat tiga pilar:
+
+1. **Engineering (Applied AI & Engineering):** membangun website, aplikasi, dan integrasi AI untuk klien. Nilainya diukur dari masalah yang diselesaikan, bukan jumlah baris kode.
+2. **Products:** mengembangkan dan menjalankan produk sendiri, dengan fokus pada sedikit produk yang menyelesaikan masalah nyata.
+3. **Research & Open Source:** bereksperimen dengan AI agent, keamanan AI, evaluasi model, dan infrastruktur, lalu memublikasikan hasilnya.
+
+Prinsip kami: mulai dari masalah pelanggan, tidak memaksakan AI jika software biasa sudah cukup, dan merancang keamanan serta keandalan sejak awal.
 
 ### Tim Kami
 
@@ -59,6 +65,21 @@ Harga di bawah adalah titik mulai. Scope final dan harga pasti dibahas saat kons
 - Integrasi API atau automasi
 - Pendekatan iteratif sesuai kebutuhan
 
+## Integrasi AI & Otomasi
+
+**Harga:** Mulai Rp4 juta (setara titik mulai paket Custom Build)
+**Waktu Pengerjaan:** 2-6 minggu
+**Halaman:** https://meowlabs.id/layanan/integrasi-ai
+**Cocok untuk:** UMKM dan perusahaan yang ingin AI benar-benar masuk ke proses operasional, bukan sekadar chatbot.
+
+**Contoh pekerjaan:**
+- AI agent untuk WhatsApp atau web yang terhubung ke data produk dan pesanan
+- Integrasi LLM dengan database dan API internal
+- Otomasi proses operasional, penjualan, layanan pelanggan, dan pengolahan dokumen
+- Pengamanan prompt injection, batasan akses data, evaluasi, dan monitoring
+
+Biaya final ditentukan setelah analisis proses karena bergantung pada jumlah integrasi, volume pesan, dan biaya pemakaian model AI. Jika masalah klien lebih cocok diselesaikan dengan software biasa tanpa AI, sampaikan bahwa Meow Labs akan merekomendasikan itu.
+
 ## Kisaran Harga per Jenis Layanan
 
 - **Website Company Profile:** Rp500.000 - Rp5.000.000
@@ -67,6 +88,7 @@ Harga di bawah adalah titik mulai. Scope final dan harga pasti dibahas saat kons
 - **Website Sekolah dan Yayasan:** Rp2.500.000 - Rp7.000.000
 - **Website Portal Berita:** Rp3.000.000 - Rp8.000.000
 - **Website / Sistem Custom:** mulai Rp4.000.000
+- **Integrasi AI & Otomasi:** mulai Rp4.000.000
 
 Fitur umum yang bisa disertakan: desain responsive, SEO dasar, form kontak, integrasi WhatsApp, Google Maps, galeri, katalog produk, keranjang dan checkout, integrasi payment gateway, dashboard admin, dan integrasi API.
 
@@ -88,31 +110,12 @@ Untuk mahasiswa atau fresh graduate yang butuh website portfolio personal. 3-4 h
 
 Domain .web.id, .my.id, dan .biz.id tersedia mulai Rp3.000. Ketersediaan nama domain, kuota promo, dan biaya perpanjangan dicek langsung oleh admin via WhatsApp sebelum checkout.
 
-## MeowLabs POS
+## Produk MeowLabs
 
-Aplikasi kasir Android buatan Meow Labs untuk toko, warung, dan kafe.
+Daftar produk ada di https://meowlabs.id/produk. Jika ditanya produk yang tidak ada di daftar ini (termasuk MeowLabs POS, MeowPloy, Workspace, Clipper, atau SidangAI yang sudah tidak ditawarkan), jangan mengarang; arahkan ke admin via WhatsApp.
 
-**Fitur utama:**
-- Kasir dan pencatatan transaksi
-- Pembayaran QRIS
-- Deteksi otomatis notifikasi bank, sehingga pembayaran transfer terkonfirmasi tanpa cek mutasi manual
-
-**Cara mendapatkan:** Unduh APK di https://meowlabs.id/pos (tidak tersedia di Google Play).
-- **Versi percobaan:** untuk mencoba aplikasi. Masuk dengan email apa pun, tidak perlu akun, dan tidak tersambung ke server.
-- **Versi lengkap:** untuk toko yang sudah terdaftar. Membutuhkan akun dan koneksi ke server.
-
-Untuk pendaftaran toko, harga langganan, atau integrasi POS dengan website toko online, arahkan ke admin via WhatsApp.
-
-## Produk MeowLabs Lainnya
-
-Daftar lengkap produk ada di https://meowlabs.id/produk. Jika ditanya produk yang tidak ada di daftar ini, jangan mengarang; arahkan ke admin via WhatsApp.
-
-- **MeowPloy** (https://meowploy.meowlabs.id): deploy aplikasi tanpa ribet VPS. MeowPloy mendeteksi framework otomatis, menerjemahkan error build, dan menerbitkan situs dalam hitungan menit.
-- **MeowLabs Workspace** (https://chat.meowlabs.id): workspace AI untuk chat, riset dengan sumber, analisis pasar dan kompetitor, ringkasan berita, serta pelacakan sinyal.
-- **Clipper** (https://clipper.meowlabs.id): bikin clip dari video lokal atau YouTube dengan alur transcript-first, mulai dari transkrip, saran potongan, sampai potong clip final.
-- **MeowLabs Academy** (https://academy.meowlabs.id): platform belajar teknologi dari Meow Labs berisi kursus, dokumentasi, dan proyek nyata.
 - **meowlabs ai** (https://ai.meowlabs.id): ceritakan ide aplikasi, AI menyusun kode yang langsung jalan lengkap dengan preview.
-- **SidangAI** (https://sidangah.meowlabs.id): latihan sidang skripsi dan tesis dengan AI sebagai dosen penguji, lengkap dengan voice call, berbagai karakter penguji, dan bank soal. Gratis.
+- **MeowLabs Academy** (https://academy.meowlabs.id): platform belajar teknologi dari Meow Labs berisi kursus, dokumentasi, dan proyek nyata.
 - **TOEFL MeowLabs** (https://toefl.meowlabs.id): latihan TOEFL ITP gratis dengan 450 soal, simulasi penuh berwaktu, dan bisa dipakai offline.
 - **GenCV** (https://gencv.meowlabs.id): bikin CV ramah ATS dengan bantuan AI, cocokkan dengan lowongan, lalu ekspor ke PDF atau DOCX.
 

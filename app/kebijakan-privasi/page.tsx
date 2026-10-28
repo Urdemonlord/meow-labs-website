@@ -15,25 +15,23 @@ const updatedAt = "16 Mei 2026"
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="min-h-screen bg-paper text-ink">
       <Navigation />
-      <section className="border-b border-border bg-gradient-to-b from-background via-muted/20 to-background pt-32 pb-14">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="inline-flex rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-sm font-medium text-primary">
-            Dokumen Legal
-          </span>
-          <h1 className="mt-5 text-3xl font-bold sm:text-4xl">Kebijakan Privasi</h1>
-          <p className="mt-3 max-w-3xl text-muted-foreground">
+      <section className="border-b border-rule">
+        <div className="ml-container py-14 sm:py-20">
+          <p className="ml-eyebrow text-ink-muted">{"// Dokumen legal"}</p>
+          <h1 className="mt-6 font-display text-[clamp(2.5rem,6vw,4.75rem)] leading-[0.98] tracking-tight text-ink">Kebijakan Privasi</h1>
+          <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-ink-muted">
             Kami menghargai privasi Anda. Dokumen ini menjelaskan bagaimana Meow Labs mengelola data saat Anda
             menggunakan website, formulir konsultasi, chat assistant, dan komunikasi WhatsApp.
           </p>
-          <p className="mt-3 text-sm text-muted-foreground">Terakhir diperbarui: {updatedAt}</p>
+          <p className="ml-eyebrow mt-8 text-ink-muted">Terakhir diperbarui · {updatedAt}</p>
         </div>
       </section>
 
-      <section className="py-12 sm:py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-4xl space-y-8 rounded-3xl border border-border bg-card/70 p-6 sm:p-10">
+      <section className="border-b border-rule">
+        <div className="ml-container ml-section">
+          <div className="mx-auto max-w-4xl border-t border-ink">
             <LegalBlock title="1. Data yang Kami Kumpulkan">
               Kami dapat mengumpulkan data yang Anda kirimkan secara sukarela, seperti nama, email, nomor WhatsApp,
               nama bisnis, dan detail kebutuhan proyek melalui form kontak, chat assistant, atau chat.
@@ -70,20 +68,20 @@ export default function PrivacyPolicyPage() {
 
             <LegalBlock title="8. Kontak">
               Jika ada pertanyaan tentang privasi data, hubungi kami melalui email{" "}
-              <a href="mailto:admin@meowlabs.id" className="text-primary hover:underline">
+              <a href="mailto:admin@meowlabs.id" className="text-ink underline underline-offset-2">
                 admin@meowlabs.id
               </a>{" "}
               atau WhatsApp{" "}
-              <a href="https://wa.me/62895386288683" target="_blank" rel="noreferrer" className="text-primary hover:underline">
+              <a href="https://wa.me/62895386288683" target="_blank" rel="noreferrer" className="text-ink underline underline-offset-2">
                 +62 895-3862-88683
               </a>
               .
             </LegalBlock>
 
-            <div className="rounded-2xl border border-border bg-background/60 p-4 text-sm text-muted-foreground">
+            <div className="mt-10 rounded-[4px] border border-rule bg-paper-light p-5 text-sm leading-relaxed text-ink-muted">
               Dengan menggunakan website ini, Anda dianggap telah membaca dan memahami Kebijakan Privasi Meow Labs.
               Lihat juga{" "}
-              <Link href="/syarat-ketentuan" className="text-primary hover:underline">
+              <Link href="/syarat-ketentuan" className="text-ink underline underline-offset-2">
                 Syarat & Ketentuan
               </Link>
               .
@@ -96,11 +94,16 @@ export default function PrivacyPolicyPage() {
   )
 }
 
+// Judul berformat "1. Judul": nomor ditampilkan sebagai label mono.
 function LegalBlock({ title, children }: { title: string; children: ReactNode }) {
+  const [, number, heading] = title.match(/^(\d+)\.\s*(.*)$/) ?? [null, null, title]
   return (
-    <article>
-      <h2 className="text-xl font-semibold text-foreground">{title}</h2>
-      <p className="mt-2 leading-7 text-muted-foreground">{children}</p>
+    <article className="grid gap-3 border-b border-rule py-8 sm:grid-cols-12 sm:gap-6">
+      <span className="ml-eyebrow text-ink-muted sm:col-span-2 sm:pt-1.5">{number ? number.padStart(2, "0") : ""}</span>
+      <div className="sm:col-span-10">
+        <h2 className="text-xl font-medium text-ink">{heading}</h2>
+        <p className="mt-3 max-w-2xl text-pretty leading-relaxed text-ink-muted">{children}</p>
+      </div>
     </article>
   )
 }

@@ -1,7 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Poppins } from "next/font/google"
-import { JetBrains_Mono } from "next/font/google"
+import { Geist, IBM_Plex_Mono, Instrument_Serif } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
@@ -9,15 +8,22 @@ import ClientComponents from "../components/client-components"
 import { UiPreferencesProvider } from "../components/ui-preferences-provider"
 import { sharedOpenGraph } from "@/lib/seo"
 
-const poppins = Poppins({
+const geist = Geist({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  variable: "--font-poppins",
+  variable: "--font-geist",
 })
 
-const jetbrainsMono = JetBrains_Mono({
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-instrument-serif",
+})
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-plex-mono",
 })
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://meowlabs.id"
@@ -26,14 +32,14 @@ const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0f172a",
+  themeColor: "#f2efe6",
 }
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Jasa Pembuatan Website Murah & Profesional | Meow Labs",
+  title: "Meow Labs | Studio AI Engineering & Jasa Pembuatan Website Semarang",
   description:
-    "Meow Labs melayani jasa pembuatan website murah untuk UMKM, kafe, hingga personal branding. Website responsive dan mobile-friendly mulai Rp500 ribu. Hubungi kami di 0895-3862-88683.",
+    "Meow Labs adalah studio teknologi independen dari Semarang: integrasi AI dan otomasi bisnis, produk digital, serta jasa pembuatan website untuk UMKM mulai Rp500 ribu. Hubungi kami di 0895-3862-88683.",
   generator: "Meow Labs",
   icons: {
     icon: [
@@ -48,6 +54,9 @@ export const metadata: Metadata = {
   },
   keywords: [
     "jasa pembuatan website murah",
+    "jasa integrasi ai",
+    "ai agent whatsapp",
+    "otomasi bisnis ai",
     "jasa website Semarang",
     "bikin web UMKM murah",
     "jasa website mahasiswa",
@@ -75,15 +84,15 @@ export const metadata: Metadata = {
   openGraph: {
     ...sharedOpenGraph,
     url: siteUrl,
-    title: "Jasa Pembuatan Website Murah untuk UMKM & Personal",
+    title: "Meow Labs | AI Engineering, Produk Digital & Jasa Website",
     description:
-      "Meow Labs melayani jasa pembuatan website murah untuk UMKM, kafe, hingga personal branding di Semarang. Website responsive & mobile-friendly mulai Rp500 ribu saja!",
+      "Studio teknologi independen dari Semarang yang membangun sistem AI, produk digital, dan software yang berguna. Jasa website UMKM mulai Rp500 ribu.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jasa Pembuatan Website Murah untuk UMKM & Personal",
+    title: "Meow Labs | AI Engineering, Produk Digital & Jasa Website",
     description:
-      "Meow Labs melayani jasa pembuatan website murah untuk UMKM, kafe, hingga personal branding di Semarang. Website responsive & mobile-friendly mulai Rp500 ribu saja!",
+      "Studio teknologi independen dari Semarang yang membangun sistem AI, produk digital, dan software yang berguna. Jasa website UMKM mulai Rp500 ribu.",
     images: ["/images/og-image.jpg"],
   },
   verification: {
@@ -97,7 +106,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="id" className="dark">
+    <html lang="id">
       <head>
         {/* Primary favicon information for search engines */}
         {/* <!-- This site's preferred favicon --> */}
@@ -109,8 +118,8 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
-        <meta name="msapplication-TileColor" content="#0f172a" />
-        <meta name="theme-color" content="#0f172a" />
+        <meta name="msapplication-TileColor" content="#f2efe6" />
+        <meta name="theme-color" content="#f2efe6" />
 
         <meta name="geo.region" content="ID-JT" />
         <meta name="geo.placename" content="Semarang" />
@@ -127,7 +136,7 @@ export default function RootLayout({
               "@type": "LocalBusiness",
               name: "Meow Labs",
               description:
-                "Jasa pembuatan website murah untuk UMKM & personal di Semarang oleh tim profesional dipimpin oleh Hasrinata Arya Afendi",
+                "Studio teknologi independen di Semarang yang dipimpin Hasrinata Arya Afendi: integrasi AI dan otomasi bisnis, produk digital, serta jasa pembuatan website untuk UMKM dan institusi",
               url: siteUrl,
               telephone: "+62895386288683",
               email: "admin@meowlabs.id",
@@ -145,6 +154,7 @@ export default function RootLayout({
               openingHours: "Mo-Su 08:00-22:00",
               priceRange: "Rp 500.000 - Rp 5.000.000",
               service: [
+                "Integrasi AI & Otomasi",
                 "Website Company Profile",
                 "Toko Online E-commerce",
                 "Landing Page Bisnis",
@@ -198,7 +208,7 @@ export default function RootLayout({
         )}
       </head>
       <body
-        className={`${poppins.variable} ${jetbrainsMono.variable} font-sans antialiased`}
+        className={`${geist.variable} ${instrumentSerif.variable} ${plexMono.variable} font-sans antialiased`}
       >
         <UiPreferencesProvider>
           <Suspense fallback={null}>
