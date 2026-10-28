@@ -12,7 +12,7 @@ import {
 } from "@/lib/whatsapp"
 
 const fieldClass =
-  "w-full rounded-[3px] border border-rule bg-paper-light px-4 py-3 text-ink placeholder:text-ink-muted/70 focus:border-ink focus:outline-none"
+  "w-full rounded-[3px] border border-rule bg-paper-light px-4 py-3 text-ink placeholder:text-ink-muted/70 focus:border-ink"
 const labelClass = "ml-eyebrow mb-2 block text-ink-muted"
 
 // Form konsultasi yang dikirim lewat WhatsApp; tidak ada data yang disimpan.

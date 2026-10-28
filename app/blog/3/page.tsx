@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { sharedOpenGraph } from "@/lib/seo"
 import { ArticleLayout } from "@/components/article-layout"
 
 export const metadata: Metadata = {
@@ -14,17 +15,10 @@ export const metadata: Metadata = {
     "biaya website vs aplikasi"
   ],
   openGraph: {
+    ...sharedOpenGraph,
     title: "Website atau Aplikasi Mobile: Mana yang Tepat untuk Bisnis UMKM Anda? | Meow Labs",
     description: "Panduan lengkap membandingkan website dan aplikasi mobile untuk membantu UMKM memilih platform digital yang paling sesuai dengan kebutuhan bisnis mereka.",
-    type: "article",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1517292987719-0369a794ec0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-        width: 1200,
-        height: 630,
-        alt: "Website atau Aplikasi Mobile untuk UMKM"
-      }
-    ]
+    type: "article"
   }
 }
 
@@ -37,7 +31,7 @@ const structuredData = {
   },
   "headline": "Website atau Aplikasi Mobile: Mana yang Tepat untuk Bisnis UMKM Anda?",
   "description": "Panduan lengkap membandingkan website dan aplikasi mobile untuk membantu UMKM memilih platform digital yang paling sesuai dengan kebutuhan bisnis mereka.",
-  "image": "https://images.unsplash.com/photo-1517292987719-0369a794ec0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80",
+  "image": "https://meowlabs.id/images/og-image.jpg",
   "author": {
     "@type": "Organization",
     "name": "Meow Labs",

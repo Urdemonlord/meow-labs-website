@@ -72,7 +72,7 @@ export function ArticleLayout({ postId, title, cta, structuredData, children }: 
       {related.length > 0 && (
         <section className="border-t border-rule">
           <div className="ml-container ml-section">
-            <p className="ml-eyebrow text-ink-muted">{"// Catatan lain"}</p>
+            <h2 className="ml-eyebrow text-ink-muted">{"// Catatan lain"}</h2>
             <div className="mt-8 grid border-t border-ink md:grid-cols-2">
               {related.map((item) => (
                 <NoteCard key={item.id} post={item} />

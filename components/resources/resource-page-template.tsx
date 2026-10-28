@@ -4,7 +4,7 @@ import { ArrowRight, ExternalLink } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { PageHeader, buttonPrimary, buttonSecondary } from "@/components/editorial"
-import type { ResourceItem } from "@/lib/resources-data"
+import type { ResourceBadgeVariant, ResourceItem } from "@/lib/resources-data"
 
 type PageStat = {
   label: string
@@ -27,6 +27,15 @@ type TemplateProps = {
     secondaryLabel?: string
     secondaryHref?: string
   }
+}
+
+// Varian badge dari data resource dipetakan ke warna brand agar hierarki
+// (misalnya Hot dan jumlah stars) tetap terlihat.
+const badgeClassMap: Record<ResourceBadgeVariant, string> = {
+  default: "border-transparent bg-ink text-paper-light",
+  secondary: "border-transparent bg-cobalt text-paper-light",
+  destructive: "border-transparent bg-vermilion text-ink",
+  outline: "border-rule text-ink-muted",
 }
 
 function isExternalHref(href: string) {
@@ -85,7 +94,7 @@ export function ResourcePageTemplate({
                         {item.badges.map((badge) => (
                           <span
                             key={`${item.slug}-${badge.label}`}
-                            className="ml-eyebrow rounded-[2px] border border-rule px-2 py-0.5 text-[0.65rem] text-ink-muted"
+                            className={`ml-eyebrow rounded-[2px] border px-2 py-0.5 text-[0.65rem] ${badgeClassMap[badge.variant ?? "outline"]}`}
                           >
                             {badge.label}
                           </span>

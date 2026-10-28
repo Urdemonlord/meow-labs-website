@@ -46,6 +46,7 @@ export function PricingSection() {
                   ))}
                 </ul>
                 <a
+                  aria-label={`${copy.selectCta}: ${pkg.name}`}
                   href={buildWhatsAppUrl(pkg.whatsappMessage)}
                   target="_blank"
                   rel="noopener noreferrer"

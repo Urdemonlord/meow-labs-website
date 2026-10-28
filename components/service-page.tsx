@@ -127,7 +127,7 @@ export function ServicePage({ service }: ServicePageProps) {
             </ul>
           </div>
           <div className="rounded-[4px] bg-ink p-8 text-paper-light lg:col-span-6 sm:p-10">
-            <p className="ml-eyebrow text-dark-muted">{"// Yang Anda dapatkan"}</p>
+            <h2 className="ml-eyebrow text-dark-muted">{"// Yang Anda dapatkan"}</h2>
             <ol className="mt-6 space-y-4">
               {content.includedFeatures.map((feature, index) => (
                 <li key={feature} className="flex gap-4 border-b border-paper-light/15 pb-4 last:border-b-0">
@@ -158,7 +158,7 @@ export function ServicePage({ service }: ServicePageProps) {
 
       <section className="border-b border-rule">
         <div className="ml-container ml-section">
-          <p className="ml-eyebrow text-ink-muted">{"// Layanan lainnya"}</p>
+          <h2 className="ml-eyebrow text-ink-muted">{"// Layanan lainnya"}</h2>
           <ul className="mt-8 grid border-t border-ink sm:grid-cols-2 lg:grid-cols-3">
             {otherServices.map((item) => (
               <li key={item.slug} className="border-b border-rule">

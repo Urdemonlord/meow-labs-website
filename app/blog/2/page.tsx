@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { sharedOpenGraph } from "@/lib/seo"
 import { ArticleLayout } from "@/components/article-layout"
 
 export const metadata: Metadata = {
@@ -14,17 +15,10 @@ export const metadata: Metadata = {
     "Google My Business optimization"
   ],
   openGraph: {
+    ...sharedOpenGraph,
     title: "Strategi SEO Lokal untuk Bisnis di Semarang: Panduan Lengkap 2025 | Meow Labs",
     description: "Panduan lengkap strategi SEO lokal terbaru untuk bisnis di Semarang yang membantu meningkatkan visibilitas online dan menarik pelanggan lokal.",
-    type: "article",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-        width: 1200,
-        height: 630,
-        alt: "Strategi SEO Lokal untuk Bisnis di Semarang"
-      }
-    ]
+    type: "article"
   }
 }
 
@@ -37,7 +31,7 @@ const structuredData = {
   },
   "headline": "Strategi SEO Lokal untuk Bisnis di Semarang: Panduan Lengkap 2025",
   "description": "Panduan lengkap strategi SEO lokal terbaru untuk bisnis di Semarang yang membantu meningkatkan visibilitas online dan menarik pelanggan lokal.",
-  "image": "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1674&q=80",
+  "image": "https://meowlabs.id/images/og-image.jpg",
   "author": {
     "@type": "Organization",
     "name": "Meow Labs",

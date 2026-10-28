@@ -176,31 +176,6 @@ html {
     overflow-x: hidden;
   }
 
-  #pricing,
-  #services,
-  #portfolio,
-  #faq,
-  #contact,
-  #student-packages {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-
-  #pricing .grid,
-  #services .grid,
-  #portfolio .grid,
-  #testimonials .grid,
-  #faq .space-y-4 {
-    gap: 1rem;
-  }
-
-  #pricing [data-slot="card-content"],
-  #portfolio [data-slot="card-content"],
-  #services [data-slot="card-content"],
-  #testimonials [data-slot="card-content"] {
-    padding: 1rem;
-  }
-
   footer .grid {
     gap: 1.25rem;
   }

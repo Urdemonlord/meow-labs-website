@@ -21,7 +21,7 @@ export function ChatbotPageContent() {
           </div>
 
           <aside className="lg:col-span-4">
-            <p className="ml-eyebrow text-ink-muted">{copy.chatbotPage.helpTitle}</p>
+            <h2 className="ml-eyebrow text-ink-muted">{copy.chatbotPage.helpTitle}</h2>
             <ul className="mt-5 border-t border-ink">
               {copy.chatbotPage.helpItems.map((item) => (
                 <li key={item} className="border-b border-rule py-4 leading-relaxed">

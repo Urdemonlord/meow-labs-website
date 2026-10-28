@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { sharedOpenGraph } from "@/lib/seo"
 import { ArticleLayout } from "@/components/article-layout"
 
 export const metadata: Metadata = {
@@ -14,17 +15,10 @@ export const metadata: Metadata = {
     "website bisnis Indonesia"
   ],
   openGraph: {
+    ...sharedOpenGraph,
     title: "10 Tren Website Development 2025 untuk UMKM di Indonesia | Meow Labs",
     description: "Temukan 10 tren website development terbaru tahun 2025 untuk UMKM di Indonesia yang perlu Anda terapkan sekarang untuk tetap kompetitif.",
-    type: "article",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-        width: 1200,
-        height: 630,
-        alt: "Tren Website Development 2025 untuk UMKM Indonesia"
-      }
-    ]
+    type: "article"
   }
 }
 
@@ -37,7 +31,7 @@ const structuredData = {
   },
   "headline": "10 Tren Website Development 2025 untuk UMKM di Indonesia",
   "description": "Temukan 10 tren website development terbaru tahun 2025 untuk UMKM di Indonesia yang perlu Anda terapkan sekarang untuk tetap kompetitif.",
-  "image": "https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=1769&q=80",
+  "image": "https://meowlabs.id/images/og-image.jpg",
   "author": {
     "@type": "Organization",
     "name": "Meow Labs",
