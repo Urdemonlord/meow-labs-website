@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
+import { ProductVisual } from "@/components/product-visual"
 import { productHref } from "@/lib/products"
 import type { Product } from "@/lib/products"
 
@@ -13,13 +14,17 @@ export function ProductCard({ product, medium }: { product: Product; medium: str
       rel="noopener noreferrer"
       className="group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-[4px] bg-ink text-paper-light"
     >
-      <Image
-        src={product.image}
-        alt=""
-        fill
-        sizes="(max-width: 1024px) 50vw, 25vw"
-        className="object-cover opacity-70 transition-transform duration-500 group-hover:scale-105"
-      />
+      {product.screenshot ? (
+        <Image
+          src={product.screenshot}
+          alt=""
+          fill
+          sizes="(max-width: 1024px) 50vw, 25vw"
+          className="object-cover opacity-70 transition-transform duration-500 group-hover:scale-105"
+        />
+      ) : (
+        <ProductVisual pattern={product.pattern} />
+      )}
       <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-transparent" />
       <div className="relative p-3 sm:p-5">
         <h3 className="font-display text-2xl leading-none sm:text-3xl">{product.name}</h3>

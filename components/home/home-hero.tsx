@@ -3,6 +3,50 @@ import { ArrowUpRight } from "lucide-react"
 import { GridDisc, GridTile, PlusMark } from "@/components/ornaments"
 import { buildWhatsAppUrl } from "@/lib/whatsapp"
 
+const mono = { fontFamily: "var(--font-plex-mono), ui-monospace, monospace" }
+
+// Lapisan wireframe di atas artwork hero: warisan dibaca dengan kacamata
+// engineering. viewBox mengikuti rasio bingkai (64:56) agar tidak terdistorsi.
+function HeroOverlay() {
+  const corner = 22
+  return (
+    <svg
+      viewBox="0 0 640 560"
+      preserveAspectRatio="xMidYMid slice"
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 h-full w-full"
+    >
+      <g stroke="var(--paper-light)" strokeWidth="1.5" fill="none" opacity="0.85">
+        <path d={`M20 ${20 + corner}V20h${corner}`} />
+        <path d={`M${620 - corner} 20h${corner}v${corner}`} />
+        <path d={`M20 ${540 - corner}v${corner}h${corner}`} />
+        <path d={`M${620 - corner} 540h${corner}v-${corner}`} />
+      </g>
+      <g stroke="var(--paper-light)" strokeWidth="1" strokeDasharray="4 6" opacity="0.55">
+        <line x1="20" y1="300" x2="620" y2="300" />
+        <line x1="400" y1="20" x2="400" y2="540" />
+      </g>
+      <g stroke="var(--vermilion)" strokeWidth="1.5" fill="none">
+        <circle cx="400" cy="150" r="34" />
+        <line x1="400" y1="104" x2="400" y2="124" />
+        <line x1="400" y1="176" x2="400" y2="196" />
+        <line x1="354" y1="150" x2="374" y2="150" />
+        <line x1="426" y1="150" x2="446" y2="150" />
+        <line x1="434" y1="150" x2="520" y2="96" />
+      </g>
+      <g fontSize="13" letterSpacing="1.5" fill="var(--paper-light)" style={mono}>
+        <rect x="520" y="80" width="98" height="24" fill="var(--ink)" opacity="0.75" />
+        <text x="528" y="97">SIG / 01</text>
+        <text x="40" y="52">FIELD NOTE 001</text>
+        <rect x="462" y="502" width="144" height="26" fill="var(--ink)" opacity="0.75" />
+        <text x="598" y="520" textAnchor="end">
+          SYSTEMS / 2026
+        </text>
+      </g>
+    </svg>
+  )
+}
+
 export function HomeHero() {
   return (
     <section id="home" className="relative overflow-hidden border-b border-rule">
@@ -51,6 +95,7 @@ export function HomeHero() {
                 sizes="(max-width: 1024px) 100vw, 560px"
                 className="object-cover"
               />
+              <HeroOverlay />
               <Image
                 src="/brand/meowlabs-mark-paper.png"
                 alt=""

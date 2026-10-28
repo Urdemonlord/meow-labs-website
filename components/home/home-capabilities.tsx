@@ -1,13 +1,13 @@
-import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
+import { AiDiagram, ResearchDiagram, SystemDiagram, WebsiteDiagram } from "./capability-diagrams"
 
 // Empat kemampuan studio. Tautan mengarah ke halaman layanan yang sudah ada,
 // sekaligus menjaga internal link untuk SEO halaman layanan.
 const capabilities = [
   {
     title: "Website & Produk Digital",
-    image: "/art/rumah-gadang.webp",
+    Diagram: WebsiteDiagram,
     body: "Company profile, toko online, dan landing page yang cepat, rapi di HP, dan mudah dikelola sendiri.",
     price: "Mulai Rp500 ribu",
     links: [
@@ -20,21 +20,21 @@ const capabilities = [
   },
   {
     title: "Applied AI",
-    image: "/art/barong.webp",
+    Diagram: AiDiagram,
     body: "AI agent, chatbot, dan otomasi yang terhubung ke WhatsApp, data, dan proses bisnis, bukan sekadar chatbot.",
     price: "Mulai Rp4 juta",
     links: [{ label: "Integrasi AI & Otomasi", href: "/layanan/integrasi-ai" }],
   },
   {
     title: "Sistem & Infrastruktur",
-    image: "/art/gapura.webp",
+    Diagram: SystemDiagram,
     body: "Aplikasi web custom, dashboard internal, integrasi API, dan deployment untuk alur kerja yang spesifik.",
     price: "Mulai Rp4 juta",
     links: [{ label: "Aplikasi Web Custom", href: "/layanan/aplikasi-web" }],
   },
   {
     title: "Riset & Eksperimen",
-    image: "/art/frangipani.webp",
+    Diagram: ResearchDiagram,
     body: "Produk yang kami bangun sendiri dan catatan teknis dari eksperimen yang kami jalankan.",
     price: null,
     links: [
@@ -61,15 +61,8 @@ export function HomeCapabilities() {
               key={capability.title}
               className="flex flex-col border-b border-rule py-8 sm:px-6 sm:[&:nth-child(odd)]:pl-0 lg:border-b-0 lg:border-r lg:last:border-r-0 lg:[&:nth-child(odd)]:pl-6 lg:first:pl-0"
             >
-              <div className="relative mb-6 aspect-[4/3] overflow-hidden rounded-[4px] bg-ink">
-                <Image
-                  src={capability.image}
-                  alt=""
-                  fill
-                  loading="lazy"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover"
-                />
+              <div className="mb-6 aspect-[4/3] overflow-hidden rounded-[4px] border border-rule">
+                <capability.Diagram />
               </div>
               <span className="ml-eyebrow text-ink-muted">{String(index + 1).padStart(2, "0")}</span>
               <h3 className="mt-4 text-xl font-medium text-ink">{capability.title}</h3>

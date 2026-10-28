@@ -1,5 +1,3 @@
-import Image from "next/image"
-
 const steps = [
   { title: "Diskusi", body: "Memahami masalah, tujuan, dan batasan sebelum bicara teknologi." },
   { title: "Perancangan", body: "Menyusun scope, desain, dan arsitektur solusi yang paling masuk akal." },
@@ -10,10 +8,10 @@ const steps = [
 export function HomeProcess() {
   return (
     <section className="relative isolate overflow-hidden bg-dark-surface text-paper-light">
-      <div aria-hidden="true" className="absolute inset-y-0 right-0 -z-10 w-full lg:w-3/5">
-        <Image src="/art/palm-terrace.webp" alt="" fill loading="lazy" sizes="(max-width: 1024px) 100vw, 60vw" className="object-cover opacity-80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-dark-surface via-dark-surface/60 to-transparent" />
-      </div>
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 opacity-60 [background-image:linear-gradient(rgba(250,248,242,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(250,248,242,0.06)_1px,transparent_1px)] [background-size:48px_48px]"
+      />
       <div className="ml-container ml-section grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <p className="ml-eyebrow text-paper-light/70">05 // Proses kerja</p>

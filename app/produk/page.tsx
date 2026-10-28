@@ -3,6 +3,7 @@ import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
+import { ProductVisual } from "@/components/product-visual"
 import { productHref, products } from "@/lib/products"
 import { sharedOpenGraph } from "@/lib/seo"
 import { buildWhatsAppUrl } from "@/lib/whatsapp"
@@ -60,7 +61,11 @@ export default function ProdukPage() {
               className="grid items-center gap-6 border-b border-rule py-10 last:border-b-0 md:grid-cols-12 md:gap-10"
             >
               <div className="relative aspect-[16/10] overflow-hidden rounded-[4px] bg-ink md:col-span-5">
-                <Image src={product.image} alt="" fill sizes="(max-width: 768px) 100vw, 40vw" className="object-cover" />
+                {product.screenshot ? (
+                  <Image src={product.screenshot} alt="" fill sizes="(max-width: 768px) 100vw, 40vw" className="object-cover" />
+                ) : (
+                  <ProductVisual pattern={product.pattern} />
+                )}
               </div>
               <div className="md:col-span-7">
                 <div className="flex items-center gap-3">

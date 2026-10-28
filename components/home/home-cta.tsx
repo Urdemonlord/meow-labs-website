@@ -41,9 +41,6 @@ export function HomeCta() {
             <div className="relative aspect-[42/34] overflow-hidden rounded-[4px]">
               <Image src="/art/cats.webp" alt="" fill loading="lazy" sizes="460px" className="object-cover" />
             </div>
-            <div className="relative -mt-10 ml-auto mr-[-1rem] aspect-[295/250] w-40 overflow-hidden rounded-[4px] border-4 border-ink sm:w-48">
-              <Image src="/art/stupa.webp" alt="" fill loading="lazy" sizes="192px" className="object-cover" />
-            </div>
           </div>
         </div>
       </div>

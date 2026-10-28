@@ -5,6 +5,9 @@
 // Label status harus jujur dan akurat saat dipublikasikan.
 export type ProductStatus = "Tersedia" | "Beta" | "Eksperimen"
 
+// Pola visual abstrak per produk, dipakai selama belum ada screenshot.
+export type ProductPattern = "grid" | "rings" | "bars" | "dots"
+
 export interface Product {
   slug: string
   name: string
@@ -13,8 +16,9 @@ export interface Product {
   // Label pendek untuk kartu produk.
   tagline: string
   description: string
-  // Artwork sementara dari kolase brand, sampai ada screenshot produk.
-  image: string
+  pattern: ProductPattern
+  // Screenshot produk; bila diisi, dipakai menggantikan pola abstrak.
+  screenshot?: string
 }
 
 export const products: Product[] = [
@@ -25,7 +29,7 @@ export const products: Product[] = [
     status: "Tersedia",
     tagline: "Ide jadi aplikasi",
     description: "Ceritakan ide aplikasimu, AI menyusun kode yang langsung jalan lengkap dengan preview.",
-    image: "/art/wave.webp",
+    pattern: "grid",
   },
   {
     slug: "academy",
@@ -34,7 +38,7 @@ export const products: Product[] = [
     status: "Tersedia",
     tagline: "Learn · Build · Ship",
     description: "Platform belajar teknologi dari MeowLabs: kursus, dokumentasi, dan proyek nyata.",
-    image: "/art/candi-kecil.webp",
+    pattern: "rings",
   },
   {
     slug: "toefl",
@@ -43,7 +47,7 @@ export const products: Product[] = [
     status: "Tersedia",
     tagline: "Latihan TOEFL ITP",
     description: "Latihan TOEFL ITP gratis: 450 soal, simulasi penuh berwaktu, dan bisa dipakai offline.",
-    image: "/art/mountain.webp",
+    pattern: "bars",
   },
   {
     slug: "gencv",
@@ -52,7 +56,7 @@ export const products: Product[] = [
     status: "Tersedia",
     tagline: "CV ramah ATS",
     description: "Bikin CV ramah ATS dengan bantuan AI, cocokkan dengan lowongan, lalu ekspor ke PDF atau DOCX.",
-    image: "/art/arca-twins.webp",
+    pattern: "dots",
   },
 ]
 

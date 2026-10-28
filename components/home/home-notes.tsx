@@ -1,29 +1,29 @@
-import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 
-// Hanya artikel yang benar-benar ada di /blog/[id].
+// Hanya artikel yang benar-benar ada di /blog/[id]. Ditampilkan sebagai
+// kartu tipografi seperti publikasi teknis, tanpa gambar dekoratif.
 const notes = [
   {
     href: "/blog/1",
     title: "10 Tren Website Development 2025 untuk UMKM di Indonesia",
     date: "29 Sep 2025",
     category: "Web Development",
-    image: "/art/arca-dewi.webp",
+    readTime: "6 menit",
   },
   {
     href: "/blog/2",
     title: "Strategi SEO Lokal untuk Bisnis di Semarang",
     date: "20 Sep 2025",
     category: "SEO",
-    image: "/art/singa.webp",
+    readTime: "8 menit",
   },
   {
     href: "/blog/3",
     title: "Website atau Aplikasi Mobile: Mana yang Tepat untuk UMKM?",
     date: "15 Sep 2025",
     category: "Bisnis",
-    image: "/art/trees.webp",
+    readTime: "7 menit",
   },
 ]
 
@@ -44,23 +44,26 @@ export function HomeNotes() {
           </Link>
         </div>
 
-        <div className="mt-12 grid gap-8 md:grid-cols-3">
-          {notes.map((note) => (
-            <Link key={note.href} href={note.href} className="group">
-              <div className="relative aspect-[16/10] overflow-hidden rounded-[4px] bg-ink">
-                <Image
-                  src={note.image}
-                  alt=""
-                  fill
-                  loading="lazy"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
+        <div className="mt-12 grid border-t border-ink md:grid-cols-3">
+          {notes.map((note, index) => (
+            <Link
+              key={note.href}
+              href={note.href}
+              className="group flex min-h-[260px] flex-col border-b border-rule py-8 md:border-b-0 md:border-r md:px-8 md:first:pl-0 md:last:border-r-0 md:last:pr-0"
+            >
+              <div className="flex items-center justify-between">
+                <span className="ml-eyebrow text-ink-muted">Catatan {String(index + 1).padStart(3, "0")}</span>
+                <span className="ml-eyebrow text-forest">{note.category}</span>
               </div>
-              <p className="ml-eyebrow mt-4 text-ink-muted">
-                {note.date} · {note.category}
-              </p>
-              <h3 className="mt-2 text-lg font-medium leading-snug text-ink group-hover:underline">{note.title}</h3>
+              <h3 className="mt-8 flex-1 font-display text-3xl leading-[1.05] text-ink group-hover:underline">
+                {note.title}
+              </h3>
+              <div className="ml-eyebrow mt-8 flex items-center justify-between text-ink-muted">
+                <span>
+                  {note.date} · {note.readTime}
+                </span>
+                <ArrowUpRight className="h-4 w-4 text-ink transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </div>
             </Link>
           ))}
         </div>
