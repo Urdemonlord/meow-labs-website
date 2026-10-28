@@ -41,6 +41,15 @@ export function WorkingChatInterface({ autoFocusInput = true }: { autoFocusInput
   const [isLoading, setIsLoading] = useState(false)
   const messagesContainerRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+
+  // Fokus ke input saat panel dibuka. Karena isi chat dimuat secara lazy,
+  // fokus hanya dipindah kalau pengguna belum memindahkannya ke tempat lain
+  // selama memuat (tombol pembuka sudah hilang, jadi fokus ada di body).
+  useEffect(() => {
+    if (!autoFocusInput) return
+    const active = document.activeElement
+    if (!active || active === document.body) inputRef.current?.focus()
+  }, [autoFocusInput])
   const isFetchingRef = useRef(false)
 
   // Gulir kotak pesan saja; scrollIntoView ikut menggulir halaman saat chat
@@ -246,7 +255,6 @@ export function WorkingChatInterface({ autoFocusInput = true }: { autoFocusInput
             placeholder={copy.chat.placeholder}
             className="min-w-0 flex-1 rounded-full border border-border bg-card px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary"
             disabled={isLoading}
-            autoFocus={autoFocusInput}
           />
           <button
             type="submit"

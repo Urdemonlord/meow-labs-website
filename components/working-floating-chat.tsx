@@ -10,7 +10,14 @@ import { useUiText } from "./ui-preferences-provider"
 // jadi halaman yang tidak memakai chat tidak ikut menanggung kodenya.
 const WorkingChatInterface = dynamic(
   () => import("./working-chat-interface").then((mod) => mod.WorkingChatInterface),
-  { ssr: false, loading: () => <div className="h-full animate-pulse bg-paper-light" /> },
+  {
+    ssr: false,
+    loading: () => (
+      <div role="status" className="flex h-full items-center justify-center text-sm text-ink-muted">
+        Memuat chat…
+      </div>
+    ),
+  },
 )
 
 export function WorkingFloatingChat() {
