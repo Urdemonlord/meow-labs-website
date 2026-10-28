@@ -1,6 +1,6 @@
 # Meow Labs Knowledge Base
 
-Sumber informasi untuk asisten virtual Meow Labs. Isi dokumen ini harus selalu sama dengan harga dan layanan yang tampil di website (lib/ui-copy.json dan components/services-section.tsx). Kalau salah satunya berubah, perbarui dokumen ini juga.
+Sumber informasi untuk asisten virtual Meow Labs. Isi dokumen ini harus selalu sama dengan harga dan layanan yang tampil di website (lib/ui-copy.json dan lib/services-data.ts). Kalau salah satunya berubah, perbarui dokumen ini juga.
 
 ## Tentang Meow Labs
 
@@ -66,7 +66,7 @@ Harga di bawah adalah titik mulai. Scope final dan harga pasti dibahas saat kons
 - **Website Toko Online:** Rp2.500.000 - Rp10.000.000
 - **Website Sekolah dan Yayasan:** Rp2.500.000 - Rp7.000.000
 - **Website Portal Berita:** Rp3.000.000 - Rp8.000.000
-- **Website / Sistem Custom:** mulai Rp5.000.000
+- **Website / Sistem Custom:** mulai Rp4.000.000
 
 Fitur umum yang bisa disertakan: desain responsive, SEO dasar, form kontak, integrasi WhatsApp, Google Maps, galeri, katalog produk, keranjang dan checkout, integrasi payment gateway, dashboard admin, dan integrasi API.
 

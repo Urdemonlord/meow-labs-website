@@ -1,6 +1,7 @@
 ﻿"use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import {
   Clock,
   ExternalLink,
@@ -205,11 +206,11 @@ export function Footer() {
             <h3 className="mb-4 font-semibold text-foreground">{copy.footer.servicesTitle}</h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
               {copy.footer.serviceLinks.map((item) => (
-                <li key={item}>
-                  <a href="#services" className="flex items-center gap-2 transition-colors hover:text-primary">
+                <li key={item.label}>
+                  <Link href={item.href} className="flex items-center gap-2 transition-colors hover:text-primary">
                     <ExternalLink className="h-3 w-3" />
-                    {item}
-                  </a>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>

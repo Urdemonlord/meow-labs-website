@@ -173,13 +173,13 @@
       "followUs": "Ikuti kami:",
       "servicesTitle": "Layanan Kami",
       "serviceLinks": [
-        "Website Company Profile",
-        "Toko Online/E-commerce",
-        "Landing Page Bisnis",
-        "Website Personal Branding",
-        "POS / Aplikasi Bisnis",
-        "Aplikasi AI/ML Custom",
-        "Website Sekolah/Yayasan"
+        { "label": "Website Company Profile", "href": "/layanan/company-profile" },
+        { "label": "Toko Online/E-commerce", "href": "/layanan/toko-online" },
+        { "label": "Landing Page Bisnis", "href": "/layanan/landing-page" },
+        { "label": "Website Personal Branding", "href": "/#services" },
+        { "label": "POS / Aplikasi Bisnis", "href": "/pos" },
+        { "label": "Aplikasi AI/ML Custom", "href": "/layanan/aplikasi-web" },
+        { "label": "Website Sekolah/Yayasan", "href": "/#services" }
       ],
       "companyTitle": "Perusahaan",
       "testimonialsLabel": "Testimoni",
@@ -387,13 +387,13 @@
       "followUs": "Follow us:",
       "servicesTitle": "Services",
       "serviceLinks": [
-        "Company Profile Website",
-        "Online Store/E-commerce",
-        "Business Landing Page",
-        "Personal Branding Website",
-        "POS / Business App",
-        "Custom AI/ML App",
-        "School/Foundation Website"
+        { "label": "Company Profile Website", "href": "/layanan/company-profile" },
+        { "label": "Online Store/E-commerce", "href": "/layanan/toko-online" },
+        { "label": "Business Landing Page", "href": "/layanan/landing-page" },
+        { "label": "Personal Branding Website", "href": "/#services" },
+        { "label": "POS / Business App", "href": "/pos" },
+        { "label": "Custom AI/ML App", "href": "/layanan/aplikasi-web" },
+        { "label": "School/Foundation Website", "href": "/#services" }
       ],
       "companyTitle": "Company",
       "testimonialsLabel": "Testimonials",

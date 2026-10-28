@@ -30,13 +30,13 @@ export function Navigation() {
   const navItems = useMemo(
     () => [
       { label: copy.nav.items.home, href: isHomePage ? "#home" : "/#home" },
-      { label: locale === "en" ? "Domain promo" : "Promo domain", href: createSectionHref("promo-domain") },
       { label: copy.nav.items.services, href: createSectionHref("services") },
       { label: copy.nav.items.pricing, href: createSectionHref("pricing") },
       { label: copy.nav.items.portfolio, href: createSectionHref("portfolio") },
+      { label: "POS", href: "/pos" },
       { label: copy.nav.items.contact, href: createSectionHref("contact") },
     ],
-    [copy.nav.items, createSectionHref, isHomePage, locale]
+    [copy.nav.items, createSectionHref, isHomePage]
   )
 
   const whatsappHref = buildWhatsAppUrl(
