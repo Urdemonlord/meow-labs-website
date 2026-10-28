@@ -20,21 +20,21 @@ const capabilities = [
   },
   {
     title: "Applied AI",
-    image: "/art/moon.webp",
+    image: "/art/barong.webp",
     body: "AI agent, chatbot, dan otomasi yang terhubung ke WhatsApp, data, dan proses bisnis, bukan sekadar chatbot.",
     price: "Mulai Rp4 juta",
     links: [{ label: "Integrasi AI & Otomasi", href: "/layanan/integrasi-ai" }],
   },
   {
     title: "Sistem & Infrastruktur",
-    image: "/art/parabola.webp",
+    image: "/art/gapura.webp",
     body: "Aplikasi web custom, dashboard internal, integrasi API, dan deployment untuk alur kerja yang spesifik.",
     price: "Mulai Rp4 juta",
     links: [{ label: "Aplikasi Web Custom", href: "/layanan/aplikasi-web" }],
   },
   {
     title: "Riset & Eksperimen",
-    image: "/art/orchid.webp",
+    image: "/art/frangipani.webp",
     body: "Produk yang kami bangun sendiri dan catatan teknis dari eksperimen yang kami jalankan.",
     price: null,
     links: [

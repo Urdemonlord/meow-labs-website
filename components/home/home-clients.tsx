@@ -11,7 +11,7 @@ export function HomeClients() {
             Dipercaya UMKM, institusi, dan perusahaan.
           </h2>
           <p className="mt-6 text-ink-muted">Lebih dari 30 website klien sudah online.</p>
-          <div className="relative mt-10 aspect-[46/15] overflow-hidden rounded-[4px] bg-ink">
+          <div className="relative mt-10 aspect-[2/1] overflow-hidden rounded-[4px] bg-ink">
             <Image src="/art/map.webp" alt="" fill loading="lazy" sizes="(max-width: 1024px) 100vw, 400px" className="object-cover" />
             <span className="ml-eyebrow absolute bottom-2 right-3 text-[0.6rem] text-paper-light/80">Semarang → Indonesia</span>
           </div>

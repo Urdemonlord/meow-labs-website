@@ -16,7 +16,7 @@ const notes = [
     title: "Strategi SEO Lokal untuk Bisnis di Semarang",
     date: "20 Sep 2025",
     category: "SEO",
-    image: "/art/mountain-small.webp",
+    image: "/art/singa.webp",
   },
   {
     href: "/blog/3",
