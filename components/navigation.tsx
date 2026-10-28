@@ -41,8 +41,8 @@ export function Navigation() {
 
   const whatsappHref = buildWhatsAppUrl(
     locale === "en"
-      ? "Hello Meow Labs, I want to discuss a website project."
-      : "Halo Meow Labs, saya ingin konsultasi project website."
+      ? "Hello Meow Labs, I want to discuss a website, app, or AI project."
+      : "Halo Meow Labs, saya ingin konsultasi project website, aplikasi, atau AI."
   )
 
   return (
@@ -54,7 +54,7 @@ export function Navigation() {
             <div className="min-w-0">
               <div className="truncate text-base font-semibold text-foreground sm:text-lg">Meow Labs</div>
               <div className="hidden text-xs text-muted-foreground lg:block">
-                {locale === "en" ? "Websites and digital systems" : "Website dan sistem digital"}
+                {locale === "en" ? "AI, products & software" : "AI, produk & software"}
               </div>
             </div>
           </Link>

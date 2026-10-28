@@ -91,7 +91,7 @@ export function HeroSection() {
               <div className="absolute inset-0 scale-110 rounded-full bg-primary/20 blur-2xl" />
               <Image
                 src="/images/meow-mascot.webp"
-                alt="Meow Labs - Jasa Pembuatan Website Murah Semarang - Maskot Kucing Developer"
+                alt="Maskot kucing Meow Labs, studio teknologi dan jasa pembuatan website di Semarang"
                 width={400}
                 height={400}
                 className="relative z-10 h-auto w-[280px] float-animation sm:w-[360px] lg:w-[400px]"

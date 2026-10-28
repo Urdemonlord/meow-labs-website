@@ -6,33 +6,85 @@ import { Button } from "@/components/ui/button"
 const aboutCopy = {
   id: {
     badge: "Tentang Meowlabs.id",
-    title: "UMKM Jasa Website oleh Mahasiswa Unimus",
+    title: "Studio teknologi independen dari Indonesia",
     intro:
-      "Meowlabs.id adalah UMKM jasa pembuatan website yang dibangun oleh mahasiswa Universitas Muhammadiyah Semarang (Unimus). Fokus kami membantu UMKM, personal brand, dan organisasi kecil punya website yang rapi, cepat, dan siap dipakai untuk kebutuhan bisnis.",
+      "Meow Labs membangun produk AI-native, sistem yang aman, dan software yang berguna dari Semarang. Kami mengerjakan proyek untuk klien, membangun produk sendiri, dan mempublikasikan eksperimen teknologi kami.",
     sectionTitle: "Profil dan Pendekatan Kerja",
     sectionBody1:
-      "Founder Meowlabs.id adalah Hasrinata Arya Afendi. Kami menggabungkan proses development modern, automation, dan AI assistance untuk mempercepat delivery tanpa mengorbankan kualitas struktur kode maupun pengalaman pengguna.",
+      "Meow Labs didirikan oleh Hasrinata Arya Afendi, mahasiswa Universitas Muhammadiyah Semarang (Unimus), sebagai jasa pembuatan website untuk UMKM. Sekarang kami berkembang menjadi studio AI engineering dan produk digital, tanpa meninggalkan layanan website yang menjadi awal kami.",
     sectionBody2:
-      "Setiap project dikerjakan dengan alur yang jelas: discovery kebutuhan, desain yang relevan, implementasi teknis, lalu optimasi performa dan handover yang mudah dipahami klien.",
-    ctaTitle: "Siap diskusi kebutuhan website?",
+      "Di era AI, membuat website, dashboard, atau chatbot sederhana makin mudah. Karena itu kami tidak menjual baris kode. Nilai yang kami tawarkan ada pada memahami masalah, merancang sistem, mengintegrasikan teknologi, menjaga keandalan, dan menghasilkan dampak bisnis.",
+    pillarsTitle: "Tiga pilar Meow Labs",
+    pillars: [
+      {
+        title: "Engineering",
+        body: "Membangun sistem untuk pelanggan: website, aplikasi, dan integrasi AI ke proses operasional. Ini yang membiayai studio.",
+      },
+      {
+        title: "Products",
+        body: "Mengembangkan sedikit produk unggulan yang menyelesaikan masalah nyata dan dipakai berulang, bukan sebanyak mungkin produk.",
+      },
+      {
+        title: "Research",
+        body: "Bereksperimen dengan AI agent, keamanan AI, dan infrastruktur, lalu memublikasikan hasilnya sebagai kode, benchmark, atau artikel.",
+      },
+    ],
+    principlesTitle: "Prinsip yang kami pegang",
+    principles: [
+      "Mulai dari masalah pelanggan, bukan dari tren teknologi.",
+      "Tidak memaksakan AI kalau software biasa sudah cukup.",
+      "Mengukur hasil dari masalah yang selesai dan pengguna yang kembali, bukan jumlah fitur.",
+      "Keamanan dan keandalan dirancang sejak awal, bukan ditambal belakangan.",
+    ],
+    identityTitle: "Identitas dari Indonesia",
+    identityBody:
+      "Arah visual Meow Labs dibangun dari logo kucing, kolase budaya Indonesia, tipografi editorial, dan dokumentasi teknis. Budaya Indonesia menjadi perspektif studio, sementara produk kami tetap dirancang untuk relevan bagi penggunanya.",
+    ctaTitle: "Punya masalah yang ingin diselesaikan?",
     ctaBody:
-      "Konsultasi awal gratis untuk membahas scope, timeline, dan rekomendasi paket yang paling sesuai.",
+      "Konsultasi awal gratis untuk membahas masalahnya, lalu kami rekomendasikan solusi yang paling masuk akal: website, aplikasi, otomasi, atau integrasi AI.",
     cta: "Konsultasi via WhatsApp",
+    whatsappText: "Halo Meowlabs.id, saya ingin konsultasi project",
   },
   en: {
     badge: "About Meowlabs.id",
-    title: "Student-led Website Service for Small Businesses",
+    title: "An independent technology studio from Indonesia",
     intro:
-      "Meowlabs.id is a small business website service founded by a student from Universitas Muhammadiyah Semarang (Unimus). We help small businesses, personal brands, and local organizations launch clean, fast, and practical websites for real business needs.",
+      "Meow Labs builds AI-native products, secure systems, and useful software from Semarang, Indonesia. We deliver client projects, build our own products, and publish our technology experiments.",
     sectionTitle: "Founder and Working Approach",
     sectionBody1:
-      "Meowlabs.id was founded by Hasrinata Arya Afendi. We combine modern development workflow, automation, and AI assistance to improve delivery speed while keeping code quality and user experience consistent.",
+      "Meow Labs was founded by Hasrinata Arya Afendi, a student at Universitas Muhammadiyah Semarang (Unimus), as a website service for small businesses. It is now growing into an AI engineering and digital product studio, while keeping the website service it started with.",
     sectionBody2:
-      "Each project follows a clear path: requirement discovery, relevant design direction, technical implementation, then performance optimization and an easy client handover.",
-    ctaTitle: "Ready to discuss your website needs?",
+      "In the AI era, building a website, dashboard, or simple chatbot keeps getting easier. So we do not sell lines of code. Our value is in understanding the problem, designing the system, integrating technology, keeping it reliable, and creating business impact.",
+    pillarsTitle: "The three Meow Labs pillars",
+    pillars: [
+      {
+        title: "Engineering",
+        body: "Building systems for clients: websites, apps, and AI integrated into daily operations. This is what funds the studio.",
+      },
+      {
+        title: "Products",
+        body: "Developing a few flagship products that solve real problems and get used repeatedly, rather than as many products as possible.",
+      },
+      {
+        title: "Research",
+        body: "Experimenting with AI agents, AI security, and infrastructure, then publishing results as code, benchmarks, or articles.",
+      },
+    ],
+    principlesTitle: "Principles we hold",
+    principles: [
+      "Start from the customer's problem, not from technology trends.",
+      "Do not force AI when plain software is enough.",
+      "Measure results by problems solved and returning users, not feature count.",
+      "Design for security and reliability from day one, not as an afterthought.",
+    ],
+    identityTitle: "An identity from Indonesia",
+    identityBody:
+      "The Meow Labs visual direction is built from the cat logo, Indonesian cultural collage, editorial typography, and technical documentation. Indonesian culture shapes the studio's perspective, while our products are designed to stay relevant to the people who use them.",
+    ctaTitle: "Have a problem worth solving?",
     ctaBody:
-      "Free initial consultation to align scope, timeline, and the most suitable package recommendation.",
+      "Free initial consultation to understand the problem, then we recommend the most sensible solution: a website, an app, automation, or AI integration.",
     cta: "Consult via WhatsApp",
+    whatsappText: "Hello Meowlabs.id, I want to discuss a project",
   },
 } as const
 
@@ -62,12 +114,43 @@ export function AboutPageContent() {
             <p className="text-lg text-muted-foreground">{copy.sectionBody2}</p>
           </div>
 
+          <div className="mx-auto mt-16 max-w-5xl">
+            <h2 className="text-center text-3xl font-semibold">{copy.pillarsTitle}</h2>
+            <div className="mt-8 grid gap-6 md:grid-cols-3">
+              {copy.pillars.map((pillar, index) => (
+                <div key={pillar.title} className="rounded-2xl border border-border bg-card/70 p-6">
+                  <span className="font-mono text-xs text-primary">{String(index + 1).padStart(2, "0")}</span>
+                  <h3 className="mt-2 text-xl font-semibold text-foreground">{pillar.title}</h3>
+                  <p className="mt-3 text-muted-foreground">{pillar.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mx-auto mt-16 grid max-w-5xl gap-6 md:grid-cols-2">
+            <div className="rounded-2xl border border-border bg-card/70 p-6 sm:p-8">
+              <h2 className="text-2xl font-semibold">{copy.principlesTitle}</h2>
+              <ul className="mt-5 space-y-3">
+                {copy.principles.map((principle) => (
+                  <li key={principle} className="flex items-start text-muted-foreground">
+                    <div className="mr-3 mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                    {principle}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-border bg-card/70 p-6 sm:p-8">
+              <h2 className="text-2xl font-semibold">{copy.identityTitle}</h2>
+              <p className="mt-5 text-muted-foreground">{copy.identityBody}</p>
+            </div>
+          </div>
+
           <div className="mx-auto mt-10 max-w-3xl rounded-2xl border border-border bg-card/70 p-6 text-center sm:p-8">
             <h3 className="text-2xl font-semibold text-foreground">{copy.ctaTitle}</h3>
             <p className="mt-3 text-muted-foreground">{copy.ctaBody}</p>
             <div className="mt-6">
               <a
-                href="https://wa.me/62895386288683?text=Halo%20Meowlabs.id%2C%20saya%20ingin%20konsultasi%20website"
+                href={`https://wa.me/62895386288683?text=${encodeURIComponent(copy.whatsappText)}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >

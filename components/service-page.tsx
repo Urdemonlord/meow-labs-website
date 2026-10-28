@@ -21,6 +21,11 @@ export function ServicePage({ service }: ServicePageProps) {
   const pageUrl = `${siteUrl}/layanan/${service.slug}`
   const whatsappHref = buildWhatsAppUrl(`Halo admin Meow Labs, saya ingin konsultasi ${content.title}.`)
   const otherServices = servicesWithPage.filter((item) => item.slug !== service.slug)
+  // Huruf kecil untuk kalimat CTA, tapi singkatan seperti "AI" tetap kapital.
+  const ctaServiceName = content.title
+    .split(" ")
+    .map((word) => (word === word.toUpperCase() ? word : word.toLowerCase()))
+    .join(" ")
 
   const structuredData = [
     {
@@ -183,7 +188,7 @@ export function ServicePage({ service }: ServicePageProps) {
           </div>
 
           <div className="mt-12 rounded-2xl bg-gradient-to-r from-primary/10 to-secondary/10 p-8 text-center md:p-12">
-            <h2 className="text-2xl font-bold">Siap mulai {content.title.toLowerCase()}?</h2>
+            <h2 className="text-2xl font-bold">Siap mulai {ctaServiceName}?</h2>
             <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
               Ceritakan kebutuhan Anda. Kami bantu tentukan scope, estimasi biaya, dan timeline secara gratis.
             </p>

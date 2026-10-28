@@ -6,12 +6,13 @@ import { Navigation } from "@/components/navigation"
 
 export const metadata: Metadata = {
   alternates: { canonical: "/about" },
-  title: "Tentang Meowlabs.id | Jasa Website UMKM",
+  title: "Tentang Meowlabs.id | Studio Teknologi Independen dari Semarang",
   description:
-    "Meowlabs.id adalah UMKM jasa pembuatan website oleh mahasiswa Unimus, didirikan oleh Hasrinata Arya Afendi untuk membantu UMKM dan personal brand membangun website yang rapi dan efektif.",
+    "Meowlabs.id adalah studio teknologi independen dari Semarang yang didirikan Hasrinata Arya Afendi. Tiga pilar kami: AI engineering untuk bisnis, produk digital sendiri, serta riset dan open source.",
   keywords: [
     "meowlabs id",
     "jasa pembuatan website umkm",
+    "studio ai engineering",
     "mahasiswa unimus",
     "hasrinata arya afendi",
     "web developer semarang",
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Tentang Meowlabs.id",
     description:
-      "UMKM jasa website oleh mahasiswa Unimus, founder Hasrinata Arya Afendi.",
+      "Studio teknologi independen dari Semarang: AI engineering, produk digital, serta riset dan open source. Founder Hasrinata Arya Afendi.",
     type: "website",
   },
 }
@@ -41,7 +42,7 @@ export default function AboutPage() {
               "@type": "Organization",
               name: "Meowlabs.id",
               description:
-                "UMKM jasa pembuatan website oleh mahasiswa Unimus, didirikan oleh Hasrinata Arya Afendi.",
+                "Studio teknologi independen dari Semarang yang membangun sistem AI, produk digital, dan software yang berguna. Didirikan oleh Hasrinata Arya Afendi, mahasiswa Unimus.",
               url: "https://meowlabs.id",
               founder: {
                 "@type": "Person",

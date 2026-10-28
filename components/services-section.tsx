@@ -4,13 +4,14 @@ import { useMemo, useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { CheckCircle, Cpu, Database, Globe, Shield, Smartphone, X, Zap } from "lucide-react"
+import { Bot, CheckCircle, Cpu, Database, Globe, Shield, Smartphone, X, Zap } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import { services as servicesData } from "@/lib/services-data"
 import type { ServiceContent, ServiceData, ServiceIconName } from "@/lib/services-data"
 import { useUiPreferences } from "./ui-preferences-provider"
 
 const serviceIcons: Record<ServiceIconName, LucideIcon> = {
+  Bot,
   Globe,
   Smartphone,
   Database,
@@ -64,18 +65,18 @@ export function ServicesSection() {
           <h2 className="mb-4 text-balance text-3xl font-bold text-foreground sm:text-4xl">
             {isEn ? (
               <>
-                Website Services <span className="text-primary">We Deliver</span>
+                Engineering Services <span className="text-primary">We Deliver</span>
               </>
             ) : (
               <>
-                Jenis Website yang <span className="text-primary">Kami Layani</span>
+                Layanan Engineering yang <span className="text-primary">Kami Kerjakan</span>
               </>
             )}
           </h2>
           <p className="mx-auto max-w-3xl text-lg text-muted-foreground text-pretty">
             {isEn
-              ? "From company profiles to custom systems, each service is built with clear scope, performance, and business outcomes in mind."
-              : "Mulai dari company profile hingga sistem custom, setiap layanan dibangun dengan scope jelas, performa baik, dan fokus hasil bisnis."}
+              ? "From company profiles to AI integration, each service starts from the problem being solved, with clear scope, reliability, and business outcomes in mind."
+              : "Mulai dari company profile hingga integrasi AI, setiap layanan berangkat dari masalah yang ingin diselesaikan, dengan scope jelas, sistem yang andal, dan fokus hasil bisnis."}
           </p>
         </div>
 

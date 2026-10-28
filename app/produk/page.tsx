@@ -57,8 +57,9 @@ export default function ProdukPage() {
           </span>
           <h1 className="mt-5 max-w-3xl text-balance text-3xl font-bold leading-tight sm:text-5xl">Produk MeowLabs</h1>
           <p className="mt-5 max-w-3xl text-pretty text-base text-muted-foreground sm:text-lg">
-            Selain mengerjakan website dan sistem untuk klien, Meow Labs membangun dan menjalankan produknya sendiri.
-            Semua dibuat oleh tim yang sama yang akan menangani proyek Anda.
+            Produk adalah salah satu dari tiga pilar Meow Labs, di samping engineering untuk klien serta riset dan
+            open source. Kami membangun dan menjalankan produk ini sendiri, dikerjakan tim yang sama yang akan menangani
+            proyek Anda.
           </p>
         </div>
       </section>

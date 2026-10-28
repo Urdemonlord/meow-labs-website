@@ -20,16 +20,16 @@
       "closeMenu": "Tutup menu"
     },
     "hero": {
-      "badge": "Jasa pembuatan website profesional di Semarang",
+      "badge": "Studio teknologi independen dari Semarang",
       "titleLines": [
-        "Jasa Pembuatan Website",
-        "Murah untuk UMKM",
-        "& Personal"
+        "Sistem AI &",
+        "Produk Digital",
+        "dari Indonesia"
       ],
-      "description": "Layanan pembuatan website untuk UMKM, kafe, hingga personal branding dengan desain profesional mulai dari 500 ribuan. Website responsive, SEO-friendly, dan siap dipakai untuk bisnis.",
+      "description": "Meow Labs membantu bisnis mengintegrasikan AI ke proses operasional, membangun website dan aplikasi yang andal, serta mengembangkan produk sendiri. Jasa pembuatan website untuk UMKM tetap tersedia mulai Rp500 ribu.",
       "primaryCta": "Konsultasi Gratis",
       "secondaryCta": "Lihat Portfolio",
-      "whatsappMessage": "Halo admin, saya ingin konsultasi gratis untuk pembuatan website.",
+      "whatsappMessage": "Halo admin, saya ingin konsultasi gratis untuk website, aplikasi, atau integrasi AI.",
       "stats": [
         {
           "value": "30+",
@@ -162,18 +162,19 @@
     },
     "footer": {
       "techTitle": "Teknologi & Platform",
-      "techDescription": "Teknologi yang kami gunakan untuk membangun website dan sistem digital.",
+      "techDescription": "Teknologi yang kami gunakan untuk membangun website, aplikasi, dan sistem AI.",
       "paymentTitle": "Metode Pembayaran",
       "paymentDescription": "Pembayaran fleksibel untuk kebutuhan UMKM, bisnis, dan institusi.",
       "paymentSupport": "Transfer bank, e-wallet, QRIS, dan virtual account.",
       "brandTitle": "Meow Labs",
-      "brandDescription": "Jasa pembuatan website yang fokus pada hasil bisnis, kredibilitas, dan workflow digital yang bisa dipakai jangka panjang.",
+      "brandDescription": "Studio teknologi independen dari Semarang yang membangun sistem AI, produk digital, dan software yang berguna, dari website UMKM sampai integrasi AI untuk operasional bisnis.",
       "location": "Semarang dan sekitarnya",
       "responseTime": "Respons awal < 2 jam",
       "trustText": "30+ website klien sudah online",
       "followUs": "Ikuti kami:",
       "servicesTitle": "Layanan Kami",
       "serviceLinks": [
+        { "label": "Integrasi AI & Otomasi", "href": "/layanan/integrasi-ai" },
         { "label": "Website Company Profile", "href": "/layanan/company-profile" },
         { "label": "Toko Online/E-commerce", "href": "/layanan/toko-online" },
         { "label": "Landing Page Bisnis", "href": "/layanan/landing-page" },
@@ -187,14 +188,14 @@
       "testimonialsLabel": "Testimoni",
       "privacy": "Kebijakan Privasi",
       "terms": "Syarat & Ketentuan",
-      "copyright": "Meow Labs - Jasa Pembuatan Website Profesional Semarang. All rights reserved."
+      "copyright": "Meow Labs - Studio teknologi dari Semarang: AI engineering, produk digital, dan jasa pembuatan website. All rights reserved."
     },
     "chat": {
       "open": "Buka chat",
       "close": "Tutup chat",
       "title": "Meow Labs Assistant",
-      "subtitle": "Tanya layanan, harga, timeline, atau kebutuhan website",
-      "greeting": "Halo, saya siap bantu soal layanan, harga, timeline, dan kebutuhan website Anda.",
+      "subtitle": "Tanya layanan, harga, timeline, website, atau integrasi AI",
+      "greeting": "Halo, saya siap bantu soal layanan, harga, timeline, website, dan integrasi AI untuk bisnis Anda.",
       "placeholder": "Tulis pertanyaan Anda...",
       "send": "Kirim",
       "loading": "Memproses jawaban...",
@@ -207,7 +208,7 @@
       "description": "Tanyakan layanan, harga, portfolio, atau timeline project langsung dari halaman ini.",
       "helpTitle": "Yang Bisa Ditanyakan",
       "helpItems": [
-        "Layanan web development yang tersedia",
+        "Layanan website, aplikasi, dan integrasi AI",
         "Paket website yang paling cocok",
         "Timeline pengerjaan dan alur project",
         "Kontak tim Meow Labs"
@@ -236,16 +237,16 @@
       "closeMenu": "Close menu"
     },
     "hero": {
-      "badge": "Professional website development in Semarang",
+      "badge": "Independent technology studio from Semarang",
       "titleLines": [
-        "Website Development",
-        "Affordable for Small Business",
-        "& Personal Brands"
+        "AI Systems &",
+        "Digital Products",
+        "from Indonesia"
       ],
-      "description": "Website development for small businesses, cafes, and personal brands with professional design starting from Rp500k. Responsive, SEO-friendly, and ready for real business use.",
+      "description": "Meow Labs helps businesses bring AI into real operations, builds reliable websites and apps, and develops its own products. Website development for small businesses is still available from Rp500k.",
       "primaryCta": "Free Consultation",
       "secondaryCta": "View Portfolio",
-      "whatsappMessage": "Hello, I want a free consultation for website development.",
+      "whatsappMessage": "Hello, I want a free consultation for a website, app, or AI integration.",
       "stats": [
         {
           "value": "30+",
@@ -378,18 +379,19 @@
     },
     "footer": {
       "techTitle": "Technology & Platform",
-      "techDescription": "Technology we use to build websites and digital systems.",
+      "techDescription": "Technology we use to build websites, apps, and AI systems.",
       "paymentTitle": "Payment Methods",
       "paymentDescription": "Flexible payment options for small business, brands, and institutions.",
       "paymentSupport": "Bank transfer, e-wallet, QRIS, and virtual account.",
       "brandTitle": "Meow Labs",
-      "brandDescription": "Website development focused on business outcomes, credibility, and digital workflows that last.",
+      "brandDescription": "An independent technology studio from Semarang building AI systems, digital products, and useful software, from small business websites to AI integrated into daily operations.",
       "location": "Semarang and surrounding area",
       "responseTime": "First response < 2 hours",
       "trustText": "30+ client websites live",
       "followUs": "Follow us:",
       "servicesTitle": "Services",
       "serviceLinks": [
+        { "label": "AI Integration & Automation", "href": "/layanan/integrasi-ai" },
         { "label": "Company Profile Website", "href": "/layanan/company-profile" },
         { "label": "Online Store/E-commerce", "href": "/layanan/toko-online" },
         { "label": "Business Landing Page", "href": "/layanan/landing-page" },
@@ -403,14 +405,14 @@
       "testimonialsLabel": "Testimonials",
       "privacy": "Privacy Policy",
       "terms": "Terms & Conditions",
-      "copyright": "Meow Labs - Professional Website Development in Semarang. All rights reserved."
+      "copyright": "Meow Labs - Technology studio from Semarang: AI engineering, digital products, and website development. All rights reserved."
     },
     "chat": {
       "open": "Open chat",
       "close": "Close chat",
       "title": "Meow Labs Assistant",
-      "subtitle": "Ask about services, pricing, timeline, or website needs",
-      "greeting": "Hello, I can help with services, pricing, timeline, and your website needs.",
+      "subtitle": "Ask about services, pricing, timeline, websites, or AI integration",
+      "greeting": "Hello, I can help with services, pricing, timeline, websites, and AI integration for your business.",
       "placeholder": "Type your question...",
       "send": "Send",
       "loading": "Preparing reply...",
@@ -423,7 +425,7 @@
       "description": "Ask about services, pricing, portfolio, or project timeline directly from this page.",
       "helpTitle": "You Can Ask About",
       "helpItems": [
-        "Available web development services",
+        "Website, app, and AI integration services",
         "The most suitable website package",
         "Project timeline and workflow",
         "How to contact the Meow Labs team"

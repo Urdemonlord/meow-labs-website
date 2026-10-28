@@ -4,7 +4,7 @@
 // Harga dan timeline di sini harus sama dengan paket di lib/ui-copy.json
 // dan knowledge.md.
 
-export type ServiceIconName = "Globe" | "Smartphone" | "Database" | "Shield" | "Zap" | "Cpu"
+export type ServiceIconName = "Globe" | "Smartphone" | "Database" | "Shield" | "Zap" | "Cpu" | "Bot"
 
 export interface ServiceContent {
   title: string
@@ -27,6 +27,69 @@ export interface ServiceData {
 }
 
 export const services: ServiceData[] = [
+  {
+    slug: "integrasi-ai",
+    icon: "Bot",
+    color: "primary",
+    id: {
+      title: "Integrasi AI & Otomasi",
+      description: "AI agent dan otomasi yang terhubung ke WhatsApp, database, dan sistem bisnis Anda, bukan sekadar chatbot.",
+      features: [
+        "AI agent WhatsApp",
+        "Integrasi LLM ke data internal",
+        "Otomasi proses operasional",
+        "Evaluasi dan monitoring"
+      ],
+      detailedDescription: "Kami mulai dari proses bisnis yang ingin diperbaiki, lalu merancang AI atau otomasi yang terhubung ke data dan sistem yang sudah Anda pakai. Kalau masalahnya cukup diselesaikan dengan software biasa, kami sarankan itu.",
+      benefits: [
+        "Pekerjaan berulang berkurang",
+        "Respons pelanggan lebih cepat dan konsisten",
+        "Data pesanan dan dokumen tidak tercecer",
+        "AI dibatasi dan diawasi agar aman dipakai",
+        "Hasil diukur dari masalah yang selesai"
+      ],
+      includedFeatures: [
+        "Pemetaan proses dan analisis kebutuhan",
+        "AI agent untuk WhatsApp atau web",
+        "Integrasi dengan database dan API internal",
+        "Workflow penjualan, layanan pelanggan, dan dokumen",
+        "Pengamanan prompt dan batasan akses data",
+        "Monitoring, evaluasi, dan handover"
+      ],
+      priceRange: "Mulai Rp4.000.000+",
+      timeframe: "2-6 minggu",
+      targetAudience: "UMKM dan perusahaan yang ingin AI benar-benar masuk ke operasional"
+    },
+    en: {
+      title: "AI Integration & Automation",
+      description: "AI agents and automation connected to WhatsApp, your database, and business systems, not just a chatbot.",
+      features: [
+        "WhatsApp AI agent",
+        "LLM integration with internal data",
+        "Operational automation",
+        "Evaluation and monitoring"
+      ],
+      detailedDescription: "We start from the business process you want to improve, then design AI or automation connected to the data and systems you already use. If plain software solves the problem, we recommend that instead.",
+      benefits: [
+        "Less repetitive work",
+        "Faster, more consistent customer replies",
+        "Orders and documents stop getting scattered",
+        "AI is constrained and monitored to stay safe",
+        "Results measured by problems solved"
+      ],
+      includedFeatures: [
+        "Process mapping and requirement analysis",
+        "AI agent for WhatsApp or web",
+        "Integration with internal database and APIs",
+        "Sales, customer service, and document workflows",
+        "Prompt hardening and data access limits",
+        "Monitoring, evaluation, and handover"
+      ],
+      priceRange: "From Rp4,000,000+",
+      timeframe: "2-6 weeks",
+      targetAudience: "Small businesses and companies that want AI inside real operations"
+    }
+  },
   {
     slug: "company-profile",
     icon: "Globe",

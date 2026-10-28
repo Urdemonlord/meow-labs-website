@@ -31,9 +31,9 @@ export const viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Jasa Pembuatan Website Murah & Profesional | Meow Labs",
+  title: "Meow Labs | Studio AI Engineering & Jasa Pembuatan Website Semarang",
   description:
-    "Meow Labs melayani jasa pembuatan website murah untuk UMKM, kafe, hingga personal branding. Website responsive dan mobile-friendly mulai Rp500 ribu. Hubungi kami di 0895-3862-88683.",
+    "Meow Labs adalah studio teknologi independen dari Semarang: integrasi AI dan otomasi bisnis, produk digital, serta jasa pembuatan website untuk UMKM mulai Rp500 ribu. Hubungi kami di 0895-3862-88683.",
   generator: "Meow Labs",
   icons: {
     icon: [
@@ -48,6 +48,9 @@ export const metadata: Metadata = {
   },
   keywords: [
     "jasa pembuatan website murah",
+    "jasa integrasi ai",
+    "ai agent whatsapp",
+    "otomasi bisnis ai",
     "jasa website Semarang",
     "bikin web UMKM murah",
     "jasa website mahasiswa",
@@ -75,15 +78,15 @@ export const metadata: Metadata = {
   openGraph: {
     ...sharedOpenGraph,
     url: siteUrl,
-    title: "Jasa Pembuatan Website Murah untuk UMKM & Personal",
+    title: "Meow Labs | AI Engineering, Produk Digital & Jasa Website",
     description:
-      "Meow Labs melayani jasa pembuatan website murah untuk UMKM, kafe, hingga personal branding di Semarang. Website responsive & mobile-friendly mulai Rp500 ribu saja!",
+      "Studio teknologi independen dari Semarang yang membangun sistem AI, produk digital, dan software yang berguna. Jasa website UMKM mulai Rp500 ribu.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jasa Pembuatan Website Murah untuk UMKM & Personal",
+    title: "Meow Labs | AI Engineering, Produk Digital & Jasa Website",
     description:
-      "Meow Labs melayani jasa pembuatan website murah untuk UMKM, kafe, hingga personal branding di Semarang. Website responsive & mobile-friendly mulai Rp500 ribu saja!",
+      "Studio teknologi independen dari Semarang yang membangun sistem AI, produk digital, dan software yang berguna. Jasa website UMKM mulai Rp500 ribu.",
     images: ["/images/og-image.jpg"],
   },
   verification: {
@@ -127,7 +130,7 @@ export default function RootLayout({
               "@type": "LocalBusiness",
               name: "Meow Labs",
               description:
-                "Jasa pembuatan website murah untuk UMKM & personal di Semarang oleh tim profesional dipimpin oleh Hasrinata Arya Afendi",
+                "Studio teknologi independen di Semarang yang dipimpin Hasrinata Arya Afendi: integrasi AI dan otomasi bisnis, produk digital, serta jasa pembuatan website untuk UMKM dan institusi",
               url: siteUrl,
               telephone: "+62895386288683",
               email: "admin@meowlabs.id",
@@ -145,6 +148,7 @@ export default function RootLayout({
               openingHours: "Mo-Su 08:00-22:00",
               priceRange: "Rp 500.000 - Rp 5.000.000",
               service: [
+                "Integrasi AI & Otomasi",
                 "Website Company Profile",
                 "Toko Online E-commerce",
                 "Landing Page Bisnis",

@@ -15,6 +15,41 @@ export interface ServicePageContent {
 export type ServiceWithPage = ServiceData & { page: ServicePageContent }
 
 const servicePages: Record<string, ServicePageContent> = {
+  "integrasi-ai": {
+    h1: "Jasa Integrasi AI dan Otomasi Bisnis di Semarang",
+    metaTitle: "Jasa Integrasi AI, AI Agent WhatsApp & Otomasi Bisnis | Meow Labs",
+    metaDescription: "Jasa integrasi AI untuk bisnis: AI agent WhatsApp, integrasi LLM dengan database dan API internal, otomasi pesanan dan dokumen, plus pengamanan dan monitoring. Mulai Rp4 juta, diawali analisis proses.",
+    keywords: [
+      "jasa integrasi ai",
+      "ai agent whatsapp",
+      "otomasi bisnis ai",
+      "chatbot whatsapp bisnis",
+      "integrasi llm",
+      "jasa ai semarang"
+    ],
+    intro: [
+      "Banyak bisnis sudah mencoba AI, tapi berhenti di chatbot yang tidak tahu stok, tidak bisa mencatat pesanan, dan tidak terhubung ke sistem apa pun. Nilainya baru terasa ketika AI masuk ke proses kerja: membaca data produk, mencatat pesanan, menyusun dokumen, lalu menyerahkan kasus sulit ke manusia.",
+      "Meow Labs merancang sistem seperti itu dari awal sampai berjalan: memetakan proses, menghubungkan AI ke WhatsApp, database, dan API internal, membatasi data yang boleh diakses, lalu memantau hasilnya. Kalau masalah Anda lebih cocok diselesaikan dengan software biasa, kami akan bilang begitu."
+    ],
+    faqs: [
+      {
+        question: "Apa bedanya dengan chatbot biasa?",
+        answer: "Chatbot biasa hanya menjawab pertanyaan. Integrasi AI menghubungkan model ke data dan sistem Anda, misalnya mengecek stok, mencatat pesanan ke database, atau mengisi dokumen administrasi, dengan aturan dan batasan yang jelas."
+      },
+      {
+        question: "Berapa biaya integrasi AI?",
+        answer: "Mulai Rp4 juta, sama dengan titik mulai paket Custom Build. Biaya final ditentukan setelah analisis proses, karena bergantung pada jumlah integrasi, volume pesan, dan biaya pemakaian model AI yang dipilih."
+      },
+      {
+        question: "Apakah data bisnis saya aman?",
+        answer: "Kami membatasi data yang bisa diakses AI, memasang pengamanan terhadap prompt injection, dan mencatat aktivitas sistem untuk monitoring. Detail penyimpanan data dan penyedia model dibahas dan disepakati sebelum pengerjaan."
+      },
+      {
+        question: "Apakah bisnis saya harus pakai AI?",
+        answer: "Tidak selalu. Banyak masalah operasional lebih murah dan lebih andal diselesaikan dengan software atau otomasi biasa. Kami mulai dari masalahnya, bukan dari teknologinya."
+      }
+    ]
+  },
   "company-profile": {
     h1: "Jasa Pembuatan Website Company Profile di Semarang",
     metaTitle: "Jasa Pembuatan Website Company Profile di Semarang | Meow Labs",
