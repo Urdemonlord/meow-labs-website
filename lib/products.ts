@@ -11,6 +11,10 @@ export interface ProductCopy {
   description: string
 }
 
+// Versi Inggris hanya dipakai section produk di homepage (yang mengikuti
+// toggle bahasa); halaman /produk berbahasa Indonesia seperti halaman layanan.
+export type ProductCopyEn = Pick<ProductCopy, "tagline">
+
 export interface Product {
   slug: string
   name: string
@@ -19,12 +23,12 @@ export interface Product {
   icon: ProductIconName
   category: ProductCategory
   id: ProductCopy
-  en: ProductCopy
+  en: ProductCopyEn
 }
 
-export const productCategories: Record<ProductCategory, { id: string; en: string }> = {
-  bisnis: { id: "Untuk usaha dan pembuat aplikasi", en: "For businesses and builders" },
-  karier: { id: "Untuk mahasiswa dan pencari kerja", en: "For students and job seekers" },
+export const productCategories: Record<ProductCategory, string> = {
+  bisnis: "Untuk usaha dan pembuat aplikasi",
+  karier: "Untuk mahasiswa dan pencari kerja",
 }
 
 export const products: Product[] = [
@@ -41,8 +45,6 @@ export const products: Product[] = [
     },
     en: {
       tagline: "Cashier & QRIS",
-      description:
-        "Android cashier app with QRIS payments and automatic bank-notification detection, so transfers are confirmed without manual checks.",
     },
   },
   {
@@ -57,7 +59,6 @@ export const products: Product[] = [
     },
     en: {
       tagline: "Ideas into apps",
-      description: "Describe your app idea and AI writes working code with a live preview.",
     },
   },
   {
@@ -73,8 +74,6 @@ export const products: Product[] = [
     },
     en: {
       tagline: "Thesis defense practice",
-      description:
-        "Practice your thesis defense with AI examiners, including voice calls, different examiner personas, and a question bank. Free.",
     },
   },
   {
@@ -89,7 +88,6 @@ export const products: Product[] = [
     },
     en: {
       tagline: "TOEFL ITP practice",
-      description: "Free TOEFL ITP practice: 450 questions, full timed simulations, and offline support.",
     },
   },
   {
@@ -104,7 +102,6 @@ export const products: Product[] = [
     },
     en: {
       tagline: "ATS-friendly CVs",
-      description: "Build an ATS-friendly CV with AI, match it to a job posting, then export to PDF or DOCX.",
     },
   },
 ]

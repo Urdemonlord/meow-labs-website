@@ -28,6 +28,9 @@ export const metadata: Metadata = {
 
 const categoryOrder: ProductCategory[] = ["bisnis", "karier"]
 
+const buttonClass =
+  "mt-6 inline-flex items-center justify-center rounded-xl border border-border px-5 py-3 font-semibold transition-colors hover:border-primary hover:text-primary"
+
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "ItemList",
@@ -63,7 +66,7 @@ export default function ProdukPage() {
       {categoryOrder.map((category) => (
         <section key={category} className="py-14">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-bold sm:text-3xl">{productCategories[category].id}</h2>
+            <h2 className="text-2xl font-bold sm:text-3xl">{productCategories[category]}</h2>
             <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {products
                 .filter((product) => product.category === category)
@@ -84,14 +87,22 @@ export default function ProdukPage() {
                         </div>
                       </div>
                       <p className="mt-4 flex-1 text-pretty text-muted-foreground">{product.id.description}</p>
-                      <a
-                        href={productHref(product, "produk")}
-                        {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                        className="mt-6 inline-flex items-center justify-center rounded-xl border border-border px-5 py-3 font-semibold transition-colors hover:border-primary hover:text-primary"
-                      >
-                        {external ? `Buka ${product.name}` : "Unduh aplikasi"}
-                        {external ? <ExternalLink className="ml-2 h-4 w-4" /> : <ArrowRight className="ml-2 h-4 w-4" />}
-                      </a>
+                      {external ? (
+                        <a
+                          href={productHref(product, "produk")}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={buttonClass}
+                        >
+                          Buka {product.name}
+                          <ExternalLink className="ml-2 h-4 w-4" />
+                        </a>
+                      ) : (
+                        <Link href={product.url} className={buttonClass}>
+                          Unduh aplikasi
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      )}
                     </article>
                   )
                 })}

@@ -36,8 +36,9 @@ export function ProductsSection() {
           {products.map((product) => {
             const copy = isEn ? product.en : product.id
             const external = isExternalProduct(product)
+            const Comp = external ? "a" : Link
             return (
-              <a
+              <Comp
                 key={product.slug}
                 href={productHref(product, "homepage")}
                 {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
@@ -48,7 +49,7 @@ export function ProductsSection() {
                 </div>
                 <div className="mt-4 font-semibold text-foreground group-hover:text-primary">{product.name}</div>
                 <p className="mt-1 text-sm text-muted-foreground">{copy.tagline}</p>
-              </a>
+              </Comp>
             )
           })}
         </div>

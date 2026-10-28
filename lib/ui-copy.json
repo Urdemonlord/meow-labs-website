@@ -178,7 +178,6 @@
         { "label": "Toko Online/E-commerce", "href": "/layanan/toko-online" },
         { "label": "Landing Page Bisnis", "href": "/layanan/landing-page" },
         { "label": "Website Personal Branding", "href": "/#services" },
-        { "label": "POS / Aplikasi Bisnis", "href": "/pos" },
         { "label": "Aplikasi AI/ML Custom", "href": "/layanan/aplikasi-web" },
         { "label": "Website Sekolah/Yayasan", "href": "/layanan/website-sekolah" }
       ],
@@ -395,7 +394,6 @@
         { "label": "Online Store/E-commerce", "href": "/layanan/toko-online" },
         { "label": "Business Landing Page", "href": "/layanan/landing-page" },
         { "label": "Personal Branding Website", "href": "/#services" },
-        { "label": "POS / Business App", "href": "/pos" },
         { "label": "Custom AI/ML App", "href": "/layanan/aplikasi-web" },
         { "label": "School/Foundation Website", "href": "/layanan/website-sekolah" }
       ],

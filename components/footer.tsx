@@ -222,14 +222,22 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-muted-foreground">
               {products.map((product) => (
                 <li key={product.slug}>
-                  <a
-                    href={productHref(product, "footer")}
-                    {...(isExternalProduct(product) ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    className="flex items-center gap-2 transition-colors hover:text-primary"
-                  >
-                    <ExternalLink className="h-3 w-3" />
-                    {product.name}
-                  </a>
+                  {isExternalProduct(product) ? (
+                    <a
+                      href={productHref(product, "footer")}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 transition-colors hover:text-primary"
+                    >
+                      <ExternalLink className="h-3 w-3" />
+                      {product.name}
+                    </a>
+                  ) : (
+                    <Link href={product.url} className="flex items-center gap-2 transition-colors hover:text-primary">
+                      <ExternalLink className="h-3 w-3" />
+                      {product.name}
+                    </Link>
+                  )}
                 </li>
               ))}
               <li>
