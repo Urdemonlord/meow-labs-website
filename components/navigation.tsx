@@ -33,7 +33,7 @@ export function Navigation() {
       { label: copy.nav.items.services, href: createSectionHref("services") },
       { label: copy.nav.items.pricing, href: createSectionHref("pricing") },
       { label: copy.nav.items.portfolio, href: createSectionHref("portfolio") },
-      { label: "POS", href: "/pos" },
+      { label: copy.nav.items.products, href: "/produk" },
       { label: copy.nav.items.contact, href: createSectionHref("contact") },
     ],
     [copy.nav.items, createSectionHref, isHomePage]

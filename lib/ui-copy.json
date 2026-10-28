@@ -7,6 +7,7 @@
         "services": "Layanan",
         "pricing": "Paket",
         "students": "Mahasiswa",
+        "products": "Produk",
         "portfolio": "Portfolio",
         "resources": "Resources",
         "blog": "Blog",
@@ -181,6 +182,8 @@
         { "label": "Aplikasi AI/ML Custom", "href": "/layanan/aplikasi-web" },
         { "label": "Website Sekolah/Yayasan", "href": "/layanan/website-sekolah" }
       ],
+      "productsTitle": "Produk MeowLabs",
+      "allProducts": "Semua produk",
       "companyTitle": "Perusahaan",
       "testimonialsLabel": "Testimoni",
       "privacy": "Kebijakan Privasi",
@@ -221,6 +224,7 @@
         "services": "Services",
         "pricing": "Pricing",
         "students": "Students",
+        "products": "Products",
         "portfolio": "Portfolio",
         "resources": "Resources",
         "blog": "Blog",
@@ -395,6 +399,8 @@
         { "label": "Custom AI/ML App", "href": "/layanan/aplikasi-web" },
         { "label": "School/Foundation Website", "href": "/layanan/website-sekolah" }
       ],
+      "productsTitle": "MeowLabs Products",
+      "allProducts": "All products",
       "companyTitle": "Company",
       "testimonialsLabel": "Testimonials",
       "privacy": "Privacy Policy",

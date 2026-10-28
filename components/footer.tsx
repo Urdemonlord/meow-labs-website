@@ -12,6 +12,7 @@ import {
   Music2,
   Phone,
 } from "lucide-react"
+import { isExternalProduct, productHref, products } from "@/lib/products"
 import { useUiText } from "./ui-preferences-provider"
 import { buildWhatsAppUrl, MEOWLABS_ADMIN_PHONE_DISPLAY } from "@/lib/whatsapp"
 
@@ -120,7 +121,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-4">
+        <div className="grid gap-8 md:grid-cols-5">
           <div className="md:col-span-2">
             <div className="mb-4 flex items-center space-x-3">
               <Image
@@ -213,6 +214,29 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="mb-4 font-semibold text-foreground">{copy.footer.productsTitle}</h3>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              {products.map((product) => (
+                <li key={product.slug}>
+                  <a
+                    href={productHref(product, "footer")}
+                    {...(isExternalProduct(product) ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    className="flex items-center gap-2 transition-colors hover:text-primary"
+                  >
+                    <ExternalLink className="h-3 w-3" />
+                    {product.name}
+                  </a>
+                </li>
+              ))}
+              <li>
+                <Link href="/produk" className="flex items-center gap-2 font-medium text-primary hover:underline">
+                  {copy.footer.allProducts}
+                </Link>
+              </li>
             </ul>
           </div>
 

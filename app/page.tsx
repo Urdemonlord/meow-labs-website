@@ -7,6 +7,7 @@ import { ServicesSection } from "@/components/services-section"
 import { ProcessSection } from "@/components/process-section"
 import { PricingSection } from "@/components/pricing-section"
 import { PortfolioSection } from "@/components/portfolio-section"
+import { ProductsSection } from "@/components/products-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { FAQSection } from "@/components/faq-section"
 import { ContactSection } from "@/components/contact-section"
@@ -27,6 +28,7 @@ export default function HomePage() {
       <PricingSection />
       <DomainPromoSection />
       <PortfolioSection />
+      <ProductsSection />
       <TestimonialsSection />
       <FAQSection />
       <ContactSection />

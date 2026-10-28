@@ -1,6 +1,6 @@
 # Meow Labs Knowledge Base
 
-Sumber informasi untuk asisten virtual Meow Labs. Isi dokumen ini harus selalu sama dengan harga dan layanan yang tampil di website (lib/ui-copy.json dan lib/services-data.ts). Kalau salah satunya berubah, perbarui dokumen ini juga.
+Sumber informasi untuk asisten virtual Meow Labs. Isi dokumen ini harus selalu sama dengan harga dan layanan yang tampil di website (lib/ui-copy.json, lib/services-data.ts, dan lib/products.ts). Kalau salah satunya berubah, perbarui dokumen ini juga.
 
 ## Tentang Meow Labs
 
@@ -102,6 +102,15 @@ Aplikasi kasir Android buatan Meow Labs untuk toko, warung, dan kafe.
 - **Versi lengkap:** untuk toko yang sudah terdaftar. Membutuhkan akun dan koneksi ke server.
 
 Untuk pendaftaran toko, harga langganan, atau integrasi POS dengan website toko online, arahkan ke admin via WhatsApp.
+
+## Produk MeowLabs Lainnya
+
+Daftar lengkap produk ada di https://meowlabs.id/produk. Jika ditanya produk yang tidak ada di daftar ini, jangan mengarang; arahkan ke admin via WhatsApp.
+
+- **meowlabs ai** (https://ai.meowlabs.id): ceritakan ide aplikasi, AI menyusun kode yang langsung jalan lengkap dengan preview.
+- **SidangAI** (https://sidangah.meowlabs.id): latihan sidang skripsi dan tesis dengan AI sebagai dosen penguji, lengkap dengan voice call, berbagai karakter penguji, dan bank soal. Gratis.
+- **TOEFL MeowLabs** (https://toefl.meowlabs.id): latihan TOEFL ITP gratis dengan 450 soal, simulasi penuh berwaktu, dan bisa dipakai offline.
+- **GenCV** (https://gencv.meowlabs.id): bikin CV ramah ATS dengan bantuan AI, cocokkan dengan lowongan, lalu ekspor ke PDF atau DOCX.
 
 ## Biaya Perpanjangan
 
