@@ -107,6 +107,8 @@ Untuk pendaftaran toko, harga langganan, atau integrasi POS dengan website toko 
 
 Daftar lengkap produk ada di https://meowlabs.id/produk. Jika ditanya produk yang tidak ada di daftar ini, jangan mengarang; arahkan ke admin via WhatsApp.
 
+- **MeowPloy** (https://meowploy.meowlabs.id): deploy aplikasi tanpa ribet VPS. MeowPloy mendeteksi framework otomatis, menerjemahkan error build, dan menerbitkan situs dalam hitungan menit.
+- **MeowLabs Academy** (https://academy.meowlabs.id): platform belajar teknologi dari Meow Labs berisi kursus, dokumentasi, dan proyek nyata.
 - **meowlabs ai** (https://ai.meowlabs.id): ceritakan ide aplikasi, AI menyusun kode yang langsung jalan lengkap dengan preview.
 - **SidangAI** (https://sidangah.meowlabs.id): latihan sidang skripsi dan tesis dengan AI sebagai dosen penguji, lengkap dengan voice call, berbagai karakter penguji, dan bank soal. Gratis.
 - **TOEFL MeowLabs** (https://toefl.meowlabs.id): latihan TOEFL ITP gratis dengan 450 soal, simulasi penuh berwaktu, dan bisa dipakai offline.

@@ -1,10 +1,12 @@
-import { BookOpen, FileText, GraduationCap, Sparkles, Store } from "lucide-react"
+import { BookOpen, FileText, GraduationCap, Rocket, School, Sparkles, Store } from "lucide-react"
 import type { LucideIcon, LucideProps } from "lucide-react"
 import type { ProductIconName } from "@/lib/products"
 
 const icons: Record<ProductIconName, LucideIcon> = {
   Store,
+  Rocket,
   Sparkles,
+  School,
   GraduationCap,
   BookOpen,
   FileText,
