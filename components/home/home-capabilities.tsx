@@ -78,7 +78,7 @@ export function HomeCapabilities() {
               <ul className="mt-4 space-y-2 text-sm">
                 {capability.links.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="inline-flex items-center gap-1 text-ink hover:text-forest hover:underline">
+                    <Link href={link.href} className="inline-flex items-center gap-1 text-ink hover:underline">
                       {link.label}
                       <ArrowUpRight className="h-3.5 w-3.5" />
                     </Link>

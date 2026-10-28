@@ -39,7 +39,7 @@ export function Navigation() {
 
         <div className="hidden items-center gap-8 md:flex">
           {navItems.map((item) => (
-            <Link key={item.label} href={item.href} className="text-sm text-ink transition-colors hover:text-forest">
+            <Link key={item.label} href={item.href} className="text-sm text-ink transition-colors hover:text-ink-muted">
               {item.label}
             </Link>
           ))}
@@ -50,7 +50,7 @@ export function Navigation() {
             href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden items-center gap-2 rounded-[3px] bg-forest px-4 py-2.5 text-sm font-medium text-paper-light transition-colors hover:bg-forest-dark sm:inline-flex"
+            className="hidden items-center gap-2 rounded-[3px] bg-ink px-4 py-2.5 text-sm font-medium text-paper-light transition-colors hover:bg-ink/85 sm:inline-flex"
           >
             Diskusikan Proyek
             <ArrowUpRight className="h-4 w-4" />
@@ -86,7 +86,7 @@ export function Navigation() {
               href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center justify-center gap-2 rounded-[3px] bg-forest px-5 py-3.5 font-medium text-paper-light"
+              className="mt-8 inline-flex items-center justify-center gap-2 rounded-[3px] bg-ink px-5 py-3.5 font-medium text-paper-light"
             >
               Diskusikan Proyek
               <ArrowUpRight className="h-4 w-4" />

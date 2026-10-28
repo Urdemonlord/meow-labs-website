@@ -14,7 +14,7 @@ export function HomeProducts() {
               Dibangun dan dijalankan sendiri.
             </h2>
           </div>
-          <Link href="/produk" className="inline-flex items-center gap-1 text-sm text-ink hover:text-forest hover:underline">
+          <Link href="/produk" className="inline-flex items-center gap-1 text-sm text-ink hover:underline">
             Lihat semua produk
             <ArrowUpRight className="h-4 w-4" />
           </Link>

@@ -52,7 +52,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5 text-sm">
               {column.links.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="hover:text-forest hover:underline">
+                  <Link href={link.href} className="hover:underline">
                     {link.label}
                   </Link>
                 </li>
@@ -65,18 +65,18 @@ export function Footer() {
           <h2 className="ml-eyebrow text-ink-muted">Kontak</h2>
           <ul className="mt-4 space-y-2.5 text-sm">
             <li>
-              <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="hover:text-forest hover:underline">
+              <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="hover:underline">
                 WhatsApp {MEOWLABS_ADMIN_PHONE_DISPLAY}
               </a>
             </li>
             <li>
-              <a href="mailto:admin@meowlabs.id" className="hover:text-forest hover:underline">
+              <a href="mailto:admin@meowlabs.id" className="hover:underline">
                 admin@meowlabs.id
               </a>
             </li>
             {socials.map((social) => (
               <li key={social.href}>
-                <a href={social.href} target="_blank" rel="noopener noreferrer" className="hover:text-forest hover:underline">
+                <a href={social.href} target="_blank" rel="noopener noreferrer" className="hover:underline">
                   {social.label} @meowlabs.id
                 </a>
               </li>

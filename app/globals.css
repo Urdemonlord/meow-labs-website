@@ -36,7 +36,7 @@ html {
   --card-foreground: var(--ink);
   --popover: var(--paper-light);
   --popover-foreground: var(--ink);
-  --primary: var(--forest);
+  --primary: var(--ink);
   --primary-foreground: var(--paper-light);
   --secondary: var(--cobalt);
   --secondary-foreground: var(--paper-light);
@@ -48,7 +48,7 @@ html {
   --destructive-foreground: var(--paper-light);
   --border: var(--rule);
   --input: var(--rule);
-  --ring: var(--forest);
+  --ring: var(--ink);
   --chart-1: var(--forest);
   --chart-2: var(--cobalt);
   --chart-3: var(--vermilion);
@@ -57,12 +57,12 @@ html {
   --radius: 0.375rem;
   --sidebar: var(--paper-light);
   --sidebar-foreground: var(--ink);
-  --sidebar-primary: var(--forest);
+  --sidebar-primary: var(--ink);
   --sidebar-primary-foreground: var(--paper-light);
   --sidebar-accent: #e8e4d9;
   --sidebar-accent-foreground: var(--ink);
   --sidebar-border: var(--rule);
-  --sidebar-ring: var(--forest);
+  --sidebar-ring: var(--ink);
 }
 
 @theme inline {
@@ -123,7 +123,7 @@ html {
     @apply border-border outline-ring/50;
   }
   :focus-visible {
-    outline: 2px solid var(--forest);
+    outline: 2px solid var(--ink);
     outline-offset: 2px;
   }
   body {

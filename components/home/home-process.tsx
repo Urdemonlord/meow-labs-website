@@ -9,10 +9,10 @@ const steps = [
 
 export function HomeProcess() {
   return (
-    <section className="relative isolate overflow-hidden bg-forest text-paper-light">
+    <section className="relative isolate overflow-hidden bg-dark-surface text-paper-light">
       <div aria-hidden="true" className="absolute inset-y-0 right-0 -z-10 w-full lg:w-3/5">
         <Image src="/art/palm-terrace.webp" alt="" fill loading="lazy" sizes="60vw" className="object-cover opacity-80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-forest via-forest/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-dark-surface via-dark-surface/60 to-transparent" />
       </div>
       <div className="ml-container ml-section grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-4">
@@ -24,7 +24,7 @@ export function HomeProcess() {
         </div>
         <ol className="grid gap-px overflow-hidden rounded-[4px] bg-paper-light/20 sm:grid-cols-2 lg:col-span-8">
           {steps.map((step, index) => (
-            <li key={step.title} className="bg-forest/85 p-6 backdrop-blur-[2px] sm:p-8">
+            <li key={step.title} className="bg-dark-surface/85 p-6 backdrop-blur-[2px] sm:p-8">
               <span className="ml-eyebrow text-paper-light/70">{String(index + 1).padStart(2, "0")}</span>
               <h3 className="mt-4 text-xl font-medium">{step.title}</h3>
               <p className="mt-2 text-pretty leading-relaxed text-paper-light/80">{step.body}</p>

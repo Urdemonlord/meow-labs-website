@@ -38,7 +38,7 @@ export function HomeNotes() {
               Yang kami pelajari dari lapangan.
             </h2>
           </div>
-          <Link href="/blog" className="inline-flex items-center gap-1 text-sm text-ink hover:text-forest hover:underline">
+          <Link href="/blog" className="inline-flex items-center gap-1 text-sm text-ink hover:underline">
             Semua catatan
             <ArrowUpRight className="h-4 w-4" />
           </Link>
