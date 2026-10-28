@@ -67,6 +67,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${item.title} | Meow Labs Bansos`,
     description: item.description,
+    alternates: { canonical: `/resources/bansos-ai/${slug}` },
     openGraph: {
       title: item.title,
       description: item.description,

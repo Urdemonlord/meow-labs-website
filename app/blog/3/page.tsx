@@ -6,6 +6,7 @@ import Link from "next/link"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/blog/3" },
   title: "Website atau Aplikasi Mobile: Mana yang Tepat untuk Bisnis UMKM Anda? | Meow Labs",
   description: "Bandingkan kelebihan dan kekurangan website vs aplikasi mobile untuk bisnis UMKM Anda. Panduan lengkap memilih platform digital yang tepat dari ahli Meow Labs Semarang.",
   keywords: [

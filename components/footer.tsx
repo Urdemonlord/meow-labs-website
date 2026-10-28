@@ -1,16 +1,18 @@
 ﻿"use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import {
   Clock,
   ExternalLink,
+  Globe,
   Instagram,
   Mail,
   MapPin,
   Music2,
   Phone,
-  Star,
 } from "lucide-react"
+import { isExternalProduct, productHref, products } from "@/lib/products"
 import { useUiText } from "./ui-preferences-provider"
 import { buildWhatsAppUrl, MEOWLABS_ADMIN_PHONE_DISPLAY } from "@/lib/whatsapp"
 
@@ -119,7 +121,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-4">
+        <div className="grid gap-8 md:grid-cols-5">
           <div className="md:col-span-2">
             <div className="mb-4 flex items-center space-x-3">
               <Image
@@ -172,12 +174,8 @@ export function Footer() {
             </div>
 
             <div className="mb-6 flex items-center gap-2">
-              <div className="flex items-center gap-1">
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <Star key={index} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                ))}
-              </div>
-              <span className="text-sm text-muted-foreground">{copy.footer.ratingText}</span>
+              <Globe className="h-4 w-4 text-primary" />
+              <span className="text-sm text-muted-foreground">{copy.footer.trustText}</span>
             </div>
 
             <div className="flex items-center gap-3">
@@ -209,13 +207,44 @@ export function Footer() {
             <h3 className="mb-4 font-semibold text-foreground">{copy.footer.servicesTitle}</h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
               {copy.footer.serviceLinks.map((item) => (
-                <li key={item}>
-                  <a href="#services" className="flex items-center gap-2 transition-colors hover:text-primary">
+                <li key={item.label}>
+                  <Link href={item.href} className="flex items-center gap-2 transition-colors hover:text-primary">
                     <ExternalLink className="h-3 w-3" />
-                    {item}
-                  </a>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="mb-4 font-semibold text-foreground">{copy.footer.productsTitle}</h3>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              {products.map((product) => (
+                <li key={product.slug}>
+                  {isExternalProduct(product) ? (
+                    <a
+                      href={productHref(product, "footer")}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 transition-colors hover:text-primary"
+                    >
+                      <ExternalLink className="h-3 w-3" />
+                      {product.name}
+                    </a>
+                  ) : (
+                    <Link href={product.url} className="flex items-center gap-2 transition-colors hover:text-primary">
+                      <ExternalLink className="h-3 w-3" />
+                      {product.name}
+                    </Link>
+                  )}
+                </li>
+              ))}
+              <li>
+                <Link href="/produk" className="flex items-center gap-2 font-medium text-primary hover:underline">
+                  {copy.footer.allProducts}
+                </Link>
+              </li>
             </ul>
           </div>
 

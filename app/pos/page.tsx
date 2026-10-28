@@ -3,6 +3,7 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/pos" },
   title: "Unduh MeowLabs POS | Meow Labs",
   description:
     "Unduh aplikasi MeowLabs POS untuk Android. Kasir, pembayaran QRIS, dan deteksi otomatis notifikasi bank dalam satu aplikasi.",

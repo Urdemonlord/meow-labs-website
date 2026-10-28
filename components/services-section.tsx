@@ -1,24 +1,28 @@
 "use client"
 
 import { useMemo, useState } from "react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { CheckCircle, Cpu, Database, Globe, Shield, Smartphone, X, Zap } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
+import { services as servicesData } from "@/lib/services-data"
+import type { ServiceContent, ServiceData, ServiceIconName } from "@/lib/services-data"
 import { useUiPreferences } from "./ui-preferences-provider"
 
-interface ServiceFeature {
+const serviceIcons: Record<ServiceIconName, LucideIcon> = {
+  Globe,
+  Smartphone,
+  Database,
+  Shield,
+  Zap,
+  Cpu,
+}
+
+interface ServiceFeature extends ServiceContent {
   icon: LucideIcon
-  title: string
-  description: string
-  features: string[]
-  color: "primary" | "secondary"
-  detailedDescription: string
-  benefits: string[]
-  includedFeatures: string[]
-  priceRange: string
-  timeframe: string
-  targetAudience: string
+  color: ServiceData["color"]
+  href: string
 }
 
 export function ServicesSection() {
@@ -28,314 +32,13 @@ export function ServicesSection() {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const services = useMemo<ServiceFeature[]>(
-    () => [
-      {
-        icon: Globe,
-        title: isEn ? "Company Profile Website" : "Website Company Profile",
-        description: isEn
-          ? "Professional business website to improve brand trust and credibility."
-          : "Website profesional untuk meningkatkan kredibilitas dan citra perusahaan Anda.",
-        features: isEn
-          ? ["Modern design", "Responsive layout", "SEO-ready", "Fast loading"]
-          : ["Desain modern", "Responsive mobile", "SEO optimized", "Fast loading"],
-        color: "primary",
-        detailedDescription: isEn
-          ? "A structured company profile helps visitors understand your business quickly and trust your brand."
-          : "Website company profile membantu pengunjung memahami bisnis Anda dengan cepat dan meningkatkan kepercayaan.",
-        benefits: isEn
-          ? [
-              "Increase business credibility",
-              "Present services clearly",
-              "Always-on information channel",
-              "Stronger digital presence",
-              "Improve lead opportunities",
-            ]
-          : [
-              "Meningkatkan kredibilitas bisnis",
-              "Memperjelas layanan perusahaan",
-              "Informasi bisnis tersedia 24/7",
-              "Memperkuat kehadiran digital",
-              "Meningkatkan peluang lead",
-            ],
-        includedFeatures: isEn
-          ? [
-              "About, Services, Portfolio, Contact pages",
-              "Contact form integration",
-              "Basic SEO setup",
-              "Mobile-first layout",
-              "Social and map integration",
-              "Easy content updates",
-            ]
-          : [
-              "Halaman About, Services, Portfolio, Contact",
-              "Integrasi form kontak",
-              "Setup SEO dasar",
-              "Layout mobile-first",
-              "Integrasi sosial media dan maps",
-              "Konten mudah diupdate",
-            ],
-        priceRange: isEn ? "From Rp500,000 - Rp5,000,000" : "Mulai Rp500.000 - Rp5.000.000",
-        timeframe: isEn ? "3-7 working days" : "3-7 hari kerja",
-        targetAudience: isEn
-          ? "Small business, startup, and professional brands"
-          : "UMKM, startup, dan profesional",
-      },
-      {
-        icon: Smartphone,
-        title: isEn ? "Online Store Website" : "Website Toko Online",
-        description: isEn
-          ? "E-commerce website with catalog, checkout, and order management."
-          : "Website e-commerce dengan katalog, checkout, dan manajemen pesanan.",
-        features: isEn
-          ? ["Product catalog", "Payment options", "Order workflow", "WhatsApp integration"]
-          : ["Katalog produk", "Payment gateway", "Manajemen order", "Integrasi WhatsApp"],
-        color: "secondary",
-        detailedDescription: isEn
-          ? "An online store helps you sell continuously with cleaner buying flow and easier product management."
-          : "Toko online membantu Anda berjualan tanpa batas waktu dengan alur beli yang rapi.",
-        benefits: isEn
-          ? [
-              "Sell 24/7",
-              "Reach wider market",
-              "Reduce operational friction",
-              "Track orders and stock easier",
-              "Better customer shopping experience",
-            ]
-          : [
-              "Berjualan 24/7",
-              "Menjangkau pasar lebih luas",
-              "Mengurangi friksi operasional",
-              "Monitoring order dan stok lebih mudah",
-              "Pengalaman belanja lebih baik",
-            ],
-        includedFeatures: isEn
-          ? [
-              "Category-based product listing",
-              "Cart and checkout flow",
-              "Payment integration",
-              "Order and stock management",
-              "Admin dashboard",
-              "Mobile shopping optimization",
-            ]
-          : [
-              "Listing produk per kategori",
-              "Cart dan checkout",
-              "Integrasi pembayaran",
-              "Manajemen pesanan dan stok",
-              "Dashboard admin",
-              "Optimasi mobile shopping",
-            ],
-        priceRange: isEn ? "From Rp2,500,000 - Rp10,000,000" : "Mulai Rp2.500.000 - Rp10.000.000",
-        timeframe: isEn ? "7-14 working days" : "7-14 hari kerja",
-        targetAudience: isEn
-          ? "Online stores, distributors, and product-based businesses"
-          : "Online shop, reseller, distributor, dan bisnis produk",
-      },
-      {
-        icon: Database,
-        title: isEn ? "News and Content Portal" : "Website Portal Berita",
-        description: isEn
-          ? "Content portal with structured categories and easy publishing workflow."
-          : "Portal konten dengan kategori terstruktur dan alur publikasi yang mudah.",
-        features: isEn
-          ? ["Content CMS", "Author roles", "Category and tags", "SEO tools"]
-          : ["Content management", "Multi author", "Kategori dan tags", "SEO tools"],
-        color: "primary",
-        detailedDescription: isEn
-          ? "A portal website helps your team publish updates regularly while keeping content organized and searchable."
-          : "Website portal memudahkan tim Anda mempublikasikan update rutin dengan struktur konten rapi.",
-        benefits: isEn
-          ? [
-              "Fast content publishing",
-              "Build loyal readers",
-              "Open monetization opportunities",
-              "Strengthen authority in your niche",
-              "Better internal editorial workflow",
-            ]
-          : [
-              "Publikasi konten lebih cepat",
-              "Membangun pembaca loyal",
-              "Membuka peluang monetisasi",
-              "Memperkuat otoritas niche",
-              "Workflow editorial lebih rapi",
-            ],
-        includedFeatures: isEn
-          ? [
-              "CMS with editor tools",
-              "Role-based author access",
-              "Category and tag taxonomy",
-              "Search and archive navigation",
-              "Social sharing integration",
-              "Analytics integration",
-            ]
-          : [
-              "CMS dengan editor tools",
-              "Akses author berbasis role",
-              "Taxonomy kategori dan tag",
-              "Pencarian dan arsip konten",
-              "Integrasi sharing sosial",
-              "Integrasi analytics",
-            ],
-        priceRange: isEn ? "From Rp3,000,000 - Rp8,000,000" : "Mulai Rp3.000.000 - Rp8.000.000",
-        timeframe: isEn ? "7-14 working days" : "7-14 hari kerja",
-        targetAudience: isEn
-          ? "Media teams, communities, and organizations"
-          : "Media online, komunitas, dan organisasi",
-      },
-      {
-        icon: Shield,
-        title: isEn ? "School and Foundation Website" : "Website Sekolah dan Yayasan",
-        description: isEn
-          ? "Information platform for educational institutions with practical admin flow."
-          : "Platform informasi lembaga pendidikan dengan alur administrasi yang praktis.",
-        features: isEn
-          ? ["Academic info", "Event gallery", "Announcements", "Contact channel"]
-          : ["Info akademik", "Galeri event", "Pengumuman", "Form kontak"],
-        color: "secondary",
-        detailedDescription: isEn
-          ? "Helps schools and foundations communicate updates, achievements, and registration info clearly."
-          : "Membantu sekolah dan yayasan menyampaikan update, prestasi, dan informasi pendaftaran dengan jelas.",
-        benefits: isEn
-          ? [
-              "Stronger communication with parents and students",
-              "Professional institutional presence",
-              "Centralized updates and announcements",
-              "Support registration and inquiries",
-              "Improve trust from stakeholders",
-            ]
-          : [
-              "Komunikasi lebih baik ke siswa dan orang tua",
-              "Citra institusi lebih profesional",
-              "Update dan pengumuman terpusat",
-              "Mendukung pendaftaran dan pertanyaan",
-              "Meningkatkan trust stakeholder",
-            ],
-        includedFeatures: isEn
-          ? [
-              "Institution profile pages",
-              "Program and curriculum section",
-              "Gallery and achievement feed",
-              "Announcement and news board",
-              "Online registration form",
-              "Event calendar and contact details",
-            ]
-          : [
-              "Halaman profil institusi",
-              "Section program dan kurikulum",
-              "Galeri dan publikasi prestasi",
-              "Board pengumuman dan berita",
-              "Form pendaftaran online",
-              "Kalender event dan kontak",
-            ],
-        priceRange: isEn ? "From Rp2,500,000 - Rp7,000,000" : "Mulai Rp2.500.000 - Rp7.000.000",
-        timeframe: isEn ? "7-14 working days" : "7-14 hari kerja",
-        targetAudience: isEn
-          ? "Schools, training centers, and foundations"
-          : "Sekolah, lembaga pelatihan, dan yayasan",
-      },
-      {
-        icon: Zap,
-        title: isEn ? "Business Landing Page" : "Landing Page Bisnis",
-        description: isEn
-          ? "Conversion-focused page for campaigns, launches, and lead collection."
-          : "Halaman fokus konversi untuk campaign, peluncuran, dan pengumpulan lead.",
-        features: isEn
-          ? ["Conversion-focused", "Lead capture", "Analytics", "A/B ready"]
-          : ["Fokus konversi", "Lead generation", "Analytics", "A/B testing ready"],
-        color: "primary",
-        detailedDescription: isEn
-          ? "Landing pages are built for one clear action so campaign traffic converts better."
-          : "Landing page dibangun untuk satu aksi utama agar traffic campaign lebih efektif menghasilkan konversi.",
-        benefits: isEn
-          ? [
-              "Better conversion rates",
-              "Cleaner lead collection",
-              "Better ad performance alignment",
-              "Fast iteration for campaigns",
-              "Clear message for target audience",
-            ]
-          : [
-              "Conversion rate lebih baik",
-              "Pengumpulan lead lebih rapi",
-              "Selaras dengan performa iklan",
-              "Iterasi campaign lebih cepat",
-              "Pesan lebih jelas ke audiens",
-            ],
-        includedFeatures: isEn
-          ? [
-              "Focused structure and CTA",
-              "Lead capture form",
-              "Mobile optimization",
-              "Fast performance baseline",
-              "Analytics tracking",
-              "Simple experimentation setup",
-            ]
-          : [
-              "Struktur fokus dan CTA jelas",
-              "Form lead capture",
-              "Optimasi mobile",
-              "Baseline performa cepat",
-              "Tracking analytics",
-              "Setup eksperimen sederhana",
-            ],
-        priceRange: isEn ? "From Rp800,000 - Rp3,000,000" : "Mulai Rp800.000 - Rp3.000.000",
-        timeframe: isEn ? "2-5 working days" : "2-5 hari kerja",
-        targetAudience: isEn
-          ? "Campaign teams, event promotions, and product launches"
-          : "Tim campaign, promosi event, dan peluncuran produk",
-      },
-      {
-        icon: Cpu,
-        title: isEn ? "Custom Website System" : "Website Custom",
-        description: isEn
-          ? "Tailored system with custom features, integration, and scalable workflow."
-          : "Sistem website kustom dengan fitur khusus, integrasi, dan workflow yang scalable.",
-        features: isEn
-          ? ["Custom features", "API integration", "Third-party tools", "Scalable architecture"]
-          : ["Fitur custom", "Integrasi API", "Third-party apps", "Arsitektur scalable"],
-        color: "secondary",
-        detailedDescription: isEn
-          ? "For businesses that need more than a standard website, including custom data flow and system logic."
-          : "Untuk kebutuhan di atas website standar, termasuk alur data dan logika sistem yang disesuaikan.",
-        benefits: isEn
-          ? [
-              "Built around your exact workflow",
-              "Easier integration with existing tools",
-              "Designed to scale with growth",
-              "More control over business operations",
-              "Differentiated digital capability",
-            ]
-          : [
-              "Dibangun sesuai workflow bisnis",
-              "Mudah diintegrasikan dengan tools existing",
-              "Dirancang agar scalable",
-              "Kontrol operasional lebih baik",
-              "Kapabilitas digital lebih unggul",
-            ],
-        includedFeatures: isEn
-          ? [
-              "Scope and requirement analysis",
-              "Custom UI and UX design",
-              "Custom backend and database flow",
-              "Integration layer",
-              "Testing and QA",
-              "Technical handover and documentation",
-            ]
-          : [
-              "Analisis kebutuhan dan scope",
-              "Desain UI dan UX custom",
-              "Backend dan alur database custom",
-              "Layer integrasi sistem",
-              "Testing dan QA",
-              "Handover teknis dan dokumentasi",
-            ],
-        priceRange: isEn ? "From Rp5,000,000+" : "Mulai Rp5.000.000+",
-        timeframe: isEn ? "14-30 working days" : "14-30 hari kerja",
-        targetAudience: isEn
-          ? "Growing businesses and teams with specific digital workflows"
-          : "Bisnis berkembang dengan kebutuhan workflow digital spesifik",
-      },
-    ],
+    () =>
+      servicesData.map((service) => ({
+        ...(isEn ? service.en : service.id),
+        icon: serviceIcons[service.icon],
+        color: service.color,
+        href: `/layanan/${service.slug}`,
+      })),
     [isEn]
   )
 
@@ -554,8 +257,8 @@ export function ServicesSection() {
                   >
                     {isEn ? "Consult via WhatsApp" : "Konsultasi via WhatsApp"}
                   </Button>
-                  <Button variant="outline" size="lg" className="w-full" onClick={handleCloseModal}>
-                    {isEn ? "Close" : "Tutup"}
+                  <Button asChild variant="outline" size="lg" className="w-full">
+                    <Link href={selectedService.href}>{isEn ? "View service page" : "Lihat halaman layanan"}</Link>
                   </Button>
                 </div>
               </div>

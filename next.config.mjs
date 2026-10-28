@@ -1,5 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    // Halaman lokal yang isinya kembar digabung ke satu halaman utama.
+    return [
+      { source: "/jasa-web-design-semarang", destination: "/jasa-pembuatan-website-semarang", permanent: true },
+      { source: "/web-developer-semarang", destination: "/jasa-pembuatan-website-semarang", permanent: true },
+    ]
+  },
   images: {
     unoptimized: true,
   },

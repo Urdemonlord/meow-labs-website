@@ -5,6 +5,7 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/syarat-ketentuan" },
   title: "Syarat & Ketentuan | Meow Labs",
   description:
     "Syarat dan Ketentuan penggunaan website dan layanan Meow Labs, termasuk alur konsultasi, pembayaran, revisi, dan tanggung jawab pengguna.",

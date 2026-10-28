@@ -122,8 +122,8 @@ export function WhyChooseUsSection() {
             <Award className="h-5 w-5" />
             <span>
               {isEn
-                ? "Trusted by 100+ clients in Semarang and beyond"
-                : "Dipercaya oleh 100+ klien di Semarang dan sekitarnya"}
+                ? "Trusted by small businesses, schools, and institutions in Semarang and beyond"
+                : "Dipercaya UMKM, sekolah, dan instansi di Semarang dan sekitarnya"}
             </span>
           </div>
         </div>

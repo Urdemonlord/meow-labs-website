@@ -1,6 +1,6 @@
 "use client"
 
-import { Quote, Star, User } from "lucide-react"
+import { Globe, Quote, Star, User } from "lucide-react"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { useUiPreferences } from "./ui-preferences-provider"
 
@@ -112,8 +112,8 @@ export function TestimonialsSection() {
 
         <div className="text-center">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-6 py-3 font-medium text-primary">
-            <Star className="h-5 w-5 fill-primary" />
-            <span>{isEn ? "Rated 4.9/5 from 100+ clients" : "Rating 4.9/5 dari 100+ klien"}</span>
+            <Globe className="h-5 w-5" />
+            <span>{isEn ? "30+ client websites live" : "30+ website klien sudah online"}</span>
           </div>
           <p className="text-muted-foreground">
             {isEn

@@ -7,6 +7,7 @@
         "services": "Layanan",
         "pricing": "Paket",
         "students": "Mahasiswa",
+        "products": "Produk",
         "portfolio": "Portfolio",
         "resources": "Resources",
         "blog": "Blog",
@@ -35,8 +36,8 @@
           "label": "Website Online"
         },
         {
-          "value": "95%",
-          "label": "Klien Repeat Order"
+          "value": "3 hari",
+          "label": "Tayang Paling Cepat"
         },
         {
           "value": "<2h",
@@ -169,18 +170,19 @@
       "brandDescription": "Jasa pembuatan website yang fokus pada hasil bisnis, kredibilitas, dan workflow digital yang bisa dipakai jangka panjang.",
       "location": "Semarang dan sekitarnya",
       "responseTime": "Respons awal < 2 jam",
-      "ratingText": "4.9/5 dari 100+ klien",
+      "trustText": "30+ website klien sudah online",
       "followUs": "Ikuti kami:",
       "servicesTitle": "Layanan Kami",
       "serviceLinks": [
-        "Website Company Profile",
-        "Toko Online/E-commerce",
-        "Landing Page Bisnis",
-        "Website Personal Branding",
-        "POS / Aplikasi Bisnis",
-        "Aplikasi AI/ML Custom",
-        "Website Sekolah/Yayasan"
+        { "label": "Website Company Profile", "href": "/layanan/company-profile" },
+        { "label": "Toko Online/E-commerce", "href": "/layanan/toko-online" },
+        { "label": "Landing Page Bisnis", "href": "/layanan/landing-page" },
+        { "label": "Website Personal Branding", "href": "/#services" },
+        { "label": "Aplikasi AI/ML Custom", "href": "/layanan/aplikasi-web" },
+        { "label": "Website Sekolah/Yayasan", "href": "/layanan/website-sekolah" }
       ],
+      "productsTitle": "Produk MeowLabs",
+      "allProducts": "Semua produk",
       "companyTitle": "Perusahaan",
       "testimonialsLabel": "Testimoni",
       "privacy": "Kebijakan Privasi",
@@ -221,6 +223,7 @@
         "services": "Services",
         "pricing": "Pricing",
         "students": "Students",
+        "products": "Products",
         "portfolio": "Portfolio",
         "resources": "Resources",
         "blog": "Blog",
@@ -249,8 +252,8 @@
           "label": "Websites Launched"
         },
         {
-          "value": "95%",
-          "label": "Repeat Clients"
+          "value": "3 days",
+          "label": "Fastest Launch"
         },
         {
           "value": "<2h",
@@ -383,18 +386,19 @@
       "brandDescription": "Website development focused on business outcomes, credibility, and digital workflows that last.",
       "location": "Semarang and surrounding area",
       "responseTime": "First response < 2 hours",
-      "ratingText": "4.9/5 from 100+ clients",
+      "trustText": "30+ client websites live",
       "followUs": "Follow us:",
       "servicesTitle": "Services",
       "serviceLinks": [
-        "Company Profile Website",
-        "Online Store/E-commerce",
-        "Business Landing Page",
-        "Personal Branding Website",
-        "POS / Business App",
-        "Custom AI/ML App",
-        "School/Foundation Website"
+        { "label": "Company Profile Website", "href": "/layanan/company-profile" },
+        { "label": "Online Store/E-commerce", "href": "/layanan/toko-online" },
+        { "label": "Business Landing Page", "href": "/layanan/landing-page" },
+        { "label": "Personal Branding Website", "href": "/#services" },
+        { "label": "Custom AI/ML App", "href": "/layanan/aplikasi-web" },
+        { "label": "School/Foundation Website", "href": "/layanan/website-sekolah" }
       ],
+      "productsTitle": "MeowLabs Products",
+      "allProducts": "All products",
       "companyTitle": "Company",
       "testimonialsLabel": "Testimonials",
       "privacy": "Privacy Policy",

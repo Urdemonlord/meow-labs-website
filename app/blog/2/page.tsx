@@ -6,6 +6,7 @@ import Link from "next/link"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/blog/2" },
   title: "Strategi SEO Lokal untuk Bisnis di Semarang: Panduan Lengkap 2025 | Meow Labs",
   description: "Pelajari strategi SEO lokal terbaru untuk bisnis di Semarang tahun 2025. Tips dari ahli Meow Labs untuk meningkatkan peringkat Google Map dan pencarian lokal.",
   keywords: [
