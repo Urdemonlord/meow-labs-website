@@ -95,7 +95,7 @@ const servicePages: Record<string, ServicePageContent> = {
     ],
     intro: [
       "Berjualan lewat marketplace dan chat memang mudah dimulai, tapi potongan komisi, aturan platform, dan pesanan yang tercecer di banyak chat cepat menjadi beban. Website toko online memberi Anda etalase sendiri, dengan data pelanggan dan pesanan di satu tempat.",
-      "Meow Labs membangun toko online lengkap dengan katalog, keranjang, checkout, dan dashboard admin untuk mengelola pesanan dan stok. Kalau Anda juga punya toko fisik, tanyakan MeowLabs POS, aplikasi kasir Android kami dengan QRIS dan deteksi otomatis notifikasi bank."
+      "Meow Labs membangun toko online lengkap dengan katalog, keranjang, checkout, dan dashboard admin untuk mengelola pesanan dan stok."
     ],
     faqs: [
       {

@@ -1,7 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Poppins } from "next/font/google"
-import { JetBrains_Mono } from "next/font/google"
+import { Geist, IBM_Plex_Mono, Instrument_Serif } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
@@ -9,15 +8,22 @@ import ClientComponents from "../components/client-components"
 import { UiPreferencesProvider } from "../components/ui-preferences-provider"
 import { sharedOpenGraph } from "@/lib/seo"
 
-const poppins = Poppins({
+const geist = Geist({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  variable: "--font-poppins",
+  variable: "--font-geist",
 })
 
-const jetbrainsMono = JetBrains_Mono({
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-instrument-serif",
+})
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-plex-mono",
 })
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://meowlabs.id"
@@ -26,7 +32,7 @@ const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0f172a",
+  themeColor: "#f2efe6",
 }
 
 export const metadata: Metadata = {
@@ -100,7 +106,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="id" className="dark">
+    <html lang="id">
       <head>
         {/* Primary favicon information for search engines */}
         {/* <!-- This site's preferred favicon --> */}
@@ -112,8 +118,8 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
-        <meta name="msapplication-TileColor" content="#0f172a" />
-        <meta name="theme-color" content="#0f172a" />
+        <meta name="msapplication-TileColor" content="#f2efe6" />
+        <meta name="theme-color" content="#f2efe6" />
 
         <meta name="geo.region" content="ID-JT" />
         <meta name="geo.placename" content="Semarang" />
@@ -202,7 +208,7 @@ export default function RootLayout({
         )}
       </head>
       <body
-        className={`${poppins.variable} ${jetbrainsMono.variable} font-sans antialiased`}
+        className={`${geist.variable} ${instrumentSerif.variable} ${plexMono.variable} font-sans antialiased`}
       >
         <UiPreferencesProvider>
           <Suspense fallback={null}>

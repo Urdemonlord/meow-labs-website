@@ -110,31 +110,12 @@ Untuk mahasiswa atau fresh graduate yang butuh website portfolio personal. 3-4 h
 
 Domain .web.id, .my.id, dan .biz.id tersedia mulai Rp3.000. Ketersediaan nama domain, kuota promo, dan biaya perpanjangan dicek langsung oleh admin via WhatsApp sebelum checkout.
 
-## MeowLabs POS
+## Produk MeowLabs
 
-Aplikasi kasir Android buatan Meow Labs untuk toko, warung, dan kafe.
+Daftar produk ada di https://meowlabs.id/produk. Jika ditanya produk yang tidak ada di daftar ini (termasuk MeowLabs POS, MeowPloy, Workspace, Clipper, atau SidangAI yang sudah tidak ditawarkan), jangan mengarang; arahkan ke admin via WhatsApp.
 
-**Fitur utama:**
-- Kasir dan pencatatan transaksi
-- Pembayaran QRIS
-- Deteksi otomatis notifikasi bank, sehingga pembayaran transfer terkonfirmasi tanpa cek mutasi manual
-
-**Cara mendapatkan:** Unduh APK di https://meowlabs.id/pos (tidak tersedia di Google Play).
-- **Versi percobaan:** untuk mencoba aplikasi. Masuk dengan email apa pun, tidak perlu akun, dan tidak tersambung ke server.
-- **Versi lengkap:** untuk toko yang sudah terdaftar. Membutuhkan akun dan koneksi ke server.
-
-Untuk pendaftaran toko, harga langganan, atau integrasi POS dengan website toko online, arahkan ke admin via WhatsApp.
-
-## Produk MeowLabs Lainnya
-
-Daftar lengkap produk ada di https://meowlabs.id/produk. Jika ditanya produk yang tidak ada di daftar ini, jangan mengarang; arahkan ke admin via WhatsApp.
-
-- **MeowPloy** (https://meowploy.meowlabs.id): deploy aplikasi tanpa ribet VPS. MeowPloy mendeteksi framework otomatis, menerjemahkan error build, dan menerbitkan situs dalam hitungan menit.
-- **MeowLabs Workspace** (https://chat.meowlabs.id): workspace AI untuk chat, riset dengan sumber, analisis pasar dan kompetitor, ringkasan berita, serta pelacakan sinyal.
-- **Clipper** (https://clipper.meowlabs.id): bikin clip dari video lokal atau YouTube dengan alur transcript-first, mulai dari transkrip, saran potongan, sampai potong clip final.
-- **MeowLabs Academy** (https://academy.meowlabs.id): platform belajar teknologi dari Meow Labs berisi kursus, dokumentasi, dan proyek nyata.
 - **meowlabs ai** (https://ai.meowlabs.id): ceritakan ide aplikasi, AI menyusun kode yang langsung jalan lengkap dengan preview.
-- **SidangAI** (https://sidangah.meowlabs.id): latihan sidang skripsi dan tesis dengan AI sebagai dosen penguji, lengkap dengan voice call, berbagai karakter penguji, dan bank soal. Gratis.
+- **MeowLabs Academy** (https://academy.meowlabs.id): platform belajar teknologi dari Meow Labs berisi kursus, dokumentasi, dan proyek nyata.
 - **TOEFL MeowLabs** (https://toefl.meowlabs.id): latihan TOEFL ITP gratis dengan 450 soal, simulasi penuh berwaktu, dan bisa dipakai offline.
 - **GenCV** (https://gencv.meowlabs.id): bikin CV ramah ATS dengan bantuan AI, cocokkan dengan lowongan, lalu ekspor ke PDF atau DOCX.
 

@@ -14,80 +14,72 @@ html {
 }
 
 :root {
-  /* Meow Labs Color Scheme */
-  --background: #0d0d0d; /* Black base */
-  --foreground: #ffffff; /* White text */
-  --card: #1f1f1f; /* Dark gray cards */
-  --card-foreground: #ffffff;
-  --popover: #1f1f1f;
-  --popover-foreground: #ffffff;
-  --primary: #00ffc6; /* Cyan neon */
-  --primary-foreground: #0d0d0d;
-  --secondary: #ff3e7f; /* Pink neon */
-  --secondary-foreground: #ffffff;
-  --muted: #1f1f1f;
-  --muted-foreground: #a0a0a0;
-  --accent: #00ffc6;
-  --accent-foreground: #0d0d0d;
-  --destructive: #ff3e7f;
-  --destructive-foreground: #ffffff;
-  --border: #333333;
-  --input: #1f1f1f;
-  --ring: #00ffc6;
-  --chart-1: #00ffc6;
-  --chart-2: #ff3e7f;
-  --chart-3: #ffffff;
-  --chart-4: #1f1f1f;
-  --chart-5: #a0a0a0;
-  --radius: 0.75rem;
-  --sidebar: #1f1f1f;
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #00ffc6;
-  --sidebar-primary-foreground: #0d0d0d;
-  --sidebar-accent: #ff3e7f;
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #333333;
-  --sidebar-ring: #00ffc6;
-}
+  /* Token desain MeowLabs: editorial technology studio. Nilai brand ada di
+     --paper s.d. --dark-muted; token shadcn di bawahnya memetakan ke sana
+     supaya komponen lama ikut berganti palet. */
+  --paper: #f2efe6;
+  --paper-light: #faf8f2;
+  --ink: #171916;
+  --forest: #174c3c;
+  --forest-dark: #0f3a2d;
+  --cobalt: #315dcb;
+  --vermilion: #e45b35;
+  /* Lebih gelap dari #77766F di design doc agar teks kecil lolos WCAG AA. */
+  --ink-muted: #5f5e58;
+  --rule: #d4d0c5;
+  --dark-surface: #222520;
+  --dark-muted: #b4b6ac;
 
-.dark {
-  --background: #0d0d0d;
-  --foreground: #ffffff;
-  --card: #1f1f1f;
-  --card-foreground: #ffffff;
-  --popover: #1f1f1f;
-  --popover-foreground: #ffffff;
-  --primary: #00ffc6;
-  --primary-foreground: #0d0d0d;
-  --secondary: #ff3e7f;
-  --secondary-foreground: #ffffff;
-  --muted: #1f1f1f;
-  --muted-foreground: #a0a0a0;
-  --accent: #00ffc6;
-  --accent-foreground: #0d0d0d;
-  --destructive: #ff3e7f;
-  --destructive-foreground: #ffffff;
-  --border: #333333;
-  --input: #1f1f1f;
-  --ring: #00ffc6;
-  --chart-1: #00ffc6;
-  --chart-2: #ff3e7f;
-  --chart-3: #ffffff;
-  --chart-4: #1f1f1f;
-  --chart-5: #a0a0a0;
-  --sidebar: #1f1f1f;
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #00ffc6;
-  --sidebar-primary-foreground: #0d0d0d;
-  --sidebar-accent: #ff3e7f;
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #333333;
-  --sidebar-ring: #00ffc6;
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--paper-light);
+  --card-foreground: var(--ink);
+  --popover: var(--paper-light);
+  --popover-foreground: var(--ink);
+  --primary: var(--forest);
+  --primary-foreground: var(--paper-light);
+  --secondary: var(--cobalt);
+  --secondary-foreground: var(--paper-light);
+  --muted: #e8e4d9;
+  --muted-foreground: var(--ink-muted);
+  --accent: #e8e4d9;
+  --accent-foreground: var(--ink);
+  --destructive: #b83a1b;
+  --destructive-foreground: var(--paper-light);
+  --border: var(--rule);
+  --input: var(--rule);
+  --ring: var(--forest);
+  --chart-1: var(--forest);
+  --chart-2: var(--cobalt);
+  --chart-3: var(--vermilion);
+  --chart-4: var(--ink);
+  --chart-5: var(--ink-muted);
+  --radius: 0.375rem;
+  --sidebar: var(--paper-light);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--forest);
+  --sidebar-primary-foreground: var(--paper-light);
+  --sidebar-accent: #e8e4d9;
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: var(--rule);
+  --sidebar-ring: var(--forest);
 }
 
 @theme inline {
-  --font-sans: var(--font-poppins);
-  --font-mono: var(--font-jetbrains-mono);
+  --font-sans: var(--font-geist);
+  --font-display: var(--font-instrument-serif);
+  --font-mono: var(--font-plex-mono);
+  --color-paper: var(--paper);
+  --color-paper-light: var(--paper-light);
+  --color-ink: var(--ink);
+  --color-forest: var(--forest);
+  --color-forest-dark: var(--forest-dark);
+  --color-cobalt: var(--cobalt);
+  --color-vermilion: var(--vermilion);
+  --color-ink-muted: var(--ink-muted);
+  --color-rule: var(--rule);
+  --color-dark-surface: var(--dark-surface);
+  --color-dark-muted: var(--dark-muted);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -130,6 +122,10 @@ html {
   * {
     @apply border-border outline-ring/50;
   }
+  :focus-visible {
+    outline: 2px solid var(--forest);
+    outline-offset: 2px;
+  }
   body {
     @apply bg-background text-foreground font-sans;
     overflow-x: clip;
@@ -150,10 +146,10 @@ html {
 @keyframes glow {
   0%,
   100% {
-    box-shadow: 0 0 20px rgba(0, 255, 198, 0.3);
+    box-shadow: 0 0 0 0 rgba(23, 76, 60, 0);
   }
   50% {
-    box-shadow: 0 0 30px rgba(0, 255, 198, 0.6);
+    box-shadow: 0 0 0 0 rgba(23, 76, 60, 0);
   }
 }
 
@@ -167,8 +163,8 @@ html {
 
 /* Grid pattern background */
 .grid-bg {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(23, 25, 22, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 25, 22, 0.05) 1px, transparent 1px);
   background-size: 50px 50px;
 }
 
@@ -205,5 +201,37 @@ html {
 
   footer .grid {
     gap: 1.25rem;
+  }
+}
+
+/* Kontainer editorial: lebar maksimum 1280px, gutter 20px (mobile) sampai 56px. */
+.ml-container {
+  width: 100%;
+  max-width: calc(1280px + 2 * clamp(20px, 4.4vw, 56px));
+  margin-inline: auto;
+  padding-inline: clamp(20px, 4.4vw, 56px);
+}
+
+.ml-section {
+  padding-block: clamp(64px, 9vw, 128px);
+}
+
+.ml-eyebrow {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

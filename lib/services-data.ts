@@ -1,6 +1,5 @@
-// Data kartu layanan, dipakai section layanan di homepage (client) dan
-// halaman /layanan/[slug]. Konten halaman detail ada di
-// lib/service-pages.ts agar tidak ikut terkirim ke bundle homepage.
+// Data layanan untuk halaman /layanan/[slug]. Konten halaman detail ada di
+// lib/service-pages.ts.
 // Harga dan timeline di sini harus sama dengan paket di lib/ui-copy.json
 // dan knowledge.md.
 

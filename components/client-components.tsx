@@ -10,14 +10,9 @@ const WorkingFloatingChat = dynamic(
   { ssr: false }
 )
 
-const SnowfallEffect = dynamic(() => import("./snowfall-effect"), {
-  ssr: false,
-})
-
 export default function ClientComponents() {
   return (
     <>
-      <SnowfallEffect />
       <WorkingFloatingChat />
     </>
   )
