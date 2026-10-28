@@ -47,7 +47,7 @@ export function HomeHero() {
                 src="/art/hero-temple.webp"
                 alt=""
                 fill
-                priority
+                preload
                 sizes="(max-width: 1024px) 100vw, 560px"
                 className="object-cover"
               />

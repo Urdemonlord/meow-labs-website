@@ -23,6 +23,13 @@ export function Navigation() {
   const toggleRef = useRef<HTMLButtonElement>(null)
   const menuRef = useRef<HTMLDivElement>(null)
 
+  // Menutup menu dari dalam (link atau Escape) mengembalikan fokus ke tombol
+  // menu, karena elemen yang sedang difokus ikut hilang saat menu ditutup.
+  function closeMenu() {
+    setIsMenuOpen(false)
+    toggleRef.current?.focus()
+  }
+
   useEffect(() => {
     setIsMenuOpen(false)
   }, [pathname])
@@ -40,8 +47,7 @@ export function Navigation() {
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
-        setIsMenuOpen(false)
-        toggleRef.current?.focus()
+        closeMenu()
         return
       }
       if (event.key !== "Tab") return
@@ -67,7 +73,7 @@ export function Navigation() {
     <nav className="sticky top-0 z-50 border-b border-rule bg-paper/95 backdrop-blur supports-[backdrop-filter]:bg-paper/85">
       <div className="ml-container flex h-16 items-center justify-between gap-6">
         <Link href="/" aria-label="MeowLabs, ke beranda" className="shrink-0">
-          <BrandLogo size={30} priority />
+          <BrandLogo size={30} preload />
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -113,7 +119,7 @@ export function Navigation() {
               <Link
                 key={item.label}
                 href={item.href}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={closeMenu}
                 className="flex items-baseline gap-4 border-b border-rule py-4 font-display text-3xl text-ink"
               >
                 <span className="ml-eyebrow text-ink-muted">{String(index + 1).padStart(2, "0")}</span>

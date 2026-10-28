@@ -6,12 +6,12 @@ interface BrandLogoProps {
   size?: number
   className?: string
   // Hanya untuk logo di atas lipatan (navigasi); logo footer dimuat biasa.
-  priority?: boolean
+  preload?: boolean
 }
 
 // Logo MeowLabs: tanda kucing melingkar + wordmark huruf kecil (Geist medium).
 // Tanda diambil dari file logo resmi; jangan digambar ulang atau diubah bentuknya.
-export function BrandLogo({ tone = "ink", size = 32, className = "", priority = false }: BrandLogoProps) {
+export function BrandLogo({ tone = "ink", size = 32, className = "", preload = false }: BrandLogoProps) {
   return (
     <span className={`inline-flex items-center gap-2.5 ${tone === "ink" ? "text-ink" : "text-paper-light"} ${className}`}>
       <Image
@@ -19,7 +19,7 @@ export function BrandLogo({ tone = "ink", size = 32, className = "", priority = 
         alt=""
         width={size}
         height={size}
-        priority={priority}
+        preload={preload}
       />
       <span className="font-sans font-medium tracking-tight" style={{ fontSize: size * 0.72 }}>
         meowlabs
