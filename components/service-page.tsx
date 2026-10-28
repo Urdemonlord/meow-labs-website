@@ -54,7 +54,7 @@ export function ServicePage({ service }: ServicePageProps) {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Beranda", item: siteUrl },
-        { "@type": "ListItem", position: 2, name: "Layanan", item: `${siteUrl}/#services` },
+        { "@type": "ListItem", position: 2, name: "Layanan", item: `${siteUrl}/#layanan` },
         { "@type": "ListItem", position: 3, name: content.title, item: pageUrl },
       ],
     },
@@ -80,7 +80,7 @@ export function ServicePage({ service }: ServicePageProps) {
               Beranda
             </Link>
             <span className="mx-2">/</span>
-            <Link href="/#services" className="hover:text-primary">
+            <Link href="/#layanan" className="hover:text-primary">
               Layanan
             </Link>
             <span className="mx-2">/</span>
@@ -101,7 +101,7 @@ export function ServicePage({ service }: ServicePageProps) {
               Konsultasi Gratis
             </a>
             <Link
-              href="/#pricing"
+              href="/jasa-pembuatan-website-semarang#pricing"
               className="inline-flex items-center justify-center rounded-xl border border-border px-6 py-3 font-semibold transition-colors hover:border-primary hover:text-primary"
             >
               Lihat Paket Harga
@@ -155,7 +155,7 @@ export function ServicePage({ service }: ServicePageProps) {
         </div>
       </section>
 
-      <ProcessSection showDurations={false} />
+      <ProcessSection showDurations={false} projectName={content.title} />
 
       <section className="py-16">
         <div className="container mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">

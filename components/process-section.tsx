@@ -18,17 +18,20 @@ interface ProcessSectionProps {
   // Durasi per tahap menggambarkan proyek custom. Halaman dengan timeline
   // lebih pendek (landing page, paket Starter) menyembunyikannya.
   showDurations?: boolean
+  // Nama layanan untuk judul CTA dan pesan WhatsApp, misalnya
+  // "Integrasi AI & Otomasi". Default "Website".
+  projectName?: string
 }
 
-export function ProcessSection({ showDurations = true }: ProcessSectionProps) {
+export function ProcessSection({ showDurations = true, projectName = "Website" }: ProcessSectionProps) {
   const { locale } = useUiPreferences()
   const isEn = locale === "en"
 
   const handleWhatsAppContact = () => {
     const message = encodeURIComponent(
       isEn
-        ? "Hello Meow Labs, I want to start a website project. Please share the process."
-        : "Halo Meow Labs, saya ingin memulai project website. Mohon info prosesnya."
+        ? `Hello Meow Labs, I want to start a ${projectName} project. Please share the process.`
+        : `Halo Meow Labs, saya ingin memulai project ${projectName}. Mohon info prosesnya.`
     )
     window.open(`https://wa.me/62895386288683?text=${message}`, "_blank")
   }
@@ -212,7 +215,7 @@ export function ProcessSection({ showDurations = true }: ProcessSectionProps) {
         <div className="text-center">
           <div className="rounded-2xl border border-primary/10 bg-gradient-to-r from-primary/10 to-secondary/10 p-8">
             <h3 className="mb-4 text-2xl font-bold text-foreground">
-              {isEn ? "Ready to Start Your Website Project?" : "Siap Memulai Project Website Anda?"}
+              {isEn ? `Ready to Start Your ${projectName} Project?` : `Siap Memulai Project ${projectName} Anda?`}
             </h3>
             <p className="mx-auto mb-6 max-w-2xl text-muted-foreground text-pretty">
               {isEn

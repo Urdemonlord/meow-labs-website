@@ -10,7 +10,7 @@ export function HomeManifesto() {
         <div className="lg:col-span-6">
           <p className="ml-eyebrow text-dark-muted">02 // Manifesto</p>
           <h2 className="mt-6 font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[0.98]">
-            Teknologi adalah alat. Imaginasi adalah titik awal.
+            Teknologi adalah alat. Imajinasi adalah titik awal.
           </h2>
           <p className="mt-8 max-w-md text-pretty leading-relaxed text-dark-muted">
             Kami mulai dari masalah, bukan dari tren. Teknologi yang baik tidak cukup hanya dibangun: ia harus dipahami,
