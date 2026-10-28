@@ -42,7 +42,7 @@ const servicePages: Record<string, ServicePageContent> = {
       },
       {
         question: "Apakah sudah termasuk domain dan hosting?",
-        answer: "Setup domain dan publish awal sudah termasuk. Biaya perpanjangan domain dan hosting tahunan dijelaskan admin saat konsultasi sesuai paket yang dipilih."
+        answer: "Paket Starter Launch sudah termasuk setup domain dan publish awal. Untuk paket lain, cakupan domain dan hosting disepakati saat konsultasi, begitu juga biaya perpanjangan tahunannya."
       }
     ]
   },
@@ -79,8 +79,8 @@ const servicePages: Record<string, ServicePageContent> = {
   },
   "portal-berita": {
     h1: "Jasa Pembuatan Website Portal Berita di Semarang",
-    metaTitle: "Jasa Pembuatan Website Portal Berita & Media Online | Meow Labs",
-    metaDescription: "Jasa pembuatan website portal berita dan media online mulai Rp3 juta. CMS dengan editor, akses multi-penulis, kategori dan tag, pencarian arsip, dan integrasi analytics.",
+    metaTitle: "Jasa Pembuatan Website Portal Berita di Semarang | Meow Labs",
+    metaDescription: "Jasa pembuatan website portal berita dan media online di Semarang mulai Rp3 juta. CMS dengan editor, akses multi-penulis, kategori dan tag, pencarian arsip, dan integrasi analytics.",
     keywords: [
       "jasa pembuatan portal berita",
       "website berita online",
