@@ -3,10 +3,8 @@ import { ArrowRight, ExternalLink } from "lucide-react"
 
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import type { ResourceBadgeVariant, ResourceItem } from "@/lib/resources-data"
+import { PageHeader, buttonPrimary, buttonSecondary } from "@/components/editorial"
+import type { ResourceItem } from "@/lib/resources-data"
 
 type PageStat = {
   label: string
@@ -31,13 +29,6 @@ type TemplateProps = {
   }
 }
 
-const badgeClassMap: Record<NonNullable<ResourceBadgeVariant>, string> = {
-  default: "",
-  secondary: "",
-  outline: "",
-  destructive: "",
-}
-
 function isExternalHref(href: string) {
   return href.startsWith("http://") || href.startsWith("https://")
 }
@@ -52,118 +43,93 @@ export function ResourcePageTemplate({
   breadcrumbs,
   cta,
 }: TemplateProps) {
+  // Crumb terakhir adalah halaman ini sendiri, jadi tidak ditautkan.
+  const crumbs = breadcrumbs.map((crumb, index) =>
+    index === breadcrumbs.length - 1 ? { label: crumb.label } : crumb,
+  )
+
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="min-h-screen bg-paper text-ink">
       <Navigation />
 
-      <section className="border-b border-border bg-gradient-to-b from-background via-muted/35 to-background pt-28 pb-16 sm:pt-36 sm:pb-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-5xl space-y-8">
-            <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-              {breadcrumbs.map((breadcrumb, index) => (
-                <div key={breadcrumb.href} className="flex items-center gap-2">
-                  <Link href={breadcrumb.href} className="transition-colors hover:text-primary">
-                    {breadcrumb.label}
-                  </Link>
-                  {index < breadcrumbs.length - 1 ? <span>/</span> : null}
-                </div>
-              ))}
+      <PageHeader eyebrow={`// ${eyebrow}`} title={title} intro={description} breadcrumb={crumbs}>
+        <p className="max-w-2xl border-l-2 border-ink pl-4 text-sm leading-relaxed text-ink-muted">{highlightedNote}</p>
+        <dl className="mt-10 grid border-t border-ink sm:grid-cols-2 lg:grid-cols-4">
+          {stats.map((stat) => (
+            <div key={stat.label} className="flex flex-col-reverse border-b border-rule py-5 sm:pr-6">
+              <dt className="ml-eyebrow mt-2 text-ink-muted">{stat.label}</dt>
+              <dd className="text-2xl font-medium">{stat.value}</dd>
             </div>
+          ))}
+        </dl>
+      </PageHeader>
 
-            <div className="max-w-3xl space-y-5">
-              <Badge variant="outline" className="rounded-full px-3 py-1 text-xs uppercase tracking-[0.18em]">
-                {eyebrow}
-              </Badge>
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">{title}</h1>
-              <p className="text-lg leading-8 text-muted-foreground">{description}</p>
-              <div className="rounded-2xl border border-primary/20 bg-primary/5 p-4 text-sm leading-7 text-muted-foreground">
-                {highlightedNote}
-              </div>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {stats.map((stat) => (
-                <Card key={stat.label} className="gap-3 border-border/70 bg-background/80 py-5">
-                  <CardContent className="space-y-1 px-5">
-                    <p className="text-2xl font-semibold tracking-tight">{stat.value}</p>
-                    <p className="text-sm text-muted-foreground">{stat.label}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 sm:py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
+      <section className="border-b border-rule">
+        <div className="ml-container ml-section">
+          <div className="grid gap-px overflow-hidden rounded-[4px] border border-rule bg-rule lg:grid-cols-2 xl:grid-cols-3">
             {items.map((item) => {
               const external = isExternalHref(item.href)
 
               return (
-                <Card key={item.slug} className="overflow-hidden border-border/70 bg-card/70 py-0 backdrop-blur-sm">
+                <article key={item.slug} className="flex flex-col bg-paper-light">
                   {item.imageUrl ? (
-                    <div className="aspect-[16/9] overflow-hidden border-b border-border/70 bg-muted">
+                    <div className="aspect-[16/9] overflow-hidden border-b border-rule bg-paper">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={item.imageUrl}
-                        alt={item.title}
-                        className="h-full w-full object-cover"
-                        loading="lazy"
-                      />
+                      <img src={item.imageUrl} alt={item.title} className="h-full w-full object-cover" loading="lazy" />
                     </div>
                   ) : null}
 
-                  <CardHeader className="space-y-4 px-6 pt-6">
-                    <div className="flex flex-wrap gap-2">
-                      {item.badges?.map((badge) => (
-                        <Badge
-                          key={`${item.slug}-${badge.label}`}
-                          variant={badge.variant ?? "outline"}
-                          className={badgeClassMap[badge.variant ?? "outline"]}
-                        >
-                          {badge.label}
-                        </Badge>
-                      ))}
-                    </div>
-                    <CardTitle className="text-xl leading-7">{item.title}</CardTitle>
-                    <p className="text-sm leading-7 text-muted-foreground whitespace-pre-line">{item.description}</p>
-                  </CardHeader>
-
-                  <CardContent className="space-y-4 px-6 pb-0">
-                    {item.meta?.length ? (
-                      <div className="grid gap-3 rounded-2xl border border-border/70 bg-muted/20 p-4 sm:grid-cols-2">
-                        {item.meta.map((meta) => (
-                          <div key={`${item.slug}-${meta.label}`} className="space-y-1">
-                            <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">{meta.label}</p>
-                            <p className="text-sm font-medium leading-6 text-foreground">{meta.value}</p>
-                          </div>
+                  <div className="flex flex-1 flex-col p-6">
+                    {item.badges?.length ? (
+                      <div className="flex flex-wrap gap-2">
+                        {item.badges.map((badge) => (
+                          <span
+                            key={`${item.slug}-${badge.label}`}
+                            className="ml-eyebrow rounded-[2px] border border-rule px-2 py-0.5 text-[0.65rem] text-ink-muted"
+                          >
+                            {badge.label}
+                          </span>
                         ))}
                       </div>
                     ) : null}
+                    <h2 className="mt-4 text-xl font-medium leading-snug">{item.title}</h2>
+                    <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-ink-muted">{item.description}</p>
+
+                    {item.meta?.length ? (
+                      <dl className="mt-5 grid gap-3 border-t border-rule pt-4 sm:grid-cols-2">
+                        {item.meta.map((meta) => (
+                          <div key={`${item.slug}-${meta.label}`}>
+                            <dt className="ml-eyebrow text-ink-muted">{meta.label}</dt>
+                            <dd className="mt-1 text-sm font-medium">{meta.value}</dd>
+                          </div>
+                        ))}
+                      </dl>
+                    ) : null}
 
                     {item.notes?.length ? (
-                      <ul className="space-y-2 text-sm leading-6 text-muted-foreground">
+                      <ul className="mt-5 space-y-2 text-sm leading-relaxed text-ink-muted">
                         {item.notes.map((note) => (
                           <li key={note} className="flex gap-2">
-                            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary" />
+                            <span aria-hidden="true">+</span>
                             <span>{note}</span>
                           </li>
                         ))}
                       </ul>
                     ) : null}
-                  </CardContent>
 
-                  <CardFooter className="px-6 py-6">
-                    <Button asChild className="w-full justify-between">
-                      <Link href={item.href} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined}>
+                    <div className="mt-auto pt-6">
+                      <Link
+                        href={item.href}
+                        target={external ? "_blank" : undefined}
+                        rel={external ? "noopener noreferrer" : undefined}
+                        className="flex items-center justify-between border-t border-rule pt-4 font-medium hover:underline"
+                      >
                         {item.ctaLabel ?? "Lihat detail"}
                         {external ? <ExternalLink className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}
                       </Link>
-                    </Button>
-                  </CardFooter>
-                </Card>
+                    </div>
+                  </div>
+                </article>
               )
             })}
           </div>
@@ -171,25 +137,21 @@ export function ResourcePageTemplate({
       </section>
 
       {cta ? (
-        <section className="pb-16 sm:pb-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="rounded-3xl border border-border/70 bg-gradient-to-r from-primary/10 via-background to-primary/5 p-8 shadow-sm sm:p-10">
-              <div className="grid gap-6 lg:grid-cols-[1.4fr_0.8fr] lg:items-center">
-                <div className="space-y-3">
-                  <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">{cta.title}</h2>
-                  <p className="max-w-2xl text-muted-foreground leading-7">{cta.description}</p>
-                </div>
-                <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
-                  <Button asChild size="lg">
-                    <Link href={cta.primaryHref}>{cta.primaryLabel}</Link>
-                  </Button>
-                  {cta.secondaryHref && cta.secondaryLabel ? (
-                    <Button asChild variant="outline" size="lg">
-                      <Link href={cta.secondaryHref}>{cta.secondaryLabel}</Link>
-                    </Button>
-                  ) : null}
-                </div>
-              </div>
+        <section className="border-b border-rule">
+          <div className="ml-container ml-section flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <h2 className="max-w-2xl font-display text-[clamp(2rem,4vw,3rem)] leading-[1.05]">{cta.title}</h2>
+              <p className="mt-4 max-w-xl text-pretty leading-relaxed text-ink-muted">{cta.description}</p>
+            </div>
+            <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
+              <Link href={cta.primaryHref} className={buttonPrimary}>
+                {cta.primaryLabel}
+              </Link>
+              {cta.secondaryHref && cta.secondaryLabel ? (
+                <Link href={cta.secondaryHref} className={buttonSecondary}>
+                  {cta.secondaryLabel}
+                </Link>
+              ) : null}
             </div>
           </div>
         </section>

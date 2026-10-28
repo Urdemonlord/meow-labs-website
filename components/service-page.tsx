@@ -1,6 +1,7 @@
 import Link from "next/link"
-import { ArrowRight, CheckCircle, MessageCircle } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 import { Navigation } from "@/components/navigation"
+import { buttonPrimary, buttonSecondary, CtaBand, FaqList, PageHeader } from "@/components/editorial"
 import { ProcessSection } from "@/components/process-section"
 import { Footer } from "@/components/footer"
 import { buildWhatsAppUrl } from "@/lib/whatsapp"
@@ -70,140 +71,115 @@ export function ServicePage({ service }: ServicePageProps) {
   ]
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="min-h-screen bg-paper text-ink">
       <Navigation />
 
-      <section className="border-b border-border bg-gradient-to-b from-background via-muted/20 to-background py-16 sm:py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <nav aria-label="Breadcrumb" className="mb-6 text-sm text-muted-foreground">
-            <Link href="/" className="hover:text-primary">
-              Beranda
-            </Link>
-            <span className="mx-2">/</span>
-            <Link href="/#layanan" className="hover:text-primary">
-              Layanan
-            </Link>
-            <span className="mx-2">/</span>
-            <span className="text-foreground">{content.title}</span>
-          </nav>
-
-          <h1 className="max-w-3xl text-balance text-3xl font-bold leading-tight sm:text-5xl">{page.h1}</h1>
-          <p className="mt-5 max-w-3xl text-pretty text-base text-muted-foreground sm:text-lg">{page.intro[0]}</p>
-
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href={whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3 font-semibold text-primary-foreground transition-opacity hover:opacity-90"
-            >
-              <MessageCircle className="mr-2 h-4 w-4" />
-              Konsultasi Gratis
-            </a>
-            <Link
-              href="/jasa-pembuatan-website-semarang#pricing"
-              className="inline-flex items-center justify-center rounded-xl border border-border px-6 py-3 font-semibold transition-colors hover:border-primary hover:text-primary"
-            >
-              Lihat Paket Harga
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </div>
-
-          <dl className="mt-10 grid gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl border border-border bg-card p-5">
-              <dt className="text-sm text-muted-foreground">Rentang Harga</dt>
-              <dd className="mt-1 font-semibold">{content.priceRange}</dd>
-            </div>
-            <div className="rounded-2xl border border-border bg-card p-5">
-              <dt className="text-sm text-muted-foreground">Waktu Pengerjaan</dt>
-              <dd className="mt-1 font-semibold">{content.timeframe}</dd>
-            </div>
-            <div className="rounded-2xl border border-border bg-card p-5">
-              <dt className="text-sm text-muted-foreground">Cocok Untuk</dt>
-              <dd className="mt-1 font-semibold">{content.targetAudience}</dd>
-            </div>
-          </dl>
+      <PageHeader
+        eyebrow="// Layanan"
+        title={page.h1}
+        intro={page.intro[0]}
+        breadcrumb={[
+          { label: "Beranda", href: "/" },
+          { label: "Layanan", href: "/#layanan" },
+          { label: content.title },
+        ]}
+      >
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className={buttonPrimary}>
+            Konsultasi Gratis
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
+          <Link href="/jasa-pembuatan-website-semarang#pricing" className={buttonSecondary}>
+            Lihat Paket Harga
+          </Link>
         </div>
-      </section>
+        <dl className="mt-12 grid border-t border-ink sm:grid-cols-3">
+          {[
+            { label: "Rentang harga", value: content.priceRange },
+            { label: "Waktu pengerjaan", value: content.timeframe },
+            { label: "Cocok untuk", value: content.targetAudience },
+          ].map((item) => (
+            <div key={item.label} className="border-b border-rule py-5 sm:border-b-0 sm:border-r sm:px-6 sm:first:pl-0 sm:last:border-r-0">
+              <dt className="ml-eyebrow text-ink-muted">{item.label}</dt>
+              <dd className="mt-2 text-lg font-medium text-ink">{item.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </PageHeader>
 
-      <section className="py-16">
-        <div className="container mx-auto grid gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-          <div>
-            <h2 className="text-2xl font-bold sm:text-3xl">Kenapa {content.title}?</h2>
-            <p className="mt-4 text-pretty text-muted-foreground">{page.intro[1]}</p>
-            <ul className="mt-6 space-y-3">
+      <section className="border-b border-rule">
+        <div className="ml-container ml-section grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-6">
+            <p className="ml-eyebrow text-ink-muted">{"// Kenapa"}</p>
+            <h2 className="mt-5 font-display text-[clamp(2rem,4vw,3.25rem)] leading-[1] text-ink">
+              Kenapa {content.title}?
+            </h2>
+            <p className="mt-5 max-w-xl text-pretty leading-relaxed text-ink-muted">{page.intro[1]}</p>
+            <ul className="mt-8 border-t border-rule">
               {content.benefits.map((benefit) => (
-                <li key={benefit} className="flex items-start gap-2">
-                  <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                  <span>{benefit}</span>
+                <li key={benefit} className="flex gap-4 border-b border-rule py-3.5 text-ink">
+                  <span aria-hidden="true" className="ml-eyebrow pt-1 text-forest">
+                    +
+                  </span>
+                  {benefit}
                 </li>
               ))}
             </ul>
           </div>
-
-          <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
-            <h2 className="text-2xl font-bold">Yang Anda Dapatkan</h2>
-            <ul className="mt-6 space-y-3">
-              {content.includedFeatures.map((feature) => (
-                <li key={feature} className="flex items-start gap-2">
-                  <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-secondary" />
+          <div className="rounded-[4px] bg-ink p-8 text-paper-light lg:col-span-6 sm:p-10">
+            <p className="ml-eyebrow text-dark-muted">{"// Yang Anda dapatkan"}</p>
+            <ol className="mt-6 space-y-4">
+              {content.includedFeatures.map((feature, index) => (
+                <li key={feature} className="flex gap-4 border-b border-paper-light/15 pb-4 last:border-b-0">
+                  <span className="ml-eyebrow pt-1 text-dark-muted">{String(index + 1).padStart(2, "0")}</span>
                   <span>{feature}</span>
                 </li>
               ))}
-            </ul>
+            </ol>
           </div>
         </div>
       </section>
 
       <ProcessSection showDurations={false} projectName={content.title} />
 
-      <section className="py-16">
-        <div className="container mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold sm:text-3xl">Pertanyaan yang Sering Diajukan</h2>
-          <div className="mt-6 space-y-3">
-            {page.faqs.map((faq) => (
-              <details key={faq.question} className="group rounded-2xl border border-border bg-card p-5">
-                <summary className="cursor-pointer list-none font-semibold marker:hidden">{faq.question}</summary>
-                <p className="mt-3 text-pretty text-muted-foreground">{faq.answer}</p>
-              </details>
-            ))}
+      <section className="border-b border-rule">
+        <div className="ml-container ml-section grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <p className="ml-eyebrow text-ink-muted">{"// FAQ"}</p>
+            <h2 className="mt-5 font-display text-[clamp(2rem,4vw,3.25rem)] leading-[1] text-ink">
+              Pertanyaan yang sering diajukan.
+            </h2>
+          </div>
+          <div className="lg:col-span-8">
+            <FaqList faqs={page.faqs} />
           </div>
         </div>
       </section>
 
-      <section className="border-t border-border py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold">Layanan Lainnya</h2>
-          <div className="mt-6 grid gap-4 sm:grid-cols-3">
+      <section className="border-b border-rule">
+        <div className="ml-container ml-section">
+          <p className="ml-eyebrow text-ink-muted">{"// Layanan lainnya"}</p>
+          <ul className="mt-8 grid border-t border-ink sm:grid-cols-2 lg:grid-cols-3">
             {otherServices.map((item) => (
-              <Link
-                key={item.slug}
-                href={`/layanan/${item.slug}`}
-                className="rounded-2xl border border-border bg-card p-5 transition-colors hover:border-primary"
-              >
-                <div className="font-semibold">{item.id.title}</div>
-                <p className="mt-2 text-sm text-muted-foreground">{item.id.description}</p>
-              </Link>
+              <li key={item.slug} className="border-b border-rule">
+                <Link href={`/layanan/${item.slug}`} className="group flex h-full flex-col py-6 pr-6">
+                  <span className="flex items-center justify-between text-lg font-medium text-ink group-hover:underline">
+                    {item.id.title}
+                    <ArrowUpRight className="h-4 w-4 shrink-0" />
+                  </span>
+                  <span className="mt-2 text-sm text-ink-muted">{item.id.description}</span>
+                </Link>
+              </li>
             ))}
-          </div>
-
-          <div className="mt-12 rounded-2xl bg-gradient-to-r from-primary/10 to-secondary/10 p-8 text-center md:p-12">
-            <h2 className="text-2xl font-bold">Siap mulai {ctaServiceName}?</h2>
-            <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-              Ceritakan kebutuhan Anda. Kami bantu tentukan scope, estimasi biaya, dan timeline secara gratis.
-            </p>
-            <a
-              href={whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3 font-semibold text-primary-foreground transition-opacity hover:opacity-90"
-            >
-              <MessageCircle className="mr-2 h-4 w-4" />
-              Konsultasi via WhatsApp
-            </a>
-          </div>
+          </ul>
         </div>
       </section>
+
+      <CtaBand
+        title={`Siap mulai ${ctaServiceName}?`}
+        body="Ceritakan kebutuhan Anda. Kami bantu tentukan scope, estimasi biaya, dan timeline secara gratis."
+        whatsappMessage={`Halo admin Meow Labs, saya ingin konsultasi ${content.title}.`}
+      />
 
       <Footer />
 

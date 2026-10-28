@@ -13,7 +13,9 @@ type Message = {
 
 const STORAGE_KEY = "meow-chat-history"
 
-export function WorkingChatInterface() {
+// autoFocusInput dimatikan saat chat ditanam di halaman (/chatbot) agar fokus
+// otomatis tidak menggulir halaman ke bawah.
+export function WorkingChatInterface({ autoFocusInput = true }: { autoFocusInput?: boolean }) {
   const copy = useUiText()
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -25,12 +27,15 @@ export function WorkingChatInterface() {
   ])
   const [inputValue, setInputValue] = useState("")
   const [isLoading, setIsLoading] = useState(false)
-  const messagesEndRef = useRef<HTMLDivElement>(null)
+  const messagesContainerRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const isFetchingRef = useRef(false)
 
+  // Gulir kotak pesan saja; scrollIntoView ikut menggulir halaman saat chat
+  // ditanam di /chatbot.
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+    const container = messagesContainerRef.current
+    container?.scrollTo({ top: container.scrollHeight, behavior: "smooth" })
   }, [messages])
 
   useEffect(() => {
@@ -177,7 +182,7 @@ export function WorkingChatInterface() {
         <p className="mt-1 text-xs text-muted-foreground">{copy.chat.subtitle}</p>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-4">
+      <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-4">
         <div className="space-y-4">
           {messages.map((message) => (
             <div
@@ -214,7 +219,6 @@ export function WorkingChatInterface() {
             </div>
           )}
 
-          <div ref={messagesEndRef} />
         </div>
       </div>
 
@@ -228,7 +232,7 @@ export function WorkingChatInterface() {
             placeholder={copy.chat.placeholder}
             className="min-w-0 flex-1 rounded-full border border-border bg-card px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary"
             disabled={isLoading}
-            autoFocus
+            autoFocus={autoFocusInput}
           />
           <button
             type="submit"

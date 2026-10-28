@@ -64,7 +64,7 @@ export default function ProdukPage() {
                 {product.screenshot ? (
                   <Image src={product.screenshot} alt="" fill sizes="(max-width: 768px) 100vw, 40vw" className="object-cover" />
                 ) : (
-                  <ProductVisual pattern={product.pattern} />
+                  <ProductVisual pattern={product.pattern} layout="wide" />
                 )}
               </div>
               <div className="md:col-span-7">

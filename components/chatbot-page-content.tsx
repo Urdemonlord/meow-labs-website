@@ -1,35 +1,40 @@
 "use client"
 
 import { WorkingChatInterface } from "@/components/working-chat-interface"
+import { Navigation } from "@/components/navigation"
+import { Footer } from "@/components/footer"
+import { PageHeader } from "@/components/editorial"
 import { useUiText } from "./ui-preferences-provider"
 
 export function ChatbotPageContent() {
   const copy = useUiText()
 
   return (
-    <div className="min-h-screen bg-background py-12">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="mb-8 text-center">
-          <h1 className="text-3xl font-bold text-foreground">{copy.chatbotPage.title}</h1>
-          <p className="mt-2 text-muted-foreground">{copy.chatbotPage.description}</p>
-        </div>
+    <main className="min-h-screen bg-paper text-ink">
+      <Navigation />
+      <PageHeader eyebrow="// Asisten" title={copy.chatbotPage.title} intro={copy.chatbotPage.description} />
 
-        <div className="mx-auto h-[min(72vh,40rem)] max-w-2xl overflow-hidden rounded-2xl border border-border bg-card shadow-[0_24px_70px_rgba(0,0,0,0.45)]">
-          <WorkingChatInterface />
-        </div>
+      <section className="border-b border-rule">
+        <div className="ml-container ml-section grid gap-12 lg:grid-cols-12">
+          <div className="h-[min(72vh,40rem)] overflow-hidden rounded-[4px] border border-ink bg-paper-light lg:col-span-8">
+            <WorkingChatInterface autoFocusInput={false} />
+          </div>
 
-        <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-border bg-card/80 p-6 text-left">
-          <h2 className="mb-3 text-lg font-semibold text-foreground">{copy.chatbotPage.helpTitle}</h2>
-          <ul className="space-y-2 text-sm text-muted-foreground">
-            {copy.chatbotPage.helpItems.map((item) => (
-              <li key={item} className="leading-relaxed">
-                {item}
-              </li>
-            ))}
-          </ul>
-          <p className="mt-4 text-sm text-muted-foreground">{copy.chatbotPage.note}</p>
+          <aside className="lg:col-span-4">
+            <p className="ml-eyebrow text-ink-muted">{copy.chatbotPage.helpTitle}</p>
+            <ul className="mt-5 border-t border-ink">
+              {copy.chatbotPage.helpItems.map((item) => (
+                <li key={item} className="border-b border-rule py-4 leading-relaxed">
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-sm leading-relaxed text-ink-muted">{copy.chatbotPage.note}</p>
+          </aside>
         </div>
-      </div>
-    </div>
+      </section>
+
+      <Footer />
+    </main>
   )
 }

@@ -15,25 +15,23 @@ const updatedAt = "16 Mei 2026"
 
 export default function TermsPage() {
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="min-h-screen bg-paper text-ink">
       <Navigation />
-      <section className="border-b border-border bg-gradient-to-b from-background via-muted/20 to-background pt-32 pb-14">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="inline-flex rounded-full border border-secondary/30 bg-secondary/10 px-4 py-1 text-sm font-medium text-secondary">
-            Dokumen Legal
-          </span>
-          <h1 className="mt-5 text-3xl font-bold sm:text-4xl">Syarat & Ketentuan</h1>
-          <p className="mt-3 max-w-3xl text-muted-foreground">
+      <section className="border-b border-rule">
+        <div className="ml-container py-14 sm:py-20">
+          <p className="ml-eyebrow text-ink-muted">{"// Dokumen legal"}</p>
+          <h1 className="mt-6 font-display text-[clamp(2.5rem,6vw,4.75rem)] leading-[0.98] tracking-tight text-ink">Syarat & Ketentuan</h1>
+          <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-ink-muted">
             Halaman ini mengatur penggunaan website Meow Labs dan ketentuan umum layanan pembuatan website serta
             dukungan digital yang kami berikan.
           </p>
-          <p className="mt-3 text-sm text-muted-foreground">Terakhir diperbarui: {updatedAt}</p>
+          <p className="ml-eyebrow mt-8 text-ink-muted">Terakhir diperbarui · {updatedAt}</p>
         </div>
       </section>
 
-      <section className="py-12 sm:py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-4xl space-y-8 rounded-3xl border border-border bg-card/70 p-6 sm:p-10">
+      <section className="border-b border-rule">
+        <div className="ml-container ml-section">
+          <div className="mx-auto max-w-4xl border-t border-ink">
             <LegalBlock title="1. Ruang Lingkup Layanan">
               Meow Labs menyediakan layanan pengembangan website, landing page, optimasi performa, dan layanan terkait
               sesuai kesepakatan proyek. Detail ruang lingkup ditetapkan pada proposal atau brief yang disetujui.
@@ -70,19 +68,19 @@ export default function TermsPage() {
 
             <LegalBlock title="8. Hukum yang Berlaku dan Kontak">
               Ketentuan ini tunduk pada hukum yang berlaku di Indonesia. Untuk pertanyaan, hubungi email{" "}
-              <a href="mailto:admin@meowlabs.id" className="text-primary hover:underline">
+              <a href="mailto:admin@meowlabs.id" className="text-ink underline underline-offset-2">
                 admin@meowlabs.id
               </a>{" "}
               atau WhatsApp{" "}
-              <a href="https://wa.me/62895386288683" target="_blank" rel="noreferrer" className="text-primary hover:underline">
+              <a href="https://wa.me/62895386288683" target="_blank" rel="noreferrer" className="text-ink underline underline-offset-2">
                 +62 895-3862-88683
               </a>
               .
             </LegalBlock>
 
-            <div className="rounded-2xl border border-border bg-background/60 p-4 text-sm text-muted-foreground">
+            <div className="mt-10 rounded-[4px] border border-rule bg-paper-light p-5 text-sm leading-relaxed text-ink-muted">
               Dengan mengakses website ini, Anda menyetujui Syarat & Ketentuan yang berlaku. Lihat juga{" "}
-              <Link href="/kebijakan-privasi" className="text-primary hover:underline">
+              <Link href="/kebijakan-privasi" className="text-ink underline underline-offset-2">
                 Kebijakan Privasi
               </Link>
               .
@@ -95,11 +93,16 @@ export default function TermsPage() {
   )
 }
 
+// Judul berformat "1. Judul": nomor ditampilkan sebagai label mono.
 function LegalBlock({ title, children }: { title: string; children: ReactNode }) {
+  const [, number, heading] = title.match(/^(\d+)\.\s*(.*)$/) ?? [null, null, title]
   return (
-    <article>
-      <h2 className="text-xl font-semibold text-foreground">{title}</h2>
-      <p className="mt-2 leading-7 text-muted-foreground">{children}</p>
+    <article className="grid gap-3 border-b border-rule py-8 sm:grid-cols-12 sm:gap-6">
+      <span className="ml-eyebrow text-ink-muted sm:col-span-2 sm:pt-1.5">{number ? number.padStart(2, "0") : ""}</span>
+      <div className="sm:col-span-10">
+        <h2 className="text-xl font-medium text-ink">{heading}</h2>
+        <p className="mt-3 max-w-2xl text-pretty leading-relaxed text-ink-muted">{children}</p>
+      </div>
     </article>
   )
 }

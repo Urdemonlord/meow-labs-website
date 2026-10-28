@@ -29,7 +29,7 @@ function renderTutorialText(text: string) {
 
       if (isHeadingBlock) {
         return (
-          <h3 key={index} className="text-lg font-semibold tracking-tight text-foreground">
+          <h3 key={index} className="text-lg font-semibold tracking-tight text-ink">
             {lines[0]}
           </h3>
         )
@@ -37,7 +37,7 @@ function renderTutorialText(text: string) {
 
       if (isList) {
         return (
-          <ul key={index} className="list-disc space-y-2 pl-5 text-sm leading-7 text-foreground/90">
+          <ul key={index} className="list-disc space-y-2 pl-5 text-sm leading-7 text-ink">
             {lines.map((line) => (
               <li key={line}>{line}</li>
             ))}
@@ -48,7 +48,7 @@ function renderTutorialText(text: string) {
       return (
         <div key={index} className="space-y-2">
           {lines.map((line) => (
-            <p key={line} className="text-sm leading-7 text-foreground/90 whitespace-pre-wrap">
+            <p key={line} className="text-sm leading-7 text-ink whitespace-pre-wrap">
               {line}
             </p>
           ))}
@@ -95,11 +95,11 @@ export default async function BansosDetailPage({ params }: Props) {
   const hasTutorialFile = Boolean(item.tutorialFileName && item.tutorialDownloadUrl)
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="min-h-screen bg-paper text-ink">
       <Navigation />
 
-      <section className="border-b border-border bg-gradient-to-b from-background via-muted/35 to-background pt-24 pb-12 sm:pt-32 sm:pb-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="border-b border-rule py-14 sm:py-20">
+        <div className="ml-container">
           <div className="mx-auto max-w-3xl space-y-6">
             <Button asChild variant="ghost" size="sm" className="gap-2">
               <Link href="/resources/bansos-ai">
@@ -114,24 +114,24 @@ export default async function BansosDetailPage({ params }: Props) {
                 <Badge variant="secondary">Meow Labs</Badge>
                 {hasTutorialFile && <Badge variant="outline">Arsip internal</Badge>}
               </div>
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">{item.title}</h1>
+              <h1 className="font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-[1] tracking-tight">{item.title}</h1>
               {item.date && (
-                <p className="text-sm text-muted-foreground">Diposting: {item.date}</p>
+                <p className="text-sm text-ink-muted">Diposting: {item.date}</p>
               )}
             </div>
 
             {item.description && (
-              <p className="text-lg leading-8 text-muted-foreground">{item.description}</p>
+              <p className="text-lg leading-8 text-ink-muted">{item.description}</p>
             )}
           </div>
         </div>
       </section>
 
       <section className="py-12 sm:py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="ml-container">
           <div className="mx-auto max-w-3xl space-y-8">
             {item.imageUrl && (
-              <div className="aspect-video w-full overflow-hidden rounded-2xl border border-border/70 bg-muted">
+              <div className="aspect-video w-full overflow-hidden rounded-[4px] border border-rule bg-muted">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={item.imageUrl}
@@ -143,26 +143,26 @@ export default async function BansosDetailPage({ params }: Props) {
 
             <div className="space-y-6">
               {hasTutorialText ? (
-                <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6 sm:p-8 space-y-5">
+                <div className="rounded-[4px] border border-ink bg-paper-light p-6 sm:p-8 space-y-5">
                   <div className="space-y-2">
-                    <h2 className="text-2xl font-semibold tracking-tight">Tutorial mirror</h2>
-                    <p className="text-sm leading-7 text-muted-foreground">
+                    <h2 className="font-display text-3xl leading-tight">Tutorial mirror</h2>
+                    <p className="text-sm leading-7 text-ink-muted">
                       Isi di bawah sudah diarsipkan ke Meow Labs. Tetap verifikasi lagi sebelum dipakai karena method, kuota, dan eligibility bisa berubah kapan saja.
                     </p>
                   </div>
                   <div className="space-y-4">{renderTutorialText(item.tutorialText ?? "")}</div>
                 </div>
               ) : hasTutorialFile ? (
-                <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6 space-y-4">
-                  <h2 className="text-2xl font-semibold tracking-tight">File arsip tersedia</h2>
-                  <p className="text-sm leading-7 text-muted-foreground">
+                <div className="rounded-[4px] border border-ink bg-paper-light p-6 space-y-4">
+                  <h2 className="font-display text-3xl leading-tight">File arsip tersedia</h2>
+                  <p className="text-sm leading-7 text-ink-muted">
                     File tutorial untuk item ini sudah diarsipkan di Meow Labs sebagai {item.tutorialSourceType?.toUpperCase()}. Teks belum berhasil diekstrak otomatis, jadi buka file arsipnya untuk melihat langkah lengkap.
                   </p>
                 </div>
               ) : (
-                <div className="rounded-2xl border border-amber-500/20 bg-amber-500/10 p-6 space-y-3">
-                  <h2 className="text-xl font-semibold tracking-tight">Belum ada arsip internal</h2>
-                  <p className="text-sm leading-7 text-muted-foreground">
+                <div className="rounded-[4px] border border-rule bg-paper-light p-6 space-y-3">
+                  <h2 className="text-xl font-medium">Belum ada arsip internal</h2>
+                  <p className="text-sm leading-7 text-ink-muted">
                     Untuk item ini, Meow Labs baru punya ringkasan metadata. Arsip tutorial detailnya belum masuk ke koleksi internal.
                   </p>
                 </div>
@@ -181,7 +181,7 @@ export default async function BansosDetailPage({ params }: Props) {
                 </div>
               )}
 
-              <div className="rounded-2xl border border-border/70 bg-muted/30 p-6 space-y-3">
+              <div className="rounded-[4px] border border-rule bg-paper-light p-6 space-y-3">
                 <h3 className="font-semibold">Informasi arsip</h3>
                 <ul className="space-y-2 text-sm leading-7">
                   {item.date && (
@@ -201,8 +201,8 @@ export default async function BansosDetailPage({ params }: Props) {
                 </ul>
               </div>
 
-              <div className="rounded-2xl border border-accent/20 bg-accent/5 p-6 space-y-3">
-                <h3 className="font-semibold text-accent">Checklist sebelum coba</h3>
+              <div className="rounded-[4px] border border-rule bg-paper-light p-6 space-y-3">
+                <h3 className="font-medium text-ink">Checklist sebelum coba</h3>
                 <ul className="list-disc space-y-2 pl-5 text-sm leading-7">
                   <li>Pastikan akun, region, dan metode pembayaran sesuai syarat promo terbaru</li>
                   <li>Jangan anggap semua promo masih aktif hanya karena file tutorial masih ada</li>
@@ -214,11 +214,11 @@ export default async function BansosDetailPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="border-t border-border py-12 sm:py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="border-t border-rule py-12 sm:py-16">
+        <div className="ml-container">
           <div className="mx-auto max-w-3xl text-center space-y-4">
-            <h2 className="text-2xl font-semibold tracking-tight">Cari bansos AI lainnya?</h2>
-            <p className="text-muted-foreground">
+            <h2 className="font-display text-3xl leading-tight">Cari bansos AI lainnya?</h2>
+            <p className="text-ink-muted">
               Lihat daftar lengkap semua bansos AI yang tersedia di Meow Labs Resources.
             </p>
             <Button asChild size="lg">

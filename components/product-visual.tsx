@@ -9,10 +9,19 @@ const accents: Record<ProductPattern, string> = {
   dots: "var(--paper-light)",
 }
 
-export function ProductVisual({ pattern }: { pattern: ProductPattern }) {
+// "card" untuk kartu potret 4:5 (teks menutup bagian bawah). "wide" untuk
+// frame lebar seperti /produk: viewBox dipersempit ke area pola (y 20-360)
+// dan ditampilkan utuh, sisa frame terisi warna ink.
+export function ProductVisual({ pattern, layout = "card" }: { pattern: ProductPattern; layout?: "card" | "wide" }) {
   const accent = accents[pattern]
+  const wide = layout === "wide"
   return (
-    <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true" className="absolute inset-0 h-full w-full">
+    <svg
+      viewBox={wide ? "0 20 400 340" : "0 0 400 500"}
+      preserveAspectRatio={wide ? "xMidYMid meet" : "xMidYMid slice"}
+      aria-hidden="true"
+      className="absolute inset-0 h-full w-full"
+    >
       <rect width="400" height="500" fill="var(--ink)" />
       {pattern === "grid" && (
         <g stroke={accent} strokeWidth="1.5" opacity="0.9">

@@ -1,12 +1,10 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowRight, Database, FolderGit2, Sparkles } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { CtaBand, PageHeader } from "@/components/editorial"
 import { fetchAppVerseBansos } from "@/lib/appverse-bansos"
 import { fetchAwesomeIndonesia } from "@/lib/awesome-indonesia"
 import { fetchTokenGratis } from "@/lib/tokengratis"
@@ -33,12 +31,6 @@ export const metadata: Metadata = {
     canonical: "https://meowlabs.id/resources",
   },
 }
-
-const iconMap = {
-  "Bansos AI": Sparkles,
-  "API AI Gratis": Database,
-  "Open Source Pilihan": FolderGit2,
-} as const
 
 export default async function ResourcesHubPage() {
   const [bansos, tokenGratis, openSource] = await Promise.all([
@@ -72,116 +64,56 @@ export default async function ResourcesHubPage() {
   ]
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="min-h-screen bg-paper text-ink">
       <Navigation />
 
-      <section className="border-b border-border bg-gradient-to-b from-background via-muted/40 to-background pt-28 pb-18 sm:pt-36 sm:pb-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-5xl space-y-8">
-            <div className="max-w-3xl space-y-5">
-              <Badge variant="outline" className="rounded-full px-3 py-1 text-xs uppercase tracking-[0.18em]">
-                Resources
-              </Badge>
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-                Resource hub untuk builder yang pengin gerak cepat
-              </h1>
-              <p className="text-lg leading-8 text-muted-foreground">
-                Bukan clone mentah aggregator. Ini hub Meow Labs untuk resource AI gratis, direktori API,
-                dan proyek open source yang relevan buat validasi, eksperimen, dan bangun MVP. Intinya:
-                discovery tetap cepat, tapi tutorial ringkasnya dibaca di Meow Labs.
-              </p>
+      <PageHeader
+        eyebrow="// Resources"
+        title="Resource hub untuk builder yang ingin bergerak cepat."
+        intro="Kurasi Meow Labs untuk resource AI gratis, direktori API, dan proyek open source yang relevan untuk validasi, eksperimen, dan membangun MVP. Ringkasan tutorialnya bisa dibaca langsung di sini."
+      >
+        <dl className="grid border-t border-ink sm:grid-cols-3">
+          {[
+            { value: "3 vertikal", label: "Bansos AI · API Gratis · Open Source" },
+            { value: `${tokenGratis.total} provider`, label: "Tutorial dasar provider AI gratis" },
+            { value: `${openSource.total}+ proyek`, label: "Open source Indonesia dari GitHub" },
+          ].map((stat) => (
+            <div key={stat.label} className="flex flex-col-reverse border-b border-rule py-5 sm:pr-6">
+              <dt className="ml-eyebrow mt-2 text-ink-muted">{stat.label}</dt>
+              <dd className="text-2xl font-medium">{stat.value}</dd>
             </div>
+          ))}
+        </dl>
+      </PageHeader>
 
-            <div className="grid gap-4 sm:grid-cols-3">
-              <Card className="gap-3 border-border/70 bg-background/80 py-5">
-                <CardContent className="space-y-1 px-5">
-                  <p className="text-2xl font-semibold">3 vertikal</p>
-                  <p className="text-sm text-muted-foreground">Bansos AI · API Gratis · Open Source</p>
-                </CardContent>
-              </Card>
-              <Card className="gap-3 border-border/70 bg-background/80 py-5">
-                <CardContent className="space-y-1 px-5">
-                  <p className="text-2xl font-semibold">{tokenGratis.total} provider</p>
-                  <p className="text-sm text-muted-foreground">Tutorial dasar provider AI gratis di Meow Labs</p>
-                </CardContent>
-              </Card>
-              <Card className="gap-3 border-border/70 bg-background/80 py-5">
-                <CardContent className="space-y-1 px-5">
-                  <p className="text-2xl font-semibold">{openSource.total}+ proyek</p>
-                  <p className="text-sm text-muted-foreground">Open source Indonesia live dari GitHub</p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
+      <section className="border-b border-rule">
+        <div className="ml-container ml-section">
+          <ol className="border-t border-ink">
+            {resourceHubSections.map((section, index) => (
+              <li key={section.href} className="border-b border-rule">
+                <Link href={section.href} className="group grid gap-4 py-8 md:grid-cols-12 md:items-baseline">
+                  <span className="ml-eyebrow text-ink-muted md:col-span-1">{String(index + 1).padStart(2, "0")}</span>
+                  <h2 className="font-display text-3xl leading-none group-hover:underline md:col-span-4 md:text-4xl">
+                    {section.title}
+                  </h2>
+                  <p className="text-pretty leading-relaxed text-ink-muted md:col-span-5">{section.description}</p>
+                  <span className="ml-eyebrow flex items-center justify-between gap-3 text-ink md:col-span-2 md:justify-end">
+                    {section.count} entri
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
-      <section className="py-16 sm:py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-6 lg:grid-cols-3">
-            {resourceHubSections.map((section) => {
-              const Icon = iconMap[section.title as keyof typeof iconMap]
-
-              return (
-                <Card key={section.href} className="border-border/70 bg-card/70 backdrop-blur-sm">
-                  <CardHeader className="space-y-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                      <Icon className="h-6 w-6" />
-                    </div>
-                    <div className="space-y-2">
-                      <CardTitle className="text-2xl">{section.title}</CardTitle>
-                      <CardDescription className="text-sm leading-7 text-muted-foreground">
-                        {section.description}
-                      </CardDescription>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="space-y-6">
-                    <div className="rounded-2xl border border-border/70 bg-muted/20 p-4">
-                      <p className="text-sm uppercase tracking-[0.18em] text-muted-foreground">Total entry</p>
-                      <p className="mt-2 text-3xl font-semibold tracking-tight">{section.count}</p>
-                    </div>
-                    <Button asChild className="w-full justify-between">
-                      <Link href={section.href}>
-                        Buka halaman
-                        <ArrowRight className="h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="pb-16 sm:pb-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl border border-border/70 bg-gradient-to-r from-primary/10 via-background to-primary/5 p-8 sm:p-10">
-            <div className="grid gap-6 lg:grid-cols-[1.4fr_0.8fr] lg:items-center">
-              <div className="space-y-3">
-                <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-                  Mau resource hub serupa untuk bisnis atau komunitasmu?
-                </h2>
-                <p className="max-w-2xl leading-7 text-muted-foreground">
-                  Meow Labs bisa bantu bikin direktori, knowledge base, atau content hub yang SEO-friendly,
-                  cepat, dan gampang di-maintain di VPS atau stack modern lain.
-                </p>
-              </div>
-              <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
-                <Button asChild size="lg">
-                  <Link href="https://wa.me/62895386288683?text=Halo%20Meow%20Labs!%20Saya%20ingin%20buat%20resource%20hub%20seperti%20halaman%20resources" target="_blank" rel="noopener noreferrer">
-                    Konsultasi
-                  </Link>
-                </Button>
-                <Button asChild variant="outline" size="lg">
-                  <Link href="/blog">Lihat blog</Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <CtaBand
+        title="Mau resource hub serupa untuk bisnis atau komunitas Anda?"
+        body="Meow Labs bisa membantu membuat direktori, knowledge base, atau content hub yang SEO-friendly, cepat, dan mudah dirawat."
+        whatsappMessage="Halo Meow Labs, saya ingin membuat resource hub seperti halaman resources."
+        buttonLabel="Konsultasi"
+      />
       <Footer />
     </main>
   )

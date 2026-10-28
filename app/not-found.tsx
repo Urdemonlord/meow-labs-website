@@ -1,87 +1,65 @@
 import Link from "next/link"
-import { ArrowRight, Home } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
+import { Navigation } from "@/components/navigation"
+import { Footer } from "@/components/footer"
+import { buttonPrimary, buttonSecondary } from "@/components/editorial"
+import { buildWhatsAppUrl } from "@/lib/whatsapp"
 
-import { Button } from "@/components/ui/button"
+const quickLinks = [
+  { href: "/#layanan", label: "Layanan" },
+  { href: "/produk", label: "Produk" },
+  { href: "/blog", label: "Catatan" },
+  { href: "/about", label: "Tentang Meow Labs" },
+]
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen bg-background text-foreground flex flex-col"
-      style={{
-        backgroundColor: "hsl(var(--background))",
-        color: "hsl(var(--foreground))",
-      }}
-    >
+    <main className="flex min-h-screen flex-col bg-paper text-ink">
+      <Navigation />
 
-      <section className="flex-1 flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl w-full text-center space-y-8">
-          <div className="space-y-3">
-            <h1 className="text-6xl sm:text-7xl font-bold tracking-tighter">404</h1>
-            <p className="text-2xl sm:text-3xl font-semibold text-muted-foreground">
-              Halaman tidak ditemukan
+      <section className="flex-1 border-b border-rule">
+        <div className="ml-container ml-section grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-7">
+            <p className="ml-eyebrow text-ink-muted">{"// Error 404"}</p>
+            <h1 className="mt-6 font-display text-[clamp(3rem,8vw,6.5rem)] leading-[0.95] tracking-tight">
+              Halaman tidak ditemukan.
+            </h1>
+            <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-ink-muted">
+              Link yang Anda buka sudah tidak ada atau telah dipindahkan.
             </p>
-          </div>
-
-          <p className="text-lg leading-7 text-muted-foreground max-w-xl mx-auto">
-            Sepertinya link yang Anda cari sudah tidak ada atau telah dipindahkan. Tidak perlu khawatir, kami siap membantu.
-          </p>
-
-          <div className="grid gap-3 sm:grid-cols-2 max-w-sm mx-auto">
-            <Button asChild size="lg" className="gap-2">
-              <Link href="/">
-                <Home className="h-5 w-5" />
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <Link href="/" className={buttonPrimary}>
                 Kembali ke beranda
               </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="gap-2">
-              <Link href="/layanan/aplikasi-web">
-                Lihat layanan
-                <ArrowRight className="h-5 w-5" />
-              </Link>
-            </Button>
-          </div>
-
-          <div className="rounded-2xl border border-border/70 bg-muted/30 p-6 space-y-4 text-left">
-            <h2 className="font-semibold text-lg">Navigasi cepat</h2>
-            <ul className="grid gap-2 text-sm leading-7">
-              <li>
-                <Link href="/layanan/aplikasi-web" className="text-primary hover:underline">
-                  → Jasa pembuatan website
-                </Link>
-              </li>
-              <li>
-                <Link href="/resources" className="text-primary hover:underline">
-                  → Resource hub
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="text-primary hover:underline">
-                  → Blog dan artikel
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="text-primary hover:underline">
-                  → Tentang Meow Labs
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="border-t border-border pt-8">
-            <p className="text-sm text-muted-foreground mb-3">Butuh bantuan lain?</p>
-            <Button asChild size="lg" variant="default">
-              <a href="https://wa.me/62895386288683?text=Halo%20Meow%20Labs!%20Saya%20ingin%20konsultasi" target="_blank" rel="noopener noreferrer">
-                Hubungi kami via WhatsApp
+              <a
+                href={buildWhatsAppUrl("Halo Meow Labs, saya ingin konsultasi.")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={buttonSecondary}
+              >
+                Hubungi via WhatsApp
+                <ArrowUpRight className="h-4 w-4" />
               </a>
-            </Button>
+            </div>
           </div>
+
+          <nav aria-label="Navigasi cepat" className="lg:col-span-4 lg:col-start-9">
+            <p className="ml-eyebrow text-ink-muted">Navigasi cepat</p>
+            <ul className="mt-5 border-t border-ink">
+              {quickLinks.map((link) => (
+                <li key={link.href} className="border-b border-rule">
+                  <Link href={link.href} className="group flex items-center justify-between py-4 text-lg hover:underline">
+                    {link.label}
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </section>
 
-      <footer className="border-t border-border/20 py-8 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="container mx-auto text-center text-sm text-muted-foreground">
-          <p>&copy; 2026 Meow Labs. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
     </main>
   )
 }
