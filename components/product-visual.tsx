@@ -20,18 +20,20 @@ export function ProductVisual({ pattern, layout = "card" }: { pattern: ProductPa
       viewBox={wide ? "0 20 400 340" : "0 0 400 500"}
       preserveAspectRatio={wide ? "xMidYMid meet" : "xMidYMid slice"}
       aria-hidden="true"
-      className="absolute inset-0 h-full w-full"
+      className="absolute inset-0 h-full w-full transition-transform duration-500 ease-out group-hover:scale-105"
     >
       <rect width="400" height="500" fill="var(--ink)" />
+      {/* Grid dan titik memakai <pattern> (satu ubin yang diulang) agar DOM tetap
+          kecil. ID unik per halaman karena tiap pola hanya dipakai satu produk. */}
       {pattern === "grid" && (
-        <g stroke={accent} strokeWidth="1.5" opacity="0.9">
-          {Array.from({ length: 9 }, (_, i) => (
-            <line key={`v${i}`} x1={40 + i * 40} y1="40" x2={40 + i * 40} y2="320" />
-          ))}
-          {Array.from({ length: 8 }, (_, i) => (
-            <line key={`h${i}`} x1="40" y1={40 + i * 40} x2="360" y2={40 + i * 40} />
-          ))}
-          <rect x="200" y="120" width="80" height="80" fill={accent} />
+        <g opacity="0.9">
+          <defs>
+            <pattern id="pv-grid" x="20" y="20" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M20 0V40M0 20H40" stroke={accent} strokeWidth="1.5" fill="none" />
+            </pattern>
+          </defs>
+          <rect x="39" y="39" width="322" height="282" fill="url(#pv-grid)" />
+          <rect x="200" y="120" width="80" height="80" fill={accent} className="ml-svg-pulse" />
         </g>
       )}
       {pattern === "rings" && (
@@ -39,29 +41,25 @@ export function ProductVisual({ pattern, layout = "card" }: { pattern: ProductPa
           {[40, 75, 110, 145].map((r) => (
             <circle key={r} cx="200" cy="190" r={r} />
           ))}
-          <circle cx="200" cy="190" r="22" fill={accent} />
+          <circle cx="200" cy="190" r="22" fill={accent} className="ml-svg-pulse" />
         </g>
       )}
       {pattern === "bars" && (
         <g fill={accent}>
           {[90, 150, 120, 210, 170, 260].map((h, i) => (
-            <rect key={i} x={50 + i * 52} y={330 - h} width="34" height={h} opacity={i === 5 ? 1 : 0.55} />
+            <rect key={i} x={50 + i * 52} y={330 - h} width="34" height={h} opacity={i === 5 ? 1 : 0.55} className="ml-grow-y" />
           ))}
         </g>
       )}
       {pattern === "dots" && (
         <g fill={accent}>
-          {Array.from({ length: 7 }, (_, row) =>
-            Array.from({ length: 7 }, (_, col) => (
-              <circle
-                key={`${row}-${col}`}
-                cx={80 + col * 40}
-                cy={60 + row * 40}
-                r={row === 3 && col === 3 ? 12 : 3}
-                opacity={row === 3 && col === 3 ? 1 : 0.6}
-              />
-            ))
-          )}
+          <defs>
+            <pattern id="pv-dots" x="60" y="40" width="40" height="40" patternUnits="userSpaceOnUse">
+              <circle cx="20" cy="20" r="3" opacity="0.6" />
+            </pattern>
+          </defs>
+          <rect x="60" y="40" width="280" height="280" fill="url(#pv-dots)" />
+          <circle cx="200" cy="180" r="12" className="ml-svg-pulse" />
         </g>
       )}
     </svg>

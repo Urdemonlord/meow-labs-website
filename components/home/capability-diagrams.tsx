@@ -4,18 +4,19 @@
 
 const mono = { fontFamily: "var(--font-plex-mono), ui-monospace, monospace" }
 
-function Frame({ children }: { children: React.ReactNode }) {
+// Grid putus-putus memakai <pattern> (satu ubin 50x50), bukan 12 <line>,
+// agar DOM homepage tetap kecil. `id` membedakan pattern antar diagram.
+function Frame({ id, children }: { id: string; children: React.ReactNode }) {
+  const patternId = `cap-grid-${id}`
   return (
     <svg viewBox="0 0 400 300" aria-hidden="true" className="h-full w-full">
+      <defs>
+        <pattern id={patternId} x="25" y="25" width="50" height="50" patternUnits="userSpaceOnUse">
+          <path d="M25 0V50M0 25H50" stroke="var(--rule)" strokeWidth="1" strokeDasharray="2 4" fill="none" />
+        </pattern>
+      </defs>
       <rect width="400" height="300" fill="var(--paper-light)" />
-      <g stroke="var(--rule)" strokeWidth="1">
-        {[50, 100, 150, 200, 250, 300, 350].map((x) => (
-          <line key={`v${x}`} x1={x} y1="0" x2={x} y2="300" strokeDasharray="2 4" />
-        ))}
-        {[50, 100, 150, 200, 250].map((y) => (
-          <line key={`h${y}`} x1="0" y1={y} x2="400" y2={y} strokeDasharray="2 4" />
-        ))}
-      </g>
+      <rect x="1" y="1" width="398" height="298" fill={`url(#${patternId})`} />
       {children}
     </svg>
   )
@@ -32,7 +33,7 @@ function Label({ x, y, children, anchor = "start" }: { x: number; y: number; chi
 // Wireframe halaman website: navigasi, hero, CTA, dan kartu katalog.
 export function WebsiteDiagram() {
   return (
-    <Frame>
+    <Frame id="website">
       <g fill="none" stroke="var(--ink)" strokeWidth="1.5">
         <rect x="60" y="40" width="280" height="220" rx="4" fill="var(--paper)" />
         <line x1="60" y1="62" x2="340" y2="62" />
@@ -47,7 +48,7 @@ export function WebsiteDiagram() {
         <rect x="165" y="180" width="70" height="56" />
         <rect x="250" y="180" width="70" height="56" />
       </g>
-      <rect x="80" y="144" width="56" height="16" fill="var(--vermilion)" />
+      <rect x="80" y="144" width="56" height="16" fill="var(--vermilion)" className="ml-blink" />
       <g fill="var(--ink)">
         <circle cx="72" cy="51" r="3" />
         <circle cx="82" cy="51" r="3" />
@@ -64,7 +65,7 @@ export function WebsiteDiagram() {
 // meneruskan kasus sulit ke admin.
 export function AiDiagram() {
   return (
-    <Frame>
+    <Frame id="ai">
       <defs>
         <marker id="cap-ai-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
           <path d="M0 0L10 5L0 10z" fill="var(--ink)" />
@@ -80,7 +81,7 @@ export function AiDiagram() {
         <rect x="280" y="190" width="80" height="50" rx="4" fill="var(--paper)" />
       </g>
       <circle cx="200" cy="150" r="40" fill="var(--cobalt)" />
-      <circle cx="200" cy="150" r="52" fill="none" stroke="var(--cobalt)" strokeDasharray="3 5" />
+      <circle cx="200" cy="150" r="52" fill="none" stroke="var(--cobalt)" strokeDasharray="3 5" className="ml-svg-spin" />
       <text x="200" y="154" fontSize="11" fill="var(--paper-light)" textAnchor="middle" style={mono}>
         AGEN AI
       </text>
@@ -103,7 +104,7 @@ export function SystemDiagram() {
     { y: 180, label: "DATABASE" },
   ]
   return (
-    <Frame>
+    <Frame id="system">
       {layers.map((layer, index) => (
         <g key={layer.label}>
           <rect
@@ -141,7 +142,7 @@ export function SystemDiagram() {
       <rect x="336" y="76" width="14" height="90" fill="var(--vermilion)" />
       <Label x={260} y={42}>DASHBOARD</Label>
       <path d="M40 250h330" stroke="var(--ink)" strokeWidth="1.5" strokeDasharray="6 4" />
-      <circle cx="370" cy="250" r="5" fill="var(--vermilion)" />
+      <circle cx="370" cy="250" r="5" fill="var(--vermilion)" className="ml-svg-pulse" />
       <Label x={40} y={272}>BUILD → TEST → DEPLOY</Label>
     </Frame>
   )
@@ -159,7 +160,7 @@ export function ResearchDiagram() {
     [345, 92],
   ]
   return (
-    <Frame>
+    <Frame id="research">
       <g stroke="var(--ink)" strokeWidth="1.5">
         <line x1="60" y1="40" x2="60" y2="240" />
         <line x1="60" y1="240" x2="370" y2="240" />
@@ -175,7 +176,7 @@ export function ResearchDiagram() {
       {points.map(([x, y]) => (
         <circle key={`${x}-${y}`} cx={x} cy={y} r="4" fill="var(--paper-light)" stroke="var(--ink)" strokeWidth="1.5" />
       ))}
-      <circle cx="305" cy="104" r="12" fill="none" stroke="var(--vermilion)" strokeWidth="2" />
+      <circle cx="305" cy="104" r="12" fill="none" stroke="var(--vermilion)" strokeWidth="2" className="ml-svg-pulse" />
       <line x1="305" y1="92" x2="305" y2="58" stroke="var(--vermilion)" strokeWidth="1" />
       <Label x={305} y={50} anchor="middle">EKSPERIMEN 006</Label>
       <Label x={68} y={36}>KUALITAS</Label>

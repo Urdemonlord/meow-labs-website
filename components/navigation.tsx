@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, type CSSProperties } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { ArrowUpRight, Menu, X } from "lucide-react"
@@ -78,7 +78,7 @@ export function Navigation() {
 
         <div className="hidden items-center gap-8 md:flex">
           {navItems.map((item) => (
-            <Link key={item.label} href={item.href} className="text-sm text-ink transition-colors hover:text-ink-muted">
+            <Link key={item.label} href={item.href} className="ml-underline pb-0.5 text-sm text-ink">
               {item.label}
             </Link>
           ))}
@@ -120,7 +120,8 @@ export function Navigation() {
                 key={item.label}
                 href={item.href}
                 onClick={closeMenu}
-                className="flex items-baseline gap-4 border-b border-rule py-4 font-display text-3xl text-ink"
+                className="ml-lift flex items-baseline gap-4 border-b border-rule py-4 font-display text-3xl text-ink"
+                style={{ "--ml-delay": `${index * 50}ms` } as CSSProperties}
               >
                 <span className="ml-eyebrow text-ink-muted">{String(index + 1).padStart(2, "0")}</span>
                 {item.label}

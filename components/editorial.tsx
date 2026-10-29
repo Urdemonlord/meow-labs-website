@@ -46,12 +46,16 @@ export function PageHeader({ eyebrow, title, intro, breadcrumb, children }: Page
             ))}
           </nav>
         )}
-        <p className="ml-eyebrow text-ink-muted">{eyebrow}</p>
-        <h1 className="mt-6 max-w-4xl text-balance font-display text-[clamp(2.5rem,6vw,4.75rem)] leading-[0.98] tracking-tight text-ink">
+        <p className="ml-eyebrow ml-rise text-ink-muted">{eyebrow}</p>
+        <h1 className="ml-lift mt-6 max-w-4xl [--ml-delay:80ms] text-balance font-display text-[clamp(2.5rem,6vw,4.75rem)] leading-[0.98] tracking-tight text-ink">
           {title}
         </h1>
-        {intro && <div className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-ink-muted">{intro}</div>}
-        {children && <div className="mt-9">{children}</div>}
+        {intro && (
+          <div className="ml-lift mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-ink-muted [--ml-delay:160ms]">
+            {intro}
+          </div>
+        )}
+        {children && <div className="ml-rise mt-9 [--ml-delay:240ms]">{children}</div>}
       </div>
     </section>
   )
@@ -65,7 +69,7 @@ interface SectionHeadingProps {
 
 export function SectionHeading({ eyebrow, title, description }: SectionHeadingProps) {
   return (
-    <div className="grid gap-6 lg:grid-cols-12">
+    <div className="ml-reveal grid gap-6 lg:grid-cols-12">
       <p className="ml-eyebrow text-ink-muted lg:col-span-4">{eyebrow}</p>
       <div className="lg:col-span-8">
         <h2 className="font-display text-[clamp(2rem,4vw,3.25rem)] leading-[1] text-ink">{title}</h2>
@@ -85,7 +89,7 @@ interface CtaBandProps {
 export function CtaBand({ title, body, whatsappMessage, buttonLabel = "Diskusikan via WhatsApp" }: CtaBandProps) {
   return (
     <section className="bg-ink text-paper-light">
-      <div className="ml-container ml-section">
+      <div className="ml-reveal ml-container ml-section">
         <p className="ml-eyebrow text-dark-muted">{"// Kolaborasi"}</p>
         <h2 className="mt-6 max-w-3xl font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1]">{title}</h2>
         {body && <p className="mt-5 max-w-xl text-pretty leading-relaxed text-dark-muted">{body}</p>}

@@ -200,6 +200,159 @@ html {
   text-transform: uppercase;
 }
 
+/* Ornamen disk dan ubin bergaris (components/ornaments.tsx). Grid berupa
+   SVG di dalam background-image: tampilannya sama persis dengan SVG lama
+   (stroke 0,6 pada viewBox 100, di-anti-alias), tapi tanpa elemen DOM dan
+   tanpa ID. Latar ikut terpotong border-radius, jadi grid disk berhenti di
+   tepi lingkaran. */
+.ml-grid-disc {
+  border-radius: 9999px;
+  background: var(--vermilion) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M20 0V100M40 0V100M60 0V100M80 0V100M0 20H100M0 40H100M0 60H100M0 80H100' stroke='%23faf8f2' stroke-opacity='0.45' stroke-width='0.6' fill='none'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
+}
+.ml-grid-tile {
+  background: var(--cobalt) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M12.5 0V100M25 0V100M37.5 0V100M50 0V100M62.5 0V100M75 0V100M87.5 0V100M0 12.5H100M0 25H100M0 37.5H100M0 50H100M0 62.5H100M0 75H100M0 87.5H100' stroke='%23faf8f2' stroke-opacity='0.35' stroke-width='0.6' fill='none'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
+}
+
+/* Animasi. Hanya transform dan opacity agar dijalankan compositor (GPU)
+   tanpa membebani main thread, dan semuanya mati untuk pengguna yang
+   memilih "kurangi gerakan". Reveal saat scroll memakai scroll-driven
+   animation CSS (tanpa JavaScript); browser yang belum mendukungnya
+   langsung menampilkan konten tanpa animasi. */
+@keyframes ml-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+/* Hanya bergeser, tanpa fade: untuk judul dan paragraf pembuka yang biasanya
+   menjadi elemen LCP. Elemen dengan opacity 0 belum dihitung tampil oleh
+   browser, jadi fade di elemen ini akan memperlambat LCP. */
+@keyframes ml-lift {
+  from {
+    transform: translateY(14px);
+  }
+}
+@keyframes ml-settle {
+  from {
+    transform: scale(1.045);
+  }
+}
+@keyframes ml-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+}
+@keyframes ml-grow-y {
+  from {
+    transform: scaleY(0);
+  }
+}
+@keyframes ml-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes ml-float {
+  50% {
+    transform: translateY(-8px);
+  }
+}
+@keyframes ml-pulse {
+  50% {
+    transform: scale(1.12);
+    opacity: 0.55;
+  }
+}
+@keyframes ml-blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+@keyframes ml-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ml-rise {
+    animation: ml-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+    animation-delay: var(--ml-delay, 0ms);
+  }
+  .ml-lift {
+    animation: ml-lift 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+    animation-delay: var(--ml-delay, 0ms);
+  }
+  .ml-settle {
+    animation: ml-settle 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  }
+  .ml-spin-slow {
+    animation: ml-spin 60s linear infinite;
+  }
+  .ml-float {
+    animation: ml-float 6s ease-in-out infinite;
+  }
+  .ml-pop {
+    animation: ml-pop 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.3) 0.6s backwards;
+  }
+  /* Elemen SVG berputar/berdenyut di sekitar pusatnya sendiri. */
+  .ml-svg-pulse,
+  .ml-svg-spin,
+  .ml-grow-y {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  .ml-svg-pulse {
+    animation: ml-pulse 3.2s ease-in-out infinite;
+  }
+  .ml-svg-spin {
+    animation: ml-spin 14s linear infinite;
+  }
+  .ml-blink {
+    animation: ml-blink 2.4s steps(2, jump-none) infinite;
+  }
+
+  @supports (animation-timeline: view()) {
+    .ml-reveal {
+      animation: ml-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+    }
+    .ml-grow-y {
+      transform-origin: bottom;
+      animation: ml-grow-y linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 40%;
+    }
+  }
+}
+
+/* Garis bawah tautan navigasi yang memanjang saat hover/fokus. Memakai
+   transform scaleX agar dijalankan compositor, bukan repaint per frame. */
+.ml-underline {
+  position: relative;
+}
+.ml-underline::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.ml-underline:hover::after,
+.ml-underline:focus-visible::after {
+  transform: scaleX(1);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .ml-underline::after {
+    transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+}
+
 /* Tipografi isi artikel dan halaman legal. */
 .ml-prose {
   color: var(--ink);

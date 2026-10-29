@@ -61,7 +61,7 @@ export function ProcessSection({ showDurations = true, projectName = "Website" }
           {processes.map((process, index) => (
             <li
               key={process.title}
-              className="border-b border-rule py-8 sm:px-6 sm:[&:nth-child(odd)]:pl-0 lg:border-b-0 lg:border-r lg:last:border-r-0 lg:[&:nth-child(odd)]:pl-6 lg:first:pl-0"
+              className="ml-reveal border-b border-rule py-8 sm:px-6 sm:[&:nth-child(odd)]:pl-0 lg:border-b-0 lg:border-r lg:last:border-r-0 lg:[&:nth-child(odd)]:pl-6 lg:first:pl-0"
             >
               <div className="flex items-center justify-between">
                 <span className="ml-eyebrow text-ink-muted">{String(index + 1).padStart(2, "0")}</span>
