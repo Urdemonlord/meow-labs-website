@@ -49,6 +49,8 @@ export function HomeClients() {
                 image={work.image}
                 description={work.description}
                 label={work.category}
+                headingLevel="h4"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
               />
             </li>
           ))}

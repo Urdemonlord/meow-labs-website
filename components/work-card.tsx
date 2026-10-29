@@ -11,12 +11,23 @@ interface WorkCardProps {
   label: ReactNode
   // Kalimat pendek di bawah nama, misalnya tagline proyek lab.
   tagline?: string
-  headingLevel?: "h2" | "h3"
+  headingLevel?: "h2" | "h3" | "h4"
+  // Lebar gambar per breakpoint; default untuk grid tiga kolom.
+  sizes?: string
 }
 
 // Kartu karya dan proyek lab: screenshot asli situsnya, lalu nama dan
 // deskripsi singkat. Seluruh kartu menaut ke situs aslinya.
-export function WorkCard({ name, url, image, description, label, tagline, headingLevel = "h3" }: WorkCardProps) {
+export function WorkCard({
+  name,
+  url,
+  image,
+  description,
+  label,
+  tagline,
+  headingLevel = "h3",
+  sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw",
+}: WorkCardProps) {
   const Heading = headingLevel
   const host = new URL(url).hostname.replace(/^www\./, "")
 
@@ -28,7 +39,7 @@ export function WorkCard({ name, url, image, description, label, tagline, headin
           alt=""
           fill
           loading="lazy"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          sizes={sizes}
           className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
         />
       </div>
