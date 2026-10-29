@@ -19,6 +19,7 @@ const columns = [
     title: "Studio",
     links: [
       { label: "Produk", href: "/produk" },
+      { label: "Changelog", href: "/changelog" },
       { label: "Catatan", href: "/blog" },
       { label: "Tentang", href: "/about" },
     ],

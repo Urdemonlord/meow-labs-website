@@ -14,7 +14,7 @@ export function HomeProcess() {
       />
       <div className="ml-container ml-section grid gap-12 lg:grid-cols-12">
         <div className="ml-reveal lg:col-span-4">
-          <p className="ml-eyebrow text-paper-light/70">05 // Proses kerja</p>
+          <p className="ml-eyebrow text-paper-light/70">06 // Proses kerja</p>
           <h2 className="mt-5 font-display text-[clamp(2.5rem,5vw,4rem)] leading-[0.98]">Dari ide sampai dampak.</h2>
           <p className="mt-6 max-w-sm text-pretty leading-relaxed text-paper-light/80">
             Terstruktur, fleksibel, dan diukur dari hasil yang nyata.
