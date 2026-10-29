@@ -8,7 +8,7 @@ export function HomeCta() {
     <section className="bg-ink text-paper-light">
       <div className="ml-container ml-section grid items-center gap-12 lg:grid-cols-12">
         <div className="ml-reveal lg:col-span-7">
-          <p className="ml-eyebrow text-dark-muted">08 // Kolaborasi</p>
+          <p className="ml-eyebrow text-dark-muted">09 // Kolaborasi</p>
           <h2 className="mt-6 font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[0.98]">
             Mari membangun sesuatu bersama.
           </h2>

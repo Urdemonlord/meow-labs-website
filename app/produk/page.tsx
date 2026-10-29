@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Image from "next/image"
+import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
@@ -89,6 +90,13 @@ export default function ProdukPage() {
               </div>
             </article>
           ))}
+          <p className="border-t border-rule py-10 text-ink-muted">
+            Selain empat produk ini, ada produk kecil dan eksperimen lain di{" "}
+            <Link href="/lab" className="text-ink underline underline-offset-4">
+              Lab MeowLabs
+            </Link>
+            .
+          </p>
         </div>
       </section>
 

@@ -47,6 +47,7 @@ export default function AboutPage() {
               founder: {
                 "@type": "Person",
                 name: "Hasrinata Arya Afendi",
+                url: "https://hasrinata.meowlabs.id/",
               },
             },
           }),

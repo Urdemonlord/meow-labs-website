@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next"
 import { servicesWithPage } from "@/lib/service-pages"
+import { changelog } from "@/lib/changelog"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://meowlabs.id"
@@ -52,6 +53,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/karya`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/lab`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/changelog`,
+      lastModified: new Date(changelog[0].date),
+      changeFrequency: "weekly",
+      priority: 0.6,
     },
   ]
 
