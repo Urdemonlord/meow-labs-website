@@ -40,7 +40,16 @@ export function AboutPageContent() {
           </div>
           <div className="space-y-6 text-pretty text-xl leading-relaxed text-ink lg:col-span-8">
             <p>
-              Meow Labs didirikan oleh Hasrinata Arya Afendi, mahasiswa Universitas Muhammadiyah Semarang (Unimus),
+              Meow Labs didirikan oleh{" "}
+              <a
+                href="https://hasrinata.meowlabs.id/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-rule underline-offset-4 hover:decoration-ink"
+              >
+                Hasrinata Arya Afendi
+              </a>
+              , mahasiswa Universitas Muhammadiyah Semarang (Unimus),
               sebagai jasa pembuatan website untuk UMKM. Sekarang kami berkembang menjadi studio AI engineering dan produk
               digital, tanpa meninggalkan layanan website yang menjadi awal kami.
             </p>

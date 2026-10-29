@@ -10,7 +10,7 @@ import { buildWhatsAppUrl } from "@/lib/whatsapp"
 const navItems = [
   { label: "Layanan", href: "/#layanan" },
   { label: "Produk", href: "/produk" },
-  { label: "Klien", href: "/#klien" },
+  { label: "Karya", href: "/karya" },
   { label: "Catatan", href: "/blog" },
   { label: "Tentang", href: "/about" },
 ]
