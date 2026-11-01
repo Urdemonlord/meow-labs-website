@@ -110,7 +110,7 @@ export default function ProdukPage() {
             dengan fitur AI.
           </p>
           <a
-            href={buildWhatsAppUrl("Halo MeowLabs, saya ingin konsultasi pembuatan aplikasi untuk bisnis saya.")}
+            href={buildWhatsAppUrl("Halo MeowLabs, saya ingin konsultasi pembuatan aplikasi untuk bisnis saya.", "halaman produk")}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-8 inline-flex items-center gap-2 rounded-[3px] bg-paper-light px-5 py-3.5 font-medium text-ink"

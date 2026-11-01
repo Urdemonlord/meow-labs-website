@@ -62,7 +62,7 @@ export function HomeHero() {
           </p>
           <div className="ml-rise mt-9 flex flex-col gap-3 sm:flex-row [--ml-delay:240ms]">
             <a
-              href={buildWhatsAppUrl("Halo MeowLabs, saya ingin mendiskusikan proyek.")}
+              href={buildWhatsAppUrl("Halo MeowLabs, saya ingin mendiskusikan proyek.", "beranda, bagian atas")}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-[3px] bg-ink px-5 py-3.5 font-medium text-paper-light transition-colors hover:bg-ink/85"

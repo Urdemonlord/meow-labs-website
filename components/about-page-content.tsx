@@ -108,6 +108,7 @@ export function AboutPageContent() {
         title="Punya masalah yang ingin diselesaikan?"
         body="Konsultasi awal gratis untuk membahas masalahnya, lalu kami rekomendasikan solusi yang paling masuk akal: website, aplikasi, otomasi, atau integrasi AI."
         whatsappMessage="Halo Meowlabs.id, saya ingin konsultasi project"
+        whatsappSource="halaman tentang"
       />
     </>
   )

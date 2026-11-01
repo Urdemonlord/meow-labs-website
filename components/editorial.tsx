@@ -83,10 +83,17 @@ interface CtaBandProps {
   title: ReactNode
   body?: ReactNode
   whatsappMessage: string
+  whatsappSource?: string
   buttonLabel?: string
 }
 
-export function CtaBand({ title, body, whatsappMessage, buttonLabel = "Diskusikan via WhatsApp" }: CtaBandProps) {
+export function CtaBand({
+  title,
+  body,
+  whatsappMessage,
+  whatsappSource,
+  buttonLabel = "Diskusikan via WhatsApp",
+}: CtaBandProps) {
   return (
     <section className="bg-ink text-paper-light">
       <div className="ml-reveal ml-container ml-section">
@@ -95,7 +102,7 @@ export function CtaBand({ title, body, whatsappMessage, buttonLabel = "Diskusika
         {body && <p className="mt-5 max-w-xl text-pretty leading-relaxed text-dark-muted">{body}</p>}
         <div className="mt-9 flex flex-col gap-3 sm:flex-row">
           <a
-            href={buildWhatsAppUrl(whatsappMessage)}
+            href={buildWhatsAppUrl(whatsappMessage, whatsappSource)}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-[3px] bg-paper-light px-5 py-3.5 font-medium text-ink transition-colors hover:bg-paper"

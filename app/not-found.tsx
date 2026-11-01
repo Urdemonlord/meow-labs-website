@@ -33,7 +33,7 @@ export default function NotFound() {
                 Kembali ke beranda
               </Link>
               <a
-                href={buildWhatsAppUrl("Halo Meow Labs, saya ingin konsultasi.")}
+                href={buildWhatsAppUrl("Halo Meow Labs, saya ingin konsultasi.", "halaman 404")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={buttonSecondary}

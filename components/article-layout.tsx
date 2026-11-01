@@ -82,7 +82,13 @@ export function ArticleLayout({ postId, title, cta, structuredData, children }: 
         </section>
       )}
 
-      <CtaBand title={cta.title} body={cta.body} whatsappMessage={cta.whatsappMessage} buttonLabel="Konsultasi Gratis" />
+      <CtaBand
+        title={cta.title}
+        body={cta.body}
+        whatsappMessage={cta.whatsappMessage}
+        whatsappSource={`artikel blog ${postId}`}
+        buttonLabel="Konsultasi Gratis"
+      />
       <Footer />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
