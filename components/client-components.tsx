@@ -1,6 +1,7 @@
 "use client"
 
 import dynamic from "next/dynamic"
+import { WhatsAppAttribution } from "./whatsapp-attribution"
 
 const WorkingFloatingChat = dynamic(
   () =>
@@ -14,6 +15,7 @@ export default function ClientComponents() {
   return (
     <>
       <WorkingFloatingChat />
+      <WhatsAppAttribution />
     </>
   )
 }

@@ -68,6 +68,7 @@ export default function KaryaPage() {
         title="Proyek Anda berikutnya di sini?"
         body="Ceritakan kebutuhan Anda. Konsultasi awal gratis."
         whatsappMessage="Halo MeowLabs, saya sudah melihat karya Anda dan ingin mendiskusikan proyek."
+        whatsappSource="halaman karya"
         buttonLabel="Diskusikan Proyek"
       />
       <Footer />

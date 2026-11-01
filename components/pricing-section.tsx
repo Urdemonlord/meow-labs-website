@@ -47,7 +47,7 @@ export function PricingSection() {
                 </ul>
                 <a
                   aria-label={`${copy.selectCta}: ${pkg.name}`}
-                  href={buildWhatsAppUrl(pkg.whatsappMessage)}
+                  href={buildWhatsAppUrl(pkg.whatsappMessage, "daftar harga")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`mt-8 inline-flex items-center justify-center gap-2 rounded-[3px] px-5 py-3 font-medium transition-colors ${

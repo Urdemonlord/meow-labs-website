@@ -107,7 +107,7 @@ const structuredData = [
 ]
 
 export default function JasaPembuatanWebsiteSemarang() {
-  const whatsappHref = buildWhatsAppUrl("Halo admin Meow Labs, saya dari Semarang dan ingin konsultasi pembuatan website.")
+  const whatsappHref = buildWhatsAppUrl("Halo admin Meow Labs, saya dari Semarang dan ingin konsultasi pembuatan website.", "halaman jasa website Semarang")
 
   return (
     <main className="min-h-screen bg-paper text-ink">

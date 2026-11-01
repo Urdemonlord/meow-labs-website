@@ -5,13 +5,14 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { useUiText } from "./ui-preferences-provider"
+import { buildWhatsAppUrl } from "@/lib/whatsapp"
+import { openWhatsApp } from "@/lib/whatsapp-visit-source"
 
 export function StudentPackagesSection() {
   const copy = useUiText()
 
   const handleWhatsAppContact = (message: string) => {
-    const encodedMessage = encodeURIComponent(message)
-    window.open(`https://api.whatsapp.com/send?phone=62895386288683&text=${encodedMessage}`, "_blank")
+    openWhatsApp(buildWhatsAppUrl(message, "paket mahasiswa"))
   }
 
   return (

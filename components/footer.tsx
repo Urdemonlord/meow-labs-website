@@ -35,7 +35,7 @@ const socials = [
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
-  const whatsappHref = buildWhatsAppUrl("Halo MeowLabs, saya ingin mendiskusikan proyek.")
+  const whatsappHref = buildWhatsAppUrl("Halo MeowLabs, saya ingin mendiskusikan proyek.", "footer")
 
   return (
     <footer className="border-t border-rule bg-paper text-ink">

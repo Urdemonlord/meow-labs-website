@@ -46,7 +46,10 @@ const benefits = [
 ]
 
 export function ProcessSection({ showDurations = true, projectName = "Website" }: ProcessSectionProps) {
-  const whatsappHref = buildWhatsAppUrl(`Halo Meow Labs, saya ingin memulai project ${projectName}. Mohon info prosesnya.`)
+  const whatsappHref = buildWhatsAppUrl(
+    `Halo Meow Labs, saya ingin memulai project ${projectName}. Mohon info prosesnya.`,
+    `bagian proses ${projectName}`
+  )
 
   return (
     <section id="process" className="border-b border-rule">

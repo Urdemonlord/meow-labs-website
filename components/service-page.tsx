@@ -20,7 +20,8 @@ export function ServicePage({ service }: ServicePageProps) {
   const { page } = service
   const content = service.id
   const pageUrl = `${siteUrl}/layanan/${service.slug}`
-  const whatsappHref = buildWhatsAppUrl(`Halo admin Meow Labs, saya ingin konsultasi ${content.title}.`)
+  const whatsappSource = `layanan ${content.title}`
+  const whatsappHref = buildWhatsAppUrl(`Halo admin Meow Labs, saya ingin konsultasi ${content.title}.`, whatsappSource)
   const otherServices = servicesWithPage.filter((item) => item.slug !== service.slug)
   // Huruf kecil untuk kalimat CTA, tapi singkatan seperti "AI" tetap kapital.
   const ctaServiceName = content.title
@@ -179,6 +180,7 @@ export function ServicePage({ service }: ServicePageProps) {
         title={`Siap mulai ${ctaServiceName}?`}
         body="Ceritakan kebutuhan Anda. Kami bantu tentukan scope, estimasi biaya, dan timeline secara gratis."
         whatsappMessage={`Halo admin Meow Labs, saya ingin konsultasi ${content.title}.`}
+        whatsappSource={whatsappSource}
       />
 
       <Footer />

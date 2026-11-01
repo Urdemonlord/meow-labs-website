@@ -15,7 +15,7 @@ const navItems = [
   { label: "Tentang", href: "/about" },
 ]
 
-const whatsappHref = buildWhatsAppUrl("Halo MeowLabs, saya ingin mendiskusikan proyek.")
+const whatsappHref = buildWhatsAppUrl("Halo MeowLabs, saya ingin mendiskusikan proyek.", "menu navigasi")
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)

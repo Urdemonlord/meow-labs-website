@@ -10,6 +10,7 @@ import {
   MEOWLABS_ADMIN2_PHONE_DISPLAY,
   MEOWLABS_ADMIN_PHONE_DISPLAY,
 } from "@/lib/whatsapp"
+import { openWhatsApp } from "@/lib/whatsapp-visit-source"
 
 const fieldClass =
   "w-full rounded-[3px] border border-rule bg-paper-light px-4 py-3 text-ink placeholder:text-ink-muted/70 focus:border-ink"
@@ -30,7 +31,7 @@ export function ContactSection() {
       "",
       `Pesan: ${formData.message}`,
     ].join("\n")
-    window.open(buildWhatsAppUrl(message), "_blank", "noopener,noreferrer")
+    openWhatsApp(buildWhatsAppUrl(message, "form kontak"))
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -55,12 +56,12 @@ export function ContactSection() {
               {
                 label: "WhatsApp Admin 1",
                 value: MEOWLABS_ADMIN_PHONE_DISPLAY,
-                href: buildWhatsAppUrl("Halo admin, saya ingin konsultasi cepat terkait website."),
+                href: buildWhatsAppUrl("Halo admin, saya ingin konsultasi cepat terkait website.", "kontak, admin 1"),
               },
               {
                 label: `WhatsApp ${MEOWLABS_ADMIN2_NAME}`,
                 value: MEOWLABS_ADMIN2_PHONE_DISPLAY,
-                href: buildWhatsAppUrl2(`Halo ${MEOWLABS_ADMIN2_NAME}, saya ingin konsultasi cepat terkait website.`),
+                href: buildWhatsAppUrl2(`Halo ${MEOWLABS_ADMIN2_NAME}, saya ingin konsultasi cepat terkait website.`, "kontak, admin 2"),
               },
               { label: "Lokasi", value: "Semarang dan sekitarnya" },
               { label: "Respons awal", value: "Kurang dari 2 jam" },
