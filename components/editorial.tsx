@@ -83,7 +83,7 @@ interface CtaBandProps {
   title: ReactNode
   body?: ReactNode
   whatsappMessage: string
-  whatsappSource?: string
+  whatsappSource: string
   buttonLabel?: string
 }
 

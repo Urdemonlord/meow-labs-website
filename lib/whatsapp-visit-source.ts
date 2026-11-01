@@ -14,7 +14,7 @@ function clean(value: string | null) {
 export function rememberVisitSource() {
   try {
     const params = new URLSearchParams(window.location.search)
-    const source = clean(params.get("utm_source") ?? params.get("ref"))
+    const source = clean(params.get("utm_source")) ?? clean(params.get("ref"))
     // Sentuhan pertama dalam sesi yang dipakai; kunjungan berikutnya tidak menimpa.
     if (source && !window.sessionStorage.getItem(STORAGE_KEY)) {
       window.sessionStorage.setItem(STORAGE_KEY, source)
@@ -41,11 +41,14 @@ export function applyVisitSource(href: string) {
   if (!via || !isWhatsAppHref(href)) return href
   try {
     const url = new URL(href)
-    const text = url.searchParams.get("text") ?? ""
-    if (/(· via |\(via )/.test(text)) return href
+    const text = url.searchParams.get("text")
+    // Tautan polos tanpa pesan (mis. di halaman kebijakan) tidak diberi label.
+    if (!text) return href
+    // Hanya akhiran label buatan helper ini yang dicek, bukan isi pesan pengunjung.
+    if (/(· via [^)]*\)|\(via [^)]*\))$/.test(text)) return href
     const tagged = /\(dari: [^)]*\)$/.test(text)
       ? text.replace(/\(dari: ([^)]*)\)$/, `(dari: $1 · via ${via})`)
-      : `${text}${text ? "\n\n" : ""}(via ${via})`
+      : `${text}\n\n(via ${via})`
     url.searchParams.set("text", tagged)
     return url.toString()
   } catch {

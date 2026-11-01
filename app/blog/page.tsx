@@ -112,6 +112,7 @@ export default function BlogPage() {
         title="Punya pertanyaan soal website bisnis Anda?"
         body="Ceritakan kondisi bisnis Anda, kami bantu menentukan langkah teknis yang masuk akal."
         whatsappMessage="Halo Meow Labs, saya membaca blog dan ingin konsultasi soal website bisnis saya."
+        whatsappSource="halaman blog"
       />
       <Footer />
 
