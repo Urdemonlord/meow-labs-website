@@ -5,6 +5,7 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { PageHeader } from "@/components/editorial"
 import { WorkCard } from "@/components/work-card"
+import { AsciiArt } from "@/components/ascii-art"
 import { labProjects } from "@/lib/lab"
 import { sharedOpenGraph } from "@/lib/seo"
 
@@ -61,6 +62,28 @@ export default function LabPage() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section className="border-t border-rule">
+        <div className="ml-container ml-section grid items-center gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <p className="ml-eyebrow text-ink-muted">{"// Sedang dikerjakan"}</p>
+            <h2 className="mt-5 font-display text-[clamp(2rem,4vw,3rem)] leading-[1] tracking-tight">
+              Eksperimen berikutnya sedang diketik.
+            </h2>
+            <p className="mt-5 max-w-md text-pretty leading-relaxed text-ink-muted">
+              Punya ide yang ingin diuji bersama? Ceritakan masalahnya, kami bantu cari bentuk paling sederhana yang bisa
+              jalan.
+            </p>
+          </div>
+          <div className="lg:col-span-6 lg:col-start-7">
+            <AsciiArt
+              piece="laptop-typing-cat"
+              label="Animasi ASCII seekor kucing abu-abu mengetik kode di laptop"
+              caption="$ npm run eksperimen"
+            />
+          </div>
         </div>
       </section>
 

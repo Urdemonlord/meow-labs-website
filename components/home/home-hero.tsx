@@ -2,6 +2,7 @@ import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
 import { GridDisc, GridTile, PlusMark } from "@/components/ornaments"
 import { buildWhatsAppUrl } from "@/lib/whatsapp"
+import { HeroAsciiArt } from "./hero-ascii-art"
 
 const mono = { fontFamily: "var(--font-plex-mono), ui-monospace, monospace" }
 
@@ -95,6 +96,7 @@ export function HomeHero() {
                 sizes="(max-width: 1024px) 100vw, 560px"
                 className="ml-settle object-cover"
               />
+              <HeroAsciiArt />
               <HeroOverlay />
               <Image
                 src="/brand/meowlabs-mark-paper.webp"
