@@ -1,3 +1,5 @@
+import { ProcessFigure } from "./process-figure"
+
 const steps = [
   { title: "Diskusi", body: "Memahami masalah, tujuan, dan batasan sebelum bicara teknologi." },
   { title: "Perancangan", body: "Menyusun scope, desain, dan arsitektur solusi yang paling masuk akal." },
@@ -29,6 +31,9 @@ export function HomeProcess() {
             </li>
           ))}
         </ol>
+        <div className="ml-reveal lg:col-span-10 lg:col-start-2">
+          <ProcessFigure />
+        </div>
       </div>
     </section>
   )
