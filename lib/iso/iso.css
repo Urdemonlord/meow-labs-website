@@ -117,3 +117,12 @@
 }
 .iso.process-figure .iso-plate{box-shadow:0 0 0 1px rgba(250,248,242,.2);border-radius:4px}
 .iso.process-figure .iso-legend{color:rgba(250,248,242,.7)}
+.iso.hero-figure{
+  --anatomy-card:#faf8f2;--anatomy-paper:#faf8f2;--anatomy-face:#fffdf7;--anatomy-top:#fffdf7;
+  --anatomy-shade-0:#ddd8ca;--anatomy-shade-1:#e6e2d6;--anatomy-shade-2:#eeebe1;--anatomy-shade-3:#f5f2ea;
+  --anatomy-hi:#171916;--anatomy-mid:#7c7a70;--anatomy-lo:#b3afa2;--anatomy-faint:#d4d0c5;--anatomy-lit:#e45b35;
+  --anatomy-lit-top:#fde3d8;--anatomy-lit-shade:#f6cdbb;--anatomy-halo:#8a8470;
+  --anatomy-text:#5f5e58;--anatomy-muted:#8a887f;--anatomy-strong:#171916;--anatomy-dot:#171916;
+  --anatomy-mono:var(--font-plex-mono),ui-monospace,monospace;
+  box-shadow:none;padding:0;
+}

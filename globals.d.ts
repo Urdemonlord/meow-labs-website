@@ -17,3 +17,7 @@ declare module 'ascii-magic-art/runtime/player.js' {
     opts?: { speed?: number; still?: boolean; look?: Record<string, unknown> },
   ): () => void
 }
+
+declare module 'ascii-magic-art/lib/image.js' {
+  export function imagePiece(meta: unknown, data: unknown, motion?: Record<string, unknown>): () => (t: number) => unknown
+}

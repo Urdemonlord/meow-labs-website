@@ -1,14 +1,15 @@
-import Image from "next/image"
-import { ArrowUpRight } from "lucide-react"
-import { GridDisc, GridTile, PlusMark } from "@/components/ornaments"
-import { buildWhatsAppUrl } from "@/lib/whatsapp"
+import Image from "next/image";
+import type { ReactNode } from "react";
+import { ArrowUpRight } from "lucide-react";
+import { GridDisc, GridTile, PlusMark } from "@/components/ornaments";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
-const mono = { fontFamily: "var(--font-plex-mono), ui-monospace, monospace" }
+const mono = { fontFamily: "var(--font-plex-mono), ui-monospace, monospace" };
 
 // Lapisan wireframe di atas artwork hero: warisan dibaca dengan kacamata
 // engineering. viewBox mengikuti rasio bingkai (64:56) agar tidak terdistorsi.
 function HeroOverlay() {
-  const corner = 22
+  const corner = 22;
   return (
     <svg
       viewBox="0 0 640 560"
@@ -16,13 +17,23 @@ function HeroOverlay() {
       aria-hidden="true"
       className="pointer-events-none absolute inset-0 h-full w-full"
     >
-      <g stroke="var(--paper-light)" strokeWidth="1.5" fill="none" opacity="0.85">
+      <g
+        stroke="var(--paper-light)"
+        strokeWidth="1.5"
+        fill="none"
+        opacity="0.85"
+      >
         <path d={`M20 ${20 + corner}V20h${corner}`} />
         <path d={`M${620 - corner} 20h${corner}v${corner}`} />
         <path d={`M20 ${540 - corner}v${corner}h${corner}`} />
         <path d={`M${620 - corner} 540h${corner}v-${corner}`} />
       </g>
-      <g stroke="var(--paper-light)" strokeWidth="1" strokeDasharray="4 6" opacity="0.55">
+      <g
+        stroke="var(--paper-light)"
+        strokeWidth="1"
+        strokeDasharray="4 6"
+        opacity="0.55"
+      >
         <line x1="20" y1="300" x2="620" y2="300" />
         <line x1="400" y1="20" x2="400" y2="540" />
       </g>
@@ -34,35 +45,67 @@ function HeroOverlay() {
         <line x1="426" y1="150" x2="446" y2="150" />
         <line x1="434" y1="150" x2="520" y2="96" />
       </g>
-      <g fontSize="13" letterSpacing="1.5" fill="var(--paper-light)" style={mono}>
-        <rect x="520" y="80" width="98" height="24" fill="var(--ink)" opacity="0.75" />
-        <text x="528" y="97">SIG / 01</text>
-        <text x="40" y="52">FIELD NOTE 001</text>
-        <rect x="462" y="502" width="144" height="26" fill="var(--ink)" opacity="0.75" />
+      <g
+        fontSize="13"
+        letterSpacing="1.5"
+        fill="var(--paper-light)"
+        style={mono}
+      >
+        <rect
+          x="520"
+          y="80"
+          width="98"
+          height="24"
+          fill="var(--ink)"
+          opacity="0.75"
+        />
+        <text x="528" y="97">
+          SIG / 01
+        </text>
+        <text x="40" y="52">
+          FIELD NOTE 001
+        </text>
+        <rect
+          x="462"
+          y="502"
+          width="144"
+          height="26"
+          fill="var(--ink)"
+          opacity="0.75"
+        />
         <text x="598" y="520" textAnchor="end">
           SYSTEMS / 2026
         </text>
       </g>
     </svg>
-  )
+  );
 }
 
-export function HomeHero() {
+export function HomeHero({ visual }: { visual?: ReactNode } = {}) {
   return (
-    <section id="home" className="relative overflow-hidden border-b border-rule">
+    <section
+      id="home"
+      className="relative overflow-hidden border-b border-rule"
+    >
       <div className="ml-container grid items-center gap-14 py-14 lg:grid-cols-12 lg:gap-8 lg:py-24">
         <div className="lg:col-span-6">
-          <p className="ml-eyebrow ml-rise text-ink-muted">01 // Studio teknologi independen</p>
+          <p className="ml-eyebrow ml-rise text-ink-muted">
+            01 // Studio teknologi independen
+          </p>
           <h1 className="ml-lift mt-6 font-display [--ml-delay:80ms] text-[clamp(2.75rem,6.4vw,5.25rem)] leading-[0.95] tracking-tight text-ink">
-            Kami membangun teknologi untuk Indonesia yang <em className="text-forest">lebih maju.</em>
+            Kami membangun teknologi untuk Indonesia yang{" "}
+            <em className="text-forest">lebih maju.</em>
           </h1>
           <p className="ml-lift mt-7 max-w-md text-pretty text-lg leading-relaxed text-ink-muted [--ml-delay:160ms]">
-            Website, aplikasi, dan sistem AI untuk bisnis dan institusi, dikerjakan dari Semarang. Website UMKM mulai
-            Rp500 ribu.
+            Website, aplikasi, dan sistem AI untuk bisnis dan institusi,
+            dikerjakan dari Semarang. Website UMKM mulai Rp500 ribu.
           </p>
           <div className="ml-rise mt-9 flex flex-col gap-3 sm:flex-row [--ml-delay:240ms]">
             <a
-              href={buildWhatsAppUrl("Halo MeowLabs, saya ingin mendiskusikan proyek.", "beranda, bagian atas")}
+              href={buildWhatsAppUrl(
+                "Halo MeowLabs, saya ingin mendiskusikan proyek.",
+                "beranda, bagian atas",
+              )}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-[3px] bg-ink px-5 py-3.5 font-medium text-paper-light transition-colors hover:bg-ink/85"
@@ -77,7 +120,9 @@ export function HomeHero() {
               Lihat Layanan
             </a>
           </div>
-          <p className="ml-eyebrow ml-rise mt-10 text-ink-muted [--ml-delay:320ms]">Semarang, Indonesia</p>
+          <p className="ml-eyebrow ml-rise mt-10 text-ink-muted [--ml-delay:320ms]">
+            Semarang, Indonesia
+          </p>
         </div>
 
         <div className="relative lg:col-span-6">
@@ -87,15 +132,19 @@ export function HomeHero() {
             <PlusMark className="ml-svg-spin absolute -right-2 top-8 h-6 w-6 text-ink sm:-right-10" />
             <PlusMark className="ml-svg-spin absolute -left-8 bottom-16 hidden h-5 w-5 text-ink sm:block" />
             <div className="relative aspect-[64/56] overflow-hidden rounded-[4px] shadow-[0_24px_60px_-30px_rgba(23,25,22,0.6)]">
-              <Image
-                src="/art/hero-temple.webp"
-                alt=""
-                fill
-                preload
-                sizes="(max-width: 1024px) 100vw, 560px"
-                className="ml-settle object-cover"
-              />
-              <HeroOverlay />
+              {visual ?? (
+                <>
+                  <Image
+                    src="/art/hero-temple.webp"
+                    alt=""
+                    fill
+                    preload
+                    sizes="(max-width: 1024px) 100vw, 560px"
+                    className="ml-settle object-cover"
+                  />
+                  <HeroOverlay />
+                </>
+              )}
               <Image
                 src="/brand/meowlabs-mark-paper.webp"
                 alt=""
@@ -115,5 +164,5 @@ export function HomeHero() {
         </div>
       </div>
     </section>
-  )
+  );
 }
