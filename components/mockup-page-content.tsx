@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, ArrowRight, ArrowUpRight, Check, Copy } from "lucide-react"
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check, Copy, Loader2 } from "lucide-react"
 import { CtaBand, PageHeader } from "@/components/editorial"
 import { uiCopy } from "@/lib/ui-copy"
 import { buildWhatsAppUrl } from "@/lib/whatsapp"
@@ -409,6 +409,56 @@ function slugify(name: string) {
   )
 }
 
+// Urutan kerja tim AI saat mockup dibuat. PROTOTIPE: saat ini dijalankan
+// dengan timer, belum terhubung ke API generate ai.meowlabs.id. Tiap langkah
+// di bawah memetakan 1:1 ke tahap pipeline aslinya, jadi nanti timer diganti
+// progres beneran dari API tanpa mengubah tampilan.
+const buildSteps: {
+  name: string
+  role: string
+  image: string
+  task: string
+  detail: (businessName: string, typeLabel: string, styleLabel: string, businessDesc: string) => string
+}[] = [
+  {
+    name: "Kala",
+    role: "Manajer Proyek AI",
+    image: "/art/agen-kala.webp",
+    task: "Menyusun brief",
+    detail: (businessName, typeLabel, styleLabel) =>
+      `Brief diterima: ${businessName}, ${typeLabel}, gaya ${styleLabel}.`,
+  },
+  {
+    name: "Saka",
+    role: "Desainer AI",
+    image: "/art/agen-saka.webp",
+    task: "Merancang tampilan",
+    detail: (_businessName, _typeLabel, styleLabel) => `Palet dan layout gaya ${styleLabel} disiapkan.`,
+  },
+  {
+    name: "Runa",
+    role: "Developer AI",
+    image: "/art/agen-runa.webp",
+    task: "Membangun mockup",
+    detail: (_businessName, typeLabel) => `Struktur ${typeLabel} dirangkai jadi halaman.`,
+  },
+  {
+    name: "Tara",
+    role: "QA AI",
+    image: "/art/agen-tara.webp",
+    task: "Memeriksa hasil",
+    detail: () => "Kontras dan keterbacaan dicek di semua kartu.",
+  },
+  {
+    name: "Nara",
+    role: "Copywriter AI",
+    image: "/art/agen-nara.webp",
+    task: "Menulis copy",
+    detail: (_businessName, _typeLabel, _styleLabel, businessDesc) =>
+      businessDesc ? `Judul dan deskripsi ditulis dari: "${businessDesc}"` : "Judul dan deskripsi ditulis dari ceritamu.",
+  },
+]
+
 export function MockupPageContent() {
   const [step, setStep] = useState(1)
   const [businessName, setBusinessName] = useState("")
@@ -417,6 +467,8 @@ export function MockupPageContent() {
   const [style, setStyle] = useState<StyleId | null>(null)
   const [copied, setCopied] = useState<"idle" | "ok" | "fail">("idle")
   const [loaded, setLoaded] = useState(false)
+  const [building, setBuilding] = useState(false)
+  const [buildIndex, setBuildIndex] = useState(0)
 
   // Muat draf terakhir dari localStorage setelah mount (hindari beda render SSR).
   // Nilai draf divalidasi dulu: localStorage bisa berisi apa saja, dan nilai
@@ -463,6 +515,34 @@ export function MockupPageContent() {
       // Penyimpanan penuh atau diblokir, abaikan saja.
     }
   }, [businessName, businessDesc, projectType, style, loaded])
+
+  // Animasi build: tiap agen bekerja ~1,1 detik, lalu mockup tampil.
+  // Lewati animasi atau prefers-reduced-motion langsung ke hasil.
+  useEffect(() => {
+    if (!building) return
+    if (buildIndex >= buildSteps.length) {
+      setBuilding(false)
+      return
+    }
+    const timer = window.setTimeout(() => setBuildIndex((i) => i + 1), 1100)
+    return () => window.clearTimeout(timer)
+  }, [building, buildIndex])
+
+  function startBuild() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setStep(3)
+      return
+    }
+    setBuildIndex(0)
+    setBuilding(true)
+    setStep(3)
+  }
+
+  function finishBuild() {
+    setBuilding(false)
+    setBuildIndex(buildSteps.length)
+    setStep(3)
+  }
 
   const type = projectTypes.find((t) => t.id === projectType) ?? null
   const styleMeta = styles.find((s) => s.id === style) ?? null
@@ -604,7 +684,7 @@ export function MockupPageContent() {
             </div>
           )}
 
-          {step === 2 && (
+          {step === 2 && !building && (
             <div className="mt-10">
               <h2 className="font-display text-3xl leading-tight">Langkah 2: pilih gaya.</h2>
               <p className="mt-3 max-w-2xl text-pretty leading-relaxed text-ink-muted">
@@ -645,7 +725,90 @@ export function MockupPageContent() {
             </div>
           )}
 
-          {step === 3 && type && styleMeta && skin && estimate && (
+          {building && (
+            <div className="mt-10">
+              <h2 className="font-display text-3xl leading-tight">Tim AI sedang membangun mockupmu.</h2>
+              <p className="mt-3 max-w-2xl text-pretty leading-relaxed text-ink-muted">
+                {businessName.trim()} sedang dikerjakan Kala, Saka, Runa, Tara, dan Nara. Hasilnya diperiksa
+                manusia sebelum sampai ke kamu.
+              </p>
+              <div
+                className="mt-6 h-2 overflow-hidden rounded-[2px] border border-ink bg-paper-light"
+                role="progressbar"
+                aria-valuenow={Math.min(buildIndex, buildSteps.length)}
+                aria-valuemin={0}
+                aria-valuemax={buildSteps.length}
+                aria-label="Progres pembangunan mockup"
+              >
+                <div
+                  className="h-full bg-vermilion transition-all duration-500"
+                  style={{ width: `${(Math.min(buildIndex, buildSteps.length) / buildSteps.length) * 100}%` }}
+                />
+              </div>
+              <ol className="mt-6 space-y-3">
+                {buildSteps.map((agent, i) => {
+                  const done = i < buildIndex
+                  const active = i === buildIndex
+                  return (
+                    <li
+                      key={agent.name}
+                      className={`flex items-start gap-4 rounded-[4px] border-2 p-4 ${
+                        active
+                          ? "border-ink bg-paper-light shadow-[4px_4px_0_var(--vermilion)]"
+                          : "border-rule bg-paper-light"
+                      }`}
+                    >
+                      <Image
+                        src={agent.image}
+                        alt={`Avatar ${agent.name}`}
+                        width={48}
+                        height={48}
+                        className={`h-12 w-12 shrink-0 rounded-full border-2 border-ink object-cover ${
+                          active || done ? "" : "opacity-50"
+                        }`}
+                      />
+                      <div className="min-w-0 flex-1">
+                        <p className="font-display text-xl leading-tight">
+                          {agent.name}{" "}
+                          <span className="text-sm font-normal text-ink-muted">{agent.role}</span>
+                        </p>
+                        <p className={`mt-1 text-sm leading-relaxed ${active ? "text-ink" : "text-ink-muted"}`}>
+                          {agent.task}
+                          {(done || active) && (
+                            <>
+                              {" — "}
+                              {agent.detail(
+                                businessName.trim(),
+                                type?.label ?? "-",
+                                styleMeta?.label ?? "-",
+                                businessDesc.trim()
+                              )}
+                            </>
+                          )}
+                        </p>
+                      </div>
+                      {done ? (
+                        <Check className="mt-1 h-5 w-5 shrink-0 text-forest" aria-label="Selesai" />
+                      ) : active ? (
+                        <Loader2 className="mt-1 h-5 w-5 shrink-0 animate-spin text-ink" aria-label="Sedang bekerja" />
+                      ) : (
+                        <span aria-hidden="true" className="mt-3 h-2.5 w-2.5 shrink-0 rounded-full border border-ink-muted" />
+                      )}
+                    </li>
+                  )
+                })}
+              </ol>
+              <button
+                type="button"
+                onClick={finishBuild}
+                className="mt-6 inline-flex items-center gap-2 rounded-[3px] border-2 border-ink bg-paper-light px-5 py-3 font-medium text-ink transition-colors hover:bg-paper"
+              >
+                Lewati animasi
+              </button>
+            </div>
+          )}
+
+          {step === 3 && !building && type && styleMeta && skin && estimate && (
             <div className="mt-10">
               <h2 className="font-display text-3xl leading-tight">Langkah 3: ini mockupmu.</h2>
               <p className="mt-3 max-w-2xl text-pretty leading-relaxed text-ink-muted">
@@ -813,6 +976,7 @@ export function MockupPageContent() {
             </div>
           )}
 
+          {!building && (
           <div className="mt-12 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
               {step > 1 && (
@@ -837,10 +1001,10 @@ export function MockupPageContent() {
                 <ArrowRight className="h-4 w-4" />
               </button>
             )}
-            {step === 2 && (
+            {step === 2 && !building && (
               <button
                 type="button"
-                onClick={() => canNextStep2 && setStep(3)}
+                onClick={() => canNextStep2 && startBuild()}
                 disabled={!canNextStep2}
                 className="inline-flex items-center justify-center gap-2 rounded-[3px] border-2 border-ink bg-ink px-5 py-3.5 font-medium text-paper-light shadow-[4px_4px_0_var(--vermilion)] transition-colors hover:bg-ink/85 disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none"
               >
@@ -858,6 +1022,7 @@ export function MockupPageContent() {
               </Link>
             )}
           </div>
+          )}
           {step === 1 && !canNextStep1 && (
             <p className="mt-4 text-sm text-ink-muted">
               Isi nama usaha dan pilih jenis proyek dulu untuk lanjut.
