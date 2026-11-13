@@ -65,15 +65,28 @@ interface SectionHeadingProps {
   eyebrow: string
   title: ReactNode
   description?: ReactNode
+  // tone light dipakai di section berlatar gelap; default gelap untuk latar terang.
+  tone?: "dark" | "light"
 }
 
-export function SectionHeading({ eyebrow, title, description }: SectionHeadingProps) {
+export function SectionHeading({ eyebrow, title, description, tone = "dark" }: SectionHeadingProps) {
+  const light = tone === "light"
   return (
     <div className="ml-reveal grid gap-6 lg:grid-cols-12">
-      <p className="ml-eyebrow text-ink-muted lg:col-span-4">{eyebrow}</p>
+      <p className={`ml-eyebrow lg:col-span-4 ${light ? "text-dark-muted" : "text-ink-muted"}`}>{eyebrow}</p>
       <div className="lg:col-span-8">
-        <h2 className="font-display text-[clamp(2rem,4vw,3.25rem)] leading-[1] text-ink">{title}</h2>
-        {description && <p className="mt-4 max-w-2xl text-pretty leading-relaxed text-ink-muted">{description}</p>}
+        <h2
+          className={`font-display text-[clamp(2rem,4vw,3.25rem)] leading-[1] ${light ? "text-paper-light" : "text-ink"}`}
+        >
+          {title}
+        </h2>
+        {description && (
+          <p
+            className={`mt-4 max-w-2xl text-pretty leading-relaxed ${light ? "text-dark-muted" : "text-ink-muted"}`}
+          >
+            {description}
+          </p>
+        )}
       </div>
     </div>
   )
