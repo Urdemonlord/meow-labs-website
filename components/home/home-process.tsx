@@ -25,7 +25,11 @@ export function HomeProcess() {
         <ol className="grid gap-px overflow-hidden rounded-[4px] bg-paper-light/20 sm:grid-cols-2 lg:col-span-8">
           {steps.map((step, index) => (
             <li key={step.title} className="ml-reveal bg-dark-surface/85 p-6 backdrop-blur-[2px] sm:p-8">
-              <span className="ml-eyebrow text-paper-light/70">{String(index + 1).padStart(2, "0")}</span>
+              <span
+                className={`ml-eyebrow inline-flex w-fit rounded-[2px] px-2 py-1 text-paper-light ${["bg-vermilion", "bg-cobalt", "bg-forest", "bg-vermilion"][index % 4]}`}
+              >
+                {String(index + 1).padStart(2, "0")}
+              </span>
               <h3 className="mt-4 text-xl font-medium">{step.title}</h3>
               <p className="mt-2 text-pretty leading-relaxed text-paper-light/80">{step.body}</p>
             </li>

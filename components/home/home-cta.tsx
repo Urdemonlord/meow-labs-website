@@ -21,7 +21,7 @@ export function HomeCta() {
               href={buildWhatsAppUrl("Halo MeowLabs, saya ingin mendiskusikan proyek.", "beranda, ajakan bawah")}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-[3px] bg-paper-light px-5 py-3.5 font-medium text-ink transition-colors hover:bg-paper"
+              className="inline-flex items-center justify-center gap-2 rounded-[3px] bg-paper-light px-5 py-3.5 font-medium text-ink shadow-[4px_4px_0_var(--vermilion)] transition-colors hover:bg-paper"
             >
               Diskusikan via WhatsApp
               <ArrowUpRight className="h-4 w-4" />

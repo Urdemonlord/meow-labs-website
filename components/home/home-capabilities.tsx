@@ -61,10 +61,14 @@ export function HomeCapabilities() {
               key={capability.title}
               className="group ml-reveal flex flex-col border-b border-rule py-8 sm:px-6 sm:[&:nth-child(odd)]:pl-0 lg:border-b-0 lg:border-r lg:last:border-r-0 lg:[&:nth-child(odd)]:pl-6 lg:first:pl-0"
             >
-              <div className="mb-6 aspect-[4/3] overflow-hidden rounded-[4px] border border-rule transition-transform duration-500 ease-out group-hover:-translate-y-1">
+              <div className="mb-6 aspect-[4/3] overflow-hidden rounded-[4px] border-2 border-ink shadow-[5px_5px_0_var(--ink)] transition-transform duration-500 ease-out group-hover:-translate-y-1">
                 <capability.Diagram />
               </div>
-              <span className="ml-eyebrow text-ink-muted">{String(index + 1).padStart(2, "0")}</span>
+              <span
+                className={`ml-eyebrow inline-flex w-fit rounded-[2px] px-2 py-1 text-paper-light ${["bg-vermilion", "bg-cobalt", "bg-forest", "bg-ink"][index % 4]}`}
+              >
+                {String(index + 1).padStart(2, "0")}
+              </span>
               <h3 className="mt-4 text-xl font-medium text-ink">{capability.title}</h3>
               <p className="mt-3 flex-1 text-pretty leading-relaxed text-ink-muted">{capability.body}</p>
               {capability.price && <p className="ml-eyebrow mt-6 text-forest">{capability.price}</p>}
