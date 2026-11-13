@@ -606,7 +606,7 @@ export function MockupPageContent() {
         title="Mockup sudah cocok? Wujudkan jadi website beneran."
         body="Bawa mockup ini ke WhatsApp, atau ceritakan proyekmu dari awal. Tim AI kami yang mulai bekerja."
         whatsappMessage={
-          type && styleMeta && estimate
+          type && styleMeta && estimate && businessName.trim()
             ? briefText
             : "Halo MeowLabs, saya sudah buat mockup di Studio Mockup dan mau lanjut jadi proyek."
         }
