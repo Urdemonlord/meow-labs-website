@@ -74,7 +74,7 @@ const steps = [
   },
   {
     title: "Agen bekerja",
-    body: "Kala menyusun rencana, Saka menggambar mockup, Nara menulis teksnya. Draft pertama biasanya siap dalam hitungan jam, bukan minggu.",
+    body: "Kala menyusun rencana, Saka menggambar mockup, Nara menulis teksnya.",
   },
   {
     title: "Manusia memeriksa",
@@ -149,7 +149,7 @@ export function AgentsPageContent() {
                       ))}
                     </ul>
                   </div>
-                  <p className="ml-eyebrow mt-6 text-forest">Online 24/7 · Diawasi manusia</p>
+                  <p className="ml-eyebrow mt-6 text-forest">Diawasi manusia</p>
                 </div>
               </article>
             ))}
