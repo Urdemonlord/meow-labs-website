@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, ArrowRight, ArrowUpRight, Check, Copy, Loader2 } from "lucide-react"
@@ -447,7 +447,7 @@ const buildSteps: {
     role: "QA AI",
     image: "/art/agen-tara.webp",
     task: "Memeriksa hasil",
-    detail: () => "Kontras dan keterbacaan dicek di semua kartu.",
+    detail: () => "Tara memeriksa kontras dan keterbacaan kartu.",
   },
   {
     name: "Nara",
@@ -469,6 +469,8 @@ export function MockupPageContent() {
   const [loaded, setLoaded] = useState(false)
   const [building, setBuilding] = useState(false)
   const [buildIndex, setBuildIndex] = useState(0)
+  const [builtOnce, setBuiltOnce] = useState(false)
+  const buildHeadingRef = useRef<HTMLHeadingElement>(null)
 
   // Muat draf terakhir dari localStorage setelah mount (hindari beda render SSR).
   // Nilai draf divalidasi dulu: localStorage bisa berisi apa saja, dan nilai
@@ -521,6 +523,7 @@ export function MockupPageContent() {
   useEffect(() => {
     if (!building) return
     if (buildIndex >= buildSteps.length) {
+      setBuiltOnce(true)
       setBuilding(false)
       return
     }
@@ -528,8 +531,20 @@ export function MockupPageContent() {
     return () => window.clearTimeout(timer)
   }, [building, buildIndex])
 
+  // Pindahkan fokus ke heading panel build supaya keyboard dan screen reader
+  // tidak kehilangan tempat saat tombol pemicu hilang dari halaman.
+  useEffect(() => {
+    if (building) buildHeadingRef.current?.focus()
+  }, [building])
+
   function startBuild() {
+    // Sekali mockup sudah dibuat, klik berikutnya langsung ke hasil.
+    if (builtOnce) {
+      setStep(3)
+      return
+    }
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setBuiltOnce(true)
       setStep(3)
       return
     }
@@ -539,10 +554,18 @@ export function MockupPageContent() {
   }
 
   function finishBuild() {
+    setBuiltOnce(true)
     setBuilding(false)
     setBuildIndex(buildSteps.length)
     setStep(3)
   }
+
+  // Pengumuman progres build untuk screen reader (selalu ada di halaman).
+  const buildStatusText = building
+    ? `${buildSteps[Math.min(buildIndex, buildSteps.length - 1)].name} sedang ${buildSteps[Math.min(buildIndex, buildSteps.length - 1)].task.charAt(0).toLowerCase() + buildSteps[Math.min(buildIndex, buildSteps.length - 1)].task.slice(1)}.`
+    : builtOnce && step === 3
+      ? "Mockupmu sudah siap."
+      : ""
 
   const type = projectTypes.find((t) => t.id === projectType) ?? null
   const styleMeta = styles.find((s) => s.id === style) ?? null
@@ -594,6 +617,9 @@ export function MockupPageContent() {
 
       <section className="border-b border-rule">
         <div className="ml-container ml-section">
+          <div role="status" className="sr-only">
+            {buildStatusText}
+          </div>
           <ol className="flex flex-wrap items-center gap-2">
             {["Ceritakan usahamu", "Pilih gaya", "Lihat mockup"].map((label, index) => {
               const n = index + 1
@@ -727,10 +753,12 @@ export function MockupPageContent() {
 
           {building && (
             <div className="mt-10">
-              <h2 className="font-display text-3xl leading-tight">Tim AI sedang membangun mockupmu.</h2>
+              <h2 ref={buildHeadingRef} tabIndex={-1} className="font-display text-3xl leading-tight">
+                Tim AI sedang membangun mockupmu.
+              </h2>
               <p className="mt-3 max-w-2xl text-pretty leading-relaxed text-ink-muted">
-                {businessName.trim()} sedang dikerjakan Kala, Saka, Runa, Tara, dan Nara. Hasilnya diperiksa
-                manusia sebelum sampai ke kamu.
+                {businessName.trim()} sedang dikerjakan Kala, Saka, Runa, Tara, dan Nara, langkah demi
+                langkah.
               </p>
               <div
                 className="mt-6 h-2 overflow-hidden rounded-[2px] border border-ink bg-paper-light"
