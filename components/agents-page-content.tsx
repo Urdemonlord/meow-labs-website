@@ -197,6 +197,7 @@ export function AgentsPageContent() {
             eyebrow="// Cara kerja"
             title="Dari brief sampai serah terima."
             description="Alurnya sama untuk semua proyek, mau website company profile atau aplikasi custom."
+            tone="light"
           />
           <div className="mt-14 grid gap-px overflow-hidden rounded-[4px] border border-paper-light/20 bg-paper-light/20 md:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, index) => (
