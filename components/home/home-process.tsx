@@ -7,6 +7,16 @@ const steps = [
   { title: "Peluncuran", body: "Deploy, evaluasi di alur kerja nyata, lalu perbaikan berkelanjutan." },
 ]
 
+// Warna chip nomor: teks dipilih per latar supaya kontras lolos WCAG AA.
+// Langkah keempat pakai paper-light, bukan ink seperti di layanan, karena
+// latar section ini gelap dan chip ink jadi tidak kelihatan.
+const stepChipStyles = [
+  { bg: "bg-vermilion", text: "text-ink" },
+  { bg: "bg-cobalt", text: "text-paper-light" },
+  { bg: "bg-forest", text: "text-paper-light" },
+  { bg: "bg-paper-light", text: "text-ink" },
+]
+
 export function HomeProcess() {
   return (
     <section className="relative isolate overflow-hidden bg-dark-surface text-paper-light">
@@ -26,7 +36,7 @@ export function HomeProcess() {
           {steps.map((step, index) => (
             <li key={step.title} className="ml-reveal bg-dark-surface/85 p-6 backdrop-blur-[2px] sm:p-8">
               <span
-                className={`ml-eyebrow inline-flex w-fit rounded-[2px] px-2 py-1 text-paper-light ${["bg-vermilion", "bg-cobalt", "bg-forest", "bg-vermilion"][index % 4]}`}
+                className={`ml-eyebrow inline-flex w-fit rounded-[2px] px-2 py-1 ${stepChipStyles[index % 4].bg} ${stepChipStyles[index % 4].text}`}
               >
                 {String(index + 1).padStart(2, "0")}
               </span>

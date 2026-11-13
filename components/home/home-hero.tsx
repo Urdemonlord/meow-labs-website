@@ -21,7 +21,7 @@ export function HomeHero() {
               href={buildWhatsAppUrl("Halo MeowLabs, saya ingin mendiskusikan proyek.", "beranda, bagian atas")}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-[3px] bg-ink px-5 py-3.5 font-medium text-paper-light shadow-[4px_4px_0_var(--vermilion)] transition-colors hover:bg-ink/85"
+              className="inline-flex items-center justify-center gap-2 rounded-[3px] border-2 border-ink bg-ink px-5 py-3.5 font-medium text-paper-light shadow-[4px_4px_0_var(--vermilion)] transition-colors hover:bg-ink/85"
             >
               Diskusikan Proyek
               <ArrowUpRight className="h-4 w-4" />

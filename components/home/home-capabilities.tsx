@@ -44,6 +44,15 @@ const capabilities = [
   },
 ]
 
+// Warna chip nomor: teks dipilih per latar supaya kontras lolos WCAG AA
+// (paper-light di vermilion hanya 3,4:1, jadi chip vermilion pakai teks ink).
+const chipStyles = [
+  { bg: "bg-vermilion", text: "text-ink" },
+  { bg: "bg-cobalt", text: "text-paper-light" },
+  { bg: "bg-forest", text: "text-paper-light" },
+  { bg: "bg-ink", text: "text-paper-light" },
+]
+
 export function HomeCapabilities() {
   return (
     <section id="layanan" className="border-b border-rule">
@@ -65,7 +74,7 @@ export function HomeCapabilities() {
                 <capability.Diagram />
               </div>
               <span
-                className={`ml-eyebrow inline-flex w-fit rounded-[2px] px-2 py-1 text-paper-light ${["bg-vermilion", "bg-cobalt", "bg-forest", "bg-ink"][index % 4]}`}
+                className={`ml-eyebrow inline-flex w-fit rounded-[2px] px-2 py-1 ${chipStyles[index % 4].bg} ${chipStyles[index % 4].text}`}
               >
                 {String(index + 1).padStart(2, "0")}
               </span>
