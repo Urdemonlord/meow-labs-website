@@ -91,7 +91,7 @@ export function AgentsPageContent() {
     <>
       <PageHeader
         eyebrow="// Agen AI MeowLabs"
-        title="Tim yang tidak pernah tidur, diawasi manusia."
+        title="Tim AI yang bekerja untukmu, diawasi manusia."
         intro="Lima agen AI mengerjakan proyek klien Meow Labs: dari brief sampai serah terima. Mereka cepat dan konsisten, dan setiap hasilnya diperiksa manusia sebelum sampai ke kamu."
         breadcrumb={[
           { label: "Beranda", href: "/" },

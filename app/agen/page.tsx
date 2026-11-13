@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/agen" },
   title: "Agen AI Meowlabs.id | Tim AI untuk Website dan Aplikasi",
   description:
-    "Kenalan dengan tim AI Meow Labs: Kala (manajer proyek), Saka (desainer), Runa (developer), Tara (QA), dan Nara (copywriter). Agen AI bekerja 24/7, hasilnya diperiksa manusia.",
+    "Kenalan dengan tim AI Meow Labs: Kala (manajer proyek), Saka (desainer), Runa (developer), Tara (QA), dan Nara (copywriter). Hasilnya diperiksa manusia sebelum sampai ke kamu.",
   keywords: [
     "agen ai",
     "tim ai",
