@@ -5,7 +5,18 @@ import {
   changelogEntryId,
   changelogProductName,
   formatChangelogDate,
+  type ChangelogEntry,
 } from "@/lib/changelog"
+import { ChangelogIllustration, type ChangelogIllustrationKind } from "./home-illustrations"
+
+// Ilustrasi dipilih dari produk dan judul entri; entri baru tanpa
+// pemetaan jatuh ke generik, bukan ke ilustrasi produk yang salah.
+function changelogIllustrationKind(entry: ChangelogEntry): ChangelogIllustrationKind {
+  if (entry.product === "website") return "website"
+  if (entry.title.toLowerCase().includes("passkey")) return "passkey"
+  if (entry.product === "academy") return "courses"
+  return "generic"
+}
 
 // Tiga rilis terakhir, supaya pengunjung melihat produk terus dikerjakan.
 export function HomeChangelog() {
@@ -35,6 +46,9 @@ export function HomeChangelog() {
                 href={`/changelog#${changelogEntryId(entry)}`}
                 className="group flex h-full min-h-[240px] flex-col py-8"
               >
+                <div className="mb-6 aspect-[5/3] overflow-hidden rounded-[4px] border border-rule transition-transform duration-500 ease-out group-hover:-translate-y-1">
+                  <ChangelogIllustration kind={changelogIllustrationKind(entry)} />
+                </div>
                 <div className="ml-eyebrow flex items-center justify-between gap-4">
                   <time dateTime={entry.date} className="text-ink-muted">
                     {formatChangelogDate(entry.date)}

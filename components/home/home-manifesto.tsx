@@ -1,7 +1,7 @@
-import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { PlusMark } from "@/components/ornaments"
+import { ArcaIllustration, MoonIllustration } from "./home-illustrations"
 
 export function HomeManifesto() {
   return (
@@ -26,17 +26,10 @@ export function HomeManifesto() {
         </div>
         <div className="ml-reveal relative lg:col-span-6">
           <div className="relative ml-auto aspect-[29/31] w-full max-w-[440px] overflow-hidden rounded-[4px]">
-            <Image
-              src="/art/arca-head.webp"
-              alt=""
-              fill
-              loading="lazy"
-              sizes="(max-width: 1024px) 100vw, 440px"
-              className="object-cover"
-            />
+            <ArcaIllustration />
           </div>
           <div className="ml-float absolute -bottom-8 left-0 aspect-square w-28 overflow-hidden rounded-full sm:w-36 lg:left-4">
-            <Image src="/art/moon.webp" alt="" fill loading="lazy" sizes="144px" className="object-cover" />
+            <MoonIllustration />
           </div>
           <PlusMark className="absolute right-0 top-[-1.5rem] h-6 w-6 text-paper-light/60" />
         </div>

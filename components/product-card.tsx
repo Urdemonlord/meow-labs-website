@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
 import { ProductVisual } from "@/components/product-visual"
+import { ProductSceneIllustration } from "@/components/home/home-illustrations"
 import { productHref } from "@/lib/products"
 import type { Product } from "@/lib/products"
 
@@ -22,6 +23,8 @@ export function ProductCard({ product, medium }: { product: Product; medium: str
           sizes="(max-width: 1024px) 50vw, 25vw"
           className="object-cover opacity-70 transition-transform duration-500 group-hover:scale-105"
         />
+      ) : medium === "homepage" ? (
+        <ProductSceneIllustration pattern={product.pattern} />
       ) : (
         <ProductVisual pattern={product.pattern} />
       )}

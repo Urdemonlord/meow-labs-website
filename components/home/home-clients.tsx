@@ -1,8 +1,8 @@
-import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { WorkCard } from "@/components/work-card"
 import { featuredWorks } from "@/lib/works"
+import { IndonesiaMapIllustration } from "./home-illustrations"
 
 // Logo klien tampil di strip bawah hero; section ini menonjolkan jangkauan
 // klien lewat peta dan beberapa karya pilihan.
@@ -20,14 +20,7 @@ export function HomeClients() {
           </div>
           <figure className="ml-reveal lg:col-span-8">
             <div className="relative aspect-[3/1] overflow-hidden rounded-[4px] bg-ink">
-              <Image
-                src="/art/indonesia-map.webp"
-                alt=""
-                fill
-                loading="lazy"
-                sizes="(max-width: 1024px) 100vw, 800px"
-                className="object-contain p-3"
-              />
+              <IndonesiaMapIllustration />
             </div>
             <figcaption className="ml-eyebrow mt-3 text-ink-muted">Semarang → Indonesia</figcaption>
           </figure>

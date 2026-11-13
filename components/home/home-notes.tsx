@@ -2,6 +2,7 @@ import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { NoteCard } from "@/components/note-card"
 import { blogPosts } from "@/lib/blog-posts"
+import { NoteIllustration } from "./home-illustrations"
 
 export function HomeNotes() {
   return (
@@ -22,7 +23,7 @@ export function HomeNotes() {
 
         <div className="ml-reveal mt-12 grid border-t border-ink md:grid-cols-3">
           {blogPosts.map((post) => (
-            <NoteCard key={post.id} post={post} />
+            <NoteCard key={post.id} post={post} illustration={<NoteIllustration postId={post.id} />} />
           ))}
         </div>
       </div>

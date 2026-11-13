@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react"
 import { GridDisc, GridTile, PlusMark } from "@/components/ornaments"
 import { buildWhatsAppUrl } from "@/lib/whatsapp"
 import { HeroAsciiArt } from "./hero-ascii-art"
+import { TempleIllustration } from "./home-illustrations"
 
 const mono = { fontFamily: "var(--font-plex-mono), ui-monospace, monospace" }
 
@@ -88,14 +89,9 @@ export function HomeHero() {
             <PlusMark className="ml-svg-spin absolute -right-2 top-8 h-6 w-6 text-ink sm:-right-10" />
             <PlusMark className="ml-svg-spin absolute -left-8 bottom-16 hidden h-5 w-5 text-ink sm:block" />
             <div className="relative aspect-[64/56] overflow-hidden rounded-[4px] shadow-[0_24px_60px_-30px_rgba(23,25,22,0.6)]">
-              <Image
-                src="/art/hero-temple.webp"
-                alt=""
-                fill
-                preload
-                sizes="(max-width: 1024px) 100vw, 560px"
-                className="ml-settle object-cover"
-              />
+              {/* Lapisan bawah hero kini ilustrasi SVG candi, bukan raster:
+                  lapisan ASCII di atasnya tetap tampil saat JS jalan. */}
+              <TempleIllustration />
               <HeroAsciiArt />
               <HeroOverlay />
               <Image
