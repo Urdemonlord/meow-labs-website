@@ -74,7 +74,7 @@ const steps = [
   },
   {
     title: "Agen bekerja",
-    body: "Kala menyusun rencana, Saka menggambar mockup, Nara menulis teksnya. Draft pertama biasanya siap dalam hitungan jam, bukan minggu.",
+    body: "Kala menyusun rencana, Saka menggambar mockup, Nara menulis teksnya.",
   },
   {
     title: "Manusia memeriksa",
@@ -149,7 +149,7 @@ export function AgentsPageContent() {
                       ))}
                     </ul>
                   </div>
-                  <p className="ml-eyebrow mt-6 text-forest">Online 24/7 · Diawasi manusia</p>
+                  <p className="ml-eyebrow mt-6 text-forest">Diawasi manusia</p>
                 </div>
               </article>
             ))}
@@ -197,6 +197,7 @@ export function AgentsPageContent() {
             eyebrow="// Cara kerja"
             title="Dari brief sampai serah terima."
             description="Alurnya sama untuk semua proyek, mau website company profile atau aplikasi custom."
+            tone="light"
           />
           <div className="mt-14 grid gap-px overflow-hidden rounded-[4px] border border-paper-light/20 bg-paper-light/20 md:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, index) => (

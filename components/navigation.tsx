@@ -78,7 +78,7 @@ export function Navigation() {
           <BrandLogo size={30} preload />
         </Link>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-6 lg:flex">
           {navItems.map((item) => (
             <Link key={item.label} href={item.href} className="ml-underline pb-0.5 text-sm text-ink">
               {item.label}
@@ -103,7 +103,7 @@ export function Navigation() {
             aria-label={isMenuOpen ? "Tutup menu" : "Buka menu"}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-[3px] text-ink hover:bg-muted md:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-[3px] text-ink hover:bg-muted lg:hidden"
           >
             {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -114,7 +114,7 @@ export function Navigation() {
         <div
           id="mobile-menu"
           ref={menuRef}
-          className="h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-rule bg-paper md:hidden"
+          className="h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-rule bg-paper lg:hidden"
         >
           <div className="ml-container flex flex-col py-6">
             {navItems.map((item, index) => (

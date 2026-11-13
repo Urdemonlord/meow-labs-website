@@ -5,11 +5,12 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, ArrowRight, ArrowUpRight, Check, Copy } from "lucide-react"
 import { CtaBand, PageHeader } from "@/components/editorial"
+import { uiCopy } from "@/lib/ui-copy"
 import { buildWhatsAppUrl } from "@/lib/whatsapp"
 
 // Studio Mockup: wizard 3 langkah, tanpa backend. Hasilnya mockup konsep
 // berbasis template (bukan generate penuh), plus estimasi paket yang
-// bersumber dari harga di lib/ui-copy.json.
+// diambil dari data harga yang sama dengan halaman harga (lib/ui-copy.json).
 type ProjectTypeId = "company" | "toko" | "landing" | "aplikasi"
 type StyleId = "neobrutalism" | "editorial" | "bento" | "illustrative"
 
@@ -18,45 +19,39 @@ const projectTypes: {
   label: string
   hint: string
   features: [string, string, string]
-  packageName: string
-  price: string
-  timeline: string
+  // Indeks ke uiCopy.id.pricing.packages, supaya harga dan timeline
+  // selalu ikut data yang sama dengan halaman harga.
+  packageIndex: number
+  estimateNote?: string
 }[] = [
   {
     id: "company",
     label: "Company Profile",
     hint: "Profil usaha, layanan, dan portofolio.",
     features: ["Tentang Kami", "Layanan", "Portofolio"],
-    packageName: "Growth Website",
-    price: "Mulai Rp1,5 juta",
-    timeline: "7-14 hari kerja",
+    packageIndex: 1,
   },
   {
     id: "toko",
     label: "Toko Online",
     hint: "Katalog produk dan pemesanan.",
     features: ["Katalog Produk", "Pembayaran", "Pengiriman"],
-    packageName: "Growth Website",
-    price: "Mulai Rp1,5 juta",
-    timeline: "7-14 hari kerja",
+    packageIndex: 1,
+    estimateNote: "Pembayaran dan pengiriman dibahas terpisah, di luar paket Growth Website.",
   },
   {
     id: "landing",
     label: "Landing Page",
     hint: "Satu halaman fokus untuk satu penawaran.",
     features: ["Manfaat", "Harga", "Testimoni"],
-    packageName: "Starter Launch",
-    price: "Mulai Rp500 ribu",
-    timeline: "3-5 hari kerja",
+    packageIndex: 0,
   },
   {
     id: "aplikasi",
     label: "Aplikasi Web",
     hint: "Dashboard, akun pengguna, dan fitur khusus.",
     features: ["Dashboard", "Fitur Utama", "Keamanan"],
-    packageName: "Custom Build",
-    price: "Mulai Rp4 juta",
-    timeline: "2-6 minggu",
+    packageIndex: 2,
   },
 ]
 
@@ -145,24 +140,36 @@ export function MockupPageContent() {
   const [businessDesc, setBusinessDesc] = useState("")
   const [projectType, setProjectType] = useState<ProjectTypeId | null>(null)
   const [style, setStyle] = useState<StyleId | null>(null)
-  const [copied, setCopied] = useState(false)
+  const [copied, setCopied] = useState<"idle" | "ok" | "fail">("idle")
   const [loaded, setLoaded] = useState(false)
 
   // Muat draf terakhir dari localStorage setelah mount (hindari beda render SSR).
+  // Nilai draf divalidasi dulu: localStorage bisa berisi apa saja, dan nilai
+  // yang tidak dikenal tidak boleh masuk ke state.
   useEffect(() => {
     try {
       const raw = window.localStorage.getItem(STORAGE_KEY)
       if (raw) {
         const draft = JSON.parse(raw) as {
-          businessName?: string
-          businessDesc?: string
-          projectType?: ProjectTypeId
-          style?: StyleId
+          businessName?: unknown
+          businessDesc?: unknown
+          projectType?: unknown
+          style?: unknown
         }
-        if (draft.businessName) setBusinessName(draft.businessName)
-        if (draft.businessDesc) setBusinessDesc(draft.businessDesc)
-        if (draft.projectType) setProjectType(draft.projectType)
-        if (draft.style) setStyle(draft.style)
+        if (typeof draft.businessName === "string") setBusinessName(draft.businessName)
+        if (typeof draft.businessDesc === "string") setBusinessDesc(draft.businessDesc)
+        if (
+          typeof draft.projectType === "string" &&
+          (["company", "toko", "landing", "aplikasi"] as string[]).includes(draft.projectType)
+        ) {
+          setProjectType(draft.projectType as ProjectTypeId)
+        }
+        if (
+          typeof draft.style === "string" &&
+          (["neobrutalism", "editorial", "bento", "illustrative"] as string[]).includes(draft.style)
+        ) {
+          setStyle(draft.style as StyleId)
+        }
       }
     } catch {
       // Draf rusak diabaikan, wizard tetap jalan dari awal.
@@ -185,6 +192,7 @@ export function MockupPageContent() {
   const type = projectTypes.find((t) => t.id === projectType) ?? null
   const styleMeta = styles.find((s) => s.id === style) ?? null
   const skin = style ? skins[style] : null
+  const estimate = type ? uiCopy.id.pricing.packages[type.packageIndex] : null
   const canNextStep1 = businessName.trim().length > 0 && type !== null
   const canNextStep2 = style !== null
 
@@ -194,24 +202,27 @@ export function MockupPageContent() {
     `Jenis: ${type?.label ?? "-"}`,
     `Gaya: ${styleMeta?.label ?? "-"}`,
     businessDesc.trim() ? `Deskripsi: ${businessDesc.trim()}` : null,
-    type ? `Paket perkiraan: ${type.packageName} (${type.price}, ${type.timeline})` : null,
+    estimate ? `Paket perkiraan: ${estimate.name} (${estimate.price}, ${estimate.timeline})` : null,
   ]
     .filter((line): line is string => line !== null)
     .join("\n")
 
   async function copyBrief() {
+    let ok = false
     try {
       await navigator.clipboard.writeText(briefText)
+      ok = true
     } catch {
       const area = document.createElement("textarea")
       area.value = briefText
       document.body.appendChild(area)
       area.select()
-      document.execCommand("copy")
+      // execCommand mengembalikan false kalau salin gagal; jangan laporkan sukses.
+      ok = document.execCommand("copy")
       document.body.removeChild(area)
     }
-    setCopied(true)
-    window.setTimeout(() => setCopied(false), 2000)
+    setCopied(ok ? "ok" : "fail")
+    window.setTimeout(() => setCopied("idle"), 2500)
   }
 
   return (
@@ -269,7 +280,7 @@ export function MockupPageContent() {
                       onChange={(event) => setBusinessName(event.target.value)}
                       placeholder="Mis. Kopi Senja, Toko Bunga Rina"
                       maxLength={60}
-                      className="mt-3 w-full rounded-[3px] border-2 border-ink bg-paper-light px-4 py-3 text-ink outline-none placeholder:text-ink-muted/60 focus:shadow-[4px_4px_0_var(--vermilion)]"
+                      className="mt-3 w-full rounded-[3px] border-2 border-ink bg-paper-light px-4 py-3 text-ink placeholder:text-ink-muted/60 focus:shadow-[4px_4px_0_var(--vermilion)]"
                     />
                   </div>
                   <div>
@@ -283,7 +294,7 @@ export function MockupPageContent() {
                       placeholder="Mis. Kopi susu gula aren dari Semarang, buka tiap hari 08.00-22.00"
                       maxLength={140}
                       rows={3}
-                      className="mt-3 w-full resize-none rounded-[3px] border-2 border-ink bg-paper-light px-4 py-3 text-ink outline-none placeholder:text-ink-muted/60 focus:shadow-[4px_4px_0_var(--vermilion)]"
+                      className="mt-3 w-full resize-none rounded-[3px] border-2 border-ink bg-paper-light px-4 py-3 text-ink placeholder:text-ink-muted/60 focus:shadow-[4px_4px_0_var(--vermilion)]"
                     />
                   </div>
                 </div>
@@ -367,7 +378,7 @@ export function MockupPageContent() {
             </div>
           )}
 
-          {step === 3 && type && styleMeta && skin && (
+          {step === 3 && type && styleMeta && skin && estimate && (
             <div className="mt-10">
               <h2 className="font-display text-3xl leading-tight">Langkah 3: ini mockupmu.</h2>
               <p className="mt-3 max-w-2xl text-pretty leading-relaxed text-ink-muted">
@@ -445,7 +456,18 @@ export function MockupPageContent() {
 
                 <div className="grid gap-4 bg-paper px-5 py-6 sm:grid-cols-3 sm:px-8">
                   {type.features.map((feature, index) => (
-                    <div key={feature} className={`p-4 ${skin.card} ${style === "bento" && index === 0 ? "sm:col-span-1" : ""}`}>
+                    <div
+                      key={feature}
+                      className={`p-4 ${skin.card} ${
+                        style === "bento"
+                          ? index === 0
+                            ? "sm:col-span-2"
+                            : index === 2
+                              ? "sm:col-span-3"
+                              : ""
+                          : ""
+                      }`}
+                    >
                       <p className="ml-eyebrow text-ink-muted">{String(index + 1).padStart(2, "0")}</p>
                       <p className={`mt-3 ${skin.cardTitle}`}>{feature}</p>
                       <p className="mt-2 text-sm leading-relaxed text-ink-muted">
@@ -459,13 +481,18 @@ export function MockupPageContent() {
               <div className="mt-10 grid gap-6 lg:grid-cols-12">
                 <div className="rounded-[4px] border-2 border-ink bg-paper-light p-6 shadow-[6px_6px_0_var(--vermilion)] sm:p-7 lg:col-span-7">
                   <p className="ml-eyebrow text-ink-muted">Perkiraan paket</p>
-                  <h3 className="mt-4 font-display text-3xl leading-none">{type.packageName}</h3>
-                  <p className="mt-3 text-2xl font-medium">{type.price}</p>
-                  <p className="ml-eyebrow mt-2 text-forest">{type.timeline}</p>
+                  <h3 className="mt-4 font-display text-3xl leading-none">{estimate.name}</h3>
+                  <p className="mt-3 text-2xl font-medium">{estimate.price}</p>
+                  <p className="ml-eyebrow mt-2 text-forest">{estimate.timeline}</p>
                   <p className="mt-4 text-pretty leading-relaxed text-ink-muted">
                     Ini perkiraan awal dari mockupmu. Harga dan waktu final ditentukan setelah brief lengkap dan
                     disepakati sebelum pengerjaan dimulai.
                   </p>
+                  {type.estimateNote && (
+                    <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+                      Catatan: {type.estimateNote}
+                    </p>
+                  )}
                   <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                     <a
                       href={buildWhatsAppUrl(briefText, "studio mockup")}
@@ -481,8 +508,16 @@ export function MockupPageContent() {
                       onClick={copyBrief}
                       className="inline-flex items-center justify-center gap-2 rounded-[3px] border-2 border-ink bg-paper-light px-5 py-3.5 font-medium text-ink transition-colors hover:bg-paper"
                     >
-                      {copied ? <Check className="h-4 w-4 text-forest" /> : <Copy className="h-4 w-4" />}
-                      {copied ? "Ringkasan disalin" : "Salin ringkasan brief"}
+                      {copied === "ok" ? (
+                        <Check className="h-4 w-4 text-forest" />
+                      ) : (
+                        <Copy className="h-4 w-4" />
+                      )}
+                      {copied === "ok"
+                        ? "Ringkasan disalin"
+                        : copied === "fail"
+                          ? "Gagal menyalin, coba lagi"
+                          : "Salin ringkasan brief"}
                     </button>
                   </div>
                 </div>
@@ -570,7 +605,11 @@ export function MockupPageContent() {
       <CtaBand
         title="Mockup sudah cocok? Wujudkan jadi website beneran."
         body="Bawa mockup ini ke WhatsApp, atau ceritakan proyekmu dari awal. Tim AI kami yang mulai bekerja."
-        whatsappMessage="Halo MeowLabs, saya sudah buat mockup di Studio Mockup dan mau lanjut jadi proyek."
+        whatsappMessage={
+          type && styleMeta && estimate
+            ? briefText
+            : "Halo MeowLabs, saya sudah buat mockup di Studio Mockup dan mau lanjut jadi proyek."
+        }
         whatsappSource="studio mockup"
       />
     </>

@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { AgentsPageContent } from "@/components/agents-page-content"
 import { Footer } from "@/components/footer"
 import { Navigation } from "@/components/navigation"
+import { sharedOpenGraph } from "@/lib/seo"
 
 export const metadata: Metadata = {
   alternates: { canonical: "/agen" },
@@ -17,10 +18,11 @@ export const metadata: Metadata = {
     "ai agent indonesia",
   ],
   openGraph: {
+    ...sharedOpenGraph,
     title: "Agen AI Meowlabs.id",
     description:
       "Lima agen AI mengerjakan proyek klien Meow Labs, dari brief sampai serah terima, diawasi manusia.",
-    type: "website",
+    url: "/agen",
   },
 }
 

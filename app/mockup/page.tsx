@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { MockupPageContent } from "@/components/mockup-page-content"
 import { Footer } from "@/components/footer"
 import { Navigation } from "@/components/navigation"
+import { sharedOpenGraph } from "@/lib/seo"
 
 export const metadata: Metadata = {
   alternates: { canonical: "/mockup" },
@@ -17,10 +18,11 @@ export const metadata: Metadata = {
     "desain website umkm",
   ],
   openGraph: {
+    ...sharedOpenGraph,
     title: "Studio Mockup Meowlabs.id",
     description:
       "Lihat dulu websitemu sebelum memutuskan: mockup konsep gratis, perkiraan harga, dan brief siap kirim.",
-    type: "website",
+    url: "/mockup",
   },
 }
 
