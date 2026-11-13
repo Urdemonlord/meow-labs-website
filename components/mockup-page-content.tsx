@@ -12,7 +12,30 @@ import { buildWhatsAppUrl } from "@/lib/whatsapp"
 // berbasis template (bukan generate penuh), plus estimasi paket yang
 // diambil dari data harga yang sama dengan halaman harga (lib/ui-copy.json).
 type ProjectTypeId = "company" | "toko" | "landing" | "aplikasi"
-type StyleId = "neobrutalism" | "editorial" | "bento" | "illustrative"
+type StyleId =
+  | "neobrutalism"
+  | "editorial"
+  | "bento"
+  | "illustrative"
+  | "minimalism"
+  | "maximalism"
+  | "futuristic"
+  | "vector"
+  | "collage"
+  | "retro"
+  | "cyberpunk"
+  | "popart"
+  | "glassmorphism"
+  | "clay"
+  | "pixel"
+  | "y2k"
+  | "swiss"
+  | "surreal"
+  | "bohemian"
+  | "victorian"
+  | "graffiti"
+  | "aurora"
+  | "handwritten"
 
 const projectTypes: {
   id: ProjectTypeId
@@ -55,11 +78,30 @@ const projectTypes: {
   },
 ]
 
-const styles: { id: StyleId; label: string; hint: string }[] = [
-  { id: "neobrutalism", label: "Neo-Brutalism", hint: "Tegas dan berani, border tebal, warna kontras tinggi." },
-  { id: "editorial", label: "Editorial", hint: "Rapi dan tenang, tipografi besar, banyak ruang kosong." },
-  { id: "bento", label: "Bento Grid", hint: "Kartu-kartu mosaik, modern dan mudah dipindai." },
-  { id: "illustrative", label: "Illustrative", hint: "Ramah dan bercerita, ilustrasi kucing Meow Labs." },
+const styles: { id: StyleId; label: string; hint: string; swatch: string }[] = [
+  { id: "neobrutalism", label: "Neo-Brutalism", hint: "Tegas dan berani, border tebal, warna kontras tinggi.", swatch: "bg-vermilion" },
+  { id: "editorial", label: "Editorial", hint: "Rapi dan tenang, tipografi besar, banyak ruang kosong.", swatch: "bg-paper" },
+  { id: "bento", label: "Bento Grid", hint: "Kartu-kartu mosaik, modern dan mudah dipindai.", swatch: "bg-cobalt" },
+  { id: "illustrative", label: "Illustrative", hint: "Ramah dan bercerita, ilustrasi kucing Meow Labs.", swatch: "bg-forest" },
+  { id: "minimalism", label: "Minimalism", hint: "Bersih dan lega, satu warna aksen, tanpa hiasan.", swatch: "bg-white" },
+  { id: "maximalism", label: "Maximalism", hint: "Ramai dan berani, warna tabrak, penuh elemen.", swatch: "bg-[#ff5d8f]" },
+  { id: "futuristic", label: "Futuristic", hint: "Gelap dan neon, kesan teknologi masa depan.", swatch: "bg-[#0a0f1e]" },
+  { id: "vector", label: "Vector Art", hint: "Flat dan tegas, bentuk geometris warna blok.", swatch: "bg-[#ffd60a]" },
+  { id: "collage", label: "Collage Art", hint: "Potongan kertas dan foto, playful dan artsy.", swatch: "bg-[#f5e6c8]" },
+  { id: "retro", label: "Retro", hint: "Hangat khas 70an, krem, oranye, dan coklat.", swatch: "bg-[#f4d58d]" },
+  { id: "cyberpunk", label: "Cyberpunk", hint: "Neon magenta dan cyan di atas hitam pekat.", swatch: "bg-[#0d0221]" },
+  { id: "popart", label: "Pop Art", hint: "Warna komik yang meledak, kuning, merah, biru.", swatch: "bg-[#ffdd00]" },
+  { id: "glassmorphism", label: "Glassmorphism", hint: "Panel kaca transparan di atas gradasi warna.", swatch: "bg-gradient-to-br from-[#a78bfa] via-[#f472b6] to-[#38bdf8]" },
+  { id: "clay", label: "Clay Style", hint: "Lembut seperti tanah liat, membulat dan empuk.", swatch: "bg-[#f3e9dc]" },
+  { id: "pixel", label: "Pixel Art", hint: "Kotak-kotak 8-bit, monospace, hijau terminal.", swatch: "bg-[#1e1e2e]" },
+  { id: "y2k", label: "Y2K", hint: "Chrome dan pastel metalik khas awal 2000an.", swatch: "bg-gradient-to-r from-[#ff9de2] to-[#7dd3fc]" },
+  { id: "swiss", label: "Swiss Design", hint: "Grid tegas, merah dan hitam di atas putih.", swatch: "bg-[#e2001a]" },
+  { id: "surreal", label: "Surreal Design", hint: "Ungu mimpi dan oranye, aneh tapi memikat.", swatch: "bg-[#7c3aed]" },
+  { id: "bohemian", label: "Bohemian", hint: "Tanah dan terakota, hangat dan santai.", swatch: "bg-[#c67b5c]" },
+  { id: "victorian", label: "Victorian Style", hint: "Gelap elegan dengan aksen emas klasik.", swatch: "bg-[#1c1a17]" },
+  { id: "graffiti", label: "Graffiti", hint: "Semprot jalanan, hitam, hijau neon, oranye.", swatch: "bg-[#111111]" },
+  { id: "aurora", label: "Aurora", hint: "Gradasi cahaya utara, hijau dan ungu di langit gelap.", swatch: "bg-gradient-to-br from-[#0f2027] via-[#2c5364] to-[#7b2fbe]" },
+  { id: "handwritten", label: "Handwritten", hint: "Coretan tangan di atas kertas, personal dan hangat.", swatch: "bg-[#fffbe6]" },
 ]
 
 // Token visual tiap gaya untuk pratinjau mockup.
@@ -75,6 +117,7 @@ const skins: Record<
     secondaryBtn: string
     card: string
     cardTitle: string
+    cardMuted: string
   }
 > = {
   neobrutalism: {
@@ -87,6 +130,7 @@ const skins: Record<
     secondaryBtn: "border-2 border-ink bg-paper-light text-ink shadow-[3px_3px_0_var(--ink)]",
     card: "border-2 border-ink bg-paper-light shadow-[4px_4px_0_var(--ink)]",
     cardTitle: "font-display text-lg text-ink",
+    cardMuted: "text-ink-muted",
   },
   editorial: {
     shell: "border border-rule bg-paper",
@@ -98,6 +142,7 @@ const skins: Record<
     secondaryBtn: "border border-ink text-ink",
     card: "border-t border-rule bg-paper",
     cardTitle: "font-display text-lg text-ink",
+    cardMuted: "text-ink-muted",
   },
   bento: {
     shell: "border border-rule bg-paper",
@@ -109,6 +154,7 @@ const skins: Record<
     secondaryBtn: "rounded-full border border-paper-light/60 text-paper-light",
     card: "rounded-2xl border border-rule bg-paper-light",
     cardTitle: "text-lg font-medium text-ink",
+    cardMuted: "text-ink-muted",
   },
   illustrative: {
     shell: "border-2 border-ink bg-paper shadow-[6px_6px_0_var(--vermilion)]",
@@ -120,6 +166,235 @@ const skins: Record<
     secondaryBtn: "border-2 border-paper-light/70 text-paper-light",
     card: "border-2 border-ink bg-paper-light shadow-[4px_4px_0_var(--ink)]",
     cardTitle: "font-display text-lg text-ink",
+    cardMuted: "text-ink-muted",
+  },
+  minimalism: {
+    shell: "border border-rule bg-paper-light",
+    hero: "bg-paper-light",
+    eyebrow: "ml-eyebrow text-ink-muted",
+    title: "font-display text-3xl leading-[1.05] text-ink sm:text-4xl",
+    tagline: "text-ink-muted",
+    primaryBtn: "bg-ink text-paper-light",
+    secondaryBtn: "border border-ink/40 text-ink",
+    card: "border border-rule bg-paper-light",
+    cardTitle: "text-lg font-medium text-ink",
+    cardMuted: "text-ink-muted",
+  },
+  maximalism: {
+    shell: "border-2 border-ink bg-[#ffd6e8] shadow-[6px_6px_0_var(--ink)]",
+    hero: "bg-vermilion text-ink",
+    eyebrow: "ml-eyebrow text-ink",
+    title: "font-display text-3xl leading-[1] text-ink sm:text-4xl",
+    tagline: "text-ink",
+    primaryBtn: "border-2 border-ink bg-cobalt text-paper-light shadow-[3px_3px_0_var(--ink)]",
+    secondaryBtn: "border-2 border-ink bg-[#ffd60a] text-ink shadow-[3px_3px_0_var(--ink)]",
+    card: "border-2 border-ink bg-[#fff3b0]",
+    cardTitle: "font-display text-lg text-ink",
+    cardMuted: "text-ink-muted",
+  },
+  futuristic: {
+    shell: "border border-[#7ef9ff]/40 bg-[#0a0f1e]",
+    hero: "bg-[#0a0f1e] text-[#7ef9ff]",
+    eyebrow: "ml-eyebrow text-[#7ef9ff]/70",
+    title: "font-display text-3xl leading-[1] text-[#eafcff] sm:text-4xl",
+    tagline: "text-[#7ef9ff]/80",
+    primaryBtn: "bg-[#7ef9ff] text-[#0a0f1e]",
+    secondaryBtn: "border border-[#7ef9ff]/60 text-[#7ef9ff]",
+    card: "border border-[#7ef9ff]/40 bg-[#111827]",
+    cardTitle: "text-lg font-medium text-[#eafcff]",
+    cardMuted: "text-[#7ef9ff]/70",
+  },
+  vector: {
+    shell: "border-2 border-ink bg-paper shadow-[6px_6px_0_var(--cobalt)]",
+    hero: "bg-cobalt text-paper-light",
+    eyebrow: "ml-eyebrow text-paper-light/80",
+    title: "font-display text-3xl leading-[1] text-paper-light sm:text-4xl",
+    tagline: "text-paper-light/85",
+    primaryBtn: "border-2 border-ink bg-[#ffd60a] text-ink",
+    secondaryBtn: "border-2 border-paper-light/70 text-paper-light",
+    card: "border-2 border-ink bg-paper-light",
+    cardTitle: "font-display text-lg text-ink",
+    cardMuted: "text-ink-muted",
+  },
+  collage: {
+    shell: "border-2 border-dashed border-ink bg-[#fff8e7]",
+    hero: "bg-[#f5e6c8] text-ink",
+    eyebrow: "ml-eyebrow text-[#c96f2e]",
+    title: "font-display text-3xl leading-[1] text-ink sm:text-4xl",
+    tagline: "text-ink-muted",
+    primaryBtn: "bg-[#ff8a00] text-ink",
+    secondaryBtn: "border-2 border-ink bg-paper-light text-ink",
+    card: "border-2 border-dashed border-ink bg-[#fff8e7]",
+    cardTitle: "font-display text-lg text-ink",
+    cardMuted: "text-ink-muted",
+  },
+  retro: {
+    shell: "border-2 border-[#7c4a1e] bg-[#fff3d6]",
+    hero: "bg-[#f4d58d] text-[#7c4a1e]",
+    eyebrow: "ml-eyebrow text-[#c96f2e]",
+    title: "font-display text-3xl leading-[1] text-[#5c3d1e] sm:text-4xl",
+    tagline: "text-[#7c4a1e]",
+    primaryBtn: "bg-[#c96f2e] text-ink",
+    secondaryBtn: "border-2 border-[#7c4a1e] text-[#5c3d1e]",
+    card: "border-2 border-[#7c4a1e] bg-[#fff3d6]",
+    cardTitle: "font-display text-lg text-[#5c3d1e]",
+    cardMuted: "text-[#7c4a1e]",
+  },
+  cyberpunk: {
+    shell: "border border-[#ff2a6d]/60 bg-[#0d0221]",
+    hero: "bg-[#0d0221] text-[#ff2a6d]",
+    eyebrow: "ml-eyebrow text-[#05d9e8]",
+    title: "font-display text-3xl leading-[1] text-[#f9f0ff] sm:text-4xl",
+    tagline: "text-[#05d9e8]/80",
+    primaryBtn: "bg-[#ff2a6d] text-ink",
+    secondaryBtn: "border border-[#05d9e8] text-[#05d9e8]",
+    card: "border border-[#ff2a6d]/60 bg-[#1a0b2e]",
+    cardTitle: "text-lg font-medium text-[#05d9e8]",
+    cardMuted: "text-[#f9f0ff]/70",
+  },
+  popart: {
+    shell: "border-2 border-ink bg-[#ffdd00] shadow-[6px_6px_0_var(--ink)]",
+    hero: "bg-[#ffdd00] text-[#e4002b]",
+    eyebrow: "ml-eyebrow text-ink",
+    title: "font-display text-3xl leading-[1] text-[#e4002b] sm:text-4xl",
+    tagline: "text-ink",
+    primaryBtn: "border-2 border-ink bg-[#e4002b] text-white shadow-[3px_3px_0_var(--ink)]",
+    secondaryBtn: "border-2 border-ink bg-[#00a8e8] text-ink shadow-[3px_3px_0_var(--ink)]",
+    card: "border-2 border-ink bg-paper-light",
+    cardTitle: "font-display text-lg text-[#e4002b]",
+    cardMuted: "text-ink-muted",
+  },
+  glassmorphism: {
+    shell: "border border-white/60 bg-gradient-to-br from-[#a78bfa] via-[#f472b6] to-[#38bdf8]",
+    hero: "bg-gradient-to-br from-[#a78bfa] via-[#f472b6] to-[#38bdf8] text-white",
+    eyebrow: "ml-eyebrow text-ink/70",
+    title: "font-display text-3xl leading-[1] text-ink sm:text-4xl",
+    tagline: "text-ink/80",
+    primaryBtn: "bg-white/80 text-ink backdrop-blur",
+    secondaryBtn: "border border-ink/50 text-ink backdrop-blur",
+    card: "border border-white/60 bg-white/40 backdrop-blur",
+    cardTitle: "text-lg font-medium text-ink",
+    cardMuted: "text-ink-muted",
+  },
+  clay: {
+    shell: "rounded-[2rem] border border-[#e8d5c0] bg-[#f3e9dc]",
+    hero: "rounded-t-[2rem] bg-[#f3e9dc] text-ink",
+    eyebrow: "ml-eyebrow text-[#e07856]",
+    title: "font-display text-3xl leading-[1.05] text-ink sm:text-4xl",
+    tagline: "text-ink-muted",
+    primaryBtn: "rounded-full bg-[#e07856] text-ink shadow-[inset_0_-4px_0_rgba(0,0,0,0.15)]",
+    secondaryBtn: "rounded-full border-2 border-ink/20 bg-[#fff7ee] text-ink",
+    card: "rounded-3xl bg-[#fff7ee] shadow-[8px_8px_16px_rgba(0,0,0,0.08)]",
+    cardTitle: "text-lg font-medium text-ink",
+    cardMuted: "text-ink-muted",
+  },
+  pixel: {
+    shell: "border-4 border-[#8bff5e] bg-[#1e1e2e]",
+    hero: "bg-[#1e1e2e] text-[#8bff5e]",
+    eyebrow: "ml-eyebrow text-[#8bff5e]/70",
+    title: "font-mono text-3xl leading-[1.1] text-[#8bff5e] sm:text-4xl",
+    tagline: "font-mono text-[#8bff5e]/80",
+    primaryBtn: "font-mono bg-[#8bff5e] text-ink",
+    secondaryBtn: "font-mono border-2 border-[#8bff5e] text-[#8bff5e]",
+    card: "border-2 border-[#8bff5e] bg-[#2a2a3a]",
+    cardTitle: "font-mono text-lg text-[#8bff5e]",
+    cardMuted: "text-[#8bff5e]/70",
+  },
+  y2k: {
+    shell: "rounded-3xl border border-[#ff9de2] bg-gradient-to-r from-[#ff9de2] to-[#7dd3fc]",
+    hero: "bg-gradient-to-r from-[#ff9de2] to-[#7dd3fc] text-[#1e1b4b]",
+    eyebrow: "ml-eyebrow text-[#1e1b4b]/70",
+    title: "font-display text-3xl leading-[1] text-[#1e1b4b] sm:text-4xl",
+    tagline: "text-[#1e1b4b]/80",
+    primaryBtn: "rounded-full bg-[#c084fc] text-ink",
+    secondaryBtn: "rounded-full border border-white/80 text-[#1e1b4b]",
+    card: "rounded-3xl border border-[#ff9de2] bg-white/70",
+    cardTitle: "text-lg font-medium text-[#1e1b4b]",
+    cardMuted: "text-ink-muted",
+  },
+  swiss: {
+    shell: "border border-rule bg-white",
+    hero: "bg-white text-ink",
+    eyebrow: "ml-eyebrow text-[#e2001a]",
+    title: "font-display text-3xl leading-[1] text-ink sm:text-4xl",
+    tagline: "text-ink-muted",
+    primaryBtn: "bg-[#e2001a] text-white",
+    secondaryBtn: "border-2 border-ink text-ink",
+    card: "border-t-4 border-[#e2001a] bg-paper-light",
+    cardTitle: "text-lg font-medium text-ink",
+    cardMuted: "text-ink-muted",
+  },
+  surreal: {
+    shell: "border border-[#7c3aed] bg-[#ede9fe]",
+    hero: "bg-[#7c3aed] text-[#fde68a]",
+    eyebrow: "ml-eyebrow text-[#fde68a]/80",
+    title: "font-display text-3xl leading-[1] text-[#fde68a] sm:text-4xl",
+    tagline: "text-[#ede9fe]/85",
+    primaryBtn: "bg-[#f59e0b] text-ink",
+    secondaryBtn: "border border-[#fde68a]/70 text-[#fde68a]",
+    card: "border border-[#7c3aed] bg-[#ede9fe]",
+    cardTitle: "font-display text-lg text-[#4c1d95]",
+    cardMuted: "text-[#4c1d95]/70",
+  },
+  bohemian: {
+    shell: "border border-[#d9a05b] bg-[#faf3e3]",
+    hero: "bg-[#c67b5c] text-[#fff7ed]",
+    eyebrow: "ml-eyebrow text-ink/70",
+    title: "font-display text-3xl leading-[1.05] text-ink sm:text-4xl",
+    tagline: "text-ink/80",
+    primaryBtn: "bg-[#7c4a2d] text-paper-light",
+    secondaryBtn: "border-2 border-[#7c4a2d] text-ink",
+    card: "border border-[#d9a05b] bg-[#faf3e3]",
+    cardTitle: "font-display text-lg text-[#7c4a2d]",
+    cardMuted: "text-ink-muted",
+  },
+  victorian: {
+    shell: "border-2 border-[#d4af37] bg-[#1c1a17]",
+    hero: "bg-[#1c1a17] text-[#d4af37]",
+    eyebrow: "ml-eyebrow text-[#d4af37]/70",
+    title: "font-display text-3xl leading-[1.05] text-[#f5efe0] sm:text-4xl",
+    tagline: "text-[#f5efe0]/75",
+    primaryBtn: "bg-[#d4af37] text-[#1c1a17]",
+    secondaryBtn: "border border-[#d4af37] text-[#d4af37]",
+    card: "border border-[#d4af37] bg-[#f5efe0]",
+    cardTitle: "font-display text-lg text-[#1c1a17]",
+    cardMuted: "text-ink-muted",
+  },
+  graffiti: {
+    shell: "border-2 border-[#39ff14]/70 bg-[#111111]",
+    hero: "bg-[#111111] text-[#39ff14]",
+    eyebrow: "ml-eyebrow text-[#ff3d00]",
+    title: "font-display text-3xl leading-[1] text-[#f5f5f5] sm:text-4xl",
+    tagline: "text-[#f5f5f5]/75",
+    primaryBtn: "bg-[#ff3d00] text-ink",
+    secondaryBtn: "border-2 border-[#39ff14] text-[#39ff14]",
+    card: "border-2 border-[#39ff14]/70 bg-[#1f1f1f]",
+    cardTitle: "text-lg font-medium text-[#39ff14]",
+    cardMuted: "text-[#f5f5f5]/70",
+  },
+  aurora: {
+    shell: "border border-[#34d399]/50 bg-gradient-to-br from-[#0f2027] via-[#2c5364] to-[#7b2fbe]",
+    hero: "bg-gradient-to-br from-[#0f2027] via-[#2c5364] to-[#7b2fbe] text-[#a7f3d0]",
+    eyebrow: "ml-eyebrow text-[#a7f3d0]/70",
+    title: "font-display text-3xl leading-[1] text-white sm:text-4xl",
+    tagline: "text-[#a7f3d0]/85",
+    primaryBtn: "bg-[#34d399] text-[#0f2027]",
+    secondaryBtn: "border border-[#a7f3d0]/70 text-[#a7f3d0]",
+    card: "border border-[#34d399] bg-[#ecfdf5]",
+    cardTitle: "text-lg font-medium text-[#0f2027]",
+    cardMuted: "text-ink-muted",
+  },
+  handwritten: {
+    shell: "border-2 border-dashed border-ink bg-[#fffbe6]",
+    hero: "bg-[#fffbe6] text-ink",
+    eyebrow: "ml-eyebrow text-[#b91c1c]",
+    title: "font-display italic text-3xl leading-[1.05] text-ink sm:text-4xl",
+    tagline: "text-ink-muted",
+    primaryBtn: "rounded-full bg-[#ff6b6b] text-ink",
+    secondaryBtn: "rounded-full border-2 border-ink text-ink",
+    card: "border-2 border-dashed border-ink bg-[#fffbe6]",
+    cardTitle: "font-display italic text-lg text-ink",
+    cardMuted: "text-ink-muted",
   },
 }
 
@@ -166,7 +441,7 @@ export function MockupPageContent() {
         }
         if (
           typeof draft.style === "string" &&
-          (["neobrutalism", "editorial", "bento", "illustrative"] as string[]).includes(draft.style)
+          (["neobrutalism", "editorial", "bento", "illustrative", "minimalism", "maximalism", "futuristic", "vector", "collage", "retro", "cyberpunk", "popart", "glassmorphism", "clay", "pixel", "y2k", "swiss", "surreal", "bohemian", "victorian", "graffiti", "aurora", "handwritten"] as string[]).includes(draft.style)
         ) {
           setStyle(draft.style as StyleId)
         }
@@ -353,15 +628,7 @@ export function MockupPageContent() {
                     >
                       <span
                         aria-hidden="true"
-                        className={`flex h-16 items-end gap-1.5 rounded-[3px] border-2 border-ink p-2 ${
-                          s.id === "neobrutalism"
-                            ? "bg-vermilion"
-                            : s.id === "editorial"
-                              ? "bg-paper"
-                              : s.id === "bento"
-                                ? "bg-cobalt"
-                                : "bg-forest"
-                        }`}
+                        className={`flex h-16 items-end gap-1.5 rounded-[3px] border-2 border-ink p-2 ${s.swatch}`}
                       >
                         <span className="h-8 w-2/3 rounded-[2px] bg-paper-light" />
                         <span className="h-5 w-1/3 rounded-[2px] bg-ink" />
@@ -468,9 +735,9 @@ export function MockupPageContent() {
                           : ""
                       }`}
                     >
-                      <p className="ml-eyebrow text-ink-muted">{String(index + 1).padStart(2, "0")}</p>
+                      <p className={`ml-eyebrow ${skin.cardMuted}`}>{String(index + 1).padStart(2, "0")}</p>
                       <p className={`mt-3 ${skin.cardTitle}`}>{feature}</p>
-                      <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+                      <p className={`mt-2 text-sm leading-relaxed ${skin.cardMuted}`}>
                         {businessDesc.trim() || type.hint}
                       </p>
                     </div>
