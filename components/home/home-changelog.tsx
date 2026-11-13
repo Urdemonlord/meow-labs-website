@@ -25,15 +25,15 @@ export function HomeChangelog() {
           </Link>
         </div>
 
-        <ol className="ml-reveal mt-12 grid border-t border-ink md:grid-cols-3">
+        <ol className="ml-reveal mt-12 grid gap-6 md:grid-cols-3">
           {changelog.slice(0, 3).map((entry) => (
             <li
               key={changelogEntryId(entry)}
-              className="border-b border-rule md:border-b-0 md:border-r md:px-8 md:first:pl-0 md:last:border-r-0 md:last:pr-0"
+              className="rounded-[4px] border-2 border-ink bg-paper-light shadow-[6px_6px_0_var(--vermilion)]"
             >
               <Link
                 href={`/changelog#${changelogEntryId(entry)}`}
-                className="group flex h-full min-h-[240px] flex-col py-8"
+                className="group flex h-full min-h-[240px] flex-col p-6 sm:p-8"
               >
                 <div className="ml-eyebrow flex items-center justify-between gap-4">
                   <time dateTime={entry.date} className="text-ink-muted">

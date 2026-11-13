@@ -2,51 +2,6 @@ import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
 import { GridDisc, GridTile, PlusMark } from "@/components/ornaments"
 import { buildWhatsAppUrl } from "@/lib/whatsapp"
-import { HeroAsciiArt } from "./hero-ascii-art"
-
-const mono = { fontFamily: "var(--font-plex-mono), ui-monospace, monospace" }
-
-// Lapisan wireframe di atas artwork hero: warisan dibaca dengan kacamata
-// engineering. viewBox mengikuti rasio bingkai (64:56) agar tidak terdistorsi.
-function HeroOverlay() {
-  const corner = 22
-  return (
-    <svg
-      viewBox="0 0 640 560"
-      preserveAspectRatio="xMidYMid slice"
-      aria-hidden="true"
-      className="pointer-events-none absolute inset-0 h-full w-full"
-    >
-      <g stroke="var(--paper-light)" strokeWidth="1.5" fill="none" opacity="0.85">
-        <path d={`M20 ${20 + corner}V20h${corner}`} />
-        <path d={`M${620 - corner} 20h${corner}v${corner}`} />
-        <path d={`M20 ${540 - corner}v${corner}h${corner}`} />
-        <path d={`M${620 - corner} 540h${corner}v-${corner}`} />
-      </g>
-      <g stroke="var(--paper-light)" strokeWidth="1" strokeDasharray="4 6" opacity="0.55">
-        <line x1="20" y1="300" x2="620" y2="300" />
-        <line x1="400" y1="20" x2="400" y2="540" />
-      </g>
-      <g stroke="var(--vermilion)" strokeWidth="1.5" fill="none">
-        <circle cx="400" cy="150" r="34" className="ml-svg-pulse" />
-        <line x1="400" y1="104" x2="400" y2="124" />
-        <line x1="400" y1="176" x2="400" y2="196" />
-        <line x1="354" y1="150" x2="374" y2="150" />
-        <line x1="426" y1="150" x2="446" y2="150" />
-        <line x1="434" y1="150" x2="520" y2="96" />
-      </g>
-      <g fontSize="13" letterSpacing="1.5" fill="var(--paper-light)" style={mono}>
-        <rect x="520" y="80" width="98" height="24" fill="var(--ink)" opacity="0.75" />
-        <text x="528" y="97">SIG / 01</text>
-        <text x="40" y="52">FIELD NOTE 001</text>
-        <rect x="462" y="502" width="144" height="26" fill="var(--ink)" opacity="0.75" />
-        <text x="598" y="520" textAnchor="end">
-          SYSTEMS / 2026
-        </text>
-      </g>
-    </svg>
-  )
-}
 
 export function HomeHero() {
   return (
@@ -66,14 +21,14 @@ export function HomeHero() {
               href={buildWhatsAppUrl("Halo MeowLabs, saya ingin mendiskusikan proyek.", "beranda, bagian atas")}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-[3px] bg-ink px-5 py-3.5 font-medium text-paper-light transition-colors hover:bg-ink/85"
+              className="inline-flex items-center justify-center gap-2 rounded-[3px] border-2 border-ink bg-ink px-5 py-3.5 font-medium text-paper-light shadow-[4px_4px_0_var(--vermilion)] transition-colors hover:bg-ink/85"
             >
               Diskusikan Proyek
               <ArrowUpRight className="h-4 w-4" />
             </a>
             <a
               href="#layanan"
-              className="inline-flex items-center justify-center gap-2 rounded-[3px] border border-ink px-5 py-3.5 font-medium text-ink transition-colors hover:bg-ink hover:text-paper-light"
+              className="inline-flex items-center justify-center gap-2 rounded-[3px] border-2 border-ink px-5 py-3.5 font-medium text-ink shadow-[4px_4px_0_var(--ink)] transition-colors hover:bg-ink hover:text-paper-light"
             >
               Lihat Layanan
             </a>
@@ -87,17 +42,15 @@ export function HomeHero() {
             <GridTile className="ml-float absolute -bottom-6 -right-4 h-20 w-20 sm:-right-8 sm:h-28 sm:w-28" />
             <PlusMark className="ml-svg-spin absolute -right-2 top-8 h-6 w-6 text-ink sm:-right-10" />
             <PlusMark className="ml-svg-spin absolute -left-8 bottom-16 hidden h-5 w-5 text-ink sm:block" />
-            <div className="relative aspect-[64/56] overflow-hidden rounded-[4px] shadow-[0_24px_60px_-30px_rgba(23,25,22,0.6)]">
+            <div className="relative aspect-[64/56] overflow-hidden rounded-[4px] border-2 border-ink shadow-[8px_8px_0_0_var(--ink)]">
               <Image
-                src="/art/hero-temple.webp"
-                alt=""
+                src="/art/hero-cat.webp"
+                alt="Maskot kucing Meow Labs sedang ngoding di depan laptop"
                 fill
                 preload
                 sizes="(max-width: 1024px) 100vw, 560px"
                 className="ml-settle object-cover"
               />
-              <HeroAsciiArt />
-              <HeroOverlay />
               <Image
                 src="/brand/meowlabs-mark-paper.webp"
                 alt=""

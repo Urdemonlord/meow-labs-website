@@ -5,16 +5,16 @@ import { products } from "@/lib/products"
 
 export function HomeProducts() {
   return (
-    <section id="produk" className="border-b border-rule">
+    <section id="produk" className="border-b border-rule bg-cobalt">
       <div className="ml-container ml-section">
         <div className="ml-reveal flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="ml-eyebrow text-ink-muted">04 // Produk yang kami kembangkan</p>
-            <h2 className="mt-5 max-w-xl font-display text-[clamp(2.25rem,4.5vw,3.5rem)] leading-[1] text-ink">
+            <p className="ml-eyebrow text-paper-light">04 // Produk yang kami kembangkan</p>
+            <h2 className="mt-5 max-w-xl font-display text-[clamp(2.25rem,4.5vw,3.5rem)] leading-[1] text-paper-light">
               Dibangun dan dijalankan sendiri.
             </h2>
           </div>
-          <Link href="/produk" className="inline-flex items-center gap-1 text-sm text-ink hover:underline">
+          <Link href="/produk" className="inline-flex items-center gap-1 text-sm text-paper-light hover:underline">
             Lihat semua produk
             <ArrowUpRight className="h-4 w-4" />
           </Link>

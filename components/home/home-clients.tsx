@@ -19,7 +19,7 @@ export function HomeClients() {
             <p className="mt-6 text-ink-muted">Lebih dari 30 website klien sudah online.</p>
           </div>
           <figure className="ml-reveal lg:col-span-8">
-            <div className="relative aspect-[3/1] overflow-hidden rounded-[4px] bg-ink">
+            <div className="relative aspect-[3/1] overflow-hidden rounded-[4px] border-2 border-ink bg-vermilion shadow-[6px_6px_0_var(--ink)]">
               <Image
                 src="/art/indonesia-map.webp"
                 alt=""

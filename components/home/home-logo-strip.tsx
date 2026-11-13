@@ -6,7 +6,7 @@ import { clientLogos } from "@/lib/client-logos"
 // menyamarkan latar putih pada beberapa file logo.
 export function HomeLogoStrip() {
   return (
-    <section aria-labelledby="logo-strip-label" className="border-b border-rule bg-paper-light">
+    <section aria-labelledby="logo-strip-label" className="border-b border-rule border-t-4 border-t-vermilion bg-paper-light">
       <div className="ml-container flex flex-col gap-6 py-8 lg:flex-row lg:items-center lg:gap-12">
         <p id="logo-strip-label" className="ml-eyebrow shrink-0 text-ink-muted">
           Dipercaya oleh
