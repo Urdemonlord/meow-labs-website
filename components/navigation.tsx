@@ -11,6 +11,7 @@ const navItems = [
   { label: "Layanan", href: "/#layanan" },
   { label: "Produk", href: "/produk" },
   { label: "Agen AI", href: "/agen" },
+  { label: "AI App Builder", href: "https://ai.meowlabs.id/?utm_source=meowlabs&utm_medium=nav&utm_campaign=crosslink" },
   { label: "Mockup", href: "/mockup" },
   { label: "Karya", href: "/karya" },
   { label: "Catatan", href: "/blog" },

@@ -6,6 +6,7 @@ const columns = [
   {
     title: "Layanan",
     links: [
+      { label: "AI App Builder", href: "https://ai.meowlabs.id/?utm_source=meowlabs&utm_medium=footer&utm_campaign=crosslink" },
       { label: "Integrasi AI & Otomasi", href: "/layanan/integrasi-ai" },
       { label: "Aplikasi Web Custom", href: "/layanan/aplikasi-web" },
       { label: "Website Company Profile", href: "/layanan/company-profile" },

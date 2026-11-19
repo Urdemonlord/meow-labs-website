@@ -23,7 +23,10 @@ const capabilities = [
     Diagram: AiDiagram,
     body: "AI agent, chatbot, dan otomasi yang terhubung ke WhatsApp, data, dan proses bisnis, bukan sekadar chatbot.",
     price: "Mulai Rp4 juta",
-    links: [{ label: "Integrasi AI & Otomasi", href: "/layanan/integrasi-ai" }],
+    links: [
+      { label: "Integrasi AI & Otomasi", href: "/layanan/integrasi-ai" },
+      { label: "Coba AI App Builder", href: "https://ai.meowlabs.id/?utm_source=meowlabs&utm_medium=services&utm_campaign=crosslink" },
+    ],
   },
   {
     title: "Sistem & Infrastruktur",
