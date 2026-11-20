@@ -30,7 +30,10 @@ const capabilities = [
     Diagram: SystemDiagram,
     body: "Aplikasi web custom, dashboard internal, integrasi API, dan deployment untuk alur kerja yang spesifik.",
     price: "Mulai Rp4 juta",
-    links: [{ label: "Aplikasi Web Custom", href: "/layanan/aplikasi-web" }],
+    links: [
+      { label: "Aplikasi Web Custom", href: "/layanan/aplikasi-web" },
+      { label: "Email Bisnis (IRIS)", href: "/layanan/email-bisnis-iris" },
+    ],
   },
   {
     title: "Riset & Eksperimen",

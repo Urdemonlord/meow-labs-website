@@ -40,8 +40,10 @@ export const metadata: Metadata = {
 }
 
 // Halaman ini membidik pencarian jasa website, jadi layanan non-website
-// (integrasi AI) tidak ikut ditampilkan di daftar layanannya.
-const websiteServices = servicesWithPage.filter((service) => service.slug !== "integrasi-ai")
+// (integrasi AI dan email bisnis) tidak ikut ditampilkan di daftar layanannya.
+const websiteServices = servicesWithPage.filter(
+  (service) => service.slug !== "integrasi-ai" && service.slug !== "email-bisnis-iris"
+)
 
 const serviceAreas = ["Kota Semarang", "Kabupaten Semarang & Ungaran", "Kendal", "Demak", "Salatiga", "Grobogan"]
 

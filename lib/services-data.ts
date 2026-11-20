@@ -466,5 +466,68 @@ export const services: ServiceData[] = [
       timeframe: "2-6 weeks",
       targetAudience: "Growing businesses and teams with specific digital workflows"
     }
+  },
+  {
+    slug: "email-bisnis-iris",
+    icon: "Shield",
+    color: "primary",
+    id: {
+      title: "Email Bisnis Self-Hosted (IRIS)",
+      description: "Email @domain sendiri di VPS Anda, tanpa bayar per user. Webmail IRIS, mailbox tanpa batas, data milik Anda sepenuhnya.",
+      features: [
+        "Mailbox @domain sendiri",
+        "Tanpa biaya per user",
+        "Webmail IRIS self-hosted",
+        "Setup DNS dan keamanan email"
+      ],
+      detailedDescription: "Kami memasang IRIS beserta mail server Stalwart di VPS Anda, lalu mengatur DNS, keamanan, dan mailbox tim Anda sampai email bisa kirim dan terima dengan normal. Satu VPS, mailbox sebanyak yang Anda butuhkan, tanpa tagihan per user seperti Google Workspace.",
+      benefits: [
+        "Email @domain sendiri, bukan @gmail",
+        "Biaya tetap per bulan, tidak naik tiap tambah karyawan",
+        "Data email tersimpan di server Anda sendiri",
+        "Kirim dan terima teruji ke Gmail dan Outlook",
+        "Backup dan maintenance diurus Meow Labs"
+      ],
+      includedFeatures: [
+        "Instalasi IRIS, Stalwart, dan Caddy di VPS",
+        "Setup DNS: MX, SPF, DKIM, DMARC, dan PTR",
+        "SSL otomatis dan webmail IRIS",
+        "Pembuatan mailbox dan alias tim Anda",
+        "Uji kirim dan terima ke Gmail dan Outlook",
+        "Backup terjadwal dan serah terima akses penuh"
+      ],
+      priceRange: "Setup mulai Rp750.000 + Rp199.000/bln",
+      timeframe: "1-3 hari kerja",
+      targetAudience: "UMKM, klinik, sekolah, dan yayasan yang butuh email @domain sendiri"
+    },
+    en: {
+      title: "Self-Hosted Business Email (IRIS)",
+      description: "Email on your own domain, on your own VPS, with no per-user fee. IRIS webmail, unlimited mailboxes, and data that stays yours.",
+      features: [
+        "Mailboxes on your own domain",
+        "No per-user fee",
+        "Self-hosted IRIS webmail",
+        "DNS and email security setup"
+      ],
+      detailedDescription: "We install IRIS with the Stalwart mail server on your VPS, then configure DNS, security, and your team's mailboxes until sending and receiving work normally. One VPS, as many mailboxes as you need, with no per-user bill like Google Workspace.",
+      benefits: [
+        "Email on your own domain, not @gmail",
+        "Fixed monthly cost that does not grow with headcount",
+        "Email data stored on your own server",
+        "Sending and receiving tested with Gmail and Outlook",
+        "Backups and maintenance handled by Meow Labs"
+      ],
+      includedFeatures: [
+        "IRIS, Stalwart, and Caddy installed on your VPS",
+        "DNS setup: MX, SPF, DKIM, DMARC, and PTR",
+        "Automatic SSL and IRIS webmail",
+        "Team mailboxes and aliases created for you",
+        "Send and receive tests with Gmail and Outlook",
+        "Scheduled backups and full access handover"
+      ],
+      priceRange: "Setup from Rp750,000 + Rp199,000/mo",
+      timeframe: "1-3 working days",
+      targetAudience: "Small businesses, clinics, schools, and foundations that need email on their own domain"
+    }
   }
 ]
