@@ -13,6 +13,8 @@ export interface ServicePageContent {
   // Opsional: paket harga yang tampil sebagai seksi di halaman. Kalau tidak
   // diisi, tombol "Lihat Paket Harga" mengarah ke paket website umum.
   pricingHref?: string
+  // Catatan di bawah judul seksi paket, khusus layanan ini (mis. syarat bayar).
+  pricingNote?: string
   pricing?: {
     name: string
     setup: string
@@ -287,6 +289,7 @@ const servicePages: Record<string, ServicePageContent> = {
       }
     ],
     pricingHref: "#paket",
+    pricingNote: "Biaya setup dibayar 50 persen di awal dan 50 persen setelah email teruji kirim dan terima. Paket all-in sudah termasuk VPS terkelola.",
     pricing: [
       {
         name: "Starter",

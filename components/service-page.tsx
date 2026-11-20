@@ -148,9 +148,11 @@ export function ServicePage({ service }: ServicePageProps) {
             <h2 className="mt-5 font-display text-[clamp(2rem,4vw,3.25rem)] leading-[1] text-ink">
               Paket harga {content.title}?
             </h2>
-            <p className="mt-5 max-w-xl text-pretty leading-relaxed text-ink-muted">
-              Biaya setup dibayar 50 persen di awal dan 50 persen setelah email teruji kirim dan terima. Paket all-in sudah termasuk VPS terkelola.
-            </p>
+            {page.pricingNote && (
+              <p className="mt-5 max-w-xl text-pretty leading-relaxed text-ink-muted">
+                {page.pricingNote}
+              </p>
+            )}
             <ul className="mt-10 grid gap-6 lg:grid-cols-3">
               {page.pricing.map((plan) => (
                 <li
@@ -169,7 +171,7 @@ export function ServicePage({ service }: ServicePageProps) {
                   <ul className="mt-4 space-y-2.5">
                     {plan.features.map((feature) => (
                       <li key={feature} className="flex gap-3">
-                        <span aria-hidden="true" className="ml-eyebrow pt-0.5 text-forest">
+                        <span aria-hidden="true" className={plan.featured ? "ml-eyebrow pt-0.5 text-dark-muted" : "ml-eyebrow pt-0.5 text-forest"}>
                           +
                         </span>
                         {feature}
