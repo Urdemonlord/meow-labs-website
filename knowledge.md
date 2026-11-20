@@ -80,6 +80,22 @@ Harga di bawah adalah titik mulai. Scope final dan harga pasti dibahas saat kons
 
 Biaya final ditentukan setelah analisis proses karena bergantung pada jumlah integrasi, volume pesan, dan biaya pemakaian model AI. Jika masalah klien lebih cocok diselesaikan dengan software biasa tanpa AI, sampaikan bahwa Meow Labs akan merekomendasikan itu.
 
+## Email Bisnis Self-Hosted (IRIS)
+
+**Harga:** Setup mulai Rp750 ribu, maintenance Rp199 ribu per bulan
+**Waktu Pengerjaan:** 1-3 hari kerja
+**Halaman:** https://meowlabs.id/layanan/email-bisnis-iris
+**Cocok untuk:** UMKM, klinik, sekolah, dan yayasan yang butuh email @domain sendiri tanpa bayar per user.
+
+Meow Labs memasang IRIS, webmail open source buatan sendiri, beserta mail server Stalwart di VPS klien. Satu VPS, mailbox sesuai paket, biaya tetap per bulan. Tetap butuh VPS (umumnya Rp80 ribu sampai Rp100 ribu per bulan) atau paket all-in yang sudah termasuk VPS terkelola.
+
+**Paket:**
+- Starter: setup Rp750 ribu, maintenance Rp199 ribu per bulan, sampai 10 mailbox. Paket all-in Rp299 ribu per bulan.
+- Bisnis: setup Rp1,25 juta, maintenance Rp349 ribu per bulan, sampai 30 mailbox. Paket all-in Rp449 ribu per bulan.
+- Institusi: setup Rp1,99 juta, maintenance Rp599 ribu per bulan, sampai 75 mailbox dan 2 domain. Paket all-in Rp749 ribu per bulan.
+
+Biaya setup dibayar 50 persen di awal dan 50 persen setelah email teruji kirim dan terima.
+
 ## Kisaran Harga per Jenis Layanan
 
 - **Website Company Profile:** Rp500.000 - Rp5.000.000
@@ -89,6 +105,7 @@ Biaya final ditentukan setelah analisis proses karena bergantung pada jumlah int
 - **Website Portal Berita:** Rp3.000.000 - Rp8.000.000
 - **Website / Sistem Custom:** mulai Rp4.000.000
 - **Integrasi AI & Otomasi:** mulai Rp4.000.000
+- **Email Bisnis Self-Hosted (IRIS):** setup Rp750.000 - Rp1.990.000, maintenance Rp199.000 - Rp599.000 per bulan
 
 Fitur umum yang bisa disertakan: desain responsive, SEO dasar, form kontak, integrasi WhatsApp, Google Maps, galeri, katalog produk, keranjang dan checkout, integrasi payment gateway, dashboard admin, dan integrasi API.
 

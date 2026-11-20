@@ -10,6 +10,20 @@ export interface ServicePageContent {
   keywords: string[]
   intro: string[]
   faqs: { question: string; answer: string }[]
+  // Opsional: paket harga yang tampil sebagai seksi di halaman. Kalau tidak
+  // diisi, tombol "Lihat Paket Harga" mengarah ke paket website umum.
+  pricingHref?: string
+  // Catatan di bawah judul seksi paket, khusus layanan ini (mis. syarat bayar).
+  pricingNote?: string
+  pricing?: {
+    name: string
+    setup: string
+    monthly: string
+    allIn: string
+    limit: string
+    features: string[]
+    featured?: boolean
+  }[]
 }
 
 export type ServiceWithPage = ServiceData & { page: ServicePageContent }
@@ -235,6 +249,74 @@ const servicePages: Record<string, ServicePageContent> = {
         answer: "Ada. Setiap proyek custom diakhiri dengan handover teknis dan dokumentasi, sehingga sistem bisa dirawat tim Anda sendiri atau oleh kami lewat kontrak maintenance."
       }
     ]
+  },
+  "email-bisnis-iris": {
+    h1: "Jasa Email Bisnis Self-Hosted (IRIS) di Semarang",
+    metaTitle: "Jasa Email Bisnis @Domain Sendiri, Tanpa Bayar Per User | Meow Labs",
+    metaDescription: "Jasa pasang email bisnis @domain sendiri dengan IRIS di VPS Anda: setup mulai Rp750 ribu, maintenance Rp199 ribu per bulan, mailbox hingga 75 akun, DNS dan keamanan email diurus sampai bisa kirim dan terima. Konsultasi gratis.",
+    keywords: [
+      "email bisnis semarang",
+      "email domain sendiri",
+      "jasa email bisnis",
+      "email perusahaan murah",
+      "self hosted email",
+      "iris mail server"
+    ],
+    intro: [
+      "Email @gmail untuk urusan bisnis membuat perusahaan terlihat kecil dan sulit dipercaya, sementara Google Workspace menagih sekitar Rp100 ribu per user setiap bulan. Tim 10 orang berarti sekitar Rp1 juta per bulan, dan biayanya naik setiap kali ada karyawan baru.",
+      "Meow Labs memasang IRIS, webmail open source buatan kami sendiri, beserta mail server Stalwart di VPS Anda. Satu VPS, mailbox sesuai paket sampai 75 akun, biaya tetap per bulan. Kami urus instalasi, DNS, keamanan, dan mailbox tim Anda sampai email bisa kirim dan terima dengan normal, lalu serahkan akses penuhnya ke Anda."
+    ],
+    faqs: [
+      {
+        question: "Apakah tetap butuh VPS?",
+        answer: "Ya. IRIS dan mail server harus jalan 24 jam di server Anda sendiri, jadi VPS tetap dibutuhkan. VPS kecil umumnya Rp80 ribu sampai Rp100 ribu per bulan, atau Anda bisa ambil paket all-in dari kami yang sudah termasuk VPS terkelola."
+      },
+      {
+        question: "Bisa pakai VPS saya sendiri?",
+        answer: "Bisa. Syaratnya VPS dengan Ubuntu 22.04 atau 24.04, port 25 dan 587 terbuka, dan PTR (reverse DNS) bisa diatur. Kami cek dulu sebelum instalasi, dan beri tahu kalau ada syarat yang belum terpenuhi."
+      },
+      {
+        question: "Berapa biayanya?",
+        answer: "Ada tiga paket. Starter: setup Rp750 ribu, maintenance Rp199 ribu per bulan, sampai 10 mailbox. Bisnis: setup Rp1,25 juta, Rp349 ribu per bulan, sampai 30 mailbox. Institusi: setup Rp1,99 juta, Rp599 ribu per bulan, sampai 75 mailbox dan 2 domain. Paket all-in yang sudah termasuk VPS: Rp299 ribu, Rp449 ribu, dan Rp749 ribu per bulan."
+      },
+      {
+        question: "Apakah email saya jadi milik saya sepenuhnya?",
+        answer: "Ya. Email tersimpan di VPS Anda sendiri, bukan di server kami. Setelah serah terima, Anda memegang akses penuh ke server, mailbox, dan backup. Kami hanya membantu merawatnya selama kontrak maintenance berjalan."
+      },
+      {
+        question: "Bagaimana cara bayarnya?",
+        answer: "Biaya setup dibayar 50 persen di awal dan 50 persen setelah email teruji kirim dan terima. Maintenance dibayar bulanan, dan bisa berhenti kapan saja. Tidak ada kontrak jangka panjang yang mengikat."
+      }
+    ],
+    pricingHref: "#paket",
+    pricingNote: "Biaya setup dibayar 50 persen di awal dan 50 persen setelah email teruji kirim dan terima. Paket all-in sudah termasuk VPS terkelola.",
+    pricing: [
+      {
+        name: "Starter",
+        setup: "Rp750.000",
+        monthly: "Rp199.000/bln",
+        allIn: "Rp299.000/bln",
+        limit: "Sampai 10 mailbox",
+        features: ["Backup mingguan", "Respons 1x24 jam"],
+      },
+      {
+        name: "Bisnis",
+        setup: "Rp1.250.000",
+        monthly: "Rp349.000/bln",
+        allIn: "Rp449.000/bln",
+        limit: "Sampai 30 mailbox",
+        features: ["Backup harian, 7 hari", "Monitoring dan laporan", "1 sesi training", "Respons 4 jam kerja"],
+        featured: true,
+      },
+      {
+        name: "Institusi",
+        setup: "Rp1.990.000",
+        monthly: "Rp599.000/bln",
+        allIn: "Rp749.000/bln",
+        limit: "Sampai 75 mailbox, 2 domain",
+        features: ["Backup harian, 14 hari", "Audit deliverability", "Migrasi 20 mailbox", "Respons 2 jam kerja"],
+      },
+    ],
   }
 }
 
