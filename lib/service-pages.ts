@@ -239,7 +239,7 @@ const servicePages: Record<string, ServicePageContent> = {
   "email-bisnis-iris": {
     h1: "Jasa Email Bisnis Self-Hosted (IRIS) di Semarang",
     metaTitle: "Jasa Email Bisnis @Domain Sendiri, Tanpa Bayar Per User | Meow Labs",
-    metaDescription: "Jasa pasang email bisnis @domain sendiri dengan IRIS di VPS Anda: setup mulai Rp750 ribu, maintenance Rp199 ribu per bulan, mailbox tanpa batas, DNS dan keamanan email diurus sampai bisa kirim dan terima. Konsultasi gratis.",
+    metaDescription: "Jasa pasang email bisnis @domain sendiri dengan IRIS di VPS Anda: setup mulai Rp750 ribu, maintenance Rp199 ribu per bulan, mailbox hingga 75 akun, DNS dan keamanan email diurus sampai bisa kirim dan terima. Konsultasi gratis.",
     keywords: [
       "email bisnis semarang",
       "email domain sendiri",
@@ -250,7 +250,7 @@ const servicePages: Record<string, ServicePageContent> = {
     ],
     intro: [
       "Email @gmail untuk urusan bisnis membuat perusahaan terlihat kecil dan sulit dipercaya, sementara Google Workspace menagih sekitar Rp100 ribu per user setiap bulan. Tim 10 orang berarti sekitar Rp1 juta per bulan, dan biayanya naik setiap kali ada karyawan baru.",
-      "Meow Labs memasang IRIS, webmail open source buatan kami sendiri, beserta mail server Stalwart di VPS Anda. Satu VPS, mailbox sebanyak yang Anda butuhkan, biaya tetap per bulan. Kami urus instalasi, DNS, keamanan, dan mailbox tim Anda sampai email bisa kirim dan terima dengan normal, lalu serahkan akses penuhnya ke Anda."
+      "Meow Labs memasang IRIS, webmail open source buatan kami sendiri, beserta mail server Stalwart di VPS Anda. Satu VPS, mailbox sesuai paket sampai 75 akun, biaya tetap per bulan. Kami urus instalasi, DNS, keamanan, dan mailbox tim Anda sampai email bisa kirim dan terima dengan normal, lalu serahkan akses penuhnya ke Anda."
     ],
     faqs: [
       {

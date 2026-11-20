@@ -473,14 +473,14 @@ export const services: ServiceData[] = [
     color: "primary",
     id: {
       title: "Email Bisnis Self-Hosted (IRIS)",
-      description: "Email @domain sendiri di VPS Anda, tanpa bayar per user. Webmail IRIS, mailbox tanpa batas, data milik Anda sepenuhnya.",
+      description: "Email @domain sendiri di VPS Anda, tanpa bayar per user. Webmail IRIS, mailbox hingga 75 akun, data milik Anda sepenuhnya.",
       features: [
         "Mailbox @domain sendiri",
         "Tanpa biaya per user",
         "Webmail IRIS self-hosted",
         "Setup DNS dan keamanan email"
       ],
-      detailedDescription: "Kami memasang IRIS beserta mail server Stalwart di VPS Anda, lalu mengatur DNS, keamanan, dan mailbox tim Anda sampai email bisa kirim dan terima dengan normal. Satu VPS, mailbox sebanyak yang Anda butuhkan, tanpa tagihan per user seperti Google Workspace.",
+      detailedDescription: "Kami memasang IRIS beserta mail server Stalwart di VPS Anda, lalu mengatur DNS, keamanan, dan mailbox tim Anda sampai email bisa kirim dan terima dengan normal. Satu VPS, mailbox sesuai paket sampai 75 akun, tanpa tagihan per user seperti Google Workspace.",
       benefits: [
         "Email @domain sendiri, bukan @gmail",
         "Biaya tetap per bulan, tidak naik tiap tambah karyawan",
@@ -502,14 +502,14 @@ export const services: ServiceData[] = [
     },
     en: {
       title: "Self-Hosted Business Email (IRIS)",
-      description: "Email on your own domain, on your own VPS, with no per-user fee. IRIS webmail, unlimited mailboxes, and data that stays yours.",
+      description: "Email on your own domain, on your own VPS, with no per-user fee. IRIS webmail, up to 75 mailboxes, and data that stays yours.",
       features: [
         "Mailboxes on your own domain",
         "No per-user fee",
         "Self-hosted IRIS webmail",
         "DNS and email security setup"
       ],
-      detailedDescription: "We install IRIS with the Stalwart mail server on your VPS, then configure DNS, security, and your team's mailboxes until sending and receiving work normally. One VPS, as many mailboxes as you need, with no per-user bill like Google Workspace.",
+      detailedDescription: "We install IRIS with the Stalwart mail server on your VPS, then configure DNS, security, and your team's mailboxes until sending and receiving work normally. One VPS, mailboxes per your plan up to 75, with no per-user bill like Google Workspace.",
       benefits: [
         "Email on your own domain, not @gmail",
         "Fixed monthly cost that does not grow with headcount",
