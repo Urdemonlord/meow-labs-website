@@ -10,6 +10,18 @@ export interface ServicePageContent {
   keywords: string[]
   intro: string[]
   faqs: { question: string; answer: string }[]
+  // Opsional: paket harga yang tampil sebagai seksi di halaman. Kalau tidak
+  // diisi, tombol "Lihat Paket Harga" mengarah ke paket website umum.
+  pricingHref?: string
+  pricing?: {
+    name: string
+    setup: string
+    monthly: string
+    allIn: string
+    limit: string
+    features: string[]
+    featured?: boolean
+  }[]
 }
 
 export type ServiceWithPage = ServiceData & { page: ServicePageContent }
@@ -273,7 +285,35 @@ const servicePages: Record<string, ServicePageContent> = {
         question: "Bagaimana cara bayarnya?",
         answer: "Biaya setup dibayar 50 persen di awal dan 50 persen setelah email teruji kirim dan terima. Maintenance dibayar bulanan, dan bisa berhenti kapan saja. Tidak ada kontrak jangka panjang yang mengikat."
       }
-    ]
+    ],
+    pricingHref: "#paket",
+    pricing: [
+      {
+        name: "Starter",
+        setup: "Rp750.000",
+        monthly: "Rp199.000/bln",
+        allIn: "Rp299.000/bln",
+        limit: "Sampai 10 mailbox",
+        features: ["Backup mingguan", "Respons 1x24 jam"],
+      },
+      {
+        name: "Bisnis",
+        setup: "Rp1.250.000",
+        monthly: "Rp349.000/bln",
+        allIn: "Rp449.000/bln",
+        limit: "Sampai 30 mailbox",
+        features: ["Backup harian, 7 hari", "Monitoring dan laporan", "1 sesi training", "Respons 4 jam kerja"],
+        featured: true,
+      },
+      {
+        name: "Institusi",
+        setup: "Rp1.990.000",
+        monthly: "Rp599.000/bln",
+        allIn: "Rp749.000/bln",
+        limit: "Sampai 75 mailbox, 2 domain",
+        features: ["Backup harian, 14 hari", "Audit deliverability", "Migrasi 20 mailbox", "Respons 2 jam kerja"],
+      },
+    ],
   }
 }
 
